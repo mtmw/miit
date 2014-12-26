@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>DOS</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1> Disk Operating System 磁盘操作系统</h1>
+<br />
+DOS启动时先从启动盘中读取两个系统文件IO.SYS、MSDOS.SYS,然后在启动盘的根目录下寻找并执行config.sys、command.com、autoexec.bat三个文件.
+<br />
+DOS的命令分为内部命令和外部命令,内部命令是随command.com装入内存的,而外部命令是一条一条单独的可执行文件.
+<br />
+内部命令都集中在根目录下的command.com文件里,电脑每次启动时都会将这个文件读入内存,也就是说在电脑运行时,这些内部命令都驻留在内存中.
+<br />
+而外部命令都是以一个个独立的文件存放在磁盘上的,它们都是以com和exe为后缀的文件,它们并不常驻内存,只有在电脑需要时,才会被调入内存.
+<br />
+<br />
+windows平台下cmd命令行替代工具
+<br />
+<a  href="http://www.cygwin.com/" target="_blank" title="Cygwin可以帮助您在Windows下面使用强大的Bash">Cygwin</a> 			 
+<a  href="http://www.cygwin.cn/" target="_blank" title="Cygwin可以帮助您在Windows下面使用强大的Bash">Cygwin中文</a> 			 
+<a  href="https://github.com/Maximus5/ConEmu" target="_blank" title="ConEmu + MSYS + MSYS2 + Cygwin">ConEmu</a> 			 
+<a  href="http://mridgers.github.io/clink/" target="_blank" title="ConEmu 自带了 clink，一个尝试在 cmd 上加入 bash 常见功能并且真的做到了的项目">Clink</a> 			 
+<a  href="http://bliker.github.io/cmder/" target="_blank" title="cmder基于ConEmu，自带了 msysgit 是为 Windows 提供的一个便携式控制台仿真器 Cmder+Gow">Cmder</a> 			 
+<a  href="https://github.com/bmatzelle/gow" target="_blank" title="当你只需要 Unix 工具的时候装几个G的Cygwin 未免小题大做。 Gow 就是 130 个编译成原生 Windows EXE 的 Unix 命令行工具">GOW Gnu on Windows</a> 			 
+<a  href="http://www.powercmd.com/" target="_blank" title="PowerCmd是一款增强版本CMD的工具">PowerCmd</a> 			 
+<a  href="https://conemu.codeplex.com/" target="_blank" title="Windows console with tabs">ConEmu</a> 			 
+
+<br />
+<br />
+<br />
+<pre class='brush: bash'>
+commands /?             #  查看命令帮助的方法：命令后面加上"/?"
+help                    #  帮助
+</pre>
+
+<pre class='brush: bash'>
+cmd.exe_参数_启动参数
+cmd /?
+
+@echo off               # StartCmd.bat
+cmd.exe  /a /k
+
+:a                      # 循环打开cmd.exe
+start cmd
+goto a
+</pre>
+
+<pre class='brush: bash'>
+at                      #  在特定日期和时间运行命令和程序
+at 15:00 tskill 进程名  #  15:00时结束相关进程
+at 15:00 tskill PID     #  15:00时结束相关进程
+at 15:00 shutdown -s    #  15：00关机
+
+attrib                  #  显示文件的属性
+</pre>
+
+<pre class='brush: bash'>
+
+cd|--chdir              #  change directory 改变目录
+
+cls                     #  清屏
+                        
+copy                    #  文件复制
+</pre>
+
+<pre class='brush: bash'>
+date                    #  设置和显示系统日期
+time                    #  显示和设置系统时间  Enter the new time: 意思是设置时间,我们按回车就可以跳过去了
+
+利用系统日期和时间自动命名文件 %date%  %time%
+截取日期中的部分字符 2014/06/18/ 
+%date:~0,4%                        # :~0，4 分割字符串的语法 4表示共取4位
+%date:~5,2%
+%date:~8,2%
+%date:~0,4%%date:~5,2%%date:~8,2%
+echo %date:~0,15%
+
+截取时间中的部分字符 13:39:32.80
+%time:~0,2%
+%time:~3,2%
+%time:~6,2%
+%time:~9,2%
+%time:~0,2%%time:~3,2%%time:~6,2%%time:~9,2%
+echo %time:~0,12%
+
+
+set year=%date:~0,4%
+set month=%date:~5,2%
+set day=%date:~8,2%
+set hour=%time:~0,2%
+set minute=%time:~3,2%
+set second=%time:~6,2%
+set msecond=%time:~9,2%
+set temp=date%year%%month%%day%_time%hour%%minute%%second%%msecond%
+set temp=%temp: =0%        rem 用 0 替换temp变量值中的所有空格
+md %temp%
+</pre>
+<pre class='brush: bash'>
+dir                     #  显示文件夹内容
+                        
+del                     #  删除文件
+diskcopy    a:      b:           #  磁盘复制
+      源驱动器名　目的驱动器名
+deltree                 #  删除目录树
+
+</pre>
+
+<pre class='brush: bash'>
+format a:               #  格式化a盘
+                        
+</pre>
+
+<pre class='brush: bash'>
+move移动文件
+
+more分屏显示
+
+md | mkdir                      #  make directory 创建目录
+rd | rkdir                      #  remove directory 删除目录
+
+mem|--memory 查看你的计算机内存有多少
+
+mklink
+</pre>
+
+<pre class='brush: bash'>
+path  #列出path
+</pre>
+
+<pre class='brush: bash'>
+
+
+ren | rename 源文件名 目的文件名  #  rename重命名
+                        
+                        
+</pre>
+
+<pre class='brush: bash'>
+set    #可用于设置、修改和查看环境变量
+</pre>
+
+<pre class='brush: bash'>
+
+shutdown
+         -h        #  休眠计算机
+         -s        #  关闭计算机
+		 -r        #  关闭并重新启动计算机
+		 -g        #  关闭并重新启动计算机.系统重新启动后,重新启动所有注册的应用程序
+		 -a        #  中止系统关闭
+shutdown -s -t 0       #  0秒后关机
+shutdown -s -t 3600    #  3600秒后关机
+shutdown -h -t 0       #  0秒后休眠
+
+</pre>
+<pre class='brush: bash'>
+                        
+                        
+tasklist                #  查看进程
+                        
+tskill                  #  结束进程
+ 
+tree                    #  显示磁盘目录结构命令
+
+
+type  a.txt             #  查看文本文件
+
+
+
+</pre>
+
+<pre class='brush: bash'>
+ver                      REM  显示正在运行的DOS系统版本号
+xcopy                   #  目录复制命令 包括目录和文件
+</pre>
+
+net
+<pre class='brush: bash'>
+ping
+tcping        # ping端口小工具tcping
+              # http://www.elifulkerson.com/projects/tcping.php
+              # http://www.nirsoft.net/utils/multiple_ping_tool.html  PingInfoView ping工具 NirSoft公司出品
+
+telnet        # 测试远程主机上的某个端口是否开启			  
+</pre>
+<pre class='brush: bash'>
+ipconfig /all            REM  内网IP查询
+                         REM  用路由器上网,直接进入路由器,在系统状态/运行状态中查看wan端口的ip地址,或用nslookup命令查询
+
+netstat -na
+arp -a          # 每一台装有网卡的主机中都有一个ARP表 保存着同一网络中ip到mac之间的映射记录
+route           # 显示和修改本地路由表
+getmac          # 网卡地址列表
+netstat         # 显示网络连接信息
+tracert         # 数据包跟踪诊断
+net
+bootcfg
+
+assoc           # 显示或修改文件名扩展关联
+atmadm          #
+attrib          # 属性
+</pre>
+
+若是选项中有竖线"|"如:"cd|--chdir"则表示选项"cd"为"--chdir"的简写形式,任选其一使用
+<br />
+以方括号 "[]" 括起来的内容表示该部分可选择作为命令的一部分，也可以省略
+
+</pre>
+bat
+<pre class='brush: bash'>
+@                # 隐藏本行显示命令
+echo             # 隐藏正文命令
+call             # 调用其他程序命令
+choice           # 选择命令
+for
+goto             # 指定行命令
+if               # 条件判断命令
+
+pause                   #  暂停
+rem              # 注释
+
+
+</pre>
+<pre class='brush: bash'>
+wmic /?           # WMIC是扩展WMI（Windows Management Instrumentation，Windows管理规范）
+</pre>
+<pre class='brush: bash'>
+diskpart                         # 进入 diskpart 工具
+list disk                        # 查看磁盘列表
+select disk 1                    # 选定 disk 1
+clean                            # 清除物理磁盘所有信息                        
+create partition primary         # 创建分区
+list partition                   # 查看分区列表
+select partition 1               # 选择分区1
+active                           # 将当前分区标为活动
+format quick fs=fat32            # 格式化该卷为FAT32
+assign                           # 分配驱动器号或装载点
+assign letter=S                  # 分配驱动器号为 S
+exit
+list volume                      # 显示卷列表
+</pre>
+<pre class='brush: bash'>
+@echo off
+start D:\Net\Firefox\Firefox\firefox.exe        # cmd中启动某个程序
+</pre>
+
+<pre class='brush: bash'>
+@echo off
+net user mumu 1234567890 /add            # 建立一个管理员用户
+net localgroup administrators mumu /add
+</pre>
+<pre class='brush: bash'>
+@echo off
+net user administrator 1234567890 /add    # 更改管理员用户密码为1234567890
+</pre>
+
+
+
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20141222
+</html>

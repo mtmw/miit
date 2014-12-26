@@ -1,0 +1,24 @@
+
+2013 04 09
+
+
+
+
+
+
+syntaxhighlighter_2.1.382_代码语法着色
+styles/shCore.css
+第53行为代码行距设置：
+
+line-height: 1.6em !important;
+
+
+
+
+syntaxhighlighter_3.0.83_代码语法着色
+styles/shCore.css
+第35行为代码行距设置：
+
+line-height: 1.6em !important;
+
+

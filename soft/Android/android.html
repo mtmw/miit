@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Android</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h2>Android</h2>20130613
+<br />
+timezones时区
+<pre class="brush: java; auto-links: false; ">
+/system/build.prop
+        default.prop
+
+persist.sys.timezone=Asia/Shanghai        //时区    America/New_York
+
+persist.sys.language=zh                   //语言-(小写)     en
+
+persist.sys.country=CN                    //国家或地区-(大写)    US
+</pre>
+
+<pre class='brush: java'>
+"Pacific/Midway" 中途岛 Midway lsland  GMT-11:00 
+"Pacific/Honolulu" 檀香山  GMT-10:00
+"America/Anchorage" 安克雷奇  GMT-10:00
+"America/Los_Angeles" 美国太平洋时间 (洛杉矶)  GMT-8:00
+"America/Tijuana" 美国太平洋时间 (提华纳)  GMT-8:00
+"America/Phoenix" 美国山区时间 (凤凰城)  GMT-7:00
+"America/Denver" 美国山区时间 (丹佛)  GMT-7:00
+"America/Chihuahua" 奇瓦瓦-- 墨西哥  GMT-6:00
+"America/Costa_Rica" 美国中部时间 (哥斯达黎加) GMT-6:00
+"America/Chicago" 美国中部时间 (芝加哥)  GMT-6:00 
+"America/Mexico_City" 美国中部时间 (墨西哥城)  GMT-6:00
+"America/Regina" 美国中部时间 (里贾纳)  GMT-6:00
+"America/Bogota" 哥伦比亚时间 (圣菲波哥大)--哥伦比亚首都  GMT-5:00 
+"America/New_York" 美国东部时间 (纽约)  GMT-5:00 Eastern Standard Time 东部标准时间  GMT-4:00 Eastern Daylight Time 东部夏令时间
+                                      //美国从每年3月的第二个星期日至11月的第一个星期日采用夏令时，夏令时比正常时间早一小时
+"America/Caracas" 委内瑞拉时间 (加拉加斯)  GMT-4:00
+"America/Barbados" 大西洋时间 (巴巴多斯)  GMT-4:00 
+"America/Manaus" 亚马逊标准时间 (马瑙斯)--巴西  GMT-4:00 
+"America/St_Johns" 纽芬兰时间 (圣约翰)--加拿大  GMT-3:30 
+"America/Santiago" 圣地亚哥--智利首都  GMT-3:00
+"America/Sao_Paulo" 圣保罗--巴西  GMT-3:00 
+"America/Argentina/Buenos_Aires" 布宜诺斯艾利斯--阿根廷首都  GMT-3:00
+"America/Godthab" 戈特霍布--丹麦  GMT-3:00
+"America/Montevideo" 乌拉圭时间 (蒙得维的亚)--乌拉圭首都  GMT-3:00
+"Atlantic/South_Georgia" 南乔治亚  GMT-2:00
+"Atlantic/Cape_Verde" 佛得角  GMT-2:00
+"Atlantic/Azores" 亚述尔群岛  GMT-1:00
+"Africa/Casablanca" 卡萨布兰卡  GMT+0:00
+"Europe/London" 格林尼治标准时间 (伦敦)  GMT+1:00
+"Europe/Amsterdam" 中欧标准时间 (阿姆斯特丹)--荷兰首都  GMT+1:00
+"Europe/Belgrade" 中欧标准时间 (贝尔格莱德)--塞尔维亚首都  GMT+1:00
+"Europe/Brussels" 中欧标准时间 (布鲁塞尔)--比利时首都  GMT+1:00
+"Europe/Sarajevo" 中欧标准时间 (萨拉热窝)--波黑首都  GMT+1:00
+"Africa/Brazzaville" 西部非洲标准时间 (布拉扎维)  GMT+1:00
+"Africa/Windhoek" 温得和克--纳米比亚首都  GMT+2:00
+"Asia/Amman" 东欧标准时间 (安曼)--约旦首都  GMT+2:00
+"Europe/Athens" 东欧标准时间 (雅典)  GMT+2:00
+"Asia/Beirut" 东欧标准时间 (贝鲁特)--黎巴嫩首都  GMT+2:00 
+"Africa/Cairo" 东欧标准时间 (开罗)  GMT+2:00
+"Europe/Helsinki" 东欧标准时间 (赫尔辛基)  GMT+2:00 
+"Asia/Jerusalem" 以色列时间 (耶路撒冷)  GMT+2:00
+"Africa/Harare" 中部非洲标准时间 (哈拉雷)--津巴布韦首都  GMT+2:00
+"Europe/Minsk" 明斯克  GMT+3:00
+"Asia/Baghdad" 巴格达  GMT+3:00
+"Europe/Moscow" 莫斯科  GMT+3:00
+"Asia/Kuwait" 科威特  GMT+3:00
+"Africa/Nairobi" 东部非洲标准时间 (内罗毕)--肯尼亚首都  GMT+3:00
+"Asia/Tehran" 伊朗标准时间 (德黑兰)  GMT+3:30
+"Asia/Baku" 巴库--阿塞拜疆首都  GMT+4:00
+"Asia/Tbilisi" 第比利斯--格鲁吉亚首都  GMT+4:00
+"Asia/Yerevan" 埃里温  GMT+4:00
+"Asia/Dubai" 迪拜  GMT+4:00
+"Asia/Kabul" 阿富汗时间 (喀布尔)  GMT+4:30
+"Asia/Karachi" 卡拉奇--巴基斯坦  GMT+5:00
+"Asia/Oral" 乌拉尔  GMT+5:00
+"Asia/Yekaterinburg" 叶卡捷林堡  GMT+5:00
+"Asia/Calcutta" 加尔各答  GMT+5:30
+"Asia/Colombo" 科伦坡  GMT+5:30
+"Asia/Katmandu" 尼泊尔时间 (加德满都)  GMT+5:30
+"Asia/Almaty" 阿拉木图  GMT+6:00
+"Asia/Rangoon" 缅甸时间 (仰光)  GMT+6:30
+"Asia/Krasnoyarsk" 克拉斯诺亚尔斯克  GMT+7:00
+"Asia/Bangkok" 曼谷  GMT+7:00
+"Asia/Kuala_Lumpur" 吉隆坡  GMT+7:30
+"Asia/Shanghai" 中国标准时间 (北京)  GMT+8:00
+"Asia/Hong_Kong" 香港时间 (香港)  GMT+8:00
+"Asia/Irkutsk" 伊尔库茨克时间 (伊尔库茨克)  GMT+8:00
+"Australia/Perth" 佩思  GMT+8:00
+"Asia/Taipei" 台北时间 (台北)  GMT+8:00
+"Asia/Seoul" 首尔  GMT+9:00
+"Asia/Tokyo" 日本时间 (东京)  GMT+9:00
+"Asia/Yakutsk" 雅库茨克时间 (雅库茨克)  GMT+9:00
+"Australia/Adelaide" 阿德莱德  GMT+9:30
+"Australia/Darwin" 达尔文  GMT+9:30
+"Australia/Brisbane" 布里斯班--澳大利亚  GMT+10:00
+"Australia/Sydney" 悉尼  GMT+10:00
+"Asia/Vladivostok" 海参崴时间 (符拉迪沃斯托克)  GMT+10:00
+"Pacific/Guam" 关岛  GMT+10:00
+"Australia/Hobart" 霍巴特  GMT+11:00
+"Asia/Magadan" 马加丹时间 (马加丹)  GMT+11:00
+"Pacific/Majuro" 马朱罗  GMT+12:00
+"Pacific/Auckland" 奥克兰  GMT+12:00
+"Pacific/Fiji" 斐济  GMT+12:00
+"Pacific/Tongatapu" 东加塔布  GMT+13:00
+</pre>
+<br />
+语言代码标准:ISO 639-1
+<br />
+国家代码标准:ISO 3166-1 <a  href="http://zh.wikipedia.org/wiki/ISO_3166-1" target="_blank" title="Wikipedia ISO 3166-1">Wikipedia ISO 3166-1</a>
+<br />
+<br />
+<br />
+Allwinner
+<br />
+<br />
+开机动画/system/media/broncho/bootanimation.zip
+<br />
+关机动画/system/media/broncho/shutdownanimation.zip
+<br />
+bootanimation.zip文件放在系统的/system/media目录中,或system/customize/resource/bootanimation.zip,或/data/local目录中即可，两个目录下都存在时，优先使用/data/local下的动画
+<br />
+<br />
+开关机动画描述文件desc.txt
+<pre class='brush: java'>
+480 800 30           //"480"为宽度像素
+                     //"800"为高度像素
+					 //"30"为帧数,即每秒播放动画30帧,打个比方，part0文件夹里面共76个图片,播放时间就是76/30=2.533333秒
+                     //播放完毕,当然在手机里面会有一定的延时,尤其是你的图片文件比较大的情况下,手机想播快也快不起来,卡啊
+					 
+p 1 0 part0          //第一项"p"为标志符
+                     //第二项"1"为循环次数,"1"为只播放1次,"0"为无限循环播放
+					 //第三项"0"为两次循环之间间隔的帧数
+					 //第四项"part0"为对应的目录名
+					 //这句指令就代表这"part0"文件夹内的图片只按名称顺序播放一次
+
+p 0 0 part1          //这一句指令代表着"part1"文件夹内的图片会循环反复播放
+
+
+
+p 0 10 part2         //这里面的那个"10"代表着播放完"part2"文件夹内的图片一遍之后稍作停顿(停顿10帧的时间),
+                     //然后再循环播放一遍,再停顿少许,再播放,再停顿稍许......重复下去
+					 
+p 1 10 part3         //这句代表着播放完"part3"文件夹内的图片之后稍作停顿然后继续执行下一条命令
+
+					 
+</pre>
+阶段切换间隔时间：单位是一个帧的持续时间，比如帧数是30，那么帧的持续时间就是1秒/30 = 33.3毫秒。
+<br />
+阶段切换间隔时间期间开机动画进程进入休眠，把CPU时间让给初始化系统使用。也就是间隔长启动会快，但会影响动画效果。
+<br />
+<pre class='brush: java'>
+adb shell
+bootanimation                        # 查看开机动画，它会一直处于动画状态，而不会停止。
+setprop ctl.start bootanim           # 执行开机动画
+getprop ctl.start bootanim           # 停止开机动画
+                                     # 以上两句命令分别对应SurfaceFlinger.cpp的两句语句：
+									   property_set("ctl.start", "bootanim");和property_set("ctl.stop", "bootanim");
+setprop ctl.stop bootanim            # 停止开机动画
+</pre>
+<br />
+开关机动画使用winrar打包,选择zip格式,压缩标准要选“储存”
+
+<br />
+官方最原始的开机动画在system\framework\framework-res.apk\assets\images里面<br />
+<br />
+<br />
+壁纸/system/media/broncho/wallpaper/
+<br />
+1920*1280或960*800的图片命名为wallpaper_0*.jpg
+<br />
+213*189的图片缩略图命名为wallpaper_0*_small.jpg
+<br />
+
+主菜单背景
+bg_land.jpg图片为横屏
+bg_port.jpg图片为竖屏
+
+图片放在设备/system/media/broncho/文件夹下
+<br />
+<br />
+修改buildprop
+<br />
+小图标则添加以下
+<pre class='brush: java'>
+ro.sf.lcd_density=120          //大图标为160
+</pre>
+<br />
+LCD背光亮度调节
+<br />
+修改系统配置sysconfig1.lhs
+<pre class='brush: java'>
+lcd_max_bright           = 255                        //取值在100-255之间      
+lcd_min_bright           = 100
+</pre>
+<br />
+相机摄像头插值
+<br />
+双摄像头插值修改：
+fsop\system\etc\camera_dou.cfg  
+<pre class='brush: java'>
+key_support_picture_size = 2592x1936                     //45Ln  后摄像头
+key_default_picture_size = 2592x1936
+</pre>
+<br />
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+Rockchip
+<br />
+Kernel中的logo要求用分辨率和机器屏幕相同的png图片(png图片格式要求24位的)转换成ppm格式。
+<br />
+制作方法:GIMP 图像>模式>索引 设置为224    导出图片格式扩展名为.ppm,数据格式为Ascii.
+<br />
+<br />
+创建 .nomedia 文件,播放器将此文件夹从媒体扫描器列表中排除
+<br />
+“.nomedia”文件放在任何一个文件夹下都会把该文件夹下所有媒体文件（图片，mp3,视频）隐藏起来不会在系统图库、铃声中出现
+<br />
+
+
+</html>

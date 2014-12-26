@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>linux file</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Linux file</h1>
+<br />
+<br />
+Path路径
+<br />
+绝对路径 相对路径
+<br />
+绝对路径：以"/"开头,递归每级目录直到目标路径.不受当前所在工作目录限制
+<br />
+相对路径：以当前目录为起点,到达目标路径.受当前所在目录限制
+<br />
+<pre class='brush: bash'>
+"."             #代表目前所在的目录，相对路径。 如：href="./abcd"
+".."            #代表上一级目录，相对路径。 如：href="../abcd"
+"../../"        #代表的是上一层目录的上一层目录，相对路径。 如：href="../../abcd"
+"/"             #代表根目录,绝对路径。 如：href="/abcd"
+"~"             #用户home目录
+"-"             #上一个工作目录
+"D:/abcd/"      #代表根目录,绝对路径。
+
+用符号“.”来表示当前目录，用符号“..”来表示当前目录的父目录。
+</pre>
+<br />
+<br />
+Linux 文件基本属性
+<pre class='brush: bash'>
+mu@linux:~$ ls -la
+drwxr-xr-x  22 1001 1001  4096  8月 21 12:19 .
+drwxr-xr-x  22 1001 1001  4096  8月 21 12:19 ..
+drwxr-xr-x   2 root root  4096  9月 26 09:50 bin
+drwxr-xr-x   3 root root  4096  8月 21 01:40 home
+lrwxrwxrwx   1 root root    33  8月 21 01:38 initrd.img -> boot/initrd.img-3.13.0-30-generic
+drwx------   2 root root 16384  8月 21 01:38 lost+found
+drwxr-xr-x   5 root root  4096  8月 20 17:54 media
+dr-xr-xr-x 210 root root     0 10月 14  2014 proc
+drwx------   6 root root  4096  8月 21 12:22 root
+dr-xr-xr-x  13 root root     0 10月 14  2014 sys
+drwxrwxrwt   8 root root  4096 10月 14 10:58 tmp
+
+第一个字符：
+当为[ d ]则是目录
+当为[ - ]则是文件；
+若是[ l ]则表示为链接文档(link file)；
+若是[ b ]则表示为装置文件里面的可供储存的接口设备(可随机存取装置)；
+若是[ c ]则表示为装置文件里面的串行端口设备，例如键盘、鼠标(一次性读取装置)
+
+接下来的字符中，以三个为一组，且均为『rwx』 的三个参数的组合。
+其中，[ r ]代表可读(read)、[ w ]代表可写(write)、[ x ]代表可执行(execute)。 
+要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号[ - ]而已。
+
+</pre>
+<br />
+每个文件的属性由左边第一部分的10个字符来确定
+<pre class='brush: bash'>
+drwxr-xr-x   2 root root  4096  9月 26 09:50 bin
+
+drwxr-xr-x
+0123456789
+
+文件类型        属主权限        属组权限        其他用户权限
+0              123             456            789
+d              rwx             r-x            r-x
+目录文件        读 写 执行      读 写 执行      读 写 执行
+</pre>
+从左至右用0-9这些数字来表示
+<br />
+第0位确定文件类型
+<br />
+第1-3位确定属主（该文件的所有者）拥有该文件的权限。
+<br />
+第4-6位确定属组（所有者的同组用户）拥有该文件的权限
+<br />
+第7-9位确定其他用户拥有该文件的权限。
+<br />
+其中，第1、4、7位表示读权限，如果用"r"字符表示，则有读权限，如果用"-"字符表示，则没有读权限；
+<br />
+第2、5、8位表示写权限，如果用"w"字符表示，则有写权限，如果用"-"字符表示没有写权限；
+<br />
+第3、6、9位表示可执行权限，如果用"x"字符表示，则有执行权限，如果用"-"字符表示，则没有执行权限。
+<br />
+<br />
+<br />
+Linux文件权限
+<br />
+权限是操作系统用来限制对资源访问的机制
+<br />
+一个文件或目录一经创建，就具有 r w x三种访问方式：
+<br />
+<pre class='brush: bash'>
+ 权限               对文件的影响                对目录的影响
+r 读取 Read        可读取文件内容              可列出该目录中的文件
+w 写入 Write       可以编辑或删除文件          可在目录中创建或删除文件
+x 执行 Execute     可以作为命令执行            可搜索或访问目录内容                   *目录必须拥有 x 权限,否则无法查看其内容
+</pre>
+Linux权限基于UGO模型进行控制 User Group Other
+<br />
+按照所针对的用户，文件的权限可分为三类：
+<br />
+1) 文件属主，创建该文件的用户。
+<br />
+2) 同组用户，拥有该文件的用户组中的任何用户。
+<br />
+3) 其他用户，即不属于拥有该文件的用户组的某一用户。
+<br />
+
+
+u 文件属主权限。
+<br />
+g 同组用户权限。
+<br />
+o 其他用户权限。
+<br />
+a 所有用户(文件属主、同组用户及其他用户)。
+<pre class='brush: bash'>
+chown [options选项] UserName FileName        #更改文件的所属用户和/或所属组
+      -R             #递归处理所有的文件及子目录
+	  
+chgrp [options选项] GroupName FileName        #更改文件的所属组
+      -R             #递归处理所有的文件及子目录
+	  
+</pre>
+<pre class='brush: bash'>
+drwxr-xr-x   2 root root  4096  9月 26 09:50 bin
+
+对于文件来说，它都有一个特定的所有者，也就是对该文件具有所有权的用户。
+同时，在Linux系统中，用户是按组分类的，一个用户属于一个或多个组。
+文件所有者以外的用户又可以分为文件所有者的同组用户和其他用户。
+因此，Linux系统按文件所有者、文件所有者同组用户和其他用户来规定了不同的文件访问权限。
+在以上实例中，bin文件是一个目录文件，属主和属组都为root，属主有可读、可写、可执行的权限；
+与属主同组的其他用户有可读和可执行的权限；其他用户也有可读和可执行的权限。
+</pre>
+
+<br />
+chmod：更改文件9个属性
+<br />
+Linux文件属性有两种设置方法，一种是数字，一种是符号。
+<br />
+Linux文件的基本权限就有九个，分别是owner/group/others三种身份各有自己的read/write/execute权限。
+<br />
+文件的权限字符为：『-rwxrwxrwx』， 这九个权限是三个三个一组的！
+<br />
+其中，我们可以使用数字来代表各个权限，各权限的分数对照表如下：
+<br />
+<br />
+
+计算文件权限值
+<pre class='brush: bash'>
+文件属主        同组用户       其他用户
+r  w  x        r  w  x        r  w  x                 -r=4 (2^2)
+读 写 执行      读 写 执行      读 写 执行              -w=2 (2^1)
+4 + 2 + 1      4 + 2 + 1      4 + 2 + 1               -x=1 (2^0)
+</pre>
+每种身份(owner/group/others)各自的三个权限(r/w/x)分数是需要累加的，
+<br />
+例如当权限为： [-rwxrwx---] 分数则是：
+<br />
+<pre class='brush: bash'>
+owner = rwx = 4+2+1 = 7
+group = rwx = 4+2+1 = 7
+others= --- = 0+0+0 = 0
+</pre>
+<br />
+所以等一下我们设定权限的变更时，该文件的权限数字就是770啦！变更权限的指令chmod的语法是这样的：
+<br />
+<pre class='brush: bash'>
+chmod [options选项] [mode] fileName              #更改文件的权限
+chmod 777 FileName
+
+umask             #新建文件、目录的默认权限
+7777-umask        #目录的默认权限
+6666-umask        #文件的默认权限
+</pre>
+<br />
+那如果要将权限变成 -rwxr-xr-- 呢？那么权限的分数就成为 [4+2+1][4+0+1][4+0+0]=754
+<br />
+<br />
+符号类型改变文件权限
+<br />
+还有一个改变权限的方法呦！从之前的介绍中我们可以发现，基本上就九个权限分别是(1)user (2)group (3)others三种身份啦！ 
+<br />
+那么我们就可以藉由u, g, o来代表三种身份的权限！
+<br />
+此外， a 则代表 all 亦即全部的身份！那么读写的权限就可以写成r, w, x！也就是可以使用底下的方式来看：
+<br />
+<br />
+<table style="color: rgb(0, 0, 136); width: 80%;" border="1" cellpadding="2" cellspacing="0">
+     <tbody><tr align="center"> <td>chmod</td><td>u<br>g<br>o<br>a</td> <td>+(加入)<br>-(除去)<br>=(设定)</td> <td>r<br>w<br>x</td><td>文件或目录</td></tr>
+     </tbody>
+</table> 
+<br />
+<br />
+<pre class='brush: bash'>
+如果我们需要将文件权限设置为 -rwxr-xr-- ，可以使用 chmod u=rwx,g=rx,o=r 文件名 来设定:
+
+[root@www ~]# ls -al .bashrc
+-rwxr-xr-x  1 root root 395 Jul  4 11:45 .bashrc
+[root@www ~]# chmod  a+w  .bashrc
+[root@www ~]# ls -al .bashrc
+-rwxrwxrwx  1 root root 395 Jul  4 11:45 .bashrc
+而如果是要将权限去掉而不改变其他已存在的权限呢？例如要拿掉全部人的可执行权限，则：
+
+[root@www ~]# chmod  a-x  .bashrc
+[root@www ~]# ls -al .bashrc
+-rw-rw-rw-  1 root root 395 Jul  4 11:45 .bashrc
+</pre>
+<br />
+<br />
+
+
+ext4与ntfs的性能测试
+<pre class='brush: bash'>
+root@mu:/sys/devices$ fdisk -l
+
+root@mu:/sys/devices$ hdparm -Tt /dev/sda2        #  测试sda2分区硬盘读取速度
+
+root@mu:/sys/devices$ hdparm -Tt /dev/sda3        #  测试sda3分区硬盘读取速度
+
+dd if=/dev/zero of=/tmp/output.img bs=8k count=256k; rm -rf /tmp/output.img  # 测试硬盘写入速度
+
+hdparm -Y /dev/sdx                  # 实现机械硬盘磁头归位停转
+</pre>
+
+<br />
+<br />
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<pre class='brush: bash'>
+Windows
+SSD Win7 59.81GB        # 64G SSD 60GB
+mSATA WinXP Linux 59.63GB  # KINGSTON SMS100S264G
+-------------------------------------------------------------------------------
+root@deepin:/# fdisk -l
+
+Disk /dev/sda: 320.1 GB, 320072933376 bytes
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *          63   236990879   118495408+   7  HPFS/NTFS/exFAT
+Partition 1 does not start on physical sector boundary.
+/dev/sda2       236990880   625137344   194073232+   f  W95 Ext'd (LBA)
+/dev/sda5       236990943   625137344   194073201    7  HPFS/NTFS/exFAT
+Partition 5 does not start on physical sector boundary.
+
+Disk /dev/sdb: 64.2 GB, 64223182848 bytes
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1   *          63   125435519    62717728+   7  HPFS/NTFS/exFAT
+
+Disk /dev/sdc: 64.0 GB, 64023257088 bytes
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1   *          63    48243194    24121566    7  HPFS/NTFS/exFAT
+/dev/sdc2        48243195   125033894    38395350    7  HPFS/NTFS/exFAT
+
+Disk /dev/sdd: 31.2 GB, 31214010368 bytes
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdd1   *          63    60950609    30475273+   c  W95 FAT32 (LBA)
+root@deepin:/# 
+
+
+
+
+</pre>
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20140820
+</html>

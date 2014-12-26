@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Linux Command</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Linux Command shell terminal commands</h1>
+<a  href="http://ss64.com/"                                 target="_blank" title="Command">ss64</a> 			 
+<a  href="http://linuxcommand.org/"                         target="_blank" title="Linux Command">Linux Command</a> 			 
+<a  href="http://billie66.github.io/TLCL/"                  target="_blank" title="本书是 The Linux Command Line http://linuxcommand.org/ 的中文版">Linux Command</a> 			 
+<a  href="http://explainshell.com/"                         target="_blank" title="一个解释 shell 命令的东西">explainshell</a> 			 
+<a  href="http://www.shellcheck.net/"                       target="_blank" title="shell语法检查">shellcheck</a> 			 
+<a  href="http://www.regexr.com/"                           target="_blank" title="解释 正则表达式">regexr</a> 			 
+
+<pre class='brush: bash'>
+mu@linux:~$     #我的BASH提示符
+我的用户名@和我的主机名称
+hostname        #查看主机名
+uname -a        # Unix Name的简写。显示机器名，操作系统和内核的详细信息。
+
+locale          # 查看当前系统的语言和字符编码设置
+
+cat /etc/shells #显示Linux上有哪些版本的shell,可以查看/etc/shell目录下的文件:
+  or
+cat /etc/shell
+su              # 此命令可以用来交互地更改你的用户ID和组ID。  
+                # Su是switch user 或set user id的一个缩写。许多人将su命令看成是 supper-user(超级用户)的一个缩写。
+				# 这个命令让你开启一个子进程，成为新的用户 ID 和赋予你存取与这个用户ID 关联所有文件的存取权限。
+su -            # 切换到root用户并使用一个新的运行环境  superuser超级用户
+
+                # su  后面不加用户是默认切到 root，是不改变当前变量，su只能获得root的执行权限，不能获得环境变量
+                # su -是切换到root并获得root的环境变量及执行权限
+				
+				# 用su切换成root用户以后，pwd一下，发现工作目录仍然是普通用户的工作目录；
+				# 用su-切换以后，工作目录变成root的工作目录了
+				# 用echo $PATH命令看一下su和su-也不一样
+sudo            # super user do 命令允许授权用户执行超级用户或者其它用户的命令。
+id              # 显示当前用户信息
+passwd          # 修改当前用户密码 password
+sudo passwd root #修改root用户密码
+</pre>
+<pre class='brush: bash'>
+clear           # 清屏
+Ctrl - l        # 清屏
+reset           # 重置终端
+pwd             # 显示当前目录完整路径
+echo $PATH      # 显示当前PATH环境变量  修改/init.rc文件设置环境变量.
+echo $SHELL     # 看下你用着什么shell
+unset PATH      # 清除所有的环境变量
+env             # 用env查看环境变量参数
+set             # 显示当前环境变量
+</pre>
+
+search 查找
+<pre class='brush: bash'>
+Ctrl+r          # 搜索已经执行过的命令，它可以在你写命令时自动补全。
+locate keyword  # locate加关键字用以快速查找文件、文件夹
+                # 此命令需要预告建立数据库，数据库默认每天更新一次，可用update命令手工建立、更新数据库
+				
+find 查找位置 查找参数
+find / -name fileName   # '-name'选项是搜索大小写敏感。可以使用'-iname'选项，这样在搜索中可以忽略大小写。
+
+grep    #搜索指定文件中包含给定字符串或者单词的行
+grep tecmint /etc/passwd        # 搜索'/etc/passwd'文件中的'tecmint'
+</pre>
+
+<br />
+history
+<pre class='brush: bash'>
+history         #历史命令
+!!              #重复前一个命令
+!字符           #!后面加一个字符，重复前一个以此"字符"开头的命令
+!num            #!后面加数字，按照历史记录的序号执行命令
+!?abc           #重复之前包含abc的命令
+!-n             #重复n个命令之前的那个命令
+
+
+</pre>
+
+<pre class='brush: bash'>
+commands &      #命令后面加上 & 符号,表示让这个命令在后台运行
+esc .           #按 esc 键之后再按 . 键,重新调用前一个命令中的参数
+Alt .           # 传递最后一个命令参数到提示符后的快捷键，以输入命令的倒序方式传递命令
+Ctrl+z          #暂停某个程序
+jobs            #查看所有在后台运行的程序
+bg              #让一个在后台暂停的程序继续在后台运行
+fg              #把一个在后台运行的程序拉到前台
+</pre>
+
+
+<pre class='brush: bash'>
+cd      #change directory 改变目录
+
+ls      # list directory contents 列出目录内容 查看目录或者文件的属性，列举出任一目录下面的文件
+   -l   # 以详情模式(long listing fashion)列出文件夹的内容
+   -a   # 会列出文件夹里的所有内容，包括以"."开头的隐藏文件
+   
+cp [options选项]... 源文件(夹) 目标文件(夹)    #复制文件(夹)
+    -r              #递归复制目录及其子目录内的所有内容
+	-v              #显示详细的进行步骤
+
+mv [options选项]... 源文件(夹) 目标文件(夹)    #移动、重命名文件(夹)
+	
+mkdir [options选项]... dirName目录...    #若指定目录不存在则创建目录。
+       -m,--mode=模式    #设定权限，与chmod类似。要创建的目录名是“abc”，让所有用户都有rwx权限，
+	                     #那么可以使用以下命令：
+						  mkdir -m 777 abc
+						  
+touch [选项]... 文件...  #创建一个空文件或更新文件时间
+</pre>
+
+<pre class='brush: bash'>
+
+rm [选项]... 文件...     #删除 (unlink) 文件。
+    -f, --force		     #强制删除。忽略不存在的文件，不提示确认
+    -i			         #在删除前需要确认
+    -r, -R, --recursive	 #递归删除目录及其内容
+    -v, --verbose		 #详细显示进行的步骤
+rm -rf                   # 在“.bashrc”文件对 rm 命令创建rm -i的别名，来预防用rm 删除文件时的事故，它会要求你确认每一个删除请求
+默认时，rm 不会删除目录。使用--recursive(-r 或-R)选项可删除每个给定的目录，以及其下所有的内容。
+
+要删除第一个字符为"-"的文件 (例如"-abc")，请使用以下方法之一：
+  rm -- -abc
+  rm ./-abc
+
+rmdir [选项]... 目录...
+删除指定的空目录
+
+shred [选项]... 文件...  #多次覆盖文件，使得即使是昂贵的硬件探测仪器也难以将数据复原。
+
+
+
+</pre>
+<br />
+Bash为了更高效率的执行命令和脚本,把很多外部命令以内建命令的方式实现了.
+<br />
+我们使用type这个命令就可以知道一个命令的类型了,如下所示:
+<pre class='brush: bash'>
+
+mu@linux:/$ type -a type
+type is a shell builtin               #builtin就是指内嵌(建)命令
+
+mu@linux:/$ type -a pwd
+pwd is a shell builtin
+pwd is /bin/pwd                       #此乃外部命令
+
+mu@linux:/$ type -a ls
+ls is aliased to `ls --color=tty'     #此乃别名
+ls is /bin/ls
+
+mu@linux:/$ type -a for
+for is a shell keyword                #此乃Shell关键字
+</pre>
+
+date time
+<pre class='brush: bash'>
+# Linux时钟分为系统时钟（System Clock）和硬件（Real Time Clock，简称RTC）时钟。
+# 系统时钟是指当前Linux Kernel中的时钟，而硬件时钟则是主板上由电池供电的时钟
+# Linux中的所有命令（包括函数）都是采用的系统时钟设置
+date            # 时间
+clock           # 显示硬件时钟时间
+hwclock         # 显示硬件时钟时间
+				
+# 当Linux启动时，系统时钟会去读取硬件时钟的设定，之后系统时钟即独立运作
+# 使用date命令修改了系统时间，并不会自动去修改硬件时钟，当系统下次重启时，系统时钟还会从硬件时钟去取，date设置的时间就无效了。
+# 这就需要hwclock命令同步时钟
+hwclock --hctosys  # 将硬件时钟同步到系统时钟（set the system time from the hardware clock ）
+hwclock –-systohc  # 将系统时钟同步到硬件时钟（set the hardware clock to the current system time ）
+cal             # calendar日历
+cal 8 2013      # cal后面加上月份和年份
+uptime          # 起动时间 查看系统运行时间
+
+date +%Y-%m-%d  # 获得当天的日期
+date +%Y%m%d
+date +%F
+
+</pre>
+
+输出 查看命令
+<pre class='brush: bash'>
+echo            #显示输入的内容
+cat             #显示文件内容
+head            #显示文件的头几行(默认10行)
+     -n         #指定显示的行数
+tail            #显示文件的末尾几行(默认10行)
+     -n         #指定显示的行数
+     -f         #追踪显示文件更新(一般用于查看日志)
+more            #翻页显示文件内容(只能向下翻页)
+less            #翻页显示文件内容(可上下翻页)
+
+
+</pre>
+
+查看硬件信息 Drivers Devices info  /sys/bus/usb/devices/
+<br />
+对于 USB 和 PCI/PCI-Express/ExpressCard 设备，查看其采用什么芯片的方法是查看它们的设备 ID。
+<br />
+所有的 USB/PCI/PCI-Express/ExpressCard 设备具有一个称为 “vendor” 和 “product” 的 ID，使用相同芯片的产品这两个组成的数值通常是一样的。
+<br />
+该 ID 可以使用 lsusb 命令读取 USB 设备上的值，lspci -nn 命令用于 PCI/PCI-Express/ExpressCard 设备。
+<br />
+<br />
+vendor 和 product ID 通常是十六进制数值形式，用冒号隔开，例如 “1d6b:0001”。
+<br />
+<pre class='brush: bash'>
+lsusb           # 查看usb设备
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub     # 其中 1d6b 是 vendor ID 而 0002 是 product ID
+      -v        # 查看详细信息
+	  
+lspci           # 查看pci设备(相当于windows的设备管理器)
+                # 在 Windows 系统上，设备 ID 可以通过打开 Windows 设备管理器上的 “details” 页查看，
+				# 其中 vendor ID 的前缀是 VEN_ 而 product ID 的前缀是 DEV_。
+				# 在 Windows 7 系统上，您需要再打开设备管理器页上的 “Hardware IDs” 属性才能看到 ID，默认是不显示的。
+      -v        # 查看详细信息
+	  
+lspci -nn       # 输出的网卡设备形式  
+03:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8111/8168B PCI Express Gigabit Ethernet controller [10ec:8168] (rev 06)
+	            # ID 位于最右边的方括号里面，这里 10ec 是 vendor ID 而 8168 是 product ID。
+
+dmesg | grep -i eth    # 网卡信息
+lspci | grep -i eth    # 网卡信息
+
+dmesg | grep -i vga  # 查看显卡信息
+lspci | grep -i vga  # 查看显卡信息
+
+
+lspci | grep -i usb     # 可以知道总共有几个USB主控器
+	  
+	  
+lsmod           # list modules 查看加载的模块(驱动)
+
+rmmod           # remove module 移除已经安装的内核模块
+
+insmod          # install module 安装内核模块
+example
+cd vendor/modules
+insmod 8188eu.ko
+
+df              # 查看已挂载的目录信息
+lscpu           # 查看cpu信息
+lsblk           # 查看硬盘和分区分布 lsblk是最有用和最简单的方式来了解新插入的USB设备的名字，特别是当你在终端上处理磁盘/块设备时。
+      -l
+lshw -short     # 查看硬件信息
+
+lsscsi          # 列出SCSI/SDAT设备的信息，比如硬盘驱动器、光盘驱动器
+</pre>
+<br />
+<br />
+查看CPU核数及频率
+<pre class='brush: bash'>
+adb shell
+cd /sys/devices/system/cpu
+ls -l                         #  以下即显示cpu0 cpu1 cpu2 cpu3
+cat online                    #  代表目前正在工作的cpu 输出的数字为cpu编号
+cat offline                   #  代表目前被关掉的cpu 输出的数字为cpu编号
+cat present                   #  主板上已经安装的cpu
+
+cd /sys/devices/system/cpu/cpu0/cpufreq
+ls -l
+                                  #  前缀cpuinfo代表的是cpu硬件上支持的频率
+								  #  前缀scaling代表的是可以通过CPUFreq系统用软件进行调节时所支持的频率
+cat cpuinfo_max_freq              #  下面将显示cpu0的最高频率 单位为KHz
+cat scaling_available_frequencies #  输出当前软件支持的频率值
+cat scaling_available_governors   #  输出当前可供选择的频率调节策略
+cat scaling_governor              #  当前选定的频率调节策略    governor 调节器
+
+cat scaling_cur_freq              #  当前频率
+
+cat /proc/cpuinfo
+dmesg | grep -i cpu
+dmidecode -t processor    # 通过查看开机信息 CPU信息
+
+</pre>
+<br />
+
+<br />
+
+<pre class='brush: bash'>
+dmidecode -s system-manufacturer    # 厂商
+dmidecode -s system-product-name    # 机器型号
+dmidecode | grep -i 'serrial number' # 查看主板信息，查看主板的序列号
+dmidecode -t
+dmidecode -t system
+
+biosdecode
+</pre>
+内存信息
+<pre class='brush: bash'>
+cat /proc/meminfo
+grep MemTotal /proc/meminfo
+dmesg | grep mem 
+free -m 
+vmstat
+dmldecode | grep -i mem
+
+dmidecode -t memory
+Speed: 533 MHz (1.9 ns)
+</pre>
+
+关机 重启
+<pre class='brush: bash'>
+shutdown
+         -h     #关闭计算机
+		 -r     #重新启动
+poweroff        #立即关闭计算机
+reboot          #立即重启计算机
+
+</pre>
+
+归档 压缩
+<pre class='brush: bash'>
+zip             #压缩
+    -r          #表示递归压缩子目录下所有文件
+zip newfile.zip oldfile #压缩oldfile文件
+
+gzip            #压缩
+gzip file
+
+unzip           #解压
+unzip file.zip
+
+tar             #打包 归档
+    -z          #-z参数将打包后的文件进行gzip压缩
+tar -cvf newfile.tar oldfile #打包oldfile文件,形成newfile.tar文件
+tar -xvf file.tar #解包file.tar文件
+tar -cvzf newfile.tar.gz oldfile #最常用的打包并压缩命令
+tar -xvzf file.tar.gz            #最常用的解压缩并解包命令
+</pre>
+
+
+<pre class='brush: bash'>
+vmstat          #查看虚拟内存（Virtual Memory）使用状况的工具,关于进程、内存、内存分页、堵塞IO、traps及CPU活动的信息
+</pre>
+
+user
+<br />
+当我们使用Linux时，需要以一个用户的身份登录，一个进程也需要一个用户的身份运行
+<br />
+每个用户拥有一个UserID，操作系统实际使用的是用户ID,而非用户名
+<br />
+每个用户属于一个主组(gid)，属于一个或多个附属组(Groupid)，每个组拥有一个GroupID
+<pre class='brush: bash'>
+whoami          #显示当前用户
+who             #显示哪些用户已经登录系统
+w               #显示哪些用户已经登录并且在干什么
+
+useradd NewName #创建一个新用户
+        -d      #home目录
+		-s      #登录的shell
+		-u      #UserID
+		-g      #主组
+		-G      #附属组
+		
+usermod [options选项] UserName    #修改用户信息
+        -l      #修改为新用户名
+        -u      #修改为新UserID
+		-d      #修改用户home目录位置
+		-g      #修改用户所属主组
+		-G      #修改用户所属附属组
+		-L      #锁定用户使其不能登录
+		-U      #解除锁定
+		
+userdel UserName #删除指定的用户(保留用户的home目录)
+userdel -r UserName #删除指定的用户(同时删除用户的home目录)
+
+groupadd NewName                #创建一个新组
+groupmod [options选项] gName    #修改组信息
+groupmod -n NewName OldName     #修改组名
+groupmod -g NewGid OldGid       #修改组ID
+groupdel GroupName              #删除组	
+</pre>
+<br />
+<br />
+管道和重定向
+<br />
+Linux中,几乎所有命令的返回数据都是纯文本的(因为命令都是运行在CLI下),而纯文本形式的数据又是绝大多数命令的输入格式.
+<br />
+利用管道和重定向机制来执行多命令协作
+<br />
+命令行shell的数据流有以下定义
+<pre class='brush: bash'>
+名称        说明        编号     默认
+STDIN      标准输入      0       键盘        # 通过STDIN接收参数或数据
+STDOUT     标准输出      1       终端        # 通过STDOUT输出结果
+STDERR     标准错误      2       终端        # 通过STDERR输出错误
+</pre>
+通过管道和重定向我们可以控制CLI的数据流
+<br />
+<br />
+重定向 符号及定义
+<pre class='brush: bash'>
+符号          定义                               例子
+>             将STDOUT重定向到文件(覆盖)        ls -la > outfile  默认是输出到终端,但通过重定向符号 > 将ls的输出信息重定向到一个文件中
+>>            将STDOUT重定向到文件(追加)
+2>            将STDERR重定向到文件(覆盖)
+2>&1          将STDERR 2 与 STDOUT 1 结合重定向到文件中
+<             重定向STDIN                         不常用
+</pre>
+重定向通常用来保存某命令的输出信息或错误信息,可以用来记录执行结果或保存错误信息到一个指定的文件
+<br />
+<br />
+管道
+<pre class='brush: bash'>
+|    将一个命令的STDOUT作为另一个命令的STDIN
+</pre>
+管道通常用来组合不同的命令,以实现一个复杂的功能
+<br />
+<br />
+<pre class='brush: bash'>
+echo $?        # 显示状态
+</pre>
+<pre class='brush: bash'>
+iptables        # 防火墙
+iptables -L -n
+</pre>
+<br />
+<br />
+help
+<pre class='brush: bash'>
+command -h
+command --help
+man command     #可以按 / 后面加关键字搜索
+    -k
+info command    #可以按 / 后面加关键字搜索
+/usr/share/doc  #帮助文档
+
+</pre>
+
+
+<br />
+<br />
+
+命令别名文件的建立 让计算机看懂“guanji”关机这句拼音
+<pre class='brush: bash'>
+alias是一个系统自建的shell命令，允许你为名字比较长的或者经常使用的命令指定别名。
+在你所在用户名的根目录添加一个 .bash_aliases 的文件，请一定要确保是在根目录
+sudo nano .bash_aliases                # 新建并打开文件
+alias guanji='sudo shutdown -h now'    # 添加别名链接
+</pre>
+设备挂载 mount 命令用于挂载光盘镜像文件、移动硬盘、U盘、Windows和NFS网络共享等等
+<pre class='brush: bash'>
+使用 "mount" 命令时，经常需要查询磁盘设备信息，这时可使用 "fdisk" 指令或查看 "cat /proc/partitions" 信息
+</pre>
+
+<br />
+<br />
+Tools
+<pre class='brush: bash'>
+md5sum fileName         # 计算和检验MD5信息签名 md5 checksum(通常叫做哈希)使用匹配或者验证文件的文件的完整性 Md5sum没有sha1sum安全
+sha1sum fileName        # Md5sum没有sha1sum安全  sha1sum中间是数字1
+echo -n "text" | md5sum # 获取文本的md5 hash
+
+echo $RANDOM            #随机数
+echo $RANDOM|md5sum     #随机数md5加密
+
+ps      # 正在运行的某个进程的状态
+   -A   # 列出所有的进程及其PID
+
+kill PID号              # kill是用来杀死已经无关紧要或者没有响应的进程
+pkill apache2           # kill需要PID作为参数,pkill可以选择应用的方式,比如指定进程的所有者等. 
+
+whereis # 用来定位命令的二进制文件\资源\或者帮助页
+whereis ls
+
+</pre>
+<pre class='brush: bash'>
+:(){:|:&};:        # fork 炸弹.通过定义一个名为 : 的函数，它会调用自己两次,一次在前台另一次运行在后台.它会反复的执行下去直到系统崩溃.
+> /dev/sda         # 将某个‘命令‘的输出写到块设备/dev/sda中.该操作会将在块设备中的所有数据块替换为命令写入的原始数据，从而导致整个块设备的数据丢失
+mv folder /dev/null  # 这个命令会移动某个‘文件夹‘到/dev/null。/dev/null 或 null 设备是一个特殊的文件，所有写入它的数据都会被清除，然后返回写操作成功。
+                     # 说明的是，通过此法将文件夹移动到黑洞，并不能阻止数据恢复软件的救赎
+mv /home/user/* /dev/null  # 将User目录所有内容移动到/dev/null，这意味着所有东西都被‘卷入’黑洞　(null)之中。
+dd if=/dev/random of=/dev/sda  # 此命令会向块设备sda写入随机的垃圾文件从而擦除数据,系统可能陷入混乱和不可恢复的状态。
+                               # 记得上面说过mv到黑洞并不能彻底删除数据么？那么这个命令就是给了你一个彻底删除的方法！当然为了保险起见，你可以覆写多次
+du -h –max-depth=1      # 输出当前目录的子目录的大小 
+ 
+ 
+</pre>
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+20131223
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+</html>

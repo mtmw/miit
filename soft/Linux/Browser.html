@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Browser</title>
+    <style>a {text-decoration: none}</style>            <!--去掉超链接下划线 -->  
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Browser</h1>
+Firefox Vimperator
+<br />
+<br />
+Hint模式 (Vimperator hint mode)
+<pre class='brush: bash'>
+Vimperator区分大小写
+h,j,k,l         左上下右移动页面
+o               在底部自动填入:open, "url" 在当前tab打开url
+o               在底部自动填入:open, "关键字" 用浏览器的缺省搜索引擎搜索关键字(在当前tab）
+t               在底部自动填入:TabOpen,"url" 在新tab打开url
+t               在底部自动填入:TabOpen,"关键字" 用浏览器的缺省搜索引擎搜索关键字(在新tab）
+w               在底部自动填入:WinOpen,"url" 在新窗口打开url
+w               在底部自动填入:WinOpen,"关键字" 用浏览器的缺省搜索引擎搜索关键字(在新窗口）
+
+d               代表Delete，关闭当前标签页，将右侧一个标签页激活为当前
+D               代表Delete，关闭当前标签页，将左侧一个标签页激活为当前
+
+u               代表Undo,恢复最近一个被关闭的标签页面
+g0              跳至第一个标签页；
+g$              跳至最后一个标签页
+Ctrl + *        跳至制定的一个标签
+Ctrl + 6        前后两个tab切换
+gt  Ctrl + n    下一个tab  n:next
+gT  Ctrl + p    上一个tab  p:previous
+              
+/               在当前页面搜索
+zi              页面放大
+zo              页面缩小
+zz              恢复页面大小
+gg              转到当前网页的最上面部分 
+              
+G               转到当前网页的最下面部分 
+              
+f               在当前的页面中将所有的超链用黄色的数字标识，只要输入对应的数字，就在新页面打开对应的超级链接。不过，也有的时候只会让对应的超链变成绿色，这时只要再按下回车键，就可以了。 
+;b              注意第一字符是分号，这两个字符和f的功能类似，但是输入链接对应的数字后，会在后台打开对应的超链。
+              
+H               在历史记录中后退 
+L               在历史记录中前进 
+
+gh              在当前页面中打开主页
+gH              在一个新打开的标签页中打开主页。
+
+
+:q              关闭当前的火狐窗口 
+:qa             关闭所有的火狐窗口，并退出火狐
+:wq             关闭所有的火狐窗口，并保存这些窗口中打开的网站，然后退出火狐，下次启动火狐时，将恢复这些窗口中浏览的网站。 
+
+
+更多有趣设置请参考官方设置 :help
+
+
+</pre>
+<br />
+命令行
+<pre class='brush: bash'>
+:help [主题] – 提供与[主题]相关的帮助
+:open [地址] – 在当前标签打开[地址]，地址可以是文件、书签的关键字、或者用搜索引擎搜索。
+:back 和 :forward – 根据历史记录后退和前进。
+:bmark [地址] – 创建书签。
+:echo [表达式] – 以JavaScript的形式运算[表达式]并显示结果。
+:set[!] … – 显示或修改Vimperator和Firefox的设置。
+:map – 创建、修改键盘快捷键
+</pre>
+
+<br />
+<br />
+<br />
+<br />
+Chrome Vimium
+<br />
+Navigating the page
+<pre class='brush: bash'>
+j, c-e		    Scroll down
+k, c-y	        Scroll up
+h	        	Scroll left
+l	        	Scroll right
+gg	            Scroll to the top of the page
+G	            Scroll to the bottom of the page
+zH	            Scroll all the way to the left
+zL	            Scroll all the way to the right
+d	            Scroll a page down
+u	            Scroll a page up
+r	            Reload the page
+gs	            View page source
+yy	            Copy the current URL to the clipboard
+yf	            Copy a link URL to the clipboard
+p	            Open the clipboard's URL in the current tab
+P	            Open the clipboard's URL in a new tab
+gu	            Go up the URL hierarchy
+gU	            Go to root of current URL hierarchy
+i	            Enter insert mode
+gi	            Focus the first (or n-th) text box on the page
+f	            Open a link in the current tab
+F	            Open a link in a new tab
+a-f	            Open multiple links in a new tab
+o	            Open URL, bookmark, or history entry
+O	            Open URL, bookmark, history entry, in a new tab
+T	            Search through your open tabs
+b	            Open a bookmark
+B	            Open a bookmark in a new tab
+[[	            Follow the link labeled previous or <
+]]	            Follow the link labeled next or >
+gf	            Cycle forward to the next frame on the page
+m	            Create a new mark
+`	            Go to a mark
+</pre>
+Using find
+<pre class='brush: bash'>
+/	            Enter find mode
+n	            Cycle forward to the next find match
+N	            Cycle backward to the previous find match
+</pre>
+Navigating history
+<pre class='brush: bash'>
+H	            Go back in history
+L	            Go forward in history
+</pre>
+Manipulating tabs
+<pre class='brush: bash'>
+K, gt	:	 Go one tab right
+J, gT	:	 Go one tab left
+g0	:	 Go to the first tab
+g$	:	 Go to the last tab
+t	:	 Create new tab
+yt	:	 Duplicate current tab
+x	:	 Close current tab
+X	:	 Restore closed tab
+</pre>
+Miscellaneous
+<pre class='brush: bash'>
+?	:	 Show help
+
+
+</pre>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20131015
+</html>

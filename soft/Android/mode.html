@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>mode</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h2>mode</h2>20130502
+<br />
+bootloader什么意思
+<br />
+bootloader模式中文名称：系统启动加载器
+<br />
+bootloader模式主要功能，在开机进入系统之前，加载某些硬件初始化程序，启动系统进程
+<br />
+BootLoader就是在操作系统内核运行之前运行的一段小程序。通过这段小程序，我们可以初始化硬件设备
+<br />
+进入BOOTLOADER模式：首先将手机关机,按电源键和音量键的组合进入.
+<br />
+<br />
+Recovery：翻译过来的意思就是恢复，这是手机上的一个恢复模式。
+<br />
+进入RECOVERY模式/恢复模式：进入BOOTLOADER模式后，根据提示按动音量键选择进入RECOVERY模式，用电源键确认。
+<br />
+recovery 像是电脑上的小型winPE系统
+<pre class='brush: bash'>
+adb reboot Bootloader
+
+adb reboot recovery                #  samsung recovery mode     Vol Up + Home + Power.
+
+adb reboot download                #  samsung download mode     Vol Down + Home + Power 挖煤模式
+</pre>
+<br />
+<br />
+Fastboot是一个特殊的工程模式，通过fastboot界面，连接电脑后，我们可以在电脑端通过特殊的指令来操作手机，
+<br />
+例如更新radio（手机的通讯驱动），就可以通过fastboot来完成。fastboot的级别又要比recovery来的要高一些，
+<br />
+可以完成更底层的一些操作。  例如在fastboot 模式下刷入recovery 。
+<br />
+许多手机官方的升级和恢复方法是在比recovery 更底层的模式下（fastboot / bootloader / update......）操作完成的，
+<br />
+就是即使手机已经无法开机，无法进入recovery ，都能进行官方的升级或者恢复！
+<br />
+<br />
+Google Nexus系列在默认情况下fastboot是锁住的，通过如下命令解锁或重新上锁：
+<br />
+<pre class='brush: bash'>
+fastboot oem unlock        #解锁
+fastboot oem lock          #上锁
+</pre>
+在升级系统后，可能会存在旧数据和新系统不兼容的问题，解决方法如下：
+<pre class='brush: bash'>
+fastboot erase cache       #清除缓存
+fastboot erase userdata    #清除用户数据
+</pre>
+<br />
+<pre class='brush: bash'>
+apply update from ADB
+adb sideload update.zip        #  通过开发计算机把刷机包发送给recovery 其实还是recovery来刷 不用再把刷机包copy到内置储存里而已
+</pre>
+<pre class='brush: bash'>
+</pre>
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<br />
+<br />
+<br />
+
+
+</html>

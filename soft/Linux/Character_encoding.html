@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Character encoding</title>
+    <style>a {text-decoration: none}</style>            <!--去掉超链接下划线 -->  
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Character encoding 字符编码</h1>
+字符编码 tags: ASCII、ANSI、Unicode、UTF-8、UTF-16、UTF-32(即UCS-4)
+<br />
+为了跨平台及兼容性，请用专业的文本编辑器保存为不带 BOM(Byte Order Mark) 头的 UTF-8 编码
+<br />
+<a  href="https://www.v2ex.com/t/140835#reply10"               target="_blank" title="快速理解 Unicode\UTF-8\UTF-16">v2ex</a> 
+<a  href="http://objccn.io/issue-9-1/"                         target="_blank" title="NSString 与 Unicode">NSString 与 Unicode</a> 
+<a  href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html"  target="_blank" title="Unicode">阮一峰</a> 
+<a  href="http://www.crifan.com/files/doc/docbook/char_encoding/release/html/char_encoding.html"  target="_blank" title="Unicode">字符编码详解</a> 
+
+<br />
+<br />
+<a  href="http://zh.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a> 美国信息交换标准代码 其扩展版本EASCII则可以部分支持其他西欧语言，并等同于国际标准<a  href="http://zh.wikipedia.org/wiki/ISO/IEC_646" target="_blank" title="ASCII 美国信息交换标准代码"> ISO/IEC 646</a>
+<br />
+<br />
+<a  href="http://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E5%AD%97%E7%AC%A6%E9%9B%86" target="_blank">通用字符集</a>（Universal Character Set，UCS）是由ISO制定的<a  href="http://standards.iso.org/ittf/PubliclyAvailableStandards/index.html" target="_blank" title="Download"> ISO 10646(或称ISO/IEC 10646) </a>标准所定义的标准字符集。
+<br />
+<br />
+中日韩越统一表意文字（CJKV Unified Ideographs）目的是要把分别来自中文、日文、韩文、越南文、壮文中，起源相同、本义相同、形状一样或稍异的表意文字，赋予其在 ISO 10646 及 Unicode 标准中相同编码。
+<br />
+<br />
+<br />
+Windows记事本中的编码 <a title="ANSI是默认的编码方式。对于英文文件是ASCII编码，对于简体中文文件是GB2312编码（只针对Windows简体中文版，如果是繁体中文版会采用Big5码）">ANSI</a>、<a title="UCS-2 little endian BOM = ff fe">Unicode</a>、<a title="BOM = fe ff">Unicode big endian</a>、<a title="BOM = ef bb bf">UTF-8</a>
+<br />
+<br />
+big endian和little endian是CPU处理多字节数的不同方式 
+<br />
+例如“a”的Unicode编码是0061,那么写到文件里时，究竟是将00写在前面，还是将61写在前面？
+<br />
+如果将00写在前面，就是big endian,如果将61写在前面，就是little endian。
+<br />
+endian”这个词出自《格列佛游记》。小人国的内战就源于吃鸡蛋时是究竟从大头(Big-Endian)敲开还是从小头(Little-Endian)敲开，
+<br />
+一般将endian翻译成“字节序”，将big endian和little endian称作“大尾”和“小尾”。
+<br />
+<br />
+Unicode编码前面都有几个标记字符，这些字符放在文本文件的开头，称为“ BOM（ Byte Order Mark，字节顺序标记）”指明了文本的编码方式
+<br />
+<pre class='brush: bash'>
+编码                     BOM 值
+UTF-8(无BOM)             无
+
+UTF-8                    ef bb bf                       #  Microsoft的记事本在保存为 UTF-8 编码时，会在每个文件开头添加三个字节 ef bb bf 的字符
+
+UTF-16 big endian        fe ff                          #  00在前面
+
+UTF-16 little endian     ff fe                          #  00在后面
+
+UTF-32 big endian        00 00 FE FF
+
+UTF-32 little endian     FF FE 00 00
+</pre>
+<br />
+<br />
+Unicode 学名是"Universal Multiple-Octet Coded Character Set"，简称为UCS。UCS可以看作是"Unicode Character Set"的缩写
+<br />
+UCS规定了怎么用多个字节表示各种文字。怎样传输这些编码，是由UTF(UCS Transformation Format)规范规定的，常见的UTF规范包括UTF-8、UTF-7、UTF-16。
+<br />
+UCS有两种格式：UCS-2和UCS-4。顾名思义，UCS-2就是用两个字节编码，UCS-4就是用4个字节（实际上只用了31位，最高位必须为0）编码
+<br />
+UTF = UCS Transformation Format = UCS转换格式 它是将Unicode编码规则和计算机的实际编码对应起来的一个规则。现在流行的UTF有2种：UTF-8和UTF-16。
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+<br />
+Binary prefix
+二进制乘数词头
+二进制乘数词头被用作表示大的数字，采用2的乘幂而不是用10的乘幂
+
+<br />
+<br />
+<br />
+Storage
+<br />
+硬盘制造商是采用十进制给GB下定义1GB = 1,000,000,000字节，而计算机科学传统上是采用二进制即1GB = 1,073,741,824（1024^3）比特
+<br />
+Windows和linux操作系统中采用的是后一种定义 MAC OS X采用前一种定义
+<br />
+<br />
+吉字节（GB、Gigabyte），常简写为G
+<br />
+1GB = 1,000 MB = 10<sup>3</sup> MB
+<br />
+1GB = 1,000,000 KB = 10<sup>6</sup> KB
+<br />
+1GB = 1,000,000,000 B = 10<sup>9</sup> B
+<br />
+<br />
+32Gb(4096M x 8bit) = 4GB
+<br />
+<br />
+不过，Gigabyte往往可以指Gibibyte，其换算是：
+<br />
+1GiB = 1,024 MiB = 2<sup>10</sup> MiB
+<br />
+1GiB = 1,048,576 KiB = 2<sup>20</sup> MiB
+<br />
+1GiB = 1,073,741,824 B = 2<sup>30</sup> MiB
+<br />
+<br />
+兆字节（MB、Megabyte），常简写为B
+<br />
+1MB = 1,000 KB
+<br />
+1MB = 1,000,000 B
+<br />
+1GB = 1,000 MB
+<br />
+1TB = 1,000,000 MB
+<br />
+<br />
+另外，Megabyte往往指Mebibyte，其换算是：
+<br />
+1MiB = 1,024 KiB
+<br />
+1MiB = 1,048,576 B = 1024<sup>2</sup> B
+<br />
+1GiB = 1,024 MiB = 1,048,576 KiB = 1024<sup>2</sup> KiB
+<br />
+1TiB = 1,024 GiB = 1,073,741,824 KiB = 1024<sup>3</sup> KiB
+<pre class='brush: bash'>
+</pre>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+宽带业务有1M、2M、4M、6M、8M、10M、20M、50M、100M等接入,其速率单位为bps(比特/秒)
+<br />
+运营商向客户提供宽带业务时，按上行速率最高可达（upload speed up to）和下行速率最高可达（download speed up to）进行承诺。
+<br />
+上网带宽包括上行速率（upload）和下行速率（download），上行指客户发送信息，下行指客户接收信息。
+<br />
+1Byte/s=8bps
+<br />
+1KB/sec=8Kbps = 8192bps
+<br />
+1Kbps=1024bps
+<br />
+1M套餐宽带理论速率为: 1Mbps = 1024Kbps = 128KB/s
+<br />
+2M套餐宽带理论速率为: 2Mb/s = 2048Kb/s = 256KB/s
+<br />
+4M（即4Mb/s=4096Kb/s）宽带理论速率是：512KB/s
+<br />
+ 1Mbps=1024Kbps 例如：2Mbps=2048Kbps=256KB/sec
+<br />
+关于bit(比特)/second(秒)与Byte(字节)/s(秒)的换算说明:线路单位是bps,表示 bit(比特)/second(秒),注意是小写字母b.
+<br />
+用户在网上下载时显示的速率单位往往是KB/s Byte(字节)/s(秒)，注意是大写字母B。
+<br />
+
+<br />
+位 bit(比特)是表示信息的最小单位,叫做二进制位,一般用0和1表示
+<br />
+Byte叫做字节,由8个位（8bit）组成一个字节(1Byte),用于表示计算机中的一个字符
+<br />
+bit与Byte之间可以进行换算，其换算关系为：1Byte=8bit（或简写为：1B=8b）
+<br />
+在实际应用中一般用简称,即1bit简写为1b(注意是小写英文字母b),1Byte简写为1B（注意是大写英文字母B）
+<br />
+<br />
+
+<br />
+<br />
+<br />
+国际单位制词头
+<br />
+<pre class='brush: bash'>
+
+P  peta		 10^15
+T  tera		 10^12
+G  giga		 10^9
+M  mega		 10^6     兆 百万
+k  kilo		 10^3     千
+h  hecto	 10^2     百
+da deca		 10^1     十	 
+ 
+d  deci	     10^-1     分             
+c  centi	 10^-2     厘      
+m  milli	 10^-3     毫       
+µ  micro	 10^-6     微    
+n  nano	     10^-9     纳   
+p  pico	     10^-12    皮      
+</pre>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20141027
+</html>

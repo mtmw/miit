@@ -1,0 +1,67 @@
+/***布局layout***/
+
+/**************************************************************************************************/	
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/***Eric Meyer’s CSS 清零代码***/
+/**
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+************************************************************************************************/	
+
+
+
+
+
+
+
+
+/**盒子和浏览器的四周有8px宽的空隙。这是由于浏览器的默认的填充和边界造成的。消除这个空隙，就需要在css文件中写入margin: 0;**/
+body
+       { 
+	 line-height: 150%           /**整个页面行距增加**/  
+	 /*** 
+     margin-top: 0px;
+     margin-right: 0px;
+     margin-bottom: 0px; 
+     margin-left: 0px;
+ 
+    
+	 padding-top: 0%;
+     padding-right: 0%;
+     padding-bottom: 0px;
+     padding-left: 0%;	
+ 
+     border-top-style:solid;
+     border-right-style:solid;
+     border-bottom-style:solid;
+     border-left-style:solid;
+     ***/
+	
+    }                                             
+
+/**************************************************************************************************/	
+	

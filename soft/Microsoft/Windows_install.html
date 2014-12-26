@@ -1,0 +1,645 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Windows config</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushPython.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Windows config</h1>
+<hr /><!-- ----------------------------------------------------------------- -->
+技术人员计算机 Technician Computer 开发计算机 
+<br />
+安装适用于 Windows® 7 的 Windows® 自动安装工具包 (AIK)或 Windows OEM 预安装工具包 (Windows OPK)
+<br />
+Windows AIK 附带的工具:
+<br />
+Windows 系统映像管理器 (Windows SIM)  是用来创建和修改答案文件和配置设置的主要工具。
+<br />
+ImageX
+<br />
+部署映像服务和管理 (DISM) 可通过使用部署映像服务和管理 (DISM) 工具对该映像进行自定义
+<br />
+用户状态迁移工具 (USMT)
+<br />
+Windows预先安装环境(Microsoft Windows Preinstallation Environment)简称Windows PE或WinPE
+<br />
+WinPE是简化版的Windows XP、Windows Vista、Windows7、Windows Server
+<br />
+<br />
+建立 Windows PE 构建环境
+<br />
+在技术人员计算机上,开始/所有程序/Microsoft Windows AIK 或 Microsoft Windows OPK /部署工具命令提示符 (右键 以管理员身份运行)
+<pre class='brush: bash'>
+copype.cmd [architecture] [destination]        # [architecture] 可以是 x86、amd64 或 ia64
+                                               # [destination] 是本地目录的路径
+For example
+copype.cmd x86 D:\winpe_x86                    # 此脚本会在D盘winpe_x86目录创建文件目录结构并复制该体系结构的所有必要文件
+copy D:\winpe_x86\winpe.wim D:\winpe_x86\ISO\sources\boot.wim  # 将winpe_x86目录下的基本映像 (winpe.wim) 复制到
+                                                               # D:\Winpe_x86\ISO\sources 文件夹，然后将该文件重命名为 Boot.wim
+</pre>
+<br />
+<br />
+ImageX 是一个在实现部署方案期间捕获和应用映像的工具
+<br />
+可以使用 ImageX 向 Windows PE 映像中添加在 Windows PE 中工作时可能需要的应用程序和脚本														   
+<pre class='brush: bash'>
+copy D:\[version]\Tools\[architecture]\imagex.exe D:\winpe_x86\ISO\  # 在技术人员计算机上,将 ImageX 工具复制到 Windows PE 映像 ISO目录下
+      # [version] 是 Windows OPK 或 Windows AIK
+                      # [architecture] 是 x86、amd64 或 ia64。
+</pre>
+<br />
+<br />
+创建可引导 CD-ROM
+<pre class='brush: bash'>
+oscdimg -n -bD:\winpe_x86\etfsboot.com D:\winpe_x86\ISO D:\winpe_x86\winpe_x86.iso  # 使用 Oscdimg 工具将WinPE打包创建成 .iso 文件
+                                                                                    # 然后将映像 (.iso) 刻录到 CD-ROM 或 DVD-ROM 上
+</pre>
+<br />
+<br />
+创建可引导 USB Flash Disk
+<br />
+使用 Diskpart 工具将 UFD 格式化为跨越整个 UFD 的 FAT32，然后将此分区设置为活动状态。
+<pre class='brush: bash'>
+diskpart                         # 进入 diskpart 工具
+list disk                        # 列出磁盘
+select disk 1                    # 选定 U 盘(假定 Disk 1 为 UFD)
+clean                            # 清除物理磁盘所有信息                        
+create partition primary         # 创建分区
+select partition 1               # 选择分区1
+active                           # 将当前分区标为活动
+format quick fs=fat32            # 格式化该卷为FAT32
+assign                           # 分配驱动器号或装载点
+exit
+</pre>
+在技术人员计算机上，将 \ISO 目录中的所有内容复制到 UFD 中
+<pre class='brush: bash'>
+xcopy D:\winpe_x86\ISO\*.* /e F:\             # F:\ 是 UFD 的驱动器号
+                                              # /e 复制目录和子目录（包括空目录）
+</pre>
+<br />
+<br />
+创建可引导 Hard Disk
+<br />
+使用 Windows PE 介质引导启动计算机
+<br />
+使用 DiskPart 工具格式化硬盘驱动器。
+<pre class='brush: bash'>
+diskpart                         # 进入 diskpart 工具
+list disk                        # 列出磁盘
+select disk 0                    # 假定 Disk 0 为 Hard Disk
+clean
+create partition primary size=1024
+select partition 1
+active
+format
+exit
+</pre>
+将 Windows PE 源文件复制到硬盘
+<pre class='brush: bash'>
+xcopy d:\*.* /e  c:\                # d:\ 是 CD-ROM 驱动器或 UFD 介质的驱动器号
+                                    # /e 复制目录和子目录（包括空目录）
+                                    # c:\ 是硬盘上的主分区的驱动器号。
+</pre>
+<br />
+<br />
+ImageX 用于捕获、创建、修改和应用 Windows 映像 Wimtool
+<pre class='brush: bash'>
+diskpart                              # 必须从 Windows PE 运行此工具
+list volume
+imagex /capture C: D:\Win7.wim "Start Drivers Applications" /verify   # 用 ImageX 工具捕获计算机的映像备份系统 (执行此命令时,需切换到imagex目录)
+                                                     # Windows PE系统盘符为 X:,将C:盘备份到D:盘,映像文件为Win7.wim
+imagex /apply D:\win7.wim 1 C:           # 进入WinPE后还原备份的系统
+</pre>
+
+<hr /><!-- ----------------------------------------------------------------- -->
+<br />
+<br />
+打开UltraISO.exe,
+文件(F)/打开,选择WinOS.iso,
+插入U盘,选择 启动(B)/写入硬盘映像... 
+<br />
+<br />
+WinXP Key
+<pre class='brush: bash'>
+K2CXT C6TPX WCXDP RMHWT V4TDT
+MRX3F-47B9T-2487J-KWKMF-RPWBY
+</pre>
+BIOS
+<br />
+Enabled 启用 意味着已配置了该功能
+<br />
+Disabled 禁用 意味着未配置该功能
+<br />
+<br />
+WindowsImageBackup install
+<br />
+<br />
+<br />
+1.Win7安装完成重启OK后，硬盘上划一个约30GB的空间,盘符为R(RECOVERY)盘,卷标为 yu,并将此盘隐藏之,此空间作为备份系统之用.
+<br />
+2.控制面板/备份和还原/创建系统映像/在硬盘上 选择一个空间充裕的盘，按照提示备份系统，直至完成.
+<br />
+3.将第一步隐藏的R盘显示出来,将第二步备份的系统拷贝到R盘,并重新将R盘隐藏之.
+<br />
+恢复系统的方法:开机按F8键,出现高级启动菜单,系统启动时调出Windows7内置的Win RE
+<br />
+修复计算机/系统映像恢复/选择系统映像 恢复
+<br />
+<br />
+Winre界面，其中包含许多实用的修复工具：
+<br />
+Startup Repair：启动修复，可以用来自动修复一些常见的错误，例如启动管理器丢失或操作、引导菜单中某个项目的丢失。
+<br />
+System Restore：系统还原，将系统还原至某个还原点，前提是已经创建相应的还原点。
+<br />
+System Image Recovery：系统映像恢复，如果曾经为系统创建过映像文件，那么可以利用该工具进行恢复。
+<br />
+Windows Memory Diagnostic：Windows内存诊断
+<br />
+Command Prompt：命令提示符
+
+
+<br />
+<br />
+sysprep.exe封装备份系统 方便批量计算机安装
+<br />
+1.Win7安装完成重启OK后,不要安装驱动,安装好其他应用软件并设置好.运行C:\Windows\System32\sysprep\sysprep.exe,
+<br />
+在“系统清理操作”下方选择"审核模式"[("进入系统全新体验（OOBE）"]，并把“通用”选上("通用"选项是为了删除此系统的唯一标示，包括：sid、cdkey(激活码)、计算机名等,等同于命令行模式下的“sysprep /generalize”参数)
+<br />
+系统会提示重新启动电脑。重启后会自动运行sysprep
+<br />
+2.硬盘上划一个约30GB的空间,盘符为R(RECOVERY)盘,卷标为 yu,并将此盘隐藏之,此空间作为备份系统之用.
+<br />
+3.回到sysprep,这一步很重要,在“关机选项”中选择“退出”，点击“确定”,封装完毕自动退出.
+<br />
+4.删除已建立的用户:控制面板/管理工具/计算机管理/本地用户和组/用户 
+<br />
+ 启用Administrator账户:右击“Administrator”账户，在弹出菜单中单击“属性”，打开属性设置页面，将“此账户已禁用”项目前的对号取消。然后单击“确定”
+<br />
+ 然后将 Administrator 和 Guest 以外的账号删除
+<br />
+5.接以上第2步 控制面板/备份和还原/创建系统映像/在硬盘上
+<br />
+<br />
+<br />
+将"计算机"在桌面上显示
+<br />
+磁盘盘符错乱更正
+<br />
+<br />
+任务栏和[开始]菜单属性设置：
+<br />
+任务栏 使用小图标：任务栏外观/使用小图标/打勾
+<br />
+任务栏按钮不合并：任务栏按钮/从不合并
+<br />
+[开始]菜单
+最近使用的项目：自定义/接滚动条到最下面/最近使用的项目/打勾
+<br />
+<br />
+控制面板
+<br />
+鼠标设置 控制面板/鼠标/指针选项/自动将指针移动到对话框中的默认按钮/打勾
+<br />
+不隐藏不活动的图标：控制面板/通知区域图标/始终在任务栏上显示所有图标和通知/打勾
+<br />
+控制面板/电源选项/高性能
+<br />
+控制面板/个性化/窗口颜色和外观/启用透明效果_取消
+<br />
+文件夹选项打开隐藏的文件显示扩展名
+<br />
+<br />
+ Input 7-Zip Firefox Chrome QQ Thunder FreeCommander Desktop SumatraPDF MSE CCleaner
+<br />
+<br />
+<br />
+显示快速启动栏
+<pre class='brush: bash'>
+C:\Users\用户名\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch        #  默认的快速启动栏路径
+</pre>
+将默认的快速启动栏文件夹"Quick Launch"复制到E:\StartDesktop\Quick Launch
+<br />
+在任务栏上右键/工具栏/新建工具栏,找到E:\StartDesktop\Quick Launch,然后点击选择此文件夹.
+<br />
+在任务栏上空白处右键，把锁定任务栏的勾去掉。然后在 Quick Launch 的位置右键，把显示文本和显示标题的勾全部去掉。
+<br />
+现在任务栏已经解锁,我们可以自由的拖动上面的东西,稍微用点力,需要乾坤大挪移一下。
+<br />
+把快速启动栏往左拖到不能再拖的位置。然后把任务栏往右拖，快速启动栏自动就到了最左边。
+<br />
+屏幕Dock栏
+<br />
+<br />
+右键发送到...
+<br />
+需要右键发送到的项目：C:\usr\StartDesktop，复制C:\usr\StartDesktop文件夹的快捷方式到SendTo下。
+<br />
+即将E:\MyDesktop的快捷方式复制到以下路径:
+<pre class='brush: bash'>
+C:\Windows\SendTo                                                     #  Windows 9x/Me
+C:\Documents and Settings\当前登录的用户名\SendTo                       #  Windows 2000/XP
+C:\用户 Users\当前登录的用户名\AppData\Roaming\Microsoft\Windows\SendTo      #  Windows Vista/7
+</pre>
+                                                            
+<br />
+<br />
+
+启动提速：
+Win+r 运行“msconfig” 系统配置/引导/高级选项.../引导高级选项/处理器数 打勾 最大内存 打勾
+<br />
+控制面板/管理工具/系统配置/引导/高级选项/最大内存（填写4096）确定
+<br />
+<br />
+Windows7任务栏上显示星期
+<br />
+单击任务栏的时间区域/更改日期和时间设置.../更改日期和时间.../更改日历设置，在弹出的窗口中做如下修改：
+<br />
+短日期（S）为“yyyy-M-d dddd”
+<br />
+长日期（L）为“yyyy’年’M’月’d’日’ dddd”
+<br />
+<br />
+<br />
+C:\usr\StartDesktop\ 加入到环境变量/系统变量 Path
+<br />
+控制面板/系统/高级系统设置/高级/环境变量.../系统变量/Path
+<br />
+选中Path后，点击“编辑...”,在弹出的对话框中，“变量值”输入框中,定位到文字最后面(可按End键)
+<br />
+先添加一个半角分号;(以表示与前面的内容区分,分号后面不能加空格),再写入 C:\usr\StartDesktop\ 即可(注意 StartDesktop 后面要有反斜线).重启计算机后生效
+<br />
+C:\usr\HOME 加入到环境变量/用户变量 HOME
+<br />
+<br />
+%SystemRoot%\system32\drivers\etc\hosts
+<br />
+<pre class='brush: bash'>
+#Cadence
+0.0.0.0  www.cadence.com/html/orcad/start/
+0.0.0.0  www.cadence.com:80/html/orcad/start/
+0.0.0.0  www.cadence.com
+0.0.0.0  www.ema-eda.com
+0.0.0.0  192.203.56.67
+0.0.0.0  74.43.254.140
+0.0.0.0  203.208.46.222
+
+#MentorGraphics
+0.0.0.0  192.94.39.226
+0.0.0.0  192.94.39.226:80
+
+
+#www.163.com
+0.0.0.0 121.11.92.178
+
+#www.sohu.com
+0.0.0.0 202.55.12.17
+
+#www.ifeng.com
+0.0.0.0 175.41.12.85
+
+#www.daqi.com
+0.0.0.0 58.83.225.206
+
+#www.cnbeta.com
+0.0.0.0 202.55.12.17
+
+
+
+</pre>
+<br />
+
+<br />
+<br />
+<br />
+资源管理器背景颜色
+<br />
+WINXP  桌面/右键/属性/外观/高级/项目选择（窗口）/颜色1（L）选择（其它）
+<br />
+将色调改为：85。饱和度：123。亮度：205
+<br />
+添加到自定义颜色/在自定义颜色选定点确定/确定
+<br />
+这样所有的文档都不再是刺眼的白底黑字，而是非常柔和的豆沙绿色
+<br />
+<br />
+
+WIN7  第一步：桌面空白处右键/个性化/窗口颜色/高级外观设置
+<br />
+      第二步：窗口颜色与外观/点击项目下拉框选择“窗口/菜单”，点击“颜色1（L）”处的选择（其它）
+<br />
+      第三步：将色调改为：85，饱和度：123，亮度：205，添加到自定义颜色，在自定义颜色选定点这个颜色一路点击确定。
+<br />
+                本来为：色调：160，饱和度：0，亮度：240，        
+
+
+<br />
+<br />
+<pre class='brush: bash'>
+C:\Windows\SoftwareDistribution\Download                # Win7驱动自动下载目录在
+c:\windows\system32\DriverStore\FileRepository          # win7驱动备份文件夹
+c:\windows\winsxs\Backup                                # win7系统备份文件夹
+c:\windows\installer                                    # win7安装程序备份文件夹
+</pre>
+
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+双主分区独立双系统的引导
+<br />
+<br />
+WinXP / Win7启动过程
+<br />
+WinXP的启动：Bios-->MBR-->PBR-->ntldr-->boot.ini-->win kernel；
+<br />
+Win7 的启动：Bios-->MBR-->PBR-->bootmgr-->boot\BCD-->win kernel
+<br />
+<br />
+在一个硬盘上安装相互独立的双系统，硬盘必须设置双主分区
+<br />
+其中活动主分区Win7安装在第一个主分区，WinXP安装在第二个主分区，激活哪个主分区则启动相应分区上的操作系统。
+<br />
+<br />
+双系统启动菜单的制作
+<br />
+1.把WinXP下根目录下面的 ntldr、NTDETECT.COM、boot.ini、bootfont.bin、AUTOEXEC.BAT、CONFIG.SYS、 MSDOS.SYS、IO.SYS 八个文件，拷贝到Win7根目录下
+<br />
+2.启动Win7,以管理员权限运行cmd，然后依次输入执行如下命令行
+<pre class='brush: bash'>
+bcdedit /create {ntldr} /d "Windows XP"
+bcdedit /set  {ntldr} device partition=C:
+bcdedit /set  {ntldr} path \ntldr
+bcdedit /displayorder {ntldr} /addlast
+</pre>
+
+取消独立双系统启动菜单的方法：
+<br />
+方法一：在Win7中以管理员身份运行以下
+<pre class='brush: bash'>
+bcdedit /delete {ntldr} /f
+</pre>
+方法二：我的计算机/右键/属性/高级系统设置/高级/启动和故障恢复/设置，显示操作系统列表的时间设为0秒
+<br />
+方法三：运行 msconfig，在引导选项卡下删除WinXP启动项
+<br />
+<br />
+<hr /><!-- ----------------------------------------------------------------- -->
+<br />
+备份与恢复Win7激活文件:
+<br />
+备份Win7激活文件:pkeyconfig.xrm-ms 和 tokens.dat
+<br />
+备份Win7激活文件.bat
+<pre class='brush: bash'>
+@echo off
+copy %windir%\System32\spp\tokens\pkeyconfig\pkeyconfig.xrm-ms
+copy %windir%\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\SoftwareProtectionPlatform\tokens.dat
+pause
+exit
+</pre>
+Windows序列号查看器.vbs:(以ANSI编码保存为.vbs文件运行即可)查看激活时所用的序列号,并保存之
+<pre class='brush: bash'>
+'==========================================================================
+' Windows序列号查看器
+' Author: elffin (http://www.mtmw.net)
+'==========================================================================
+
+Option Explicit
+
+ON ERROR RESUME NEXT
+Dim g_strComputer, g_objRegistry, g_EchoString
+
+g_strComputer = "."
+g_EchoString = ""
+
+private const L_MsgErrorPKey                          = "没有安装Windows序列号, 以下为注册表残留信息。"
+private const L_MsgErrorRegPKey                       = "没有在注册表中找到Windows序列号。"
+private const L_MsgErrorRegPID                        = "没有在注册表中找到Windows产品ID。"
+
+Private const L_MsgProductName                        = "系统: "
+private const L_MsgProductDesc                        = "系统描述: "
+private const L_MsgVersion                            = "版本号: "
+Private Const L_MsgServicePack                        = "补丁包: "
+Private Const L_MsgBuild                              = "编译代号: "
+
+private const L_MsgProductKey                         = "序列号: "
+private const L_MsgProductId                          = "产品ID: "
+
+private const HKEY_LOCAL_MACHINE                      = &H80000002
+Private Const WindowsNTInfoPath                       = "SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+
+'If this is the local computer, set everything immediately
+If g_strComputer = "." Then
+Set g_objRegistry = GetObject("winmgmts:\\" & g_strComputer & "\root\default:StdRegProv")
+End If
+
+Call ExecCommand()
+Call ShowInfo()
+
+ExitScript 0
+
+Private Sub ExecCommand
+
+Dim productKeyFound
+Dim strProductKey, strProductId, strProductVersion, strTmp
+Dim bRegPKeyFound, bRegPIDFound        ' value exists in registry
+
+'Retrieve information from registry
+bRegPKeyFound = False : bRegPIDFound = False : productKeyFound = False
+g_objRegistry.GetBinaryValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "DigitalProductId", strTmp
+If Not IsNull(strTmp) Then
+strProductKey=GetKey(strTmp)
+bRegPKeyFound = True
+End If
+g_objRegistry.GetStringValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "ProductId", strTmp
+If Not IsNull(strTmp) Then
+strProductId = strTmp
+bRegPIDFound = True
+End If
+
+LineOut ""
+g_objRegistry.GetStringValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "ProductName", strTmp
+LineOut GetResource("L_MsgProductName") & strTmp
+g_objRegistry.GetStringValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "CSDVersion", strTmp
+If Not IsNull(strTmp) Then
+LineOut GetResource("L_MsgServicePack") & strTmp
+End If
+g_objRegistry.GetStringValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "CurrentVersion", strProductVersion
+g_objRegistry.GetStringValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "CurrentBuildNumber", strTmp
+strProductVersion=strProductVersion & "." & strTmp
+LineOut GetResource("L_MsgVersion") & strProductVersion
+g_objRegistry.GetStringValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "BuildLabEx", strTmp
+If IsNull(strTmp) Then
+g_objRegistry.GetStringValue HKEY_LOCAL_MACHINE, WindowsNTInfoPath, "BuildLab", strTmp
+End If
+LineOut GetResource("L_MsgBuild") & strTmp
+
+productKeyFound = True
+
+LineOut ""
+If productKeyFound <> True Then
+    LineOut GetResource("L_MsgErrorPKey")
+End If
+If bRegPKeyFound Then
+    LineOut GetResource("L_MsgProductKey") & strProductKey
+Else
+    LineOut GetResource("L_MsgErrorRegPKey")
+End If
+If bRegPIDFound Then
+    LineOut GetResource("L_MsgProductId") & strProductId
+Else
+    LineOut GetResource("L_MsgErrorRegPID")
+End If
+
+LineOut ""
+LineOut "本程序用来查看Windows的序列号。"
+LineOut "适用于绝大多数Windows系统，包括 XP/Vista/Win7 系列等。"
+
+End Sub
+
+Private Sub ShowInfo
+
+Dim Ans, objFSO, outFile, strSave
+
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+strSave = vbNewLine & "-----------------------------------------------------------" & vbNewLine & g_EchoString
+strSave = strSave & vbNewLine & "------  " & Now() & "  " & "由Windows序列号查看器保存" & "  ------" & vbNewLine
+
+LineOut ""
+LineOut ""
+LineOut "是否保存以上信息到文本文件 WindowsKey.txt ？"
+
+Ans = MsgBox(g_EchoString, 4, "Windows序列号查看器")
+
+g_EchoString = ""
+If Ans = vbYes Then
+    Set outFile = objFSO.OpenTextFile(".\WindowsKey.txt", 8 , True) ' append to file
+outFile.WriteLine strSave
+outFile.Close
+LineOut "已经保存到文件 WindowsKey.txt ！"
+End If
+
+End Sub
+
+Private Function GetKey(rpk)   'Decode the product key
+
+Const rpkOffset=52
+Dim dwAccumulator, szPossibleChars, szProductKey
+dim i,j
+
+i=28 : szPossibleChars="BCDFGHJKMPQRTVWXY2346789"
+Do 'Rep1
+    dwAccumulator=0 : j=14
+    Do
+        dwAccumulator=dwAccumulator*256
+        dwAccumulator=rpk(j+rpkOffset)+dwAccumulator
+        rpk(j+rpkOffset)=(dwAccumulator\24) and 255
+        dwAccumulator=dwAccumulator Mod 24
+        j=j-1
+    Loop While j>=0
+    i=i-1 : szProductKey=mid(szPossibleChars,dwAccumulator+1,1)&szProductKey
+    if (((29-i) Mod 6)=0) and (i<>-1) then
+        i=i-1 : szProductKey="-"&szProductKey
+    end if
+Loop While i>=0 'Goto Rep1
+GetKey=szProductKey
+End Function
+
+' Get the resource string with the given name using the built-in default.
+Private Function GetResource(name)
+GetResource = Eval(name)
+End Function
+
+Private Sub ExitScript(retval)
+if (g_EchoString <> "") Then
+    MsgBox g_EchoString, 0, "Windows序列号查看器"
+End If
+WScript.Quit retval
+End Sub
+
+' Functions Without Change Below
+
+Private Sub LineOut(str)
+g_EchoString = g_EchoString & str & vbNewLine
+End Sub
+</pre>
+恢复Win7激活文件：（计算机名要与原来一致,并编辑好序列号）（这个批处理要与上述两个备份文件放在同一文件夹）
+<pre class='brush: bash'>
+@echo off
+net stop sppsvc /y
+takeown /f "%WinDir%\System32\spp\tokens\pkeyconfig\pkeyconfig.xrm-ms"
+cacls "%WinDir%\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\SoftwareProtectionPlatform\tokens.dat" /e /g everyone:f
+cacls "%WinDir%\System32\spp\tokens\pkeyconfig\pkeyconfig.xrm-ms" /e /g everyone:f
+ren "%WinDir%\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\SoftwareProtectionPlatform\tokens.dat" "tokens.bak"
+ren "%WinDir%\System32\spp\tokens\pkeyconfig\pkeyconfig.xrm-ms" "pkeyconfig.bak"
+copy tokens.dat "%WinDir%\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\SoftwareProtectionPlatform\"
+copy pkeyconfig.xrm-ms "%WinDir%\System32\spp\tokens\pkeyconfig\"
+del "%WinDir%\ServiceProfiles\NetworkService\AppData\Roaming\Microsoft\SoftwareProtectionPlatform\tokens.bak"
+del "%WinDir%\System32\spp\tokens\pkeyconfig\pkeyconfig.bak"
+net start sppsvc
+cscript %windir%\system32\slmgr.vbs -ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+cscript %windir%\system32\slmgr.vbs -ato
+pause
+exit
+</pre>
+<pre class='brush: bash'>
+slmgr.vbs -dli      # 显示：操作系统版本、部分产品密钥、许可证状态
+
+slmgr.vbs -dlv      # 显示：操作系统版本、激活ID、安装ID、各种证书地址、部分产品密钥、许可证状态等
+
+slmgr.vbs -xpr      # 显示：是否永久激活
+</pre>
+<br />
+<br />
+
+<hr /><!-- ----------------------------------------------------------------- -->
+
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20140528
+</html>

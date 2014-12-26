@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Ubuntu安装</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Ubuntu install</h1>
+<br />
+在WinXP上安装Ubuntu
+<br />
+<br />
+1.复制引导文件
+<br />
+a.下载 Ubuntu 的 desktop 光盘镜像 iso 文件,如 Ubuntu 12.04.2 LTS 长期支持版本:ubuntu-12.04.2-desktop-amd64.iso
+<br />
+b.用 7-zip 或 WinRAR 将iso文件解压之
+<br />
+c.在 casper 文件夹里,有两个文件 initrd.lz 和 vmlinuz,这两个文件就是系统引导文件,将这两个文件复制到系统盘 C 盘根目录下
+<br />
+<br />
+2、制作menu.lst文件
+<br />
+a.打开记事本,输入下面的内容,注意把第三行中 filename=/ 后面的文件名改成对应的
+<br />
+<div style="background-color: rgb(200, 200, 200); padding-left:20px; width:1024px; color: green;">title Install Ubuntu
+<br />
+<br />
+root (hd0,0)<br />
+<br />
+kernel /vmlinuz boot=casper iso-scan/filename=/ubuntu-<span style="color: rgb(255, 0, 0);">12.04.2</span>-desktop-amd64.iso quiet splash ro locale=zh_CN.UTF-8 noprompt --
+<br />
+<br />
+initrd /initrd.lz
+</div>
+<br />
+点菜单“文件－保存”,位置保存在系统盘 C 盘根目录下,文件名输入 "menu.lst",注意有一对英文的双引号(如下图)
+<br />
+<img src="images/WinXP_menu.lst文件.png" title="menu.lst文件" alt="menu.lst文件" width="500" height="400" />
+<br />
+<br />
+b.再下载一个grldr文件：<a href="http://code.google.com/p/grub4dos-chenall/downloads/list">http://code.google.com/p/grub4dos-chenall/downloads/list</a>，提取其中的 grldr 文件(非grldr.mbr)
+<br />
+c.将iso文件也复制到系统盘 C 盘,至此系统盘 C 盘已经有以下5个文件
+<br />
+<img src="images/WinXP_5个文件.png" title="WinXP_5个文件.png" alt="WinXP_5个文件.png" />
+<br />
+<br />
+3.修改WinXP的启动文件boot.ini
+<br />
+a.WinXP的启动配置文件C:\BOOT.INI，打开这个文件，修改里面的timeout=0，把0改成3或者更大的数字，并在文件最后添加如下即可：
+<br />
+<div style="background-color: rgb(200, 200, 200); padding-left:20px; width:1024px; color: green;">timeout=3<br /> .<br /> .<br /> .<br />c:\grldr="Install Ubuntu"</div>
+<br />
+b.重新启动计算机，在出现以下启动菜单时，按方向键选择“Install Ubuntu”，按回车键进入后开始安装；
+<br />
+<img src="images/WinXP_启动菜单.jpg" title="WinXP_启动菜单.jpg" alt="WinXP_启动菜单.jpg" />
+<br />
+<br />
+c.耐心等待系统加载，直到出现桌面，打开终端Terminal并输入:
+<pre class='brush: bash'>
+sudo umount -l /isodevice        #硬盘安装系统时候需要运行此命令,是把已经挂载的iso文件卸载
+                                 #因为iso文件是存储在硬盘上的,只有卸载之后才能够给该硬盘重新分区
+</pre>
+d.双击桌面上的“安装 Ubuntu”图标，稍等进入安装对话框开始安装
+<br />
+<br />
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+<br />
+<br />
+<br />
+<br />
+<br />
+在Win7/8上安装Ubuntu
+<br />
+1.检查 Win7/8 保留分区
+<br />
+Win7/8如果有作引导用的100M的系统保留分区(如下图),需先将这100M的分区配一个盘符,将相关文件复制到这个系统保留分区尔后再将所配盘符取消
+<img src="images/100M系统保留分区.jpg" title="100M的系统保留分区" alt="100M的系统保留分区" />
+<br />
+如果没有这个保留分区,则将相关文件复制到系统盘 C 盘
+<br />
+<br />
+2.复制引导文件
+<br />
+a.下载 Ubuntu 的 desktop 光盘镜像 iso 文件,如 Ubuntu 12.04.2 LTS 长期支持版本:ubuntu-12.04.2-desktop-amd64.iso
+<br />
+b.用 7-zip 或 WinRAR 将iso文件解压之
+<br />
+c.在 casper 文件夹里,有两个文件 initrd.lz 和 vmlinuz,这两个文件就是系统引导文件,将这两个文件复制到系统保留分区或是系统盘 C 盘根目录下
+<br />
+<br />
+2、制作menu.lst文件
+<br />
+a.打开记事本,输入下面的内容:
+<br />
+<div style="background-color: rgb(200, 200, 200); padding-left: 20px; width: 1024px; color: green;">title Ubuntu/Linux 12.10
+<br />
+<br />
+find --set-root /boot/grub/i386-pc/core.img
+<br />
+<br />
+kernel /boot/grub/i386-pc/core.img
+<br />
+<br />
+boot
+</div>
+<br />
+如果 /boot 是单独分区的，使用下面这样的：
+<div style="background-color: rgb(200, 200, 200); padding-left: 20px; width: 1024px; color: green;">title ubuntu/Linux (/boot on single partitionas)
+<br />
+<br />
+find --set-root /grub/i386-pc/core.img
+<br />
+<br />
+kernel /grub/i386-pc/core.img
+<br />
+<br />
+boot
+</div>
+<br />
+点菜单“文件－保存”,位置保存到系统保留分区或是系统盘 C 盘根目录下,文件名输入 "menu.lst",注意有一对英文的双引号(如下图)
+<br />
+<img src="images/Win7_menu.lst文件.jpg" title="menu.lst文件" alt="menu.lst文件" width="500" height="400"/>
+<br />
+b.再下载一个 g2ldr 和 g2ldr.mbr 文件，也复制到系统保留分区或是系统盘 C 盘根目录下
+<br />
+c.再在系统保留分区或是系统盘 C 盘根目录下创建一个 boot.ini 文件，输入下面的内容：
+<br />
+<div style="background-color: rgb(200, 200, 200); padding-left: 20px; width: 1024px; color: green;">[boot loader]<br />
+timeout=0<br />
+default=C:\g2ldr.mbr<br />
+[operating systems]<br />
+C:\g2ldr.mbr="Ubuntu"</div>
+<br />
+<br />
+这样在系统保留分区磁盘里面就有6个复制过来的文件(如下图)，在系统盘 C 盘里有一个 Ubuntu 镜像文件
+<br />
+<img src="images/Win7_6个文件.jpg" title="Win7_6个文件.jpg" alt="Win7_6个文件.jpg" />
+<br />
+<br />
+如果没有系统保留分区,则这7个文件都放在系统盘 C 盘里
+<br />
+至此,取消系统保留分区磁盘所配的盘符.
+<br />
+<br />
+3.重新启动计算机，在出现启动菜单时，按方向键选择“Ubuntu”，按回车键进入后开始安装；
+<br />
+<br />
+a.耐心等待系统加载，直到出现桌面，打开终端Terminal并输入:
+<pre class='brush: bash'>
+sudo umount -l /isodevice        #硬盘安装系统时候需要运行此命令,是把已经挂载的iso文件卸载
+                                 #因为iso文件是存储在硬盘上的,只有卸载之后才能够给该硬盘重新分区
+</pre>
+b.双击桌面上的“安装 Ubuntu”图标，稍等进入安装对话框开始安装
+<br />
+<br />
+<br />
+Linux磁盘分区挂载：
+<pre class='brush: bash'>
+/              # 根分区 EXT4 or XFS  
+swap           # 交换分区 4G内存以下分2G，4G以上可不分
+</pre>
+ or
+<pre class='brush: bash'>
+/              # 根分区 EXT4 or XFS  
+/home          # 逻辑分区 这个分区是用来存放用户文件，像文档、图片、歌曲等等，容量别太小；
+swap           # 4G内存以下分2G，4G以上可不分  
+</pre>
+ or
+
+<pre class='brush: bash'>
+/              #根目录EXT4
+
+/boot          #引导程序 逻辑分区
+
+swap           #交换空间 跟内存相同或多一些 用于选“交换空间” ，“挂载点”省略，这个分区是用来休眠和虚拟内存用的；
+
+/home          #逻辑分区 这个分区是用来存放用户文件，像文档、图片、歌曲等等，容量别太小；
+
+/tmp           #逻辑分区
+
+/usr           #应用程序目录。大部分的软件都安装在这里。就像是Windows里面的Program Files。 
+
+/usr/local     #存放用户自己安装的程序。
+
+/opt           #逻辑分区 在某些系统，用于存放第三方厂商开发的程序，所以取名为option，意为"选装"。
+
+/var           #逻辑分区 日志文件，经常会变动，硬盘读写率高的文件放在此中 
+
+/srv
+</pre>
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+Windows下VirtualBox虚拟Linux共享文件夹设置
+<br />
+1. 安装增强功能包(VBoxGuestAdditions)
+<br />
+打开VirtualBox，运行Linux，菜单栏/设备/安装增强功能
+<br />
+2. 设置共享文件夹
+<br />
+菜单栏/设备/Shared Folders Settings(共享文件夹) 选择共享的路径 D:\IT\VirtualDrive
+<br />
+3. 挂载共享文件夹 在终端下输入：
+<pre class='brush: bash'>
+su
+mkdir /mnt/share                         # share是可以任起一个文件名
+mount -t vboxsf VirtualDrive /mnt/share
+</pre>
+现在Linux和主机可以互传文件了 其中VirtualDrive是在Windows上创建的共享文件夹的名字
+<br />
+Linux下的/mnt/share文件夹和windows下的D:\IT\VirtualDrive文件夹在一定程度上就相当于同一个文件夹了（添加、修改、删除会同步发生）
+<br />
+不想每一次都手动挂载，可以在/etc/fstab中添加一项
+<pre class='brush: bash'>
+VirtualDrive /mnt/share vboxsf rw,gid=100,uid=1000,auto 0 0
+</pre>
+这样就能够自动挂载了。
+<br />
+4. 卸载的话使用下面的命令：
+<pre class='brush: bash'>
+su
+umount -f /mnt/share
+</pre>
+ 
+注意：
+<br />
+共享文件夹的名称千万不要和挂载点的名称相同。
+<br />
+比如，上面的挂载点是/mnt/shared，如果共享文件夹的名字也是shared的话，在挂载的时候就会出现如下的错误信息
+/sbin/mount.vboxsf: mounting failed with the error: Protocol error
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+Linux所有设备都被抽象为一个文件,保存在/dev目录下.
+<br />
+IDE设备名称为 hd[a-z]
+<br />
+SATA SCSI SAS USB设备名称为 sd[a-z]
+<br />
+硬盘 /dev/sdx，x 为英文字母，依次以a, b, c, d, ...来标识第一、二、三、四、...块硬盘    
+<br />
+一个硬盘分区将被表示为：/dev/sd+硬盘标识+分区编号。例如，/dev/sda1 表示第一块硬盘的第一个分区，/dev/sdb2 表示第二块硬盘的第二个分区。   
+<br />
+光驱 /dev/srn，n 为数字。如有多个光驱，按数字顺序排列，例如，/dev/sr0 表示第一个光驱，/dev/sr1 表示第二个光驱，依此类推。   
+<br />
+<br />
+<br />
+磁盘 fdisk分区工具
+<br />
+fdisk基于MBR的分区工具，GPT无法用fdisk分区。
+<br />
+<pre class='brush: bash'>
+fdisk -l             # list known partition types 列出已知的分区类型
+255 head  63 sectors/track  xxxx cylinder
+    磁头      扇区                 柱面
+
+fdisk /dev/sd*
+a   toggle a bootable flag
+b   edit bsd disklabel
+c   toggle the dos compatibility flag
+d   delete a partition                      # 删除一个分区
+l   list known partition types              # 列出分区 id 类型
+m   print this menu                         # 列出帮助信息
+n   add a new partition                     # 创建一个新的分区
+o   create a new empty DOS partition table
+p   print the partition table               # 列出当前分区
+q   quit without saving changes             # 退出不保存
+s   create a new empty Sun disklabel
+t   change a partition's system id          # 修改分区 id 类型   linux 83 / NTFS 7 / FAT32 c
+u   change display/entry units
+v   verify the partition table
+w   write table to disk and exit            # 把分区表写入磁盘并退出
+x   extra functionality (experts only)      # 扩展应用，专家功能
+  
+</pre>
+
+<br />
+primary Partition 主分区
+<br />
+extended 扩展分区(扩展分区不能直接使用,需要在上面创建逻辑分区才能使用)  
+<br />
+logical 逻辑分区(分区号从5开始)
+
+分区容量的大小即柱面号
+<pre class='brush: bash'>
+partprobe            # 分区之后用此命令让内核更新分区信息
+cat /proc/partitions # 查看分区信息
+没有文件系统的硬盘设备称之为裸(raw)设备
+
+
+df -h    # 磁盘大小情况
+du -h    # 磁盘使用情况
+dmesg | grep sda
+
+blkid    # 查看uuid号
+</pre>
+<br />
+
+<br />
+<br />
+创建文件系统的过程又称之为格式化
+<br />
+mke2fs 创建文件系统
+<pre class='brush: bash'>
+mke2fs -t ext4 /dev/sdb1          #  将/dev/sdb1分区格式化为ext4文件系统
+or
+mkfs.ext4 /dev/sdb1               #  将/dev/sdb1分区格式化为ext4文件系统
+or
+mkfs.ntfs /dev/sdb1               #  将/dev/sdb1分区格式化为ntfs文件系统
+
+dumpe2fs /dev/sdb1                #  查看/dev/sdb1分区文件系统信息
+</pre>
+<br />
+<pre class='brush: bash'>
+smartctl -a /dev/sda       # 运行SMART快速检查磁盘通电时间和次数 smartmontools是一款开源的磁盘控制 监视工具
+9 Power_On_Hours           # 磁盘通电时间
+12 Power_Cycle_Count       # 磁盘通电次数
+</pre>
+<br />
+<br />
+
+
+
+
+<br />
+
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+<br />
+Ubuntu 和 windows 双系统，怎样让系统默认为从 windows 启动？
+<br />
+如果直接把grub.cfg中的windows菜单项摆到最前面，update-grub又会复原.
+<br />
+修改 /etc/grub.d 下的文件名
+<br />
+/etc/grub.d目录下这几个文件名都是以数字开头，这确定了在 update-grub 时各文件内容被执行的顺序，
+<br />
+我们只要把 30_os-prober 这个文件名的 30 改为 05到10之间的数字即可（没多少可选 06 07 08 09　取个中间 08吧），
+<br />
+改为 08_os-prober 好了，再执行 update
+<pre class='brush: bash'>
+mv 30_os-prober 08_os-prober    # 30_os-prober 重命名为 08_os-prober
+sudo update-grub
+cat /boot/grub/grub.cfg
+
+</pre>
+<br />
+双系统保留 Windows 删除 Linux
+<br />
+删除 Linux 分区后输入：
+<pre class='brush: bash'>
+bootrec.exe /fixmbr        #这将删除 Linux 的bootloader和恢复Windows
+</pre>
+<br />
+双系统保留 Linux 删除 Windows
+<br />
+删除 Windows 分区后输入：
+<pre class='brush: bash'>
+sudo update-grub        #清除启动菜单中 Windows 系统痕迹
+</pre>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20140901
+</html>

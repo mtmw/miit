@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>linux soft manager</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Linux</h1>
+<br />
+Upgrade 升级 一般是指比较重要的升级，或者说是主要的，单独版本的升级，其中软件改变很大，比方说从windows xp系统upgrade到windows 7系统；
+<br />
+Update 更新 一般是指比较次要的升级或更新，软件改变比较小或者只是修复一些bug，比方说从window 7系统update到windows 7 sp1。
+<br />
+Upgrade一般指质的变化，而Update一般指量的变化。
+<br />
+<br />
+<br />
+linux software manager
+<br />
+Linux下软件的安装有两种不同的形式:二进制文件安装和源码安装
+<br />
+<br />
+Linux中的软件包管理方式将其大致分成这些派别:
+<br />
+1、dpkg系（代表：Debian、Ubuntu）
+<br />
+2、rpm系（代表：Redhat,现在社区版改叫Fedora,包括建立在其基础上的CentOS、Mandrake(Mandriva)、SuSE等）
+<br />
+3、portage系（代表：gentoo（其创始人Daniel Robbins原来就是FreeBSD的开发者,所以其思想来源于BSD））
+<br />
+4、pacman系（代表：Archlinux）
+<br />
+5、Slackware（很有特色,到现在都坚持不使用包管理方式）
+<br />
+6、各种LFS。（这个挺适合折腾的）
+<br />
+<br />
+
+
+在 GNU/Linux操作系统中,DPKG和RPM为最常见的两类软件包管理工具,
+<br />
+他们分别应用于基于DEB软件包的Linux发行版本和RPM软件包的Linux发行版本.
+<br />
+<br />
+<br />
+Redhat Package Manager
+<br />
+<br />
+<br />
+<br />
+源代码一般以file.tar.gz file.tar.bz2或file.src.rpm打包.
+<br />
+源码的安装一般由3个步骤组成：
+<br />
+配置（configure）
+<br />
+编译（make）
+<br />
+安装（make install）
+<br />
+<br />
+安装的具体步骤:
+<pre class='brush: bash'>
+tar zxvf file.tar.gz    (or tar jxvf file.tar.bz2)    #先解压源文件
+cd xxxxxxxx                                           #进入解压的目录
+./configure                                           #配置
+make                                                  #编译
+make install                                          #安装
+
+
+make clean                                            #清理临时文件
+
+
+make uninstall                                        #卸载软件
+</pre>
+
+解压:
+<br />
+最常见源码包的就两种(file.tar.gz or file.tar.bz2),这些源码包都是由2个工具压缩而成的,
+<br />
+tar.gz结尾的文件用到的工具是tar和gunzip,而tar.bz2结尾的文件所使用的工具是tar和bzip2,
+<br />
+之所以这样做是因为,tar仅仅能够打包多个文件但是没有压缩的功能,而gz和bz2却刚好相反,仅能够压缩单个文件,
+<br />
+这样我们常见的源码包实际上是通过tar先将不同的源文件打包,然后再通过gunzip或者bzip2压缩后发布的,
+<br />
+当然这两个步骤(打包、压缩)可以通过一条命令实现:
+<pre class='brush: bash'>
+tar zcvf file.tar.gz file
+
+  or
+
+tar jcvf file.tar.bz2 file
+</pre>
+
+./configure:
+<br />
+解压完成就正式开始安装了,首先跳转到源码的解压目录,众所周知,
+<br />
+开始configure前还是应该仔细阅读源码目录下的README或者INSTALL文件,
+<br />
+好多安装中的注意事项在这里都有所罗列,configure实际上是一个脚本文件,
+<br />
+在当前目录中键入"./configure",shell就会运行当前目录下的configure脚本,
+<br />
+有一点必须说明,在整个configure过程,其实编译尚未进行,configure仅仅是做编译相关的准备工作,
+<br />
+它主要对您当前的工作平台做一些依赖性检查,比如编译器是否安装,连接器是否存在,
+<br />
+如果在检测的过程没有任何错误,configure脚本会在当前目录下生成下一步编译链接所要用到的另一个文件Makefile,
+<br />
+当然configure支持及其丰富的命令行参数,可以键入"./configre --help"获取具体的信息,最常用的恐怕就是:
+<pre class='brush: bash'>
+./configure --prefix=/opt/xxxxxxxx                    #设置软件的安装目录
+</pre>
+
+make:
+<br />
+如果configure过程正确完成,那么在源码目录,会生成相应的Makefile文件,
+<br />
+Makefile文件简单来说包括的是一组文件依赖关系以及编译链接的相关步骤,
+<br />
+事实上真正的编译链接工作也不是make所做的,make只是一个通用的工具,
+<br />
+一般情况下,make会根据Makefile中的规则调用合适的编译器编译所有与当前软件相依赖的源码,
+<br />
+生成所有相关的目标文件,最后再使用链接器生成最终的可执行程序:
+<pre class='brush: bash'>
+make
+</pre>
+
+make install:
+<br />
+当上面两个步骤(配置、编译)正确完成,代表着编译链接过程已经完全结束,
+<br />
+最后要做的就是将可执行程序安装到正确的位置,
+<br />
+在这个步骤,普通用户可能没有相关目录的操作权,需要切换到root权限,
+<br />
+"install"只是Makefile文件中的一个标号,
+<br />
+"make install"代表着make工具执行Makefile文件中"install"标号下的所有相关操作,
+<br />
+如果在configure阶段没有使用"--prefix=/opt/xxxxxxxx"指定应用程序的安装目录,
+<br />
+那么应用程序一般会被默认安装到/usr/local/bin,如果/usr/local/bin已经存在于您的PATH中,那么安装已经基本结束:
+<pre class='brush: bash'>
+make install
+</pre>
+
+make clean:
+<br />
+make uninstall:
+<br />
+这两个步骤只是安装的后续操作,有一点必须注意,"clean"和"uninstall"也是Makefile文件中相应的两个标号,
+<br />
+执行这两个步骤的时候Makefile文件必要保留,"make clean"用来清除编译连接过程中的一些临时文件,
+<br />
+"make uninstall"是卸载相关应用程序,与make install类似,make uninstall也需要切换到root执行,
+<br />
+不过"uninstall"标号在好多Makefile中都被省略掉了,朋友们完全可以自己在相应的Makefile文件一探究竟.
+<br />
+<br />
+不指定prefix，可执行文件默认放在/usr/local/bin，库文件默认放在/usr/local/lib，配置文件默认放在/usr/local/etc。
+<br />
+其它的资源文件放在/usr /local/share。
+<br />
+
+源码的安装一般由3个步骤组成：
+配置（configure）
+编译（make）
+安装（make install）
+
+
+
+
+<br />
+<br />
+<br />
+从C语言的角度来说,一个程序从源码到正确生成相关的可执行文件,下面这些部分必不可少:
+<br />
+源文件,编译器,汇编器,连接器,依赖库,通过上面几个步骤,朋友们应该已经知道,
+<br />
+真正执行编译链接操作的步骤只有一个(make),那其他步骤存在的理由何在？
+<br />
+有一点是肯定的,我在自己的电脑上使用C语言写一些自娱自乐的小程序,
+<br />
+也没有用到"configure or make install"之类的命令,顶多自己写个Makefile管理源文件的依赖关系,
+<br />
+可是软件开发者不同,他必须考虑到软件的可移植性,他开发的软件不能仅仅就在他自己的pc上跑吧？
+<br />
+不同的平台可能连硬件体系结构都不同,这样就导致了Makefile的不可移植性,为了解决这个问题,
+<br />
+开发者通常使用autoconf之类的工具生成相应的configure脚本,而configure脚本就是用来屏蔽相应的平台差异,
+<br />
+从而正确生成Makefile文件,然后make再根据configure的劳动成果(Makefile)完成编译链接工作.        
+<br />
+至于"install or clean or uninstall",也只是对应着Makefile文件中不同的规则.
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+二进制文件安装文件名为filename.i386.rpm,i386即表示该软件是按Inter 386指令集编译生成的。
+
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<pre class='brush: bash'>
+sudo apt-get install package
+or
+yum install package
+</pre>
+
+<pre class='brush: bash'>
+apt-get update
+apt-get install bash
+
+sudo apt-get update && sudo apt-get install bash
+</pre>
+<br />
+
+
+
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+20130808
+</html>

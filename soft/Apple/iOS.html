@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>iOS</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>iOS</h1>
+<br />
+iTunes 备份的路径：
+<pre class='brush: bash'>
+C:\用户 Users\用户名 m\AppData\Roaming\Apple Computer\MobileSync
+</pre>
+iTunes 升级固件时固件下载默认存放路径：
+<pre class='brush: bash'>
+C:\用户 Users\用户名 m\AppData\Roaming\Apple Computer\iTunes\iPad Software Updates
+</pre>
+关于 iTunes Library 文件
+<br />
+iTunes 资料库是 iTunes 用来整理音乐的数据库。iTunes 创建并维护着两个用于不同目的的 iTunes 资料库文件
+<pre class='brush: bash'>
+Windows XP：C:\Documents and Settings\用户名\My Documents\我的音乐\iTunes\iTunes Library.itl
+            C:\Documents and Settings\用户名\My Documents\我的音乐\iTunes\iTunes Library.xml
+			
+Windows 7：C:\用户 Users\用户名 m\音乐\iTunes\iTunes Library.itl
+           C:\用户 Users\用户名 m\音乐\iTunes\iTunes Library.xml
+		   
+Mac OS X：/用户/用户名/音乐/iTunes/iTunes Library.itl
+          /用户/用户名/音乐/iTunes/iTunes Library.xml
+</pre>
+关于 iTunes Library.itl 文件
+<br />
+此文件是您的资料库和您创建的播放列表中的歌曲的数据库。该文件中存储着一些有关歌曲的特定数据。
+<br />
+如果删除此文件，iTunes 会在打开应用软件时创建一个新的空拷贝文件，而您以前创建的任何播放列表、歌曲评级、评价或其他信息都将不复存在。
+<br />
+iTunes 资料库文件只能由 iTunes 使用，且是由 OS X 上的 Time Machine 备份的唯一一个文件。
+<br />
+<br />
+一台计算机使用多个iOS设备，需建多个iTunes资料库：Windows下按住Shif键(Mac下按住alt/option)同时双击iTunes图标，就可以选取切换或创建资料库
+<br />
+<br />
+
+关于 iTunes Media 文件夹
+<pre class='brush: bash'>
+E:\Apple\iTunes_Library_mPad
+
+C:\用户 Users\用户名 m\Music\iTunes\iTunes Media   # 默认位置
+</pre>
+iCloud 照片位置
+<pre class='brush: bash'>
+E:\Apple\iCloud_Photos
+C:\用户 Users\用户名 m\我的图片 Pictures\iCloud 照片 iCloud Photos    # 默认位置
+</pre>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+铃声制作
+<br />
+打开iTunes，首先选中歌曲，播放，确定需要的部分是第几分几秒到第几分几秒。
+<br />
+选中歌曲后右键显示简介，选项，起始时间停止时间之间至多40秒，然后确定。
+<br />
+右键，创建AAC版本，生成的新文件。再把原文件的起始与停止时间勾勾取消掉（不然放到这首歌他会只播放选中的几十秒）选中新文件，
+<br />
+右键显示简介，摘要，位置，右键资源管理器显示。
+<br />
+然后该文件后缀名 m4a 改为 m4r
+<br />
+然后点击边栏资料库下的“铃声”，看不见资料库铃声的看括号内容（偏好设置，常规，铃声前面打勾，确定）。
+<br />
+把改好的m4r文件拖入iTunes。然后再选中设备，铃声，同步铃声。
+<br />
+这时你创建的AAC版本音乐因为改了后缀名资料库音乐已经找不到了。m4r文件仅限于资料库铃声使用。
+<br />
+<br />
+<pre class='brush: bash'>
+Item index    File name    Title    Artist    Album    Duration    Bitrate    Date
+              文件名        标题     艺术家     专辑      长度        比特率       年
+windows  名称  标题  参与创作的艺术家  唱片集  长度  比特率  年			  
+</pre>
+<br />
+<br />
+美国iTunes 5个免税州分别是DE-Delaware(特拉华)，OR-Oregon(俄勒冈)，MT-Montana(蒙大那)，AK-Alaska(阿拉斯加)，NH-New Hampshire(新罕布什尔)，
+<br />
+你也可以按照以下填写:
+<br />
+名字：Lena，姓氏：Hampton，地址：1466 El Camino Dr，城市：Florissant，州缩写：MO，邮编：63033，区号：314，电话：838-8350
+<br />
+<br />
+<br />
+iOS手机信号显示数字
+<br />
+拨号界面拨 *3001#12345#* 点击呼叫,这时出现 Field Test 菜单同时信号显示变成了数字(一退出 Field Test 信号就会变为以前的圆点)
+<br />
+按住Power键,直到出现关机的划块,放开Power键,然后按住home键不动直到回到App桌面。
+<br />
+取消信号数字显示:拨号界面拨*3001#12345#*点击呼叫,按一下home键到主页面
+<pre class='brush: bash'>
+-40 ~ -50  在基站附近
+-50 ~ -60  信号很好
+-60 ~ -70  信号较弱
+-80 ~ -90  能保持基本通话
+-90 ~ -100  无服务
+单位为dbm，分贝毫瓦,-40dbm就是0.00001mw，-90dbm=0.0000000001mw
+</pre>
+<br />
+Li-ion Polymer Battery 3.7V * 1420mAh = 5.25Whr 
+<br />
+Whr 瓦特小时 瓦·时 (符号: W·h，在商品描述里亦有作Whr的
+<br />
+Wh的计算方法为电池电压（V）乘以电量单位（Ah）
+<br />
+<br />
+根据电流的定义式：I＝Q／t ，可知Q＝It，电流I的单位是mA（毫安），t代表的是时间，单位hour(时)，因此我们的电池容量单位就为mAh。
+<br />
+Q=It，并未涉及到电压，因此这一单位只能说明电池内部能够容纳多少库仑的电荷。
+<br />
+但不能说明这个电池能够做多少的功，以及电池可提供的最大功率是多少。不同类型的产品的工作电压是不同的。
+<br />
+因此我们有常常会看到在mAh的旁边还会有一个以Wh为单位的数字。
+<br />
+电池可做的功W=UIt=UQ，电压U *电流I的单位为W（瓦），因此电池里的W用Wh来表示，它表示电池能够做多少的功。
+<br />
+<br />
+iOS Recovery mode（强制恢复模式）DFU模式
+<br />
+iOS Devices关机，如果无法关机，则同时按住“Home”键与“开关”键直到iOS Devices黑屏。
+<br />
+这时先不要连接电脑，打开计算机上的iTunes。按住“Home”键不要松手，
+<br />
+然后在按住“Home”键状态下去连接打开了iTunes程序的计算机。连接后也不要松开“Home”键，
+<br />
+等待iTunes找到一个处于恢复模式的设备，这时候你的手指可以从“Home”键上松开了。
+<br />
+之后的步骤就是点击恢复，然后让iTunes慢慢从网上下载最新iOS 系统并验证恢复吧。
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20131223
+</body>
+
+</html>

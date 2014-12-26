@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Git</title>
+    <style>a {text-decoration: none}</style>            <!--去掉超链接下划线 -->  
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushPython.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+
+<h1>Git VCS Version Control System 版本控制系统</h1>
+<br />
+Client
+<br />
+<a  href="http://git-scm.com/"                            target="_blank" title="Git官方网站">Git</a>
+<a  href="http://sourcetreeapp.com/"                      target="_blank" title="SourceTree 图形化界面的Git和Hg客户端">SourceTree</a>  
+<a  href="https://msysgit.github.com/"                    target="_blank" title="Git">Git for windows</a>
+<a  href="https://windows.github.com/"                    target="_blank" title="Git">Git for windows</a>
+<br />
+<br />
+Books
+<br />
+<a  href="http://git-scm.com/book/zh/"                    target="_blank" title="Git官方教程">Pro Git</a>
+<a  href="http://www.liaoxuefeng.com/"                    target="_blank" title="廖雪峰Git">廖雪峰Git</a>
+<a  href="http://gitbook.liuhui998.com/"                  target="_blank" >Git Community Book 中文版</a>
+<br />
+<a  href="https://github.com/blynn/gitmagic"              target="_blank" title="Git Magic 有中文版">Git Magic</a>
+<a  href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html"              target="_blank" title="Git Magic 中文版">Git Magic中文版</a>
+<br />
+<br />
+Online
+<br />
+<a  href="https://github.com/"                            target="_blank">GitHub</a>  
+<a  href="http://sourceforge.net/"                        target="_blank">sourceforge</a>  
+<a  href="https://bitbucket.org/"                         target="_blank">Bitbucket</a>  
+<a  href="https://www.heroku.com/"                        target="_blank">heroku</a>  
+<a  href="https://code.csdn.net/"                         target="_blank">CSDN</a>  
+<a  href="https://gitcafe.com/"                           target="_blank">gitcafe</a>  
+<a  href="http://git.oschina.net/"                        target="_blank">Git@OSC</a>  
+<a  href="https://coding.net/"                            target="_blank" title="Coding">Coding</a>  
+<br />
+<br />
+Watch（关注）、Star（加星）、Fork（建分支复制一份）、Pull Request（提交问题或申请功能）
+<br />
+<br />
+Git配置，设置姓名和Email
+<pre class='brush: bash'>
+git config 专门用来配置或读取相应的工作环境变量
+这些变量可以存放在以下三个不同的地方:
+gitconfig
+</pre>
+
+<pre class='brush: bash'>
+git config --global user.name "YourName"        # 设置用户名
+git config --global user.email "email@example.com"  # 设置Email
+git config --list         # 查看配置信息
+
+执行了上面的命令后,会在你的主目录(home directory)建立一个叫 ~/.gitconfig 的文件. 
+内容一般像下面这样:
+
+[user]
+        name = YourName
+        email = email@example.com
+
+</pre>
+<pre class='brush: bash'>
+git help
+git help commands
+</pre>
+<br />
+工作流
+<br />
+你的本地仓库由 git 维护的三棵“树”组成。
+<br />
+第一个是你的 工作目录 工作区（Working Directory），它持有实际文件。
+<br />
+第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；
+<br />
+最后是 HEAD，它指向你最后一次提交的结果。
+<br />
+<br />
+<br />
+创建版本库
+<br />
+什么是版本库呢？
+<br />
+版本库（Repository）：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
+<br />
+版本库又名仓库，英文名repository，你可以简单理解成一个目录，这个目录里面的所有文件都可以被Git管理起来，
+<br />
+每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。
+<br />
+Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。
+<br />
+<br />
+<br />
+1.在Github上建一个新仓库(远程库)，命名为 mtmwnet
+<br />
+2.在本地目录建一个仓库，命名为mmnet
+<pre class='brush: bash'>
+mkdir mmnet        # 创建一个目录
+cd mmnet           # 切换到该目录
+pwd                # 显示目录路径
+touch README.md    # 创建README文件
+
+git init        # 通过git init命令初始化把这个目录变成Git可以管理的仓库 当前目录下多了一个.git的目录
+Initialized empty Git repository in mmnet        # mmnet是一个空的仓库（empty Git repository）
+
+git add fileName.txt fileName1.txt fileName2.txt       # 用 git add 把文件添加进去，实际上就是把文件修改添加到暂存区（Stage） 
+                                                       # 用 git add 命令告诉 Git 开始对这些文件进行跟踪
+git commit -m "3 file"      # 用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支
+                            # 然后提交以上文件 现在，你的改动已经提交到了 HEAD，但是还没到你的远端仓库
+
+</pre>
+
+3.Github仓库与本地仓库关联,在本地仓库的目录中如下操作：
+<pre class='brush: bash'>
+git remote add origin https://github.com/mtmw/mtmwnet.git      # GithubID 为Github的ID, mtmwnet.git为Github仓库项目名
+                                                               # 远程库的名字就是origin，这是Git默认的叫法，也可以改成别的
+HTTPS https://github.com/mtmw/mtmwnet.git
+SSH git@github.com:mtmw/mtmwnet.git
+</pre>
+4.把本地库的所有内容推送到远程库上
+<pre class='brush: bash'>
+git push -u origin master	  # 用git push命令，实际上是把当前分支master推送到远程。
+                              # 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，
+							  # Git不但会把本地的master分支内容推送的远程新的master分支，
+							  # 还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+
+git push origin master        # 只要本地作了提交，以后就可以通过此命令提交了
+</pre>
+<pre class='brush: bash'>
+git push origin master      # 你以上的改动现在已经在本地仓库的 HEAD 中了。执行此条命令以将这些改动提交到远端仓库。
+                            # 可以把 master 换成你想要推送的任何分支。Git 会使用 master 作为分支的默认名字
+</pre>
+从已有的Git仓库中 clone (克隆，复制)
+<pre class='brush: bash'>
+git clone [url]  克隆仓库的命令格式
+
+For example
+git clone http://git.kernel.org/kernel/git/linux-3.0.git    # 在默认情况下，Git会把"Git URL"里目录名的'.git'的后辍去掉
+                                                            # 做为新克隆(clone)项目的目录名
+	or														
+git clone git@github.com:GithubID/repo-name.git       # Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
+                                                      # 使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，
+													  # 但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
+													  # 通过ssh支持的原生git协议速度最快。
+
+如果希望在克隆的时候，自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字
+git clone http://git.kernel.org/kernel/git/linux-3.0.git newlinux-3.0
+</pre>
+<pre class='brush: bash'>
+git status        # 查看git状态
+git diff          # 查看差异 difference
+git log           # 显示从最近到最远的提交日志
+git log --pretty=oneline    #加上 --pretty=oneline 参数后过滤掉一些信息
+</pre>
+
+<br />
+版本回退
+<br />
+在Git中，用HEAD表示当前版本，上一个版本就是HEAD^，上上一个版本就是HEAD^^，往上100个版本写100个^比较容易数不过来，所以写成HEAD~100
+<pre class='brush: bash'>
+git reset --hard HEAD^        # 回退到上一版本
+commit id SHA1值              # 跳到后面第n个版本
+git reflog                    # 查看命令历史
+</pre>
+<br />
+<br />
+撤销修改
+<br />
+场景1：当改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用以下命令
+<pre class='brush: bash'>
+git checkout -- fileName.txt        # 把 fileName.txt 文件在工作区的修改全部撤销
+</pre>
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步：
+<br />
+第一步用以下命令
+<pre class='brush: bash'>
+git reset HEAD fileName.txt       # 把暂存区的修改撤销掉（unstage），重新放回工作区。用HEAD时，表示最新的版本。
+</pre>
+就回到了场景1
+<br />
+第二步按场景1操作。
+<br />
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退
+<br />
+<br />
+<br />
+删除文件
+<pre class='brush: bash'>
+rm fileName.txt       # 先把工作区 fileName.txt 文件删除
+git rm fileName.txt
+git commit -m "remove fileName.txt"
+</pre>
+<br />
+<br />
+<br />
+<br />
+GitHub
+<br />
+由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：
+<br />
+第1步：创建SSH Key。
+<br />
+在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，
+<br />
+如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+<pre class='brush: bash'>
+ssh-keygen -t rsa -C "yourEmail@example.com"
+</pre>
+在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，
+<br />
+id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+<br />
+<br />
+第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+<br />
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
+<br />
+为什么GitHub需要SSH Key呢？
+<br />
+因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，
+<br />
+而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。
+<br />
+当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，
+<br />
+只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。
+<br />
+<br />
+<br />
+忽略特殊文件
+<br />
+在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件
+<br />
+所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20131225
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Windows</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h1>Windows</h1>
+<hr /><!-- ----------------------------------------------------------------- -->
+Virtual Router 虚拟路由 wifi热点 Virtual WiFi Miniport Adapter
+<br />
+0.
+<pre class='brush: bash'>
+netsh wlan show drivers        # 查看Win7设备是否支持创建虚拟路由
+                               # 支持的承载网络：是 即为支持此功能
+</pre>
+1.
+<pre class='brush: bash'>
+netsh wlan set hostednetwork mode=allow ssid=hrdd8f key=hr81234567890
+
+# 参数的含义：
+# mode：启用或禁用虚拟网卡，启用为allow，禁用为disallow
+# ssid：无线网络的名称，可自定义
+# key：无线网络的密码，必须为八个字符以上
+
+# 设置成功后，在 控制面板\网络和共享中心\更改适配器设置\ 中会一个名字为“无线连接 2”，网卡为“Microsoft Virtual WiFi Miniport Adapter”的连接
+</pre>
+2.设置Internet连接共享：
+<br />
+你当前使用有线网络连接，一般默认接入连接为“本地连接”
+<br />
+控制面板\网络和共享中心\更改适配器设置\本地连接 右键/属性/共享/勾选 允许其他网络用户通过此计算机的Internet连接来连接
+<br />
+然后在“家庭网络连接”中选择刚才虚拟出来的“无线连接 2”，确定即可
+<br />
+（如果出现“无法启用共享访问 错误代码：0x80004005：未指定错误 ”，则打开 控制面板\所有控制面板项\管理工具\服务 "Windows Firewall” 点击“启用此服务”）
+<br />
+<br />
+3.开启/停止无线网络：
+<pre class='brush: bash'>
+netsh wlan start hostednetwork        # 开启无线网络
+netsh wlan stop hostednetwork         # 停止无线网络
+</pre>
+<pre class='brush: bash'>
+netsh wlan show hostednetwork         # 显示无线网络信息命令
+</pre>
+设置好网络后，下面的代码用文本编辑器保存为wifi.bat，以后运行这个bat脚本就可以打开或是关闭此WiFi
+<pre class='brush: bash'>
+@echo off
+choice /C 12 /M "开启wifi请输入1，关闭wifi请输入2
+if errorlevel 2 goto off
+if errorlevel 1 goto on
+:on
+netsh wlan start hostednetwork 
+goto end
+:off
+netsh wlan stop hostednetwork
+goto end
+:end
+echo 网络设置完毕
+</pre>
+可以修改虚拟网卡的IP，将ip改为192.168.2.1 , 子网掩码改为255.255.255.0 网关不用写 DNS 写成8.8.8.8
+<br />
+将手机设备上的IP设为静态IP ，IP可以设为 192.168.2.3 子网掩码 255.255.255.0 网关设成192.168.2.1 dns为8.8.8.8
+<pre class='brush: bash'>
+@echo off
+path=c:\windows\system32
+echo  请以管理员身份运行此文件                            
+echo  ---------------------------------------------------
+echo  1.启用并启动广播无线托管网络
+echo  2.禁用并停止广播虚拟无线网络
+echo  3.显示无线托管网络的设置，包括所连接的用户列表
+echo  4.为虚拟无线网络设置一个新的WPA2-PSK密钥
+echo  5.配置初始化，附说明（慎用!!!）
+echo  ---------------------------------------------------
+set /p s=请输入任务前面的数字，按enter确定:
+ 
+ 
+if %s% equ 1 goto a
+if %s% equ 2 goto b
+if %s% equ 3 goto c
+if %s% equ 4 goto d
+if %s% equ 5 goto e
+:a
+netsh wlan start hostednetwork
+pause
+exit
+:b
+netsh wlan stop hostednetwork
+pause
+exit
+:c
+netsh wlan show hostednetwork
+pause
+exit
+:d
+netsh wlan refresh hostednetwork
+pause
+exit
+:e
+netsh wlan set hostednetwork mode=allow ssid=yii key=15319910609
+echo 此虚拟网络只能在win7系统环境下搭建，虚拟网络密码为15319910609，构建win7虚拟无线网络环境需将使用的当前网络共享，具体方法可参考百度文献！！！
+pause
+exit
+</pre>
+
+ 
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+SCHEDLGU.TXT  Windows开机记录
+<br />
+<br />
+QPDF没有用户界面，将QPDF解压到D:\Office\PDF\QPDF\QPDF,并将此路径添加至用户变量PATH中
+<br />
+使用QPDF移除PDF密码
+<br />
+打开cmd，cd至PDF所在目录，执行下面命令：
+<pre class='brush: bash'>
+  qpdf --decrypt xxx.pdf yyy.pdf    # xxx.pdf为加密pdf文件名，yyy.pdf为输出的解密后的pdf文件名
+</pre>
+<br />
+使用QPDF加密PDF
+<pre class='brush: bash'>
+qpdf --encrypt user-password owner-password key-length -- xxx.pdf yyy.pdf
+</pre>
+user-password指pdf的编辑密码，owner-password指pdf文件密码，不知道文件密码是无法打开pdf文件的。key-length指密码长度，可以是40,128,256位。
+<br />
+For example
+<pre class='brush: bash'>
+qpdf --encrypt 1234 1234 40 -- 1.pdf 3.pdf
+</pre>
+<br />
+去除快捷方式小箭头
+<pre class='brush: bash'>
+@ECHO OFF
+ 
+:MENU
+ECHO. 
+ECHO.                     =-=-=-=-=请选择您要运行的项目=-=-=-=-=
+ECHO. 
+ECHO.                     1: 去除快捷方式图标箭头
+ECHO. 
+ECHO.                     2: 恢复快捷方式图标箭头
+ECHO. 
+ECHO.                     3: 退出
+ECHO.
+ 
+echo. 请输入您要运行项目的序号:
+set /p ID=
+if "%id%"=="1" goto cmd1
+if "%id%"=="2" goto cmd2
+if "%id%"=="3" goto cmd3
+PAUSE
+ 
+:cmd1
+ECHO. 去除快捷方式图标箭头
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /d "%systemroot%\system32\imageres.dll,196" /t reg_sz /f
+goto restart_explorer
+ 
+:cmd2
+ECHO. 恢复快捷方式图标箭头
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons" /v 29 /f
+goto restart_explorer
+ 
+:cmd3
+exit
+ 
+:restart_explorer
+ECHO. 重启explore.exe
+taskkill /f /im explorer.exe
+attrib -h -s -r "%userprofile%\AppData\Local\IconCache.db"
+del /f /q "%userprofile%\AppData\Local\IconCache.db"
+start explorer
+pause
+</pre>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+20140714
+</html>
