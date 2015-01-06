@@ -64,11 +64,11 @@ Unicode编码前面都有几个标记字符，这些字符放在文本文件的�
 编码                     BOM 值
 UTF-8(无BOM)             无
 
-UTF-8                    ef bb bf                       #  Microsoft的记事本在保存为 UTF-8 编码时，会在每个文件开头添加三个字节 ef bb bf 的字符
+UTF-8                    ef bb bf            #  Microsoft的记事本在保存为 UTF-8 编码时，会在每个文件开头添加三个字节 ef bb bf 的字符
 
-UTF-16 big endian        fe ff                          #  00在前面
+UTF-16 big endian        fe ff               #  00在前面
 
-UTF-16 little endian     ff fe                          #  00在后面
+UTF-16 little endian     ff fe               #  00在后面
 
 UTF-32 big endian        00 00 FE FF
 
@@ -224,7 +224,11 @@ p  pico	     10^-12    皮
 </pre>
 
 <br />
+二进制文件的格式
 <br />
+Linux 系统二进制文件都是使用的 ELF 格式。
+<br />
+Windows 二进制文件使用的是 PE(Portable Executable) 格式，是在另一个古老的格式 COFF 上改进而来的。
 <br />
 <br />
 <br />
@@ -232,5 +236,5 @@ p  pico	     10^-12    皮
 <br />
 <br />
 
-20141027
+20141230
 </html>

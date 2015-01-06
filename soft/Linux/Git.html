@@ -133,8 +133,8 @@ git commit -m "3 file"      # 用git commit提交更改，实际上就是把暂�
 <pre class='brush: bash'>
 git remote add origin https://github.com/mtmw/mtmwnet.git      # GithubID 为Github的ID, mtmwnet.git为Github仓库项目名
                                                                # 远程库的名字就是origin，这是Git默认的叫法，也可以改成别的
-HTTPS https://github.com/mtmw/mtmwnet.git
-SSH git@github.com:mtmw/mtmwnet.git
+HTTPS https://github.com/mtmw/mtmwnet.git                      # https协议
+SSH git@github.com:mtmw/mtmwnet.git                            # SSH协议
 </pre>
 4.把本地库的所有内容推送到远程库上
 <pre class='brush: bash'>
@@ -144,9 +144,7 @@ git push -u origin master	  # 用git push命令，实际上是把当前分支mas
 							  # 还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
 
 git push origin master        # 只要本地作了提交，以后就可以通过此命令提交了
-</pre>
-<pre class='brush: bash'>
-git push origin master      # 你以上的改动现在已经在本地仓库的 HEAD 中了。执行此条命令以将这些改动提交到远端仓库。
+                            # 你以上的改动现在已经在本地仓库的 HEAD 中了。执行此条命令以将这些改动提交到远端仓库。
                             # 可以把 master 换成你想要推送的任何分支。Git 会使用 master 作为分支的默认名字
 </pre>
 从已有的Git仓库中 clone (克隆，复制)
@@ -307,5 +305,5 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告�
 <br />
 <br />
 
-20131225
+20131226
 </html>
