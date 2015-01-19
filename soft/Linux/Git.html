@@ -133,6 +133,7 @@ git commit -m "3 file"      # 用git commit提交更改，实际上就是把暂�
 <pre class='brush: bash'>
 git remote add origin https://github.com/mtmw/mtmwnet.git      # GithubID 为Github的ID, mtmwnet.git为Github仓库项目名
                                                                # 远程库的名字就是origin，这是Git默认的叫法，也可以改成别的
+
 HTTPS https://github.com/mtmw/mtmwnet.git                      # https协议
 SSH git@github.com:mtmw/mtmwnet.git                            # SSH协议
 </pre>
@@ -204,6 +205,7 @@ git reset HEAD fileName.txt       # 把暂存区的修改撤销掉（unstage）�
 删除文件
 <pre class='brush: bash'>
 rm fileName.txt       # 先把工作区 fileName.txt 文件删除
+git status            # 上面命令删除了文件，工作区和版本库就不一致了，git status命令会显示哪些文件被删除了
 git rm fileName.txt
 git commit -m "remove fileName.txt"
 </pre>
@@ -305,5 +307,5 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告�
 <br />
 <br />
 
-20131226
+20150115
 </html>
