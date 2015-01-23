@@ -31,6 +31,14 @@
 <a  href="https://github.com/sixu05202004/pythontutorial" target="_blank" title="Python 入门指南">Python 入门指南</a>
 <a  href="http://looly.gitbooks.io/python-basic/" target="_blank" title="Python 入门指南">Python 入门指南</a>
 <a  href="https://code.google.com/p/spyderlib/" target="_blank" title="Spyder 是 Python 语言开发环境">Spyder</a>
+<a  href="http://tool.oschina.net/commons?type=6#python_" target="_blank" title="Python 运算符优先级">Python 运算符优先级</a>
+<br />
+行注释  #
+<br />
+块注释 
+<br />
+命令行执行 
+python fileName.py
 <br />
 <br />
 输入Input 输出Output
@@ -38,16 +46,70 @@
 print                       # Output
 raw_input                   # Input
 print 'hello, world'
+print "hello, world"
 name = raw_input()
 </pre>
+<br />
+算术运算符 Arithmetic Operators
+<br />
++  addition
+<br />
+-  subtraction
+<br />
+*  multiplication
+<br />
+/  division
+<br />
+%  求余 modulus
+<br />
+** 指数 exponent
+<br />
+ For example 2 ** 4=16
+<br />
+若参与运算的两个对象的类型不同，则按照以下规则进行自动类型转换
+<br />
+bool >> int >> float >> complex
+<br />
+<br />
 布尔值
 <pre class='brush: python'>
-True         # 真
-False        # 假
+True         # 真 条件成立
+False        # 假 条件不成立
+</pre>
+逻辑运算符
+<pre class='brush: python'>
 and          #与
 or           #或
 not          #非
 </pre>
+<br />
+<br />
+模块 module 实现一定功能的Python 脚本集合
+<br />
+引入模块
+<pre class='brush: python'>
+import module_name             # import后面加模块的名字
+</pre>
+math模块
+<pre class='brush: python'>
+import math                # 引入 math 模块
+dir(math)                  # 查看 math 模块的内容
+math.pi                    # 查看 pi 的值
+math.e                     # 查看 e 的值
+math.sin(100)              # 计算 sin(100)
+help(math.sin)             # 查看其中的一个函数的使用规则 如 sin
+</pre>
+<br />
+判断闰年 如果年份y能被4整除但是不能被100整除，或者能被400整除，则是闰年
+<pre class='brush: python'>
+(y % 4 == 0 and y % 100 !=0) or (y % 400 == 0)
+
+y % 400 == 0 or y % 4 == 0 and y % 100 != 0        # 没有括号版本
+
+y % 4 == 0 and y % 100 != 0 or y % 400 == 0
+</pre>
+<br />
+<br />
 <pre class='brush: python'>
 #!/usr/bin/env python         # 这个注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释
 chmod a+x hello.py
@@ -163,5 +225,5 @@ print 'hello, world'
 <br />
 <br />
 
-20131030
+20150123
 </html>

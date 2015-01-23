@@ -66,7 +66,7 @@ adb install [-r] [-s] [-l] (path_to_apk)    #  -r 强制安装
   
   or
   
-adb push filename.apk system/app            #  安装至/system/app
+adb push fileName.apk system/app            #  安装至/system/app
 adb shell sync  
 </pre>
 <br />
@@ -81,7 +81,7 @@ adb uninstall [-k] com.****.****.****    #  卸载命令参数必须是总包名
 adb remount                              #  得到Android设备的系统文件读写权限 
 adb shell
 cd system/app
-rm filename.apk
+rm fileName.apk
 sync  
 </pre>
 &nbsp;&nbsp;查看已经安装应用列表

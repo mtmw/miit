@@ -274,7 +274,18 @@ net user administrator 1234567890 /add    # 更改管理员用户密码为123456
 
 
 <br />
-
+修改MD5值
+<pre class='brush: bash'>
+echo off
+echo ### 修改媒体文件MD5值##
+echo .
+fsutil file createnew %~dp1\a1109.txt 16
+copy /b %1+%~dp1\a1109.txt zzz_%~nx1
+del /q /s %~dp1\a1109.txt
+echo .
+echo .已经完成了
+pause
+</pre>
 
 
 
@@ -307,5 +318,5 @@ net user administrator 1234567890 /add    # 更改管理员用户密码为123456
 <br />
 <br />
 
-20141222
+20150121
 </html>

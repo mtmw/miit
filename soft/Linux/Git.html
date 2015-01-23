@@ -209,6 +209,10 @@ git status            # 上面命令删除了文件，工作区和版本库就�
 git rm fileName.txt
 git commit -m "remove fileName.txt"
 </pre>
+如果删错了，因为版本库里还有，用以下命令可以把误删的文件恢复到本地
+<pre class='brush: bash'>
+git checkout -- fileName.txt
+</pre>
 <br />
 <br />
 <br />
@@ -307,5 +311,5 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告�
 <br />
 <br />
 
-20150115
+20150119
 </html>
