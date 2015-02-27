@@ -158,15 +158,48 @@ iOS Devices关机，如果无法关机，则同时按住“Home”键与“开�
 
 <br />
 <br />
+iPhone4跳过icloud的ID激活
+<br />
+1.安装JavaSetup.exe 
+<br />
+JDK(Java SE Development Kit 8)
+<br />
+java -version
+<br />
+<br />
+2.iPhone4进入DFU模式并连接PC,关闭iTunes
+<br />
+<br />
+3.打开SSH.jar文件,iOS Devices上会出现白苹果LOGO及一横
+<br />
+<br />
+4.打开putty
+<br />
+Host Name(or IP address):localhost > Port:2022 > open
+<br />
+<pre class='brush: bash'>
+login:root
+password:alpine
+
+mount.sh
+cd /mnt1/Applications
+rm -R Setup.app
+
+or
+mount.sh mnt1
+cd /mnt1/Applications
+rm -R Setup.app
+</pre>
 <br />
 <br />
 <br />
-<br />
-<br />
+进入DFU模式的方法:
+1 设备处于开机模式或恢复模式,设备数据线连接PC
+2 按下设备HOME键,再按下设备开关机键不要松开,直到设备屏幕熄灭再过4秒左右松开设备开关机键，但不要松开HOME键，几秒钟后进入DFU模式
 <br />
 <br />
 
-20131223
+20150225
 </body>
 
 </html>
