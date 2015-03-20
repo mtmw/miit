@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Excel VBA</title>
+	<title>Office</title>
 	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
 	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
 	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
@@ -49,18 +49,19 @@ Excel 执行宏
 <br />
 <br />
 <br />
-
-
-
-
-
-
-
-
-
-
-
-
+Office 2013 VOL版
+<pre class='brush: bash'>
+@echo off
+cd %ProgramFiles%\Microsoft Office\Office15        # 进入ospp.vbs的目录即Office的安装目录 D:\Office\Office\Office15\OSPP.VBS
+cscript ospp.vbs /sethst:177.18.80.150             # 设置KMS主机名。一般为IP地址。177.18.80.150是现在可用的KMS服务的IP地址
+cscript ospp.vbs /act                              # 激活当前安装的Office
+cscript ospp.vbs /dstatus                          # 显示当前已安装产品密钥的许可证信息
+cscript ospp.vbs /remhst                           # 删除KMS主机名
+pause
+</pre>
+ospp.vbs文件 全称：Office Software Protection Platform，即Office软件保护平台脚本，是Office自身提供的激活管理工具
+<br />
+C:\Program Files\Microsoft Office\Office15\OSPP.VBS
 <br />
 <br />
 <br />
@@ -68,7 +69,6 @@ Excel 执行宏
 <br />
 <br />
 <br />
-<br />
 
-20140609
+20150319
 </html>

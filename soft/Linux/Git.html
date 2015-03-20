@@ -230,13 +230,22 @@ git status
 <br />
 <br />
 <br />
-GitHub
+GitHub 生成 SSH 公钥
+<br />
+<br />
+大多数 Git 服务器都会选择使用 SSH 公钥来进行授权
+<br />
+系统中的每个用户都必须提供一个公钥用于授权，没有的话就要生成一个。
 <br />
 由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：
 <br />
 第1步：创建SSH Key。
 <br />
-在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，
+在用户主目录下，看看有没有.ssh目录，
+<br />
+(SSH 公钥默认储存在账户的主目录下的 ~/.ssh 目录或 C:\用户 Users\当前登录的用户名 m\.ssh\ )
+<br />
+如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，
 <br />
 如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
 <pre class='brush: bash'>
@@ -324,5 +333,5 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告�
 <br />
 <br />
 
-20150119
+20150319
 </html>
