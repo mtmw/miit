@@ -55,9 +55,9 @@ Tracert -d ip     # 测试看一下有没有经过ISP宽带运营商内网IP
 
 nslookup qq.com 114.114.114.114        # Nslookup 是一个监测网络中DNS服务器是否能正确实现域名解析的命令行工具
 </pre>
-
-
+TTL (Time to live)
 <br />
+为了防止数据在网络中无限循环，名为存活时间（Time to live，TTL）或跳数限制（hop limit）的机制限定了数据包的寿命。当TTL=0，数据包将被丢弃。大多数系统发送IP包时都是从TTL=64开始，如果该数据包抵达你时TTL=46，那么你和发送者之间经过了18跳（64-18=46）
 <br />
 <br />
 <br />

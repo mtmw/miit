@@ -288,6 +288,7 @@ cat /proc/cpuinfo
 dmesg | grep -i cpu
 dmidecode -t processor    # 通过查看开机信息 CPU信息
 
+cat /proc/cpuinfo |grep "model name"|uniq|cut -f2 -d:     # 确认CPU型号
 </pre>
 <br />
 
@@ -481,6 +482,11 @@ whereis # 用来定位命令的二进制文件\资源\或者帮助页
 whereis ls
 
 </pre>
+Linux软链接和硬链接(hard link) Inode详解
+<br />
+<br />
+<br />
+
 <pre class='brush: bash'>
 :(){:|:&};:        # fork 炸弹.通过定义一个名为 : 的函数，它会调用自己两次,一次在前台另一次运行在后台.它会反复的执行下去直到系统崩溃.
 > /dev/sda         # 将某个‘命令‘的输出写到块设备/dev/sda中.该操作会将在块设备中的所有数据块替换为命令写入的原始数据，从而导致整个块设备的数据丢失
@@ -496,12 +502,10 @@ du -h –max-depth=1      # 输出当前目录的子目录的大小
 <br />
 <hr />
 <!-- ------------------------------------------------------------------------------------------- -->  
-20131223
+20150325
 <br />
 <br />
-<br />
-<br />
-<br />
+
 <br />
 <br />
 <br />
