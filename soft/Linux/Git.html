@@ -228,7 +228,19 @@ mv oldFileName.txt newFileName.txt
 git status 
 </pre>
 已经使用 git clone 命令得到了一个项目的一份拷贝，用以下命令更新到最新版
+<br />
+将服务器上所做的改动,仅仅并入新配置项, 处理方法如下:
 <pre class='brush: bash'>
+git stash        # 将本地的修改暂时存储起来
+git stash list       # 查看本地保存的信息
+git pull
+git stash pop
+
+然后可以使用git diff -w +文件名 来确认代码自动合并的情况.
+</pre>
+服务器库上的文件完全覆盖本地工作版本. 方法如下:
+<pre class='brush: bash'>
+git reset --hard
 git pull
 </pre>
 <br />
@@ -337,5 +349,5 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告�
 <br />
 <br />
 
-20150319
+20150414
 </html>
