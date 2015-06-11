@@ -69,6 +69,13 @@ git commit -m "2015 xx xx"
 git push origin master
 </pre>
 <br />
+服务器库上的文件完全覆盖本地工作版本. 方法如下:
+<pre class='brush: bash'>
+git reset --hard
+git pull
+</pre>
+<br />
+<br />
 Watch（关注）、Star（加星）、Fork（建分支复制一份）、Pull Request（提交问题或申请功能）
 <br />
 <br />
@@ -243,12 +250,6 @@ git stash pop
 
 然后可以使用git diff -w +文件名 来确认代码自动合并的情况.
 </pre>
-服务器库上的文件完全覆盖本地工作版本. 方法如下:
-<pre class='brush: bash'>
-git reset --hard
-git pull
-</pre>
-<br />
 <br />
 <br />
 GitHub 生成 SSH 公钥
@@ -354,5 +355,5 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告�
 <br />
 <br />
 
-20150421
+20150611
 </html>
