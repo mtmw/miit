@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
 	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
 	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushPython.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushVB.js"></script>
 	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
 	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
@@ -28,7 +29,7 @@
 Visual Basic for Applications
 <br />
 <br />
-Excel 录制宏
+Excel  macro录制宏
 
 <pre class='brush: bash'>
 1.选中任意一个单元格
@@ -59,8 +60,55 @@ For i = 2 To 200
 Next
 End Sub
 </pre>
-
+F5 定位
 <br />
+<br />
+VBA Hello World 开发工具 > Visual Basic > 插入(I) > 模块
+<pre class='brush: vb'>
+Sub helloworld()
+MsgBox "hello World"
+End Sub
+</pre>
+F8 运行VBA
+<br />
+个人宏工作簿:
+<br />
+C:\用户 Users\当前登录的用户名 m\AppData\Roaming\Microsoft\Excel\XLSTARTPERSONAL.XLSB
+<br />
+代码换行 下划线+空格+Enter
+<br />
+<br />
+VBA对象
+<br />
+<pre class='brush: vb'>
+Workbooks 工作簿
+Workbooks (N)第N个工作簿
+Workbooks ("工作簿名")
+ActiveWorkbooks 活动工作薄 
+ThisWorkbooks 代码所在工作簿
+
+Worksheets 工作表
+一个工作簿中包含N个工作表
+由大到小:工作薄 工作表 行列 单元格
+</pre>
+<br />
+VBA属性
+<pre class='brush: vb'>
+Sub 属性()
+Debug.Print Sheet1.Name                 '显示 Sheet1 的名字
+Debug.Print Sheet1.Range("a1").Value    '显示 Sheet1 a1 单元格的值
+End Sub
+</pre>
+<br />
+VBA属性赋值
+<pre class='brush: vb'>
+Sub 属性赋值()
+Sheet1.Name = "更改Sheet1的名字"
+Sheet1.Range("a1") = "更改改Sheet1 a1单元格的内容"
+End Sub
+</pre>
+
+
 <br />
 <br />
 
@@ -91,5 +139,5 @@ C:\Program Files\Microsoft Office\Office15\OSPP.VBS
 <br />
 <br />
 
-20150319
+20150612
 </html>
