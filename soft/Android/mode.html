@@ -21,7 +21,7 @@
 </head>
 
 <body >
-<h2>mode</h2>20130502
+<h2>mode</h2>20150707
 <br />
 bootloader什么意思
 <br />
@@ -81,14 +81,33 @@ adb sideload update.zip        #  通过开发计算机把刷机包发送给reco
 <br />
 <br />
 <br />
+Doorbell
 <br />
-
-
-
-
+串口: 3V3,GND,TX,RX  波特率 115200
+<br />
+对应USB串口线:红 黑 白 绿
+<br />
+门铃上电后立即按回车，进入u-boot模式
+<br />
+打开 tftpd32.exe,单击 Browse 选择 img 文件的路径 
+<br />
+<pre class='brush: bash'>
+setenv ipaddr 192.168.4.130                                        # 设置门铃设备的IP
+setenv serverip 192.168.4.7;mw.b 0x82000000 0xff 0x1000000;        # 把存在开发计算机IP上的固件下载到门铃DDR里面
+tftp 0x82000000 Hi351x-16M-ipc4206p-bell.img                       # FTP下载固件
+sf probe 0;sf erase 0 0x1000000;sf write 0x82000000 0x0 0x1000000;   # 擦写FLASH
+re                                                                 # 重启
+</pre>
 <br />
 <br />
 <br />
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 </html>
