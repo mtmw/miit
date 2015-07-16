@@ -21,7 +21,7 @@
 </head>
 
 <body >
-<h2>mode</h2>20150707
+<h2>mode</h2>20150716
 <br />
 bootloader什么意思
 <br />
@@ -87,16 +87,24 @@ Doorbell
 <br />
 对应USB串口线:红 黑 白 绿
 <br />
-门铃上电后立即按回车，进入u-boot模式
+门铃上电后立即按任意键进入u-boot模式
 <br />
-打开 tftpd32.exe,单击 Browse 选择 img 文件的路径 
 <br />
 <pre class='brush: bash'>
-setenv ipaddr 192.168.4.130                                        # 设置门铃设备的IP
-setenv serverip 192.168.4.7;mw.b 0x82000000 0xff 0x1000000;        # 把存在开发计算机IP上的固件下载到门铃DDR里面
-tftp 0x82000000 Hi351x-16M-ipc4206p-bell.img                       # FTP下载固件
+printenv                           # 显示当前环境变量 如果不匹配请做修改
+setenv ipaddr 192.168.4.130        # 设置门铃设备的IP 依开发计算机的网段来设置
+setenv serverip 192.168.4.7        # 设置tftp服务器(即开发计算机)IP 网段为192.168.4.xxx    ipconfig /all 内网IP查询
+ping 192.168.4.7                   # ping开发计算机的IP
+# host 192.168.4.7 is alive
+</pre>
+启动 tftpd32.exe,单击 Browse 选择 img 文件的路径 
+<pre class='brush: bash'>
+mw.b 0x82000000 0xff 0x1000000                                     # 恢复16M
+tftp 0x82000000 Hi351x-16M-ipc4206p-bell.img                       # FTP下载img固件到DDR  .sw是web升级文件
 sf probe 0;sf erase 0 0x1000000;sf write 0x82000000 0x0 0x1000000;   # 擦写FLASH
-re                                                                 # 重启
+re                                                                 # reset
+
+# 如果有多条命令要写到一行，中间可以用冒号(;)隔开，冒号前后不必空格
 </pre>
 <br />
 <br />
