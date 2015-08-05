@@ -83,9 +83,13 @@ adb sideload update.zip        #  通过开发计算机把刷机包发送给reco
 <br />
 Doorbell
 <br />
-串口: 3V3,GND,TX,RX  波特率 115200
+主板上串口顺序: 3V3,GND,TX,RX  波特率 115200
 <br />
-对应USB串口线:红 黑 白 绿
+对应USB串口线顺序:红,黑,白RX,绿TX
+<br />
+RXD Receive Data 为接收数据的引脚
+<br />
+TXD Transmit Data 为发送数据的引脚
 <br />
 门铃上电后立即按任意键进入u-boot模式
 <br />
@@ -94,7 +98,7 @@ Doorbell
 printenv                           # 显示当前环境变量 如果不匹配请做修改
 setenv ipaddr 192.168.4.130        # 设置门铃设备的IP 依开发计算机的网段来设置
 setenv serverip 192.168.4.7        # 设置tftp服务器(即开发计算机)IP 网段为192.168.4.xxx    ipconfig /all 内网IP查询
-ping 192.168.4.7                   # ping开发计算机的IP
+ping 192.168.4.7                   # ping开发计算机的IP 以测试门铃设备的网络有没有alive
 # host 192.168.4.7 is alive
 </pre>
 启动 tftpd32.exe,单击 Browse 选择 img 文件的路径 

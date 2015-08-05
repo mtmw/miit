@@ -48,6 +48,9 @@ dig +trace baidu.com        # 执行后分成了4个部分，
                             # 第二部分是我们com后缀的权威DNS  返回gTLD地址  根域名服务器返回通用顶级域名（gTLD）的服务器地址和IP
                             # 第三部分是从com到baidu域名的权威DNS  gTLD服务器返回NS（name server）地址和IP
                             # 第四部分是从百度的权威DNS得到正常查询结果  NS返回域名对应的真正的IP地址
+							
+dig @8.8.8.8 baidu.com          # 测试 DNS
+dig @114.114.114.114 baidu.com    # 测试 DNS
 </pre>
 <pre class='brush: bash'>
 Tracert ip        # 可以看到各个节点的延迟和丢包 Windows版本是winmtr
