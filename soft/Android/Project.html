@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Project</title>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shCore.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushBash.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCpp.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJava.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="../SyntaxHighlighter/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="../SyntaxHighlighter/styles/shThemeDefault.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/layout.css" />   <!--链接到一个CSS外部样式表布局layout-->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../SyntaxHighlighter/scripts/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+</head>
+
+<body >
+<h2>Project</h2>
+<br />
+Doorbell 门铃
+<br />
+主板上串口顺序: 3V3、GND、TX、RX  波特率 115200
+<br />
+对应USB串口线顺序: 红、黑、白RX、绿TX
+<br />
+RXD Receive Data 为接收数据的引脚
+<br />
+TXD Transmit Data 为发送数据的引脚
+<br />
+门铃上电后启动时出现 Hit any key to stop autoboot:
+<br />
+立即按任意键进入u-boot模式:
+<br />
+<pre class='brush: bash'>
+printenv                           # 显示当前环境变量 如果不匹配请做修改
+setenv ipaddr 192.168.4.130        # 设置门铃设备的IP 依开发计算机的网段来设置
+setenv serverip 192.168.4.7        # 设置tftp服务器(即开发计算机)IP 网段为192.168.4.xxx    ipconfig /all 内网IP查询
+ping 192.168.4.7                   # ping开发计算机的IP 以测试门铃设备的网络有没有alive
+# host 192.168.4.7 is alive
+</pre>
+启动 tftpd32.exe,单击 Browse 选择 img 文件的路径 
+<pre class='brush: bash'>
+mw.b 0x82000000 0xff 0x1000000                                     # 恢复16M
+tftp 0x82000000 Hi351x-16M-ipc4206p-bell.img                       # FTP下载img固件到DDR  .sw是web升级文件
+sf probe 0;sf erase 0 0x1000000;sf write 0x82000000 0x0 0x1000000;   # 擦写FLASH
+re                                                                 # reset
+
+# 如果有多条命令要写到一行，中间可以用冒号(;)隔开，冒号前后不必空格
+</pre>
+<br />
+外接网线颜色1-6依次为:
+<br />
+蓝白、蓝、绿白、绿、褐、紫
+<br />
+<br />
+无线升级IP 192.168.234.1
+<br />
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+凌阳 SPCA6350M-HHM21
+<br />
+主板上串口顺序: GPIO16-RX(R3)、GPIO17-TX(R2)、VCC_IO_3V3、GND
+<br />
+对应USB串口线顺序: 绿TX,白RX、红、黑
+<br />
+注意: 电源可不接 地线一定要接
+<br />
+<br />
+IPCSearch 状态:
+<br />
+状态栏中是 + 加号：表示是新增加的，上一次搜索没搜索到的，这次搜到了
+<br />
+状态栏中是 - 减号：表示离线
+<br />
+状态栏中是空的，表示连接正常
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+20150831
+<br />
+<br />
+
+</html>

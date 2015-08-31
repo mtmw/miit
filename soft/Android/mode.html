@@ -21,7 +21,7 @@
 </head>
 
 <body >
-<h2>mode</h2>20150820
+<h2>mode</h2>
 <br />
 bootloader什么意思
 <br />
@@ -80,54 +80,15 @@ adb sideload update.zip        #  通过开发计算机把刷机包发送给reco
 <br />
 <br />
 <br />
-<br />
-Doorbell
-<br />
-主板上串口顺序: 3V3、GND、TX、RX  波特率 115200
-<br />
-对应USB串口线顺序: 红、黑、白RX、绿TX
-<br />
-RXD Receive Data 为接收数据的引脚
-<br />
-TXD Transmit Data 为发送数据的引脚
-<br />
-门铃上电后立即按任意键进入u-boot模式
-<br />
-<br />
-<pre class='brush: bash'>
-printenv                           # 显示当前环境变量 如果不匹配请做修改
-setenv ipaddr 192.168.4.130        # 设置门铃设备的IP 依开发计算机的网段来设置
-setenv serverip 192.168.4.7        # 设置tftp服务器(即开发计算机)IP 网段为192.168.4.xxx    ipconfig /all 内网IP查询
-ping 192.168.4.7                   # ping开发计算机的IP 以测试门铃设备的网络有没有alive
-# host 192.168.4.7 is alive
-</pre>
-启动 tftpd32.exe,单击 Browse 选择 img 文件的路径 
-<pre class='brush: bash'>
-mw.b 0x82000000 0xff 0x1000000                                     # 恢复16M
-tftp 0x82000000 Hi351x-16M-ipc4206p-bell.img                       # FTP下载img固件到DDR  .sw是web升级文件
-sf probe 0;sf erase 0 0x1000000;sf write 0x82000000 0x0 0x1000000;   # 擦写FLASH
-re                                                                 # reset
-
-# 如果有多条命令要写到一行，中间可以用冒号(;)隔开，冒号前后不必空格
-</pre>
-<br />
-外接网线颜色1-6依次为:
-<br />
-蓝白、蓝、绿白、绿、褐、紫
-<br />
-<br />
-<br />
-凌阳 SPCA6350M-HHM21
-<br />
-主板上串口顺序: GPIO16-RX(R3)、GPIO17-TX(R2)、VCC_IO_3V3、GND
-<br />
-对应USB串口线顺序: 绿TX,白RX、红、黑
-<br />
-注意: 电源可不接 地线一定要接
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
 <br />
 <br />
+<br />
+<br />
+<br />
+20150831
 <br />
 
 </html>
