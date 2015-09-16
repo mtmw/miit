@@ -26,24 +26,38 @@
 
 <h1>Serial 串口</h1>
 <br />
-从PL-2303HX输出 
-第1pin TXD 输出 发送数据 数据输出到串口   (to USB母座 DP+)
-第5pin RXD 输入 接受数据 串口数据输入     (to USB母座 DN-)
-
+PL-2303HX
+<br />
+第1pin TXD 输出 发送数据 数据输出到开发板串口   (to USB母座 DP+)
+<br />
+第5pin RXD 输入 接受数据 从开发板串口接收数据输入     (to USB母座 DN-)
+<br />
+<br />
+CP2102
+<br />
+第26pin TXD 输出 发送数据 数据输出到开发板串口   (to USB母座 DP+)
+<br />
+第25pin RXD 输入 接受数据 从开发板串口接收数据输入     (to USB母座 DN-)
+<br />
+<br />
 USB母座(PL-2303HX 第1、5pin输出后与此USB母座相连)
+<br />
 1.Vcc空 
+<br />
 2.DN-  (to PL-2303HX 第5pin)(to MID DN-)
+<br />
 3.DP+  (to PL-2303HX 第1pin)(to MID DP+)
+<br />
 4.GND
 <br />
-
+<br />
 MID
 1.Vcc空
 2.DN- 白色
 3.DP+ 绿色
 4.空
 5.GND
-
+<br />
 <br />
 
 即 MID Micro USB第2pin D- 接PL-2303HX第5pin RXD
@@ -59,23 +73,9 @@ TXD Transmit Data 为发送数据的引脚。
 <br />
 
 数据终端设备DTE(Data Terminal Equipment）：开发计算机
-数据通信设备DCE（Data Communicate Equipment）：Android Devices、单片机、MODEM
+数据通信设备DCE（Data Communicate Equipment）：Android Devices、单片机、开发板、MODEM
 
 RS-232C标准中所提到的“发送”和“接收”，都是站在DTE立场上，而不是站在DCE的立场来定义的
-<br />
-
-
-
-
-从CP2102输出
-第26pin TXD 输出 发送数据 数据输出到串口   (to USB母座 DP+)
-第25pin RXD 输入 接受数据 串口数据输入     (to USB母座 DN-)
-
-
-
-
-<br />
-<br />
 <br />
 <br />
 <br />
