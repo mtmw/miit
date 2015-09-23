@@ -258,6 +258,13 @@ del /f /q "%userprofile%\AppData\Local\IconCache.db"
 start explorer
 pause
 </pre>
+<pre class='brush: bash'>
+certutil -hashfile yourfilename.ext MD5
+
+certutil -hashfile yourfilename.ext SHA1
+
+certutil -hashfile yourfilename.ext SHA256
+</pre>
 <br />
 <br />
 <br />
