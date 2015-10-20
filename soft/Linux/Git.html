@@ -24,7 +24,7 @@
 
 <body >
 
-<h1>Git VCS Version Control System 版本控制系统</h1>
+<h1>Git VCS</h1><h3>Version Control System 版本控制系统</h3>
 <br />
 Client
 <br />
@@ -67,6 +67,7 @@ Online
 git add .
 git commit -m "2015 xx xx"
 git push origin master
+git push goodrain master        # (goodrain.com用此命令)
 </pre>
 <br />
 服务器库上的文件完全覆盖本地工作版本. 方法如下:
@@ -130,7 +131,7 @@ Git的版本库里存了很多东西，其中最重要的就是称为stage（或
 <br />
 <br />
 <br />
-1.在Github上建一个新仓库(远程库)，命名为 mtmwnet
+1.在Github.com上建一个新仓库(远程库)，命名为 mtmwnet
 <br />
 2.在本地目录建一个仓库，命名为mmnet
 <pre class='brush: bash'>
@@ -149,10 +150,12 @@ git commit -m "3 file"      # 用git commit提交更改，实际上就是把暂�
 
 </pre>
 
-3.Github仓库与本地仓库关联,在本地仓库的目录中如下操作：
+3.Github.com仓库与本地仓库关联,在本地仓库的目录中如下操作：
 <pre class='brush: bash'>
 git remote add origin https://github.com/mtmw/mtmwnet.git      # GithubID 为Github的ID, mtmwnet.git为Github仓库项目名
                                                                # 远程库的名字就是origin，这是Git默认的叫法，也可以改成别的
+	or
+git remote add goodrain http://code.goodrain.com/xxxx.git  # 添加一个名为 goodrain 的远端（ url 为 git 地址） (goodrain.com用此命令)
 
 HTTPS https://github.com/mtmw/mtmwnet.git                      # https协议
 SSH git@github.com:mtmw/mtmwnet.git                            # SSH协议
@@ -163,6 +166,8 @@ git push -u origin master	  # 用git push命令，实际上是把当前分支mas
                               # 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，
 							  # Git不但会把本地的master分支内容推送的远程新的master分支，
 							  # 还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+	or
+git push -u goodrain master # 将该目录下的文件推送到远端（goodrain）上的 "master" 分支 (goodrain.com用此命令)
 
 git push origin master        # 只要本地作了提交，以后就可以通过此命令提交了
                             # 你以上的改动现在已经在本地仓库的 HEAD 中了。执行此条命令以将这些改动提交到远端仓库。
@@ -355,5 +360,5 @@ id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告�
 <br />
 <br />
 
-20150923
+20151020
 </html>
