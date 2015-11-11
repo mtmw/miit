@@ -221,13 +221,20 @@ adbd cannot run as rootin production builds    #  Aanroid设备未获取"ROOT"�
 </pre>
 <br />
 
-16.得到Android设备的系统文件读写权限
+16.查看监听端口
+<pre class='brush: bash'>
+adb shell netstat        # 查看有没有开 6259 / 40310 这两个监听端口
+</pre>
+<br />
+<br />
+
+17.得到Android设备的系统文件读写权限
 <pre class='brush: bash'>
 adb remount        # 设置/system分区以可读写的权限
 </pre>
 <br />
 
-17.查看各分区挂载信息,方便查看各分区是否已经挂载。
+18.查看各分区挂载信息,方便查看各分区是否已经挂载。
 <pre class='brush: bash'>
 adb shell mount
 </pre>
@@ -237,13 +244,13 @@ mount -o remount rw /system
 </pre>
 <br />
 
-18.取消分区挂载命令
+19.取消分区挂载命令
 <pre class='brush: bash'>
 adb shell unmount/[分区]    #  [分区] ---- 选择你要卸载的分区
 </pre>
 <br />
 
-19.解锁Password
+20.解锁Password
 <pre class='brush: bash'>
 adb shell rm -rf /data/system/access_control.key    #  删除屏锁图形密码
 
@@ -268,7 +275,7 @@ adb reboot
 <br />
 
 
-20.截屏 Screenshots 屏幕捕获 Screen Capture  电源键 + 音量减键
+21.截屏 Screenshots 屏幕捕获 Screen Capture  电源键 + 音量减键
 <pre class='brush: bash'>
 adb shell /system/bin/screencap -p /sdcard/Screenshots/Screenshot.png     # 调用screencap实现截屏 screencap源码frameworks/base/cmds/screencap/
 adb pull /sdcard/Screenshots/Screenshot.png D:\Screenshots\Screenshot.png   # Rockchip  /mnt/external_sd/
