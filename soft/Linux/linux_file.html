@@ -227,80 +227,9 @@ umask             #新建文件、目录的默认权限
 -rw-rw-rw-  1 root root 395 Jul  4 11:45 .bashrc
 </pre>
 <br />
-<br />
-
-
-ext4与ntfs的性能测试
-<pre class='brush: bash'>
-root@mu:/sys/devices$ fdisk -l
-
-root@mu:/sys/devices$ hdparm -Tt /dev/sda2        #  测试sda2分区硬盘读取速度
-
-root@mu:/sys/devices$ hdparm -Tt /dev/sda3        #  测试sda3分区硬盘读取速度
-
-dd if=/dev/zero of=/tmp/output.img bs=8k count=256k; rm -rf /tmp/output.img  # 测试硬盘写入速度
-
-hdparm -Y /dev/sdx                  # 实现机械硬盘磁头归位停转
-</pre>
-Super PI
-<pre class='brush: bash'>
-time echo "scale=500;4*a(1)"|bc -l -q
-</pre>
-
-<br />
-<br />
 
 
 
-
-<br />
-<br />
-<br />
-<br />
-<br />
-
-<pre class='brush: bash'>
-Windows
-SSD Win7 59.81GB        # 64G SSD 60GB
-mSATA WinXP Linux 59.63GB  # KINGSTON SMS100S264G
--------------------------------------------------------------------------------
-root@deepin:/# fdisk -l
-
-Disk /dev/sda: 320.1 GB, 320072933376 bytes
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sda1   *          63   236990879   118495408+   7  HPFS/NTFS/exFAT
-Partition 1 does not start on physical sector boundary.
-/dev/sda2       236990880   625137344   194073232+   f  W95 Ext'd (LBA)
-/dev/sda5       236990943   625137344   194073201    7  HPFS/NTFS/exFAT
-Partition 5 does not start on physical sector boundary.
-
-Disk /dev/sdb: 64.2 GB, 64223182848 bytes
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdb1   *          63   125435519    62717728+   7  HPFS/NTFS/exFAT
-
-Disk /dev/sdc: 64.0 GB, 64023257088 bytes
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1   *          63    48243194    24121566    7  HPFS/NTFS/exFAT
-/dev/sdc2        48243195   125033894    38395350    7  HPFS/NTFS/exFAT
-
-Disk /dev/sdd: 31.2 GB, 31214010368 bytes
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdd1   *          63    60950609    30475273+   c  W95 FAT32 (LBA)
-root@deepin:/# 
-
-
-
-
-</pre>
-
-
-
-
-<br />
-<br />
-wifi上网
-<br />
-ubuntu/BT5 + airodump + reaver
 <br />
 <br />
 <br />
@@ -314,5 +243,5 @@ ubuntu/BT5 + airodump + reaver
 <br />
 <br />
 
-20150323
+20151211
 </html>

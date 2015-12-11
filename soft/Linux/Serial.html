@@ -28,19 +28,26 @@
 <br />
 PL-2303HX
 <br />
-第1pin TXD 输出 发送数据 数据输出到开发板串口   (to USB母座 DP+)
+第1pin TXD 输出 发送数据 数据输出到开发板串口   (to USB母座 DP+ to DCE)
 <br />
-第5pin RXD 输入 接受数据 从开发板串口接收数据输入     (to USB母座 DN-)
+第5pin RXD 输入 接受数据 从开发板串口接收数据输入     (to USB母座 DN- to DCE)
 <br />
 <br />
 CP2102
 <br />
-第26pin TXD 输出 发送数据 数据输出到开发板串口   (to USB母座 DP+)
+第26pin TXD 输出 发送数据 数据输出到开发板串口   (to USB母座 DP+ to DCE)
 <br />
-第25pin RXD 输入 接受数据 从开发板串口接收数据输入     (to USB母座 DN-)
+第25pin RXD 输入 接受数据 从开发板串口接收数据输入     (to USB母座 DN- to DCE)
 <br />
 <br />
-USB母座(PL-2303HX 第1、5pin输出后与此USB母座相连)
+CH340G
+<br />
+第2pin TXD 输出 发送数据 数据输出到开发板串口   (to USB母座 DP+ to DCE)
+<br />
+第3pin RXD 输入 接受数据 从开发板串口接收数据输入     (to USB母座 DN- to DCE)
+<br />
+<br />
+串口板USB母座(PL-2303HX 第1、5pin输出后与此USB母座相连)
 <br />
 1.Vcc空 
 <br />
@@ -51,70 +58,38 @@ USB母座(PL-2303HX 第1、5pin输出后与此USB母座相连)
 4.GND
 <br />
 <br />
-MID
+Rockchip MID
 1.Vcc空
+<br />
 2.DN- 白色
+<br />
 3.DP+ 绿色
+<br />
 4.空
+<br />
 5.GND
 <br />
 <br />
-
-即 MID Micro USB第2pin D- 接PL-2303HX第5pin RXD
-即 MID Micro USB第3pin D+ 接PL-2303HX第1pin TXD
+即 Rockchip MID Micro USB第2pin D- 接PL-2303HX第5pin RXD
 <br />
-
+即 Rockchip MID Micro USB第3pin D+ 接PL-2303HX第1pin TXD
+<br />
+<br />
 RXD与TXD如何连接?
+<br />
 在一些电路图中，有的是直连接法，有的是交叉接法
 <br />
-
+<br />
 RXD Receive Data 为接收数据的引脚
+<br />
 TXD Transmit Data 为发送数据的引脚。
 <br />
-
+<br />
 数据终端设备DTE(Data Terminal Equipment）：开发计算机
+<br />
 数据通信设备DCE（Data Communicate Equipment）：Android Devices、单片机、开发板、MODEM
-
+<br />
 RS-232C标准中所提到的“发送”和“接收”，都是站在DTE立场上，而不是站在DCE的立场来定义的
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 <br />
 <br />
 <br />
@@ -152,5 +127,5 @@ RS-232C标准中所提到的“发送”和“接收”，都是站在DTE立场�
 <br />
 <br />
 
-20141210
+20151210
 </html>

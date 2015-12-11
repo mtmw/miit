@@ -308,6 +308,10 @@ adb shell /system/bin/screencap -p /sdcard/Screenshots/Screenshot_%temp%.png
 adb pull /sdcard/Screenshots/ E:\Screenshots\
 adb shell rm -r /sdcard/Screenshots
 </pre>
+<pre class='brush: bash'>
+adb shell screencap -p | sed 's/\r$//' > screen.png
+# 执行adb shell 将\n转换\r\n, 因此需要用sed删除多余的\r
+</pre>
 录屏
 <pre class='brush: bash'>
 adb shell screenrecord /sdcard/fileName.mp4
