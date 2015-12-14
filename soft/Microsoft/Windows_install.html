@@ -30,73 +30,53 @@
 <hr /><!-- ----------------------------------------------------------------- -->
 技术人员计算机 Technician Computer 开发计算机 
 <br />
-安装适用于 Windows® 7 的 Windows® 自动安装工具包 (AIK)或 Windows OEM 预安装工具包 (Windows OPK)
 <br />
-Windows AIK 附带的工具:
+<a  href="https://msdn.microsoft.com/zh-cn/windows/hardware/gg454513" target="_blank" style="text-decoration:none" >Windows 的工具包和工具</a>
 <br />
-Windows 系统映像管理器 (Windows SIM)  是用来创建和修改答案文件和配置设置的主要工具。
-<br />
-ImageX
-<br />
-部署映像服务和管理 (DISM) 可通过使用部署映像服务和管理 (DISM) 工具对该映像进行自定义
-<br />
-用户状态迁移工具 (USMT)
-<br />
-Windows预先安装环境(Microsoft Windows Preinstallation Environment)简称Windows PE或WinPE
-<br />
-WinPE是简化版的Windows XP、Windows Vista、Windows7、Windows Server
+<a  href="https://msdn.microsoft.com/zh-cn/windows/hardware/dn913721.aspx" target="_blank" style="text-decoration:none" >安装 Windodws 10 Version 1511 评估和部署工具包 (ADK)</a> 安装时选装:部署工具、Windows 预安装环境 (Windows PE)
 <br />
 <br />
-建立 Windows PE 构建环境
+<a  href="https://msdn.microsoft.com/zh-cn/library/windows/hardware/dn938389%28v=vs.85%29.aspx" target="_blank" style="text-decoration:none" >Windows预先安装环境(Microsoft Windows Preinstallation Environment)简称WinPE</a>
+
 <br />
-在技术人员计算机上,开始/所有程序/Microsoft Windows AIK 或 Microsoft Windows OPK /部署工具命令提示符 (右键 以管理员身份运行)
+1. 创建 32 位或 64 位 Windows PE 文件
+<br />
+开始 / 所有程序 / Windows Aits / 部署和映像工具环境 (右键 以管理员身份运行)
 <pre class='brush: bash'>
-copype.cmd [architecture] [destination]        # [architecture] 可以是 x86、amd64 或 ia64
-                                               # [destination] 是本地目录的路径
+copype amd64 [architecture] [WorkingDirectory]        # [architecture] 指定 x86、amd64
+                                                      # [WorkingDirectory] 是本地目录的路径
 For example
-copype.cmd x86 D:\winpe_x86                    # 此脚本会在D盘winpe_x86目录创建文件目录结构并复制该体系结构的所有必要文件
-copy D:\winpe_x86\winpe.wim D:\winpe_x86\ISO\sources\boot.wim  # 将winpe_x86目录下的基本映像 (winpe.wim) 复制到
-                                                               # D:\Winpe_x86\ISO\sources 文件夹，然后将该文件重命名为 Boot.wim
+copype amd64 D:\System\OS\WinPE\WinPE_amd64  # 此脚本会在D:\System\OS\WinPE\WinPE_amd64目录创建WinPE系统
+  or
+copype x86 D:\System\OS\WinPE\WinPE_x86
 </pre>
 <br />
+2.1 创建可引导 USB Flash Disk
 <br />
-ImageX 是一个在实现部署方案期间捕获和应用映像的工具
-<br />
-可以使用 ImageX 向 Windows PE 映像中添加在 Windows PE 中工作时可能需要的应用程序和脚本														   
-<pre class='brush: bash'>
-copy D:\[version]\Tools\[architecture]\imagex.exe D:\winpe_x86\ISO\  
-# 在技术人员计算机上,将 ImageX 工具复制到 Windows PE 映像 ISO目录下
-      # [version] 是 Windows OPK 或 Windows AIK
-                      # [architecture] 是 x86、amd64 或 ia64。
-</pre>
-<br />
-<br />
-创建可引导 CD-ROM
-<pre class='brush: bash'>
-oscdimg -n -bD:\winpe_x86\etfsboot.com D:\winpe_x86\ISO D:\winpe_x86\winpe_x86.iso  # 使用 Oscdimg 工具将WinPE打包创建成 .iso 文件
-                                                                                    # 然后将映像 (.iso) 刻录到 CD-ROM 或 DVD-ROM 上
-</pre>
-<br />
-<br />
-创建可引导 USB Flash Disk
-<br />
-使用 Diskpart 工具将 UFD 格式化为跨越整个 UFD 的 FAT32，然后将此分区设置为活动状态。
+使用 Diskpart 工具将 UFD 格式化为跨越整个 UFD 的 FAT32
 <pre class='brush: bash'>
 diskpart                         # 进入 diskpart 工具
 list disk                        # 列出磁盘
-select disk 1                    # 选定 U 盘(假定 Disk 1 为 UFD)
+select disk number               # 选定 U 盘number
 clean                            # 清除物理磁盘所有信息                        
 create partition primary         # 创建分区
-select partition 1               # 选择分区1
-active                           # 将当前分区标为活动
-format quick fs=fat32            # 格式化该卷为FAT32
-assign                           # 分配驱动器号或装载点
+format quick fs=fat32 label="WindowsPE"  # 格式化U盘
+assign letter="U"                # 分配盘符
 exit
 </pre>
-在技术人员计算机上，将 \ISO 目录中的所有内容复制到 UFD 中
+将 Windows PE 安装到 U 盘
 <pre class='brush: bash'>
-xcopy D:\winpe_x86\ISO\*.* /e F:\             # F:\ 是 UFD 的驱动器号
-                                              # /e 复制目录和子目录（包括空目录）
+MakeWinPEMedia /UFD D:\System\OS\WinPE\WinPE_amd64 U:        # U:\ 是 UFD 的驱动器号
+  or
+MakeWinPEMedia /UFD D:\System\OS\WinPE\WinPE_x86 U:        # U:\ 是 UFD 的驱动器号
+</pre>
+<br />
+<br />
+2.2 创建包含 Windows PE 文件的 ISO 文件：
+<pre class='brush: bash'>
+MakeWinPEMedia /ISO D:\System\OS\WinPE\WinPE_amd64 D:\System\OS\WinPE\WinPE_iso\WinPE_amd64.iso  # 将第1步生成的WinPE系统打包成iso文件
+  or
+MakeWinPEMedia /ISO D:\System\OS\WinPE\WinPE_x86 D:\System\OS\WinPE\WinPE_iso\WinPE_x86.iso
 </pre>
 <br />
 <br />
@@ -121,6 +101,17 @@ exit
 xcopy d:\*.* /e  c:\                # d:\ 是 CD-ROM 驱动器或 UFD 介质的驱动器号
                                     # /e 复制目录和子目录（包括空目录）
                                     # c:\ 是硬盘上的主分区的驱动器号。
+</pre>
+<br />
+<br />
+ImageX 是一个在实现部署方案期间捕获和应用映像的工具
+<br />
+可以使用 ImageX 向 Windows PE 映像中添加在 Windows PE 中工作时可能需要的应用程序和脚本														   
+<pre class='brush: bash'>
+copy D:\[version]\Tools\[architecture]\imagex.exe D:\winpe_x86\ISO\  
+# 在技术人员计算机上,将 ImageX 工具复制到 Windows PE 映像 ISO目录下
+      # [version] 是 Windows OPK 或 Windows AIK
+                      # [architecture] 是 x86、amd64 或 ia64。
 </pre>
 <br />
 <br />

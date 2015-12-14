@@ -302,29 +302,29 @@ rem    for a BIOS/MBR-based computer.
 rem    Adjust the partition sizes to fill the drive
 rem    as necessary. ==
 select disk 0                                      # 假定 Disk 0 为 目标Hard Disk
-clean
+clean                                              # 清除磁盘
 rem == 1. System partition ========================
-create partition primary size=100
-format quick fs=ntfs label="System"
-assign letter="S"
-active
+create partition primary size=100                  # 创建指定分区
+format quick fs=ntfs label="System"                # 格式化该卷
+assign letter="S"                                  # 分配驱动器号或装载点
+active                                             # 将当前分区标为活动
 rem == 2. Windows partition =====================
 rem ==    a. Create the Windows partition =======
-create partition primary
+create partition primary                           # 创建指定分区
 rem ==    b. Create space for the recovery tools  
-shrink minimum=500
+shrink minimum=500                                 # 成功收缩卷500MB
 rem       ** NOTE: Update this size to match the
 rem                size of the recovery tools 
 rem                (winre.wim)                 **
 rem ==    c. Prepare the Windows partition ====== 
-format quick fs=ntfs label="Windows"
-assign letter="W"
+format quick fs=ntfs label="Windows"               # 格式化该卷
+assign letter="W"                                  # 分配驱动器号或装载点
 rem == 3. Recovery tools partition ==============
-create partition primary
-format quick fs=ntfs label="Recovery"
-assign letter="R"
-set id=27
-list volume
+create partition primary                           # 创建指定分区
+format quick fs=ntfs label="Recovery"              # 格式化该卷
+assign letter="R"                                  # 分配驱动器号或装载点
+set id=27                                          # 设置分区ID
+list volume                                        # 列出磁盘盘符
 exit
 </pre>
 使用 Windows PE 启动目标电脑 
