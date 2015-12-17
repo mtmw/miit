@@ -39,9 +39,9 @@
 <a  href="https://msdn.microsoft.com/zh-cn/library/windows/hardware/dn938389%28v=vs.85%29.aspx" target="_blank" style="text-decoration:none" >Windows预先安装环境(Microsoft Windows Preinstallation Environment)简称WinPE</a>
 
 <br />
-1. 创建 32 位或 64 位 Windows PE 文件
-<br />
 开始 / 所有程序 / Windows Aits / 部署和映像工具环境 (右键 以管理员身份运行)
+<br />
+1. 创建 32 位或 64 位 Windows PE 文件
 <pre class='brush: bash'>
 copype amd64 [architecture] [WorkingDirectory]        # [architecture] 指定 x86、amd64
                                                       # [WorkingDirectory] 是本地目录的路径
@@ -80,7 +80,7 @@ MakeWinPEMedia /ISO D:\System\OS\WinPE\WinPE_x86 D:\System\OS\WinPE\WinPE_iso\Wi
 </pre>
 <br />
 <br />
-创建可引导 Hard Disk
+2.3 创建可引导 Hard Disk
 <br />
 使用 Windows PE 介质引导启动计算机
 <br />
