@@ -104,25 +104,6 @@ xcopy d:\*.* /e  c:\                # d:\ 是 CD-ROM 驱动器或 UFD 介质的�
 </pre>
 <br />
 <br />
-ImageX 是一个在实现部署方案期间捕获和应用映像的工具
-<br />
-可以使用 ImageX 向 Windows PE 映像中添加在 Windows PE 中工作时可能需要的应用程序和脚本														   
-<pre class='brush: bash'>
-copy D:\[version]\Tools\[architecture]\imagex.exe D:\winpe_x86\ISO\  
-# 在技术人员计算机上,将 ImageX 工具复制到 Windows PE 映像 ISO目录下
-      # [version] 是 Windows OPK 或 Windows AIK
-                      # [architecture] 是 x86、amd64 或 ia64。
-</pre>
-<br />
-<br />
-ImageX 用于捕获、创建、修改和应用 Windows 映像 Wimtool
-<pre class='brush: bash'>
-diskpart                              # 必须从 Windows PE 运行此工具
-list volume
-imagex /capture C: D:\Win7.wim "Start Drivers Applications" /verify   # 用 ImageX 工具捕获计算机的映像备份系统 (执行此命令时,需切换到imagex目录)
-                                                     # Windows PE系统盘符为 X:,将C:盘备份到D:盘,映像文件为Win7.wim
-imagex /apply D:\win7.wim 1 C:           # 进入WinPE后还原备份的系统
-</pre>
 
 <hr /><!-- ----------------------------------------------------------------- -->
 <br />
