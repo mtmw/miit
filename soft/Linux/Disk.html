@@ -174,7 +174,7 @@ root@Linux:/#
 <br />
 对于 UEFI 模式使用 GPT 文件格式，而对于 BIOS 模式则使用 MBR 文件格式。
 <br />
-文件系统：FAT32、NTFS、ext4
+文件系统：FAT32、NTFS、ext4、XFS
 <br />
 <br />
 <a  href="https://msdn.microsoft.com/zh-cn/library/windows/hardware/dn898510(v=vs.85).aspx" target="_blank" style="text-decoration:none" >基于 UEFI/GPT 的硬盘驱动器分区</a> 
@@ -216,7 +216,7 @@ list disk                 # 列出磁盘
 select disk number        # number为磁盘号
 clean
 convert gpt               # 转为gpt文件格式
-create partition efi size=160               # 创建系统分区 ESP 100MB
+create partition efi size=160               # 创建系统分区 ESP 160MB
 format quick fs=fat32 label="System"        # 格式化该卷文件系统为fat32 设置卷标为 System 
 assign letter="S"                           # 分配驱动器号
 create partition primary size=81920         # 创建主分区81920MB
@@ -249,6 +249,7 @@ MBR分区表：Master Boot Record，即硬盘主引导记录分区表
 <br />
 手动擦除驱动器并将其转换为 mbr：
 <br />
+<pre class='brush: bash'>
 按 Shift+F10 打开命令提示符窗口
 diskpart                  # 进入 diskpart 工具
 list disk                 # 列出磁盘
@@ -284,7 +285,9 @@ exit
 <br />
 第一个分区C盘安装Win10,第二个分区D盘安装Win7
 <pre class='brush: bash'>
-Bcdboot D:\Windows
+Bcdboot C:\Windows    # Win10风格的选项菜单
+  or
+Bcdboot D:\Windows    # Win7风格的选项菜单
 
 BCDEdit        # 查看启动配置
 </pre>
@@ -335,20 +338,6 @@ UEFI规范中，NVRAM是BIOS ROM中的一段区域，一般定义为64k byte, �
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
-20151211
+20151229
 </html>
