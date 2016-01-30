@@ -7,10 +7,31 @@
 </head>
 
 <body >
-20160129
+20160130
 <h1>> File / CAM</h1>
 Gerber
 <br />
+常用的Gerber文件
+   a. 走线层，（包括信号层及电源层和地层），可能的层类型包括上面提到的全部
+                        三种类型
+   b. 文字层（湿印层）用于标示零件范围、方向及序号。一般包括（Top/Bottom 
+                     Silkscreen Layer）
+   c. 阻焊层，在不需要焊接区域涂上一层阻焊及防氧化材料，一般为绿油，这类
+                       主要是Soldermask Layer Top/Bottom
+* 当需要堵住过孔时(即平时说的过孔盖油)，可以该Gerber文件设置中去掉via，预览时见不到过孔，即满足要求。
+   d. 钻孔层：（drilldraw）
+   e. 铜网层：主要用于组装工厂在放置SMD零件于电路板前，需透过此冶具在SMD
+                       零件的PAD上涂一层锡膏，这个一般由(Paste mask Layer Top/Bottom)来
+                       实现
+   f. 装配图：(Assembly)
+ ***另外，有些贴装厂可能会要求提供坐标文件，这种文件实现上其实就是通过
+        file/export实现，在export配置窗的section中，只选择part,即不导出网络，通常还
+       会要求你导成低版本兼容格式，一般在format单选框中选PowerPCB V4.0基本就
+       够了
+
+
+
+
 <br />
 <br />
 <br />

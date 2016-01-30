@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160129
+20160130
 <h1>> Setup / Layer Definition</h1>
 1  Top
 <br />
@@ -71,6 +71,84 @@
 <br />
 <br />
 <hr /><!-- ----------------------------------------------------------------- -->
+<br />
+Plane Type平面层类型 :
+<br />
+ No Plane(无平面)
+<br />
+ CAM plane(CAM平面)
+<br />
+ Split/Mixed(混合/分割平面)
+<br />
+<br />
+<br />
+ No Plane(无平面)--------正片走线层，通常适用于所有走线层，包括TOP，BOTTOM以及中间走线层，以正片的形式输出
+<br />
+ CAM plane(CAM平面)------内层负片层。通常适用于内层的地平面或电源平面
+ 
+ 以负片的形式输出，层分割以2D线来实现，不用铺铜，通常用于
+                             电源层跟地层，且占用的数据量要小得多，但有一个缺点就是不
+                             会检查设计规则，即分配到这层的网络，就不会再检查安全间距
+                             及连接性等，因此，分割层需要自已保证无误，
+
+<br />
+ Split/Mixed(混合/分割平面)--正片层。通常适用于内层有几种类型的GND或power需要分割时
+<br />
+混合层，以正片的形式输出，需要铺铜，但其铺铜与No plane
+                             不同，可以选择分割块按块铺，统一操作是在tool/pour manager的
+                              plane connect页中操作,该层在进行规则校验时会检查规则。
+
+
+							  ***  使用Mixed plane做电源层或地层时，层分割过程可能会出层某一块铜皮被另
+            一块铜皮全包围，或有重叠的情况，进行pour 操作后，经常出现被覆盖的现
+            象，在这种情况下，需要设置分割块的优先级别（flood priority），级别越
+           低，越优先铺铜，即重叠部分划归优先级别低的
+
+<br />
+<br />
+<br />
+入门者全部设置为No Plane,简单易学,只是数据量稍微大一些
+但实际应用中，如果板子不是很大，且只是6层以下的板，把所有层都设为No plane也未尝不可，这样反倒灵活
+<br />
+<br />
+所有的平面层一共分成两种层 : 特殊和非特殊
+非特殊指非平面层（No plane)
+特殊层包括“CAM Plane"和”Split/Mixed“两种层。 No plane通常指走线层（如TOP和BOTTOM层）
+
+，但是如果多层板中有走线层，也要设成No plane层。
+  CAM Plane：CAM平面层，输出菲林文件时以负片形式输出GERBER文件（占用数据量小），通常用于POWER和GND层，不用铺铜。
+  Split/Mixed：和CAM Plane一样，只是输出菲林文件时以正片形式输出GERBER文件。需铺铜。
+
+
+注意：
+
+no plane 可以走线，可以分割平面，用copper pour灌铜；
+
+cam plane 不能走线，也不能分割平面，只能一个负片输出；
+
+split/mixed 可以分割平面；该层允许布线，用plane area分割区域；
+
+
+
+
+层有三种选项，分别为：NO plane（非平面层）,CAM plane（CAM平面层）和split/mixe（混合平面层）。
+这三种层主要的区别就是在铺铜上。
+NO plane层铺铜的时候是用copper pour画铜皮区域，画好区域后再定义铜皮的网络，任意网络都可以定义。
+CAM plane要先定义好这层的网络，用2D线划分区域，不需要铺铜，工厂已反片的方式生产。（不建议用这种层）
+split/mixe就是你问的混合平面层了，需要先定义这个层的网络，在SETUP-->Layer Definition里面点击Assign，分配网络给混合平面层。分配好后，通过工具栏的plane Area来划分
+
+铺铜区域。如果一个平面层有定义几个网络，就需要进行平面层分割了。例如一个电源层，定义了5V和3.3V两个网络，我在这层铺铜的时候，就将一部分铜皮定义为5V，一部分为3.3V
+
+，这样就分割好了。
+一般来说采用NO plane层或混合平面层，而混合平面层在给内层划分的时候会很方便。 
+
+
+
+
+
+
+<br />
+<br />
 Layers Setup
 <br />
 > Setup / Layer Definition / Modify(修改)... / 4 or 6 or 8 or n /
@@ -83,7 +161,7 @@ Electrical Layer Type(电气层类型) : Component(元器件)
 <br />
 Plane Type(平面类型) : No Plane(无平面)
 <br />
-Routing Direction(布线方向 : Vertical(垂直)
+Routing Direction(布线方向) : Vertical(垂直)
 <br />
 <br />
 2 Bottom
@@ -98,9 +176,18 @@ Routing Direction(布线方向) : Horizontal(水平)
 <br />
 <br />
 <hr /><!-- ----------------------------------------------------------------- -->
-4层板之 :
+4层板层叠结构 :
 <br />
-Inner Layer 2
+Top ------------ Siganl 1 -------- 顶层信号层
+<br />
+Inner 1 -------- GND ------------- 内电层地
+<br />
+Inner 2 -------- POWER ----------- 内电层电源
+<br />
+Bottom --------- Siganl 2 -------- 底层信号层
+<br />
+<br />
+Inner Layer 1
 <br />
 重新命名为 : Ground Plane(地平面层)
 <br />
@@ -111,7 +198,7 @@ Assign Nets(分配网络) / Select GND / ok /
 Routing Direction(布线方向) : Any(任意)
 <br />
 <br />
-Inner Layer 3
+Inner Layer 2
 <br />
 重新命名为 : Power Plane(电源平面层)
 <br />
@@ -122,7 +209,75 @@ Assign Nets(分配网络) / Select 5V and 12V / ok /
 Routing Direction(布线方向) : Any(任意)
 <br />
 <br />
+<hr /><!-- ----------------------------------------------------------------- -->
+<br />
+6层板层叠结构 :
+<br />
+Top ------------ Siganl 1 -------- 顶层信号层1
+<br />
+Inner 1 -------- GND ------------- 内电层地
+<br />
+Inner 2 -------- Siganl 2 -------- 信号层2
+<br />
+Inner 3 -------- POWER ----------- 内电层电源
+<br />
+Inner 4 -------- GND ------------- 内电层地
+<br />
+Bottom --------- Siganl 3 -------- 底层信号层3
+<br />
+<br />
+<hr /><!-- ----------------------------------------------------------------- -->
+8层板层叠结构 :
+<br />
+Top ------------ Siganl 1 -------- 顶层信号层1
+<br />
+Inner 1 -------- GND 1 ----------- 内电层地1
+<br />
+Inner 2 -------- Siganl 2 -------- 信号层2
+<br />
+Inner 3 -------- POWER 1 --------- 内电层电源1
+<br />
+Inner 4 -------- GND 2 ----------- 内电层地2
+<br />
+Inner 5 -------- Siganl 3 -------- 信号层3
+<br />
+Inner 6 -------- POWER 2 --------- 内电层电源2
+<br />
+Bottom --------- Siganl 4 -------- 底层信号层4
+<br />
+<br />
+<br />
+<br />
+<br />
+Top ------------ Siganl 1 -------- 顶层信号层1
+<br />
+Inner 1 -------- GND 1 ----------- 内电层地1
+<br />
+Inner 2 -------- Siganl 2 -------- 信号层2
+<br />
+Inner 3 -------- GND 2 ----------- 内电层地2
+<br />
+Inner 4 -------- POWER 1 --------- 内电层电源1
+<br />
+Inner 5 -------- Siganl 3 -------- 信号层3
+<br />
+Inner 6 -------- GND 3 ----------- 内电层地3
+<br />
+Bottom --------- Siganl 4 -------- 底层信号层4
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 设置层的Stackup(叠层)
+<br />
+四层板的层物理属性(Layer Stackup)设置是 :
+<br />
+由两个表面都有铜的、中间为玻璃纤维的双面板，将它们中间再放置一些绝缘的半固化片压制而成
 <br />
 Thickness(厚度)
 <br />
@@ -137,6 +292,47 @@ Copper Thickness Units(铜厚单位)设置为 : Design(mils)
 <br />
 <br />
 <br />
+
+
+1-2，2-4，2-7，5-7，7-8，1-8.L3-GND,L4-VCC.
+
+
+覆铜(copper)：绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
+用途：芯片需要大面积覆铜来散热。电源连接处需要尽可能的宽，可以同覆铜来实现。不具备自动避让功能。
+
+no plane灌铜(copper pour)：仅仅连接有相同网络的过孔，可以通过这个来连接，用于no plane的,具备自动避让功能的。
+必须使用铺铜的命令(COPPER POUR)，用法同外层线路，不会自动移除独立焊盘，可走线，不可以在大块铜皮上进行其他网络的分割。
+也就是说不能出现大块铜皮包围小块铜皮的现象。可以走线。
+
+split/mixed(分割平面层)：用于split/mixed平面类型的，用Plane connect来进行连接。必须使用内层分割命令（PLane AREA)，可自动移除内层独立焊盘，可走线，可以方便的在大片铜皮上进行其他网络的分割，内层分割的智能化较高。可以走线。
+
+
+思路：
+
+1.首先，采用四层板子来制作，分别为:top gnd power bottom ;分别对应类型为：no plane split/mixed split/mixed no plane四种类型；
+
+2.然后，对于gnd进行两个地的分割划分；对于电源也进行几个电源的分割区域划分（plane area的方式）；
+  对于top和bottom两个走线层，也进行必要的划分区域（灌铜的方法不影响走线的）来进行；
+
+VCC和GND层设置为NO PLANE ,cam plane还是split/mixed plane
+
+NO PLANE主要用于小面积铺铜,而且铺铜区的连线比较多(TOP,BOTTOM)
+split/mixed plane主要用于面积比较大的铺铜,专门给VCC和GND层,这些层连线不多,主要通个整个平面连接,可减少电源和地的波动所以用PLANE大面积铺铜比较合适
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br />
 <br />
 <br />
