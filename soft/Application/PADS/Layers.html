@@ -88,30 +88,25 @@ Plane Type平面层类型有三种选项 :
 <br />
 特殊层指CAM Plane和Split/Mixed
 <br />
-
-No plane通常指走线层（如TOP和BOTTOM层），但是如果多层板中有走线层，也要设成No plane层。
-CAM Plane：CAM平面层，输出菲林文件时以负片形式输出GERBER文件（占用数据量小），通常用于POWER和GND层，不用铺铜。
-Split/Mixed：和CAM Plane一样，只是输出菲林文件时以正片形式输出GERBER文件。需铺铜。
-
-<br />
-
 <br />
 <br />
 No Plane
 <br />
 正片走线层,以正片的形式输出
 <br />
-通常适用于所有走线层,包括Top、Bottom以及中间走线层(多层板中有走线层，也要设成No plane层).可以分割平面，用Copper Pour灌铜
+通常用于所有走线层,包括Top、Bottom以及中间走线层(多层板中间有走线层，也要设成No Plane层)
+<br />
+可以分割平面，用Copper Pour灌铜
 <br />
 <br />
 <br />
-CAM plane(CAM平面)
+CAM Plane(CAM平面)
 <br />
-内层负片层,以负片的形式输出
+内层负片层,输出菲林文件时以负片形式输出Gerber文件(占用数据量小)
 <br />
-通常适用于内层的GND或Power平面.不能走线,也不能分割平面
+通常用于内层的GND或Power平面.不能走线,也不能分割平面
 <br /> 
-层分割以2D线来实现，不用铺铜，通常用于电源层跟地层，且占用的数据量要小得多，
+层分割以2D线来实现，不用铺铜
 <br /> 
 但有一个缺点就是不会检查设计规则，即分配到这层的网络，就不会再检查安全间距及连接性等，因此，分割层需要自已保证无误
 <br /> 
@@ -119,15 +114,17 @@ CAM plane(CAM平面)
 <br />
 Split/Mixed(混合/分割平面)
 <br />
-正片层,以正片的形式输出
+正片层,以正片的形式输出 输出菲林文件时以正片形式输出Gerber文件
 <br />
-通常适用于内层有几种类型的GND或Power需要分割时. 可以分割平面,该层允许布线，用Plane Area分割区域.
+通常用于内层有几种类型的GND(如AGND、DGND)或有几种类型的Power(如+3.3、+5、+12)需要分割时. 
+<br />
+可以分割平面,该层允许布线，用Plane Area分割区域.
 <br />
 需要铺铜，但其铺铜与No plane不同，
 <br />
 可以选择分割块按块铺，统一操作是在Tools/Pour Manager的Plane Connect页中操作,该层在进行规则校验时会检查规则。
 <br />
-使用Mixed plane做电源层或地层时，层分割过程可能会出层某一块铜皮被另一块铜皮全包围，或有重叠的情况，
+使用Mixed plane做GND或Power时，层分割过程可能会出层某一块铜皮被另一块铜皮全包围，或有重叠的情况，
 <br />
 进行pour 操作后，经常出现被覆盖的现象，在这种情况下，需要设置分割块的优先级别（flood priority），
 <br />
@@ -153,9 +150,9 @@ Split/Mixed 需要先定义这个层的网络，在SETUP-->Layer Definition里�
 <br />
 <br />
 <br />
-入门者全部设置为No Plane,简单易学,只是数据量稍微大一些
-<br />
 实际应用中，如果板子不是很大，且只是6层以下的板，把所有层都设为No plane也未尝不可，这样反倒灵活
+<br />
+入门者全部设置为No Plane,简单易学,只是数据量稍微大一些
 <br />
 <br />
 <br />
@@ -304,8 +301,6 @@ Copper Thickness Units(铜厚单位)设置为 : Design(mils)
 <br />
 <br />
 <br />
-<br />
-<br />
 
 
 1-2，2-4，2-7，5-7，7-8，1-8.L3-GND,L4-VCC.
@@ -313,12 +308,14 @@ Copper Thickness Units(铜厚单位)设置为 : Design(mils)
 
 覆铜(copper)：绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
 用途：芯片需要大面积覆铜来散热。电源连接处需要尽可能的宽，可以同覆铜来实现。不具备自动避让功能。
+<br />
 
 no plane灌铜(copper pour)：仅仅连接有相同网络的过孔，可以通过这个来连接，用于no plane的,具备自动避让功能的。
 必须使用铺铜的命令(COPPER POUR)，用法同外层线路，不会自动移除独立焊盘，可走线，不可以在大块铜皮上进行其他网络的分割。
 也就是说不能出现大块铜皮包围小块铜皮的现象。可以走线。
 
 split/mixed(分割平面层)：用于split/mixed平面类型的，用Plane connect来进行连接。必须使用内层分割命令（PLane AREA)，可自动移除内层独立焊盘，可走线，可以方便的在大片铜皮上进行其他网络的分割，内层分割的智能化较高。可以走线。
+<br />
 
 
 思路：
@@ -327,8 +324,10 @@ split/mixed(分割平面层)：用于split/mixed平面类型的，用Plane conne
 
 2.然后，对于gnd进行两个地的分割划分；对于电源也进行几个电源的分割区域划分（plane area的方式）；
   对于top和bottom两个走线层，也进行必要的划分区域（灌铜的方法不影响走线的）来进行；
+<br />
 
 VCC和GND层设置为NO PLANE ,cam plane还是split/mixed plane
+<br />
 
 NO PLANE主要用于小面积铺铜,而且铺铜区的连线比较多(TOP,BOTTOM)
 split/mixed plane主要用于面积比较大的铺铜,专门给VCC和GND层,这些层连线不多,主要通个整个平面连接,可减少电源和地的波动所以用PLANE大面积铺铜比较合适
@@ -347,8 +346,6 @@ split/mixed plane主要用于面积比较大的铺铜,专门给VCC和GND层,这�
 
 
 
-<br />
-<br />
 <br />
 <br />
 <br />
