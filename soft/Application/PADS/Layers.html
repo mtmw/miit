@@ -82,11 +82,26 @@ Plane Type平面层类型有三种选项 :
 <br />
 <br />
 <br />
-No Plane(无平面)
+所有的平面层一共分成两种层 : 特殊层和非特殊层
+<br />
+非特殊层指No Plane
+<br />
+特殊层指CAM Plane和Split/Mixed
+<br />
+
+No plane通常指走线层（如TOP和BOTTOM层），但是如果多层板中有走线层，也要设成No plane层。
+CAM Plane：CAM平面层，输出菲林文件时以负片形式输出GERBER文件（占用数据量小），通常用于POWER和GND层，不用铺铜。
+Split/Mixed：和CAM Plane一样，只是输出菲林文件时以正片形式输出GERBER文件。需铺铜。
+
+<br />
+
+<br />
+<br />
+No Plane
 <br />
 正片走线层,以正片的形式输出
 <br />
-通常适用于所有走线层,包括TOP、BOTTOM以及中间走线层.可以分割平面，用copper pour灌铜
+通常适用于所有走线层,包括Top、Bottom以及中间走线层(多层板中有走线层，也要设成No plane层).可以分割平面，用Copper Pour灌铜
 <br />
 <br />
 <br />
@@ -106,42 +121,34 @@ Split/Mixed(混合/分割平面)
 <br />
 正片层,以正片的形式输出
 <br />
-通常适用于内层有几种类型的GND或Power需要分割时. 可以分割平面,该层允许布线，用plane area分割区域；
+通常适用于内层有几种类型的GND或Power需要分割时. 可以分割平面,该层允许布线，用Plane Area分割区域.
 <br />
 需要铺铜，但其铺铜与No plane不同，
 <br />
 可以选择分割块按块铺，统一操作是在Tools/Pour Manager的Plane Connect页中操作,该层在进行规则校验时会检查规则。
 <br />
 使用Mixed plane做电源层或地层时，层分割过程可能会出层某一块铜皮被另一块铜皮全包围，或有重叠的情况，
-进行pour 操作后，经常出现被覆盖的现象，在这种情况下，需要设置分割块的优先级别（flood priority），
-级别越低，越优先铺铜，即重叠部分划归优先级别低的
-
 <br />
+进行pour 操作后，经常出现被覆盖的现象，在这种情况下，需要设置分割块的优先级别（flood priority），
+<br />
+级别越低，越优先铺铜，即重叠部分划归优先级别低的
 <br />
 <br />
 <br />
 这三种层类型主要的区别就是在铺铜上
-NO plane层铺铜的时候是用copper pour画铜皮区域，画好区域后再定义铜皮的网络，任意网络都可以定义。
-CAM plane要先定义好这层的网络，用2D线划分区域，不需要铺铜，工厂已反片的方式生产。（不建议用这种层）
-split/mixe就是你问的混合平面层了，需要先定义这个层的网络，在SETUP-->Layer Definition里面点击Assign，分配网络给混合平面层。分配好后，通过工具栏的plane Area来划分
-
-铺铜区域。如果一个平面层有定义几个网络，就需要进行平面层分割了。例如一个电源层，定义了5V和3.3V两个网络，我在这层铺铜的时候，就将一部分铜皮定义为5V，一部分为3.3V
-
-，这样就分割好了。
+<br />
+NO Plane层铺铜的时候是用copper pour画铜皮区域，画好区域后再定义铜皮的网络，任意网络都可以定义。
+<br />
+CAM Plane要先定义好这层的网络，用2D线划分区域，不需要铺铜，工厂已反片的方式生产。（不建议用这种层）
+<br />
+Split/Mixed 需要先定义这个层的网络，在SETUP-->Layer Definition里面点击Assign，分配网络给混合平面层。
+<br />
+分配好后，通过工具栏的plane Area来划分铺铜区域。如果一个平面层有定义几个网络，就需要进行平面层分割了。
+<br />
+例如一个电源层，定义了5V和3.3V两个网络，我在这层铺铜的时候，就将一部分铜皮定义为5V，一部分为3.3V，这样就分割好了。
+<br />
 一般来说采用NO plane层或混合平面层，而混合平面层在给内层划分的时候会很方便。 
 <br />
-<br />
-所有的平面层一共分成两种层 : 特殊和非特殊
-非特殊指非平面层（No plane)
-特殊层包括“CAM Plane"和”Split/Mixed“两种层。 No plane通常指走线层（如TOP和BOTTOM层）
-
-，但是如果多层板中有走线层，也要设成No plane层。
-  CAM Plane：CAM平面层，输出菲林文件时以负片形式输出GERBER文件（占用数据量小），通常用于POWER和GND层，不用铺铜。
-  Split/Mixed：和CAM Plane一样，只是输出菲林文件时以正片形式输出GERBER文件。需铺铜。
-
-<br />
-
-
 <br />
 <br />
 <br />
