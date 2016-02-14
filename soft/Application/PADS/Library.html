@@ -4,47 +4,54 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>PADS Library</title>
+	<style>a {text-decoration: none}</style>        <!--去掉超链接下划线 -->
 </head>
 
 <body >
-20160129
+20160214
 <h1>> File / Library</h1>
 Library Manager
-<br />
-元件Part
 <br />
 Library Path C:\bin\ED\PADS\MentorGraphics\9.5PADS\SDD_HOME\Libraries
 <br />
 Library Path C:\bin\ED\PADS\MentorGraphics\9.5PADS\SDD_HOME\Libraries\PADS_Layout_Extended_Libraries 是根据 IPC-7351 标准的封装库
 <br />
+<br />
 PADS Library由4个不同的文件组成
 <br />
-.ld : CAE Decal(原理图符号)
+.ld : CAE Decal(CAE封装/原理图符号)/逻辑封装(Logic) 如与非门、或非门
 <br />
-.ln : Line item(图形)
+.ln : Line item(图形)/2D线 如公司LOGO
 <br />
-.pd : PCB Decal(PCB封装)
+.pd : PCB Decal(PCB封装) PCB封装在OrCAD中叫做PCB Footprint，在PADS中叫做Part Type
 <br />
-.pt : Part Type(元件)
-<br />
-<br />
-PCB封装在OrCAD中叫做PCB Footprint，在PADS中叫做Part Type
+.pt : Part Type(元件) 如IC 74LS02
 <br />
 <br />
-Decals (PCB封装类型)
 <br />
 Parts (元件类型)
 <br />
-2D Lines (图形类型)
+Decals (PCB封装类型)
 <br />
 Logic (原理图符号类型 CAE Decal)
 <br />
+2D Lines (图形类型)
 <br />
-在PADS Logic 或者PADS Layout 中建立元件类型(Part Type)
 <br />
-但是CAE封装(CAE Decal) 你只可以在PADS Logic 中建立
+PADS元件由元件类型(Part Type)、逻辑封装(CAE Decal)和PCB封装3部分构成
 <br />
-PCB 封装(PCB Decal)你只可以在PADS Layout 中建立
+<br />
+在PADS Logic或者PADS Layout中建立元件类型(Part Type)
+<br />
+<br />
+<a href="CAEDecal.html#CAEDecal" target="_blank">
+CAE封装(CAE Decal)只可以在PADS Logic中建立
+</a>
+<br />
+<br />
+<a href="PCBDecal.html#PCBDecal" target="_blank">
+PCB 封装(PCB Decal)只可以在PADS Layout中建立
+</a>
 <br />
 PCB 封装(PCB Decal)是元件的物理表示，即提供它的管脚图形。
 <br />
@@ -60,6 +67,7 @@ CAE 封装(CAE Decal):INV
 PCB 封装(PCB Decal):DIP14
 <br />
 电性能参数(Electrical parameters):六个逻辑门(A 到F)使用12 个管脚、一个电源管脚和一个地线管脚。
+<br />
 <br />
 <br />
 <br />
