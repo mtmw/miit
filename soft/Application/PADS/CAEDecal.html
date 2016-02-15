@@ -7,32 +7,57 @@
 </head>
 
 <body >
-20160214
+20160215
+<br />
 <h1>CAE Decal</h1>
+CAE Decal(CAE封装)是一个二维线(2D line)符号,是纯粹的图形
+<br />
+> Tools(工具) / Part Editor(元件编辑器)
+<br />
+<br />
+创建管脚封装(Pin Decal)
+<br />
+>文件 / 新建 / Pin Decal(管脚封装) / 确定 /
+<br />
+显示 :
+<br />
+原点标记 --------------- 原点标记有两个用途，一是连线连接的点，另一个是移动或放置管脚封装(Pin Decal)的原点
+<br />
+#E ---------------------- 指示管脚号码
+<br />
+PNAME ----------------- 指示管脚或功能的名字，如A00、D01或VCC
+<br />
+#0:TYP=U SWP=0 -------- 指示管脚类型(Pin Type)和门交换值(Gate Swap Values)
+<br />
+NETNAME --------------- 在原理图中显示时的网络名字标记
+<br />
+<br />
+<br />
 <a name="CAEDecal">
 创建CAE封装
 </a>
 <br />
-> Tools工具 / Decal Editor封装编辑器
+>文件 / 新建 / CAE封装 / 确定 / 封装编辑工具栏 /
 <br />
-进入封装编辑器(Decal Editor)，出现 :
+显示 :
 <br />
-REF            # 元件(Part)的参考编号(Reference Designation)，如 : U1、U2、U3...
+REF ------------------ 元件的参考编号(Reference Designation)，如 : U1、U2、U3...
 <br />
-PART-TYPE      # 元件类型(Part Type)
+PART-TYPE ------------ 元件类型(Part Type)
 <br />
-*Free Label 1  # 第一条显示的属性
+*Free Label 1 -------- 元件类型(Part Type)的第一个属性
 <br />
-*Free Label 2  # 第二条显示的属性
+*Free Label 2 -------- 元件类型(Part Type)的第二个属性
 <br />
 <br />
 1.CAE封装向导工具创建
 <br />
-工具 / 元件编辑器 / 新建 / CAE封装 / 确定 / 封装编辑工具栏 / CAE封装向导 / ...
+>封装编辑工具栏 / CAE封装向导 / ...
 <br />
-2.手动创建
 <br />
-工具 / 元件编辑器 / 新建 / CAE封装 / 确定 / 封装编辑工具栏 / 创建2D线 / 添加端点 / ...
+2.CAE封装手动创建
+<br />
+>封装编辑工具栏 / 创建2D线 / 添加端点 / ...
 <br />
 <br />
 <br />
