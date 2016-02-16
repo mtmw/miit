@@ -7,11 +7,12 @@
 </head>
 
 <body >
-20160131
+20160216
 <h1>> Setup / Layer Definition</h1>
 <br />
-<img src="imagesLayout/Layers_zh.PNG" title="Layers层设置" alt="Layers层设置" width="362" height="738" />
-<img src="imagesLayout/Layers_en.PNG" title="Layers层设置" alt="Layers层设置" width="359" height="778" />
+<img src="imagesLayout/Layers_zh.PNG" title="Layers层设置" alt="Layers层设置" width="369" height="772" />
+<img src="imagesLayout/Layers_en.PNG" title="Layers层设置" alt="Layers层设置" width="369" height="772" />
+<img src="imagesLogic/Layers_zh.PNG" title="Layers层设置" alt="Layers层设置" width="362" height="738" />
 <br />
 1  Top
 <br />
@@ -146,60 +147,69 @@ Layers Setup
 <br />
 > Setup / Layer Definition / Modify(修改)... / 4 or 6 or 8 or n /
 <br />
-1 Top
 <br />
-重新命名Top层为 : Primary Component Side(主元件面)
-<br />
-Electrical Layer Type(电气层类型) : Component(元器件)
-<br />
-Plane Type(平面类型) : No Plane(无平面)
-<br />
-Routing Direction(布线方向) : Vertical(垂直)
+2层板层叠结构 :
 <br />
 <br />
-2 Bottom
+Top ------------ Siganl 1 -------- 顶层信号层 -------- 重新命名Top为 : Primary Component Side(主元件面)
 <br />
-重新命名Bottom层为 : Secondary Component Side(次元件面)
+------------------------------------------------------ Electrical Layer Type(电气层类型) : Component(元器件)
 <br />
-Electrical Layer Type(电气层类型) : Component(元器件)
+------------------------------------------------------ Plane Type(平面类型) : No Plane(无平面)
 <br />
-Plane Type(平面类型) : No Plane(无平面)
+------------------------------------------------------ Routing Direction(布线方向) : Vertical(垂直)
 <br />
-Routing Direction(布线方向) : Horizontal(水平)
+<br />
+Bottom --------- Siganl 2 -------- 底层信号层 -------- 重新命名Bottom为 : Secondary Component Side(次元件面)
+<br />
+------------------------------------------------------ Electrical Layer Type(电气层类型) : Component(元器件)
+<br />
+------------------------------------------------------ Plane Type(平面类型) : No Plane(无平面)
+<br />
+------------------------------------------------------ Routing Direction(布线方向) : Horizontal(水平)
 <br />
 <br />
 <hr /><!-- ----------------------------------------------------------------- -->
+<br />
 4层板层叠结构 :
 <br />
-Top ------------ Siganl 1 -------- 顶层信号层
 <br />
-Inner 1 -------- GND ------------- 内电层地
+Top ------------ Siganl 1 -------- 顶层信号层 -------- 重新命名Top为 : Primary Component Side(主元件面)
 <br />
-Inner 2 -------- POWER ----------- 内电层电源
+------------------------------------------------------ Electrical Layer Type(电气层类型) : Component(元器件)
 <br />
-Bottom --------- Siganl 2 -------- 底层信号层
+------------------------------------------------------ Plane Type(平面类型) : No Plane(无平面)
 <br />
-<br />
-Inner Layer 1
-<br />
-重新命名为 : Ground Plane(地平面层)
-<br />
-Plane Type(平面类型) : CAM Plane
-<br />
-Assign Nets(分配网络) / Select GND / ok /
-<br />
-Routing Direction(布线方向) : Any(任意)
+------------------------------------------------------ Routing Direction(布线方向) : Vertical(垂直)
 <br />
 <br />
-Inner Layer 2
+Inner 1 -------- GND ------------- 内电层地 ---------- 重新命名为 : Ground Plane(地平面层)
 <br />
-重新命名为 : Power Plane(电源平面层)
+------------------------------------------------------ Plane Type(平面类型) : CAM Plane
 <br />
-Plane Type(平面类型) : Split/Mixed(分割/混合)
+------------------------------------------------------ Assign Nets(分配网络) / Select GND / ok /
 <br />
-Assign Nets(分配网络) / Select 5V and 12V / ok /
+------------------------------------------------------ Routing Direction(布线方向) : Any(任意)
 <br />
-Routing Direction(布线方向) : Any(任意)
+<br />
+<br />
+Inner 2 -------- POWER ----------- 内电层电源 -------- 重新命名为 : Power Plane(电源平面层)
+<br />
+------------------------------------------------------ Plane Type(平面类型) : Split/Mixed(分割/混合)
+<br />
+------------------------------------------------------ Assign Nets(分配网络) / Select 5V and 12V / ok /
+<br />
+------------------------------------------------------ Routing Direction(布线方向) : Any(任意)
+<br />
+<br />
+<br />
+Bottom --------- Siganl 2 -------- 底层信号层 -------- 重新命名Bottom为 : Secondary Component Side(次元件面)
+<br />
+------------------------------------------------------ Electrical Layer Type(电气层类型) : Component(元器件)
+<br />
+------------------------------------------------------ Plane Type(平面类型) : No Plane(无平面)
+<br />
+------------------------------------------------------ Routing Direction(布线方向) : Horizontal(水平)
 <br />
 <br />
 <hr /><!-- ----------------------------------------------------------------- -->
@@ -266,19 +276,50 @@ Bottom --------- Siganl 4 -------- 底层信号层4
 <br />
 <br />
 <br />
-设置层的Stackup(叠层)
+设置层的厚度(Layer Thickness)和叠层(Stackup)参数
 <br />
-四层板的层物理属性(Layer Stackup)设置是 :
+四层板的层物理Stackup(叠层) :
 <br />
 由两个表面都有铜的、中间为玻璃纤维的双面板，将它们中间再放置一些绝缘的半固化片压制而成
 <br />
-Thickness(厚度)
 <br />
-设置层的厚度和叠层(Stackup)参数
+<img src="imagesLayout/Layers_4l.png" title="叠层(Stackup)参数" alt="叠层(Stackup)参数" width="347" height="114"/>
 <br />
-Copper Thickness Units(铜厚单位)设置为 : Design(mils)
 <br />
-不要设置为 : 重量(盎司)
+>Layer Setup / Thickness...厚度.../
+<br />
+将铜厚单位(Copper Thickness Units)设置为 : Design(mils)
+<br />
+不要设置为 : Weight(oz)重量(盎司)
+<br />
+<br />
+Top层Primary Component Side(主元件面) 元器件Component 厚度Thickness 之间设置为 1.4
+<br />
+Inner 1 Ground Plane(地平面层) 布线Component 厚度Thickness 之间设置为 2.1
+<br />
+Inner 2 Power Plane(电源平面层) 布线Component 厚度Thickness 之间设置为 2.1
+<br />
+Bottom层Secondary Component Side(次元件面) 元器件Component 厚度Thickness 之间设置为 1.4
+<br />
+<img src="imagesLayout/LayerThickness_zh.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="325"/>
+<img src="imagesLayout/LayerThickness_en.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="325"/>
+<br />
+类型(Type)区域，在Ground Plane(地平面层)与Power Plane(电源平面层)层之间选择半固化片(Prepreg)
+<br />
+分别设置其他层为基板(Substrate),并且设置各个介电常数(Dielectric)为4.5
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -286,24 +327,38 @@ Copper Thickness Units(铜厚单位)设置为 : Design(mils)
 
 
 1-2，2-4，2-7，5-7，7-8，1-8.L3-GND,L4-VCC.
-
-
+<br />
 覆铜(copper)：绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
+<br />
 用途：芯片需要大面积覆铜来散热。电源连接处需要尽可能的宽，可以同覆铜来实现。不具备自动避让功能。
 <br />
-
+<br />
 no plane灌铜(copper pour)：仅仅连接有相同网络的过孔，可以通过这个来连接，用于no plane的,具备自动避让功能的。
+<br />
 必须使用铺铜的命令(COPPER POUR)，用法同外层线路，不会自动移除独立焊盘，可走线，不可以在大块铜皮上进行其他网络的分割。
+<br />
 也就是说不能出现大块铜皮包围小块铜皮的现象。可以走线。
+<br />
 
 split/mixed(分割平面层)：用于split/mixed平面类型的，用Plane connect来进行连接。必须使用内层分割命令（PLane AREA)，可自动移除内层独立焊盘，可走线，可以方便的在大片铜皮上进行其他网络的分割，内层分割的智能化较高。可以走线。
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 
 
 思路：
 
-1.首先，采用四层板子来制作，分别为:top gnd power bottom ;分别对应类型为：no plane split/mixed split/mixed no plane四种类型；
+1.首先，采用四层板子来制作，分别为:top gnd power bottom
+分别对应类型为：no plane split/mixed split/mixed no plane四种类型；
 
+<br />
+<br />
 2.然后，对于gnd进行两个地的分割划分；对于电源也进行几个电源的分割区域划分（plane area的方式）；
   对于top和bottom两个走线层，也进行必要的划分区域（灌铜的方法不影响走线的）来进行；
 <br />
@@ -312,35 +367,11 @@ VCC和GND层设置为NO PLANE ,cam plane还是split/mixed plane
 <br />
 
 NO PLANE主要用于小面积铺铜,而且铺铜区的连线比较多(TOP,BOTTOM)
-split/mixed plane主要用于面积比较大的铺铜,专门给VCC和GND层,这些层连线不多,主要通个整个平面连接,可减少电源和地的波动所以用PLANE大面积铺铜比较合适
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br />
+split/mixed plane主要用于面积比较大的铺铜,专门给VCC和GND层,这些层连线不多,
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+主要通个整个平面连接,可减少电源和地的波动所以用PLANE大面积铺铜比较合适
+
 <br />
 <br />
 <br />
