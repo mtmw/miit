@@ -7,12 +7,13 @@
 </head>
 
 <body >
-20160216
+20160217
 <h1>> Setup / Layer Definition</h1>
 <br />
-<img src="imagesLayout/Layers_zh.PNG" title="Layers层设置" alt="Layers层设置" width="369" height="772" />
-<img src="imagesLayout/Layers_en.PNG" title="Layers层设置" alt="Layers层设置" width="369" height="772" />
-<img src="imagesLogic/Layers_zh.PNG" title="Layers层设置" alt="Layers层设置" width="362" height="738" />
+<img src="imagesLayout/Layers_zh.PNG" alt="Layers层设置" title="Layers层设置" width="369" height="772" />
+<img src="imagesLayout/Layers_en.PNG" alt="Layers层设置" title="Layers层设置" width="369" height="772" />
+<img src="imagesLogic/Layers_zh.PNG" alt="Layers层设置" title="Layers层设置" width="362" height="738" />
+<img src="imagesLogic/Layers_en.PNG" alt="Layers层设置" title="Layers层设置" width="362" height="738" />
 <br />
 1  Top
 <br />
@@ -83,7 +84,7 @@ No Plane
 <br />
 <br />
 <br />
-CAM Plane(CAM平面)
+CAM Plane
 <br />
 内层负片层,输出菲林文件时以负片形式输出Gerber文件(占用数据量小)
 <br />
@@ -91,7 +92,16 @@ CAM Plane(CAM平面)
 <br /> 
 层分割以2D线来实现，不用铺铜
 <br /> 
+因为这层是负片的整张铜皮，所以分配一个GND或VCC就可以，千万不要分多了网络！
+<br /> 
 但有一个缺点就是不会检查设计规则，即分配到这层的网络，就不会再检查安全间距及连接性等，因此，分割层需要自已保证无误
+<br /> 
+<br /> 
+关于CAM Plane,因Verify Design 是侦测短路和开路, 要注意的事项会比较多, 其实最好是用Split/Mixed Plane 来
+<br /> 
+取代CAM Plane, 不然我们是必须在输出后的gerber data作详细检查, 是否有开路或短路, 焊盘是否小于孔径而引至短路, 
+<br /> 
+是否有一些组件的只有孔而没有内层的焊盘等等
 <br /> 
 <br />
 <br />
@@ -106,6 +116,8 @@ Split/Mixed(混合/分割平面)
 需要铺铜，但其铺铜与No plane不同，
 <br />
 可以选择分割块按块铺，统一操作是在Tools/Pour Manager的Plane Connect页中操作,该层在进行规则校验时会检查规则。
+<br />
+>Tools / Pour Manager / Plane Connect / Start /看看效果
 <br />
 使用Mixed plane做GND或Power时，层分割过程可能会出层某一块铜皮被另一块铜皮全包围，或有重叠的情况，
 <br />
@@ -130,6 +142,52 @@ Split/Mixed 需要先定义这个层的网络，在SETUP-->Layer Definition里�
 一般来说采用NO plane层或混合平面层，而混合平面层在给内层划分的时候会很方便。 
 <br />
 <br />
+<br />
+<br />
+Copper 铜箔
+<br />
+-------- 绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
+<br />
+-------- 用途:芯片需要大面积覆铜来散热,电源连接处需要尽可能的宽,可以用Copper来实现,不具备自动避让功能
+<br />
+<br />
+Copper Cut Out 铜挖空区域
+<br />
+<br />
+<br />
+<br />
+Copper Pour 覆铜
+<br />
+-------- 仅仅连接有相同网络的过孔,可以通过这个来连接.用于no plane的,具备自动避让功能的。
+<br />
+不会自动移除独立焊盘,不可以在大块铜皮上进行其他网络的分割,也就是说不能出现大块铜皮包围小块铜皮的现象.可以走线。
+<br />
+<br />
+Copper Pour Cut Out 覆铜挖空区域
+<br />
+<br />
+<br />
+<br />
+Flood 灌注
+<br />
+<br />
+<br />
+<br />
+Plane Area 平面区域
+<br />
+-------- 用于split/mixed平面类型的，必须使用内层分割命令Plane Area，可自动移除内层独立焊盘，可以方便的在大片铜皮上进行其他网络的分割，内层分割的智能化较高。可以走线
+<br />
+-------- Plane Area这命令只能在Split/Mixed(分割/混合)层才可以运用
+<br />
+<br />
+Plane Area Cut Out 平面挖空区域
+<br />
+<br />
+<br />
+<br />
+Hatch 填充
+<br />
+
 <br />
 <br />
 <br />
@@ -185,9 +243,9 @@ Top ------------ Siganl 1 -------- 顶层信号层 -------- 重新命名Top为 :
 <br />
 Inner 1 -------- GND ------------- 内电层地 ---------- 重新命名为 : Ground Plane(地平面层)
 <br />
------------------------------------------------------- Plane Type(平面类型) : CAM Plane
+------------------------------------------------------ Plane Type(平面类型) : CAM Plane or Split/Mixed
 <br />
------------------------------------------------------- Assign Nets(分配网络) / Select GND / ok /
+------------------------------------------------------ Assign Nets(分配网络) / Select GND / ok / or / Select GND and AGND / ok /
 <br />
 ------------------------------------------------------ Routing Direction(布线方向) : Any(任意)
 <br />
@@ -315,22 +373,19 @@ Bottom层Secondary Component Side(次元件面) 元器件Component 厚度Thickne
 <br />
 <br />
 <br />
+<br />
+<br />
 
 1-2，2-4，2-7，5-7，7-8，1-8.L3-GND,L4-VCC.
 <br />
-覆铜(copper)：绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
-<br />
-用途：芯片需要大面积覆铜来散热。电源连接处需要尽可能的宽，可以同覆铜来实现。不具备自动避让功能。
 <br />
 <br />
-no plane灌铜(copper pour)：仅仅连接有相同网络的过孔，可以通过这个来连接，用于no plane的,具备自动避让功能的。
-<br />
-必须使用铺铜的命令(COPPER POUR)，用法同外层线路，不会自动移除独立焊盘，可走线，不可以在大块铜皮上进行其他网络的分割。
-<br />
-也就是说不能出现大块铜皮包围小块铜皮的现象。可以走线。
-<br />
+在PADS Layout中，不管用于电源的内层分割还是混合电气层，都要用正片来做，
+而普通的正片（NO PLANE)与专用混合电气层（SPLIT/MIXED）的唯一区别就是铺铜的方式不一样！
+负片只能是单一的负片。
+（用2D LINE分割负片的方法，由于没有网络连接和设计规则的约束，容易出错，不推荐使用）
+这两点是它们在图层设置与内层分割方面的主要区别。
 
-split/mixed(分割平面层)：用于split/mixed平面类型的，用Plane connect来进行连接。必须使用内层分割命令（PLane AREA)，可自动移除内层独立焊盘，可走线，可以方便的在大片铜皮上进行其他网络的分割，内层分割的智能化较高。可以走线。
 <br />
 <br />
 <br />
