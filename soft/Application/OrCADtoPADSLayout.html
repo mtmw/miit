@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>OrCAD to PADSLayout</title>
+</head>
+
+<body >
+20160227
+<h1>OrCAD to PADS Layout</h1>
+<br />
+1. OrCAD修改元件 PCB Footprint 属性
+<br />
+在项目管理窗口中选中要修改的项目文件
+<br />
+执行 Edit / Browse / Parts /
+<br />
+弹出 Browse Properties 菜单
+<br />
+(默认选择 Use instances (Preferred))
+<br />
+<img src="Cadence/imagesOrCAD/BrowseProperties.png" alt="Browse Properties" title="Browse Properties" width="336" height="139" />
+<br />
+点击OK
+<br />
+<br />
+出现 BROWSE Parts窗口
+<br />
+选中所有元件
+<br />
+执行 Edit / Properties
+<br />
+弹出 Browse Spreadsheet窗口
+<br />
+找到 PCB Footprint 属性，并将其修改为PADS Layout的PCB封装名
+<br />
+点击OK
+<br />
+<br />
+<br />
+2. OrCAD导出网表
+<br />
+在项目管理窗口中选中要导出的项目文件
+<br />
+执行 Tools / Create Netlist
+<br />
+弹出Create Netlist 窗口
+<br />
+切换到 Other选项卡
+<br />
+<img src="Cadence/imagesOrCAD/CreateNetlist.png" alt="Create Netlist" title="Create Netlist" width="515" height="540" />
+<br />
+Part Value Combined property
+<br />
+{Value}
+<br />
+PCB Footprint Combined property string
+<br />
+{PCB Footprint},{Value}
+<br />
+在Formatters列表框中选择 orPadspcb.dll or orpads2k
+<br />
+勾选 View Output
+<br />
+点击确定
+<br />
+生成.asc网表文件
+<br />
+<br />
+3. PADS Layout导入.asc网表文件
+<br />
+File / Import
+<br />
+<br />
+<br />
+<br />
+ORCAD原理图更新到PADS的方法
+<br />
+在ORCAD中对电路原理图进行Modify，通常需要Update相应的PCB Layout
+<br />
+将OrCAD中所做的更改输出到已有的PADS Layout布线中，该项操作即为向前注释或正向注释
+<br />
+<br />
+具体方法:
+<br />
+原理图文件 Schematic_OLD.DSN，及对应的PCB文件 PCB_OLD.pcb
+<br />
+1.在OrCAD中打开原理图文件 Schematic_OLD.DSN，将修改后的原理图命名为 Schematic_NEW.DSN，
+<br />
+并输出PADS格式的网表 Schematic_NEW.asc文件。
+<br />
+2.在PADS中新建一个设计，执行 File / Import 导入 Schematic_NEW.asc，保存此PCB文件为 PCB_NEW.pcb
+<br />
+3.在PCB Layout中打开 PCB_OLD.pcb，执行 Tools / Compare/ECO... 弹出比对/ECO窗口
+<br />
+<img src="PADS/imagesLayout/Tools/Compare_ECOTools_Documents_example_zh.png" alt="Compare ECOTools Documents" title="Compare ECOTools Documents" width="478" height="573" />
+<img src="PADS/imagesLayout/Tools/Compare_ECOTools_Documents_example_en.png" alt="Compare ECOTools Documents" title="Compare ECOTools Documents" width="478" height="573" />
+<br />
+在 要进行对比和更新的原始设计(Original Design to Compare and Update)
+<br />
+勾选 使用当前PCB设计(Use Current PCB Design)
+<br />
+意思是把当前文件(PCB_OLD.pcb)做为原始的比对文件
+<br />
+<br />
+修改的新设计(New Design With Changes)
+<br />
+新设计文件(New Design File) 浏览选择 PCB_NEW.pcb
+<br />
+<br />
+输出选项Output Options
+<br />
+勾选 生成ECO文件 Generate ECO file
+<br />
+设置好ECO文件的路径
+<br />
+eco文件默认保存在PADS的安装目录(D:\ED\PADS\PADSProjects)下
+<br />
+点击RUN,生成ECO文件
+<br />
+<img src="PADS/imagesLayout/Tools/ProcessStatus_zh.png" alt="处理状态 Process Status" title="处理状态 Process Status" width="506" height="153" />
+<img src="PADS/imagesLayout/Tools/ProcessStatus_en.png" alt="处理状态 Process Status" title="处理状态 Process Status" width="506" height="153" />
+
+<br />
+4.重新打开原有的PCB_OLD.pcb文件，选择导入 PCB_old.eco 文件
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</body>
+</html>
