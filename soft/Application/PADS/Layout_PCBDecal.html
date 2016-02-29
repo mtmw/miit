@@ -23,13 +23,82 @@ Name 字符标号(Text Label)放在这里，代表一个元件(Part)的参考编
 Type 代表元件类型(Part Type)
 <br />
 <br />
-> Drafting Toolbar绘图工具盒 / Add Terminal 添加端点
+> 绘图工具盒(Drafting Toolbar) / 添加端点(Add Terminal)
 <br />
-> Setup/Pad Stacks 焊盘形状编辑器
+<img src="imagesLayout/Drafting/AddTerminals_zh.png" alt="添加端点(Add Terminal)" title="添加端点(Add Terminal)" width="256" height="288" />
+<img src="imagesLayout/Drafting/AddTerminals_en.png" alt="添加端点(Add Terminal)" title="添加端点(Add Terminal)" width="256" height="288" />
+<br />
+> Setup / 焊盘形状(Pad Stacks)
+<br />
+焊盘 Pad
+<br />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Pad_1_zh.png" alt="新建封装焊盘(New Decal Pad)" title="新建封装焊盘(New Decal Pad)" width="577" height="638" />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Pad_1_en.png" alt="新建封装焊盘(New Decal Pad)" title="新建封装焊盘(New Decal Pad)" width="577" height="638" />
 <br />
 设置焊盘形状(Pad Shapes)和尺寸大小(Sizes)
 <br />
-手工调整焊盘(Pad)尺寸和钻孔(Drill)尺寸大小
+手工调整焊盘(Pad)尺寸和钻孔尺寸(Drill size)
+<br />
+<br />
+圆形CNN :
+<br />
+直径(Diameter)
+<br />
+<br />
+正方形SNN :
+<br />
+尺寸(Size)
+<br />
+拐角类型(Corner type) :
+<br />
+90度(90 Degrees)
+<br />
+or 倒斜角 半径Radius :
+<br />
+or 圆角 半径Radius :
+<br />
+<br />
+ANN :
+<br />
+直径(Diameter) :
+<br />
+内部直径(Inner Diam) :
+<br />
+<br />
+椭圆ONN :
+<br />
+宽度(Width) :
+<br />
+长度(Length) :
+<br />
+方向(Orientation)
+<br />
+偏移(Offset)
+<br />
+<br />
+长方形RNN :
+<br />
+宽度(Width) :
+<br />
+长度(Length) :
+<br />
+方向(Orientation)
+<br />
+偏移(Offset)
+<br />
+拐角类型(Corner type) :
+<br />
+90度(90 Degrees)
+<br />
+or 倒斜角 半径Radius :
+<br />
+or 圆角 半径Radius :
+<br />
+<br />
+DNN :
+<br />
+直径(Diameter)
+<br />
 <br />
 <br />
 Shape: Size: Layer list box
@@ -41,22 +110,49 @@ Shape: Size: Layer list box
 相对面、对面<Opposite Side>
 <br />
 <br />
-钻孔Drill 选项右边的Plated 选项:
+钻孔尺寸(Drill size)
 <br />
-它代表此焊盘孔的金属化选项，如果没有选中，则表面孔内壁不进行金属化处理，
+电镀(lated) : 它代表此焊盘孔的金属化选项，如果没有选中，则表面孔内壁不进行金属化处理，
 <br />
 这样各层之间的网络将无法连接在一起，在连通性检查时将会报告错误。
 <br />
 <br />
-Orientation方向
 <br />
-Offset偏移
 <br />
-Slot Parameters插槽参数
+插槽参数(Slot Parameters)
 <br />
-Slotted槽形
+槽形(Slotted)
+<br />
+<br />
+长度(Length) :
+<br />
+方向(Orientation)
+<br />
+偏移(Offset)
+<br />
+<br />
+热焊盘(Thermal)
+<br />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Thermal_1_zh.png" alt="新建封装热焊盘(New Decal Thermal)" title="新建封装焊盘(New Decal Thermal)" width="577" height="638" />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Thermal_1_en.png" alt="新建封装热焊盘(New Decal Thermal)" title="新建封装焊盘(New Decal Thermal)" width="577" height="638" />
+<br />
+热焊盘(Thermal)圆形
+<br />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Thermal_2_zh.png" alt="新建封装热焊盘(New Decal Thermal) 圆形" title="新建封装焊盘(New Decal Thermal) 圆形" width="577" height="638" />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Thermal_2_en.png" alt="新建封装热焊盘(New Decal Thermal) 圆形" title="新建封装焊盘(New Decal Thermal) 圆形" width="577" height="638" />
+<br />
+热焊盘(Thermal)方形
+<br />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Thermal_3_zh.png" alt="新建封装热焊盘(New Decal Thermal) 方形" title="新建封装焊盘(New Decal Thermal) 方形" width="577" height="638" />
+<img src="imagesLayout/Setup/PadStacks/NewDecal/PadStacksPropertiesDecal_NewDecal_Thermal_3_en.png" alt="新建封装热焊盘(New Decal Thermal) 方形" title="新建封装焊盘(New Decal Thermal) 方形" width="577" height="638" />
+<br />
+<br />
+<br />
 <br />
 如果焊盘的钻孔没有显示，请输入无模命令do 进行切换显示。
+<br />
+<br />
+<br />
 <br />
 <br />
 建立元件外框(Component Outline)
