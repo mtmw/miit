@@ -43,27 +43,27 @@
 30 Assembly Drawing Bottom  装配图
 <br />
 <br />
-<img src="imagesLayout/Setup/Layers_zh.PNG" alt="Layers层设置" title="Layers层设置" width="369" height="772" />
-<img src="imagesLayout/Setup/Layers_en.PNG" alt="Layers层设置" title="Layers层设置" width="369" height="772" />
-<img src="imagesLogic/Setup/Layers_zh.PNG" alt="Layers层设置" title="Layers层设置" width="362" height="738" />
-<img src="imagesLogic/Setup/Layers_en.PNG" alt="Layers层设置" title="Layers层设置" width="362" height="738" />
+<img src="imagesLayout/Setup/Layers_zh.PNG" alt="Layout Layers层设置" title="Layout Layers层设置" width="369" height="772" />
+<img src="imagesLayout/Setup/Layers_en.PNG" alt="Layout Layers层设置" title="Layout Layers层设置" width="369" height="772" />
+<img src="imagesLogic/Setup/Layers_zh.PNG" alt="Logic Layers层设置" title="Logic Layers层设置" width="362" height="738" />
+<img src="imagesLogic/Setup/Layers_en.PNG" alt="Logic Layers层设置" title="Logic Layers层设置" width="362" height="738" />
 <br />
 <hr /><!-- ----------------------------------------------------------------- -->
 <br />
 Electrical(电气层类型) :
 <br />
-Component(元器件)
+---- Component(元器件)
 <br />
-Routing(布线)
+---- Routing(布线)
 <br />
 <br />
 Plane Type平面层类型有三种选项 :
 <br />
- No Plane(无平面层 or 非平面层)
+---- No Plane(无平面层 or 非平面层)
 <br />
- CAM plane(CAM平面层)
+---- CAM plane(CAM平面层)
 <br />
- Split/Mixed(混合/分割平面层)
+---- Split/Mixed(混合/分割平面层)
 <br />
 <br />
 所有的平面层一共分成两种层 : 特殊层和非特殊层
@@ -203,7 +203,7 @@ Hatch 填充
 <br />
 Layers Setup
 <br />
-> Setup / Layer Definition / Modify(修改)... / 4 or 6 or 8 or n /
+> Setup / Layer Definition / Modify(修改)... / 4 or 6 or 8 or N /
 <br />
 <br />
 2层板层叠结构 :
@@ -211,20 +211,20 @@ Layers Setup
 <br />
 Top ------------ Siganl 1 -------- 顶层信号层 -------- 重新命名Top为 : Primary Component Side(主元件面)
 <br />
------------------------------------------------------- Electrical Layer Type(电气层类型) : Component(元器件)
+-------------------------------------------------------- Electrical Layer Type(电气层类型) : Component(元器件)
 <br />
------------------------------------------------------- Plane Type(平面类型) : No Plane(无平面)
+-------------------------------------------------------- Plane Type(平面类型) : No Plane(无平面)
 <br />
------------------------------------------------------- Routing Direction(布线方向) : Vertical(垂直)
+-------------------------------------------------------- Routing Direction(布线方向) : Vertical(垂直)
 <br />
 <br />
-Bottom --------- Siganl 2 -------- 底层信号层 -------- 重新命名Bottom为 : Secondary Component Side(次元件面)
+Bottom -------- Siganl 2 -------- 底层信号层 -------- 重新命名Bottom为 : Secondary Component Side(次元件面)
 <br />
------------------------------------------------------- Electrical Layer Type(电气层类型) : Component(元器件)
+-------------------------------------------------------- Electrical Layer Type(电气层类型) : Component(元器件)
 <br />
------------------------------------------------------- Plane Type(平面类型) : No Plane(无平面)
+-------------------------------------------------------- Plane Type(平面类型) : No Plane(无平面)
 <br />
------------------------------------------------------- Routing Direction(布线方向) : Horizontal(水平)
+-------------------------------------------------------- Routing Direction(布线方向) : Horizontal(水平)
 <br />
 <br />
 <hr /><!-- ----------------------------------------------------------------- -->
@@ -241,7 +241,7 @@ Top ------------ Siganl 1 -------- 顶层信号层 -------- 重新命名Top为 :
 ------------------------------------------------------ Routing Direction(布线方向) : Vertical(垂直)
 <br />
 <br />
-Inner 1 -------- GND ------------- 内电层地 ---------- 重新命名为 : Ground Plane(地平面层)
+Inner 1 -------- GND ----------- 内电层地 ---------- 重新命名为 : Ground Plane(地平面层)
 <br />
 ------------------------------------------------------ Plane Type(平面类型) : CAM Plane or Split/Mixed
 <br />
@@ -251,7 +251,7 @@ Inner 1 -------- GND ------------- 内电层地 ---------- 重新命名为 : Gro
 <br />
 <br />
 <br />
-Inner 2 -------- POWER ----------- 内电层电源 -------- 重新命名为 : Power Plane(电源平面层)
+Inner 2 -------- POWER --------- 内电层电源 -------- 重新命名为 : Power Plane(电源平面层)
 <br />
 ------------------------------------------------------ Plane Type(平面类型) : Split/Mixed(分割/混合)
 <br />
@@ -356,6 +356,18 @@ Bottom --------- Siganl 4 -------- 底层信号层4
 16盎司 = 1磅（pound） 
 <br />
 <br />
+2层
+<br />
+<img src="imagesLayout/Setup/LayerThickness2_zh.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="262"/>
+<img src="imagesLayout/Setup/LayerThickness2_en.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="262"/>
+<br />
+<br />
+<img src="imagesLayout/Setup/LayerThickness6_zh.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="400"/>
+<img src="imagesLayout/Setup/LayerThickness6_en.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="400"/>
+<br />
+<br />
+6层
+<br />
 Top层Primary Component Side(主元件面) 元器件Component 厚度Thickness 之间设置为 1.4
 <br />
 Inner 1 Ground Plane(地平面层) 布线Component 厚度Thickness 之间设置为 2.1
@@ -367,9 +379,9 @@ Bottom层Secondary Component Side(次元件面) 元器件Component 厚度Thickne
 <img src="imagesLayout/Setup/LayerThickness_zh.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="325"/>
 <img src="imagesLayout/Setup/LayerThickness_en.png" title="层厚度(Layer Thickness)" alt="层厚度(Layer Thickness)" width="501" height="325"/>
 <br />
-类型(Type)区域，在Ground Plane(地平面层)与Power Plane(电源平面层)层之间选择半固化片(Prepreg)
+类型(Type)区域，在Ground Plane(地平面层)与Power Plane(电源平面层)层之间选择 : 半固化片(Prepreg)
 <br />
-分别设置其他层为基板(Substrate),并且设置各个介电常数(Dielectric)为4.5
+分别设置其他层为 : 基板(Substrate),并且设置各个介电常数(Dielectric)为 : 4.5
 <br />
 <br />
 <br />
