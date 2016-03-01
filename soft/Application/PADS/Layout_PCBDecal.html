@@ -28,6 +28,7 @@ Type 代表元件类型(Part Type)
 <img src="imagesLayout/Drafting/AddTerminals_zh.png" alt="添加端点(Add Terminal)" title="添加端点(Add Terminal)" width="256" height="288" />
 <img src="imagesLayout/Drafting/AddTerminals_en.png" alt="添加端点(Add Terminal)" title="添加端点(Add Terminal)" width="256" height="288" />
 <br />
+<br />
 > Setup / 焊盘形状(Pad Stacks)
 <br />
 焊盘 Pad
@@ -65,7 +66,7 @@ ANN :
 内部直径(Inner Diam) :
 <br />
 <br />
-椭圆ONN :
+椭圆形ONN :
 <br />
 宽度(Width) :
 <br />
@@ -170,17 +171,17 @@ Shape: Size: Layer list box
 <img src="imagesLayout/Drafting/2DLine_zh.png" alt="2D Line" title="2D Line" width="445" height="582" />
 <img src="imagesLayout/Drafting/2DLine_en.png" alt="2D Line" title="2D Line" width="445" height="578" />
 <br />
-Style :
+样式(Style) :
 <br />
-Solid
+---- 实线(Solid)
 <br />
-Dash
+---- 短划线(Dash)
 <br />
-Dot
+---- 点(Dot)
 <br />
-Dash dot
+---- 点划线(Dash dot)
 <br />
-Dash double-dot
+---- 双点划线(Dash double-dot)
 <br />
 <br />
 铜箔(Copper)
@@ -213,9 +214,9 @@ Dash double-dot
 > Edit / 属性管理器(Attribute Manager) / 浏览库属性(Browse Library Attributes) / Value
 <br />
 <br />
-增加设计参考符:增加一个装配层的参考符
+增加设计参考符 : 增加一个装配层的参考符
 <br />
-> Drafting Toolbar / Add New Lable /  Layer : Assembly Drawing Top / OK /
+> Drafting Toolbar / Add New Lable / 属性 : Ref.Des / 显示(Show) : 值(Value) / 层(Layer) : Assembly Drawing Top / OK /
 <br />
 <br />
 绘制异形焊盘
@@ -224,27 +225,120 @@ Dash double-dot
 <br />
  / Drafting Toolbar / 铜箔(Copper) /
 <br />
- / 选择端点或铜箔(Select Terminal or Copper) / Associate 关联 / 选择端点或铜箔(Select Terminal or Copper) /
+ / 选择<a href="Layout_RightMenu.html#Terminal" target="_blank">端点</a>或<a href="Layout_RightMenu.html#Shapes" target="_blank">铜箔形状</a>(Select Terminal or Copper Shapes) / Associate 关联 / 选择铜箔形状或端点(Select Copper Shapes or Terminal) : 铜箔形状和端点合并/
 <br />
 <br />
 通过导入 DXF 图形创建焊盘
 <br />
-> Drafting Toolbar / 导入DXF文件(Import DXF File) / DXF Import : DXF文件单位(DXF File Unit) / Add / Type : Copper / ok /
+> Drafting Toolbar / 导入DXF文件(Import DXF File) / DXF Import : DXF文件单位(DXF File Unit) / Add / 类型(Type) : 铜箔(Copper) / OK /
 <br />
 <br />
 <br />
 <br />
 Decal Wizard 封装向导
 <br />
-> Drafting Toolbar / Wizard
+> Drafting Toolbar / 向导(Wizard)
 <br />
-Dual
+双列(Dual)
 <br />
-Quad
+双列通孔(Dual Through hole)
+<table><tr>
+<td><img src="imagesLayout/Tools/Decal/Dual_Throughhole_zh.png" alt="双列通孔(Dual Through hole)" title="双列通孔(Dual Through hole)" width="758" height="638" /></td>
+<td><img src="imagesLayout/Tools/Decal/Dual_Throughhole_en.png" alt="双列通孔(Dual Through hole)" title="双列通孔(Dual Through hole)" width="758" height="638" /></td>
+</tr></table>
 <br />
-Polar
+双列(Dual SMD)
+<table><tr>
+<td><img src="imagesLayout/Tools/Decal/Dual_SMD_zh.png" alt="双列(Dual SMD)" title="双列(Dual SMD)" width="758" height="638" /></td>
+<td><img src="imagesLayout/Tools/Decal/Dual_SMD_en.png" alt="双列(Dual SMD)" title="双列(Dual SMD)" width="758" height="638" /></td>
+</tr></table>
+<br />
+<br />
+四列(Quad)
+<br />
+<table><tr>
+<td><img src="imagesLayout/Tools/Decal/Quad_zh.png" alt="四列(Quad)" title="四列(Quad)" width="758" height="638" /></td>
+<td><img src="imagesLayout/Tools/Decal/Quad_en.png" alt="四列(Quad)" title="四列(Quad)" width="758" height="638" /></td>
+</tr></table>
+<br />
+<br />
+极座标(Polar)
+<br />
+极座标通孔(Polar Through hole)
+<table><tr>
+<td><img src="imagesLayout/Tools/Decal/Polar_Throughhole_zh.png" alt="极座标通孔(Polar Through hole)" title="极座标通孔(Polar Through hole)" width="758" height="638" /></td>
+<td><img src="imagesLayout/Tools/Decal/Polar_Throughhole_en.png" alt="极座标通孔(Polar Through hole)" title="极座标通孔(Polar Through hole)" width="758" height="638" /></td>
+</tr></table>
+<br />
+极座标SMD(Polar SMD)
+<table><tr>
+<td><img src="imagesLayout/Tools/Decal/Polar_SMD_zh.png" alt="极座标SMD(Polar SMD)" title="极座标SMD(Polar SMD)" width="758" height="638" /></td>
+<td><img src="imagesLayout/Tools/Decal/Polar_SMD_en.png" alt="极座标SMD(Polar SMD)" title="极座标SMD(Polar SMD)" width="758" height="638" /></td>
+</tr></table>
 <br />
 BGA/PGA
+<br />
+BGA通孔(BGA Through hole)
+<table><tr>
+<td><img src="imagesLayout/Tools/Decal/BGA_Throughhole_zh.png" alt="BGA通孔(BGA Through hole)" title="BGA通孔(BGA Through hole)" width="758" height="638" /></td>
+<td><img src="imagesLayout/Tools/Decal/BGA_Throughhole_en.png" alt="BGA通孔(BGA Through hole)" title="BGA通孔(BGA Through hole)" width="758" height="638" /></td>
+</tr></table>
+<br />
+BGA SMD
+<table><tr>
+<td><img src="imagesLayout/Tools/Decal/BGA_SMD_zh.png" alt="BGA SMD" title="BGA SMD" width="758" height="638" /></td>
+<td><img src="imagesLayout/Tools/Decal/BGA_SMD_en.png" alt="BGA SMD" title="BGA SMD" width="758" height="638" /></td>
+</tr></table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
