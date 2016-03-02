@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160229
+20160302
 <h1>> Tools / Options</h1>
 <br />
 全局/常规(Global/General)
@@ -50,37 +50,32 @@
 <img src="imagesLayout/Options/Design_zh.png" alt="设计(Design)" title="设计(Design)" width="633" height="540" />
 <img src="imagesLayout/Options/Design_en.png" alt="设计(Design)" title="设计(Design)" width="593" height="540" />
 <br />
-在线设计规则检查(On-line Design Rule Checking (DRC))
+有四种在线设计规则检查(On-line Design Rule Checking (DRC))方式 :
 <br />
-有四种 DRC 方式：
-
-
-DRC Warn(DRC 告警) : 在布局(Placement)和布线(Routing)期间，生成出错信息报告，
- 但是允许你继续建立空间冲突(Violations)。在DRC Warning
-方式下的布线(Routing)和布线修改(Route Modification)禁止
-建立冲突(Violations)或导线插入(Trace Intersections)，就象
-DRC Prevent 一样。直接(Modeless)命令是DRW。
+DRC Prevent(DRC防止) : 在布局、布线和布线修改期间，禁止建立冲突
+<br />
+cmd : DRP
 <br />
 <br />
-
-DRC Prevent(DRC 防止) 在布局(Placement)、布线(Routing)和布线修改(Route
- Modification)期间，禁止 建立冲突(Violations)。直接
-(Modeless)命令是DRP。
+DRC Warn(DRC告警) : 在布局和布线期间，生成出错信息报告
+但是允许你继续建立空间冲突(Violations)。
+在DRC Warning方式下的布线和布线修改禁止建立冲突或导线插入，就象DRC Prevent 一样
+<br />
+cmd : DRW
+<br />
 <br />
 DRC Ign Clr(忽略DRC) : 在布线期间，防止导线的插入，但是其它的工作同 DRC Off 一样。
 你可以从DRC Ignore Clearance 状态快速地切换到DRC Prevent 状态，它比从DRC Off 状态切换到DRC
 Prevent状态要快一点，因为DRC Ignore Clearance 是DRCPrevent 的一个子集，而DRC Off 不是。
-直接(Modeless)命令是DRI
+<br />
+cmd : DRI
+<br />
 <br />
 DRC Off(关闭DRC) : 指明不进行检查
 在布局和布线期间的 规则的冲突是允许的。
 安全间距冲突和插入导线是不禁止的。
-直接(Modeless)命令是DRO
 <br />
-<br />
-<br />
-<br />
-<br />
+cmd : DRO
 <br />
 <br />
 <br />
@@ -114,7 +109,6 @@ PADS Layout 在设计过程中使用四类工作栅格(Working Grids)：
 <br />
 为了关闭显示栅格(Display Grid)，设置显示栅格(Display Grid)等于0即可。
 <br />
-
 <br />
 栅格和捕获/栅格/径向移动设置(Grids And Snap/Grids/Radial Move Setup)
 <br />
@@ -128,10 +122,39 @@ PADS Layout 在设计过程中使用四类工作栅格(Working Grids)：
 <img src="imagesLayout/Options/GridsAndSnap_ObjectSnap_en.png" alt="栅格和捕获/对象捕获(Grids And Snap/Object Snap)" title="栅格和捕获/对象捕获(Grids And Snap/Object Snap)" width="593" height="540" />
 <br />
 <br />
+显示(Display)
+<br />
+<img src="imagesLayout/Options/Display_zh.png" alt="显示(Display)" title="显示(Display)" width="633" height="540" />
+<img src="imagesLayout/Options/Display_en.png" alt="显示(Display)" title="显示(Display)" width="593" height="540" />
+<br />
 布线/常规(Routing/General)
 <br />
 <img src="imagesLayout/Options/Routing_General_zh.png" alt="布线/常规(Routing/General)" title="布线/常规(Routing/General)" width="633" height="540" />
 <img src="imagesLayout/Options/Routing_General_en.png" alt="布线/常规(Routing/General)" title="布线/常规(Routing/General)" width="593" height="540" />
+<br />
+<br />
+布线/调整/差分对(Routing/Tune/DiffPairs)
+<br />
+<img src="imagesLayout/Options/Routing_Tune_DiffPairs_zh.png" alt="布线/调整/差分对(Routing/Tune/DiffPairs)" title="布线/调整/差分对(Routing/Tune/DiffPairs)" width="633" height="540" />
+<img src="imagesLayout/Options/Routing_Tune_DiffPairs_en.png" alt="布线/调整/差分对(Routing/Tune/DiffPairs)" title="布线/调整/差分对(Routing/Tune/DiffPairs)" width="593" height="540" />
+<br />
+<br />
+布线/泪滴(Routing/Teardrops)
+<br />
+<img src="imagesLayout/Options/Routing_Teardrops_zh.png" alt="布线/泪滴(Routing/Teardrops)" title="布线/泪滴(Routing/Teardrops)" width="633" height="540" />
+<img src="imagesLayout/Options/Routing_Teardrops_en.png" alt="布线/泪滴(Routing/Teardrops)" title="布线/泪滴(Routing/Teardrops)" width="593" height="540" />
+<br />
+<br />
+热焊盘(Thermals)
+<br />
+<img src="imagesLayout/Options/Thermals_zh.png" alt="热焊盘(Thermals)" title="热焊盘(Thermals)" width="633" height="540" />
+<img src="imagesLayout/Options/Thermals_en.png" alt="热焊盘(Thermals)" title="热焊盘(Thermals)" width="593" height="540" />
+<br />
+<br />
+分割/混合平面(Split/Mixed Plane)
+<br />
+<img src="imagesLayout/Options/SplitMixedPlane_zh.png" alt="分割/混合平面(Split/Mixed Plane)" title="分割/混合平面(Split/Mixed Plane)" width="633" height="540" />
+<img src="imagesLayout/Options/SplitMixedPlane_en.png" alt="分割/混合平面(Split/Mixed Plane)" title="分割/混合平面(Split/Mixed Plane)" width="593" height="540" />
 <br />
 <br />
 绘图/文本和线(Drafting/Text And Lines)
