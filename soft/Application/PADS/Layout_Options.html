@@ -23,6 +23,9 @@
 <br />
 8 密耳(mil) = 0.2032 毫米(millimeter) [mm]
 <br />
+显示最小宽度(Minimum display) : 4    cmd : r 后面跟数字
+<br />
+<br />
 <br />
 全局/文件位置(Global/File Locations)
 <br />
@@ -33,7 +36,7 @@
 全局/备份(Global/Backups)
 <br />
 <img src="imagesLayout/Options/Global_Backups_zh.png" alt="全局/备份(Global Backups)" title="全局/备份(Global Backups)" width="633" height="540" />
-<img src="imagesLayout/Options/Global_Backups_zh.png" alt="全局/备份(Global Backups)" title="全局/备份(Global Backups)" width="593" height="540" />
+<img src="imagesLayout/Options/Global_Backups_en.png" alt="全局/备份(Global Backups)" title="全局/备份(Global Backups)" width="593" height="540" />
 <br />
 <br />
 全局/同步(Global/Synchronization)
@@ -46,6 +49,39 @@
 <br />
 <img src="imagesLayout/Options/Design_zh.png" alt="设计(Design)" title="设计(Design)" width="633" height="540" />
 <img src="imagesLayout/Options/Design_en.png" alt="设计(Design)" title="设计(Design)" width="593" height="540" />
+<br />
+在线设计规则检查(On-line Design Rule Checking (DRC))
+<br />
+有四种 DRC 方式：
+
+
+DRC Warn(DRC 告警) : 在布局(Placement)和布线(Routing)期间，生成出错信息报告，
+ 但是允许你继续建立空间冲突(Violations)。在DRC Warning
+方式下的布线(Routing)和布线修改(Route Modification)禁止
+建立冲突(Violations)或导线插入(Trace Intersections)，就象
+DRC Prevent 一样。直接(Modeless)命令是DRW。
+<br />
+<br />
+
+DRC Prevent(DRC 防止) 在布局(Placement)、布线(Routing)和布线修改(Route
+ Modification)期间，禁止 建立冲突(Violations)。直接
+(Modeless)命令是DRP。
+<br />
+DRC Ign Clr(忽略DRC) : 在布线期间，防止导线的插入，但是其它的工作同 DRC Off 一样。
+你可以从DRC Ignore Clearance 状态快速地切换到DRC Prevent 状态，它比从DRC Off 状态切换到DRC
+Prevent状态要快一点，因为DRC Ignore Clearance 是DRCPrevent 的一个子集，而DRC Off 不是。
+直接(Modeless)命令是DRI
+<br />
+DRC Off(关闭DRC) : 指明不进行检查
+在布局和布线期间的 规则的冲突是允许的。
+安全间距冲突和插入导线是不禁止的。
+直接(Modeless)命令是DRO
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 栅格和捕获/栅格(Grids And Snap/Grids)
