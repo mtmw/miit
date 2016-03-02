@@ -73,6 +73,14 @@ Hatch 填充
 <img src="imagesLayout/Tools/PourManager/PourManager_Hatch_zh.png" alt="填充(Hatch)" title="填充(Hatch)" width="342" height="209" />
 <img src="imagesLayout/Tools/PourManager/PourManager_Hatch_en.png" alt="填充(Hatch)" title="填充(Hatch)" width="342" height="209" />
 <br />
+填充所有的(Hatch All)将重新填充所有的区域，包括以前灌注过(Flooded)的或者被修改的(Modified)
+<br />
+快速填充(Fast Hatch)将重新填充被修改的(Modified)，但不包括已经填充的(Hatched)
+<br />
+在你编辑完任何填充边框(Hatch Outlines)之后，避免使用灌注所有的(Flood All)。
+<br />
+灌注(Flood)仅仅是灌铜(Pour)；填充(Hatch)仅仅是对于你需要的边框。
+<br />
 <br />
 平面链接(Plane Connect)
 <br />
@@ -82,13 +90,29 @@ Hatch 填充
 <br />
 <br />
 <br />
+Flood和Hatch的区别
+<br />
+flood比较正确的说法应该叫灌铜，是指对用（Copper Pour)画幅出来的闭合区域根据设定规则进行铺铜的一个动作。
+而铺铜是指用Copper手动画铜皮。
+<br />
+Flooding会重新计算灌注区域并重新计算当前填灌区域的外形线内障碍的所有间距，和一些注意的间距规则。
+<br />
+Hatching则用来（用填充线）重新填充当前会话内已经存在的填灌多边形，而并不会重新计算填充填灌区域。
+每次打开一个设计文件时，你应当对这个设计进行flood或hatch；这些信息是不保存的。
+大部份情况下，你只要简单的Hatch一下就够了。当你对灌铜多边形的修改会引起规则冲突时，
+或当你修改了间距规则时，请使用flood。
 <br />
 <br />
 <br />
+意思就是说,比如,你拿到人家的PCB,只是替别人出GERBER,不修PCB的内容.那么你可以用HATCH命令.这个动作仅仅是显示POUR COPPER
+如果你对PCB(的电气层)作了修改,就一定要进行FLOOD和PLANE CONNECT操作
 <br />
 <br />
-<br />
-<br />
+比较好理解的方法可以这样理解:flood是用来重新给PCB板灌铜或刚LAY好的板子灌铜.
+而hatch是用来恢复灌铜,因为PADS当你关提已铺好铜的PCB文件,再重新打开PCB时,看到的文件是看不到铜了,
+只有铜框,当你想看到你以前铺好铜的文件只要点中hatch就能恢复你以前铺铜的状态.
+比如你发一个PCB文件给你老大检查你的PCB看合不合格,你老大为了在不变动你的文件,
+当然包括也不改变你的铺铜方式,你老大只要点一下hatch这个功能,文件就恢复为你铺好铜的PCB完整文件
 <br />
 <br />
 <br />
