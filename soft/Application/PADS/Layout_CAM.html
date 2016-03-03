@@ -3,21 +3,23 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>CAM</title>
+	<title>计算机辅助制造(CAM)</title>
 </head>
 
 <body >
-20160130
+20160303
 <h1>> File / CAM</h1>
 Gerber
 <br />
-常用的Gerber文件
-   a. 走线层，（包括信号层及电源层和地层），可能的层类型包括上面提到的全部
-                        三种类型
-   b. 文字层（湿印层）用于标示零件范围、方向及序号。一般包括（Top/Bottom 
-                     Silkscreen Layer）
-   c. 阻焊层，在不需要焊接区域涂上一层阻焊及防氧化材料，一般为绿油，这类
-                       主要是Soldermask Layer Top/Bottom
+给PCB板厂的 Gerber 文件
+   a. 走线层，（包括信号层、电源层和地层）
+      如2层板便是顶层和底层线路共两层线路
+	  4层板则是顶层、第2层、第3层、及底层线路共4层线路
+	  
+   b. 阻焊层，在不需要焊接区域涂上一层阻焊及防氧化材料，一般为绿油，这类主要是Soldermask Layer Top/Bottom
+   
+   c. 丝印层 用于标示零件范围、方向及序号。一般包括（Top/Bottom Silkscreen Layer）
+   d. NC数据及钻孔图，而需要多少的NC数据，则视PCB板有多少款的盲埋孔，即是有多少款Drill Pair(钻孔对)
 * 当需要堵住过孔时(即平时说的过孔盖油)，可以该Gerber文件设置中去掉via，预览时见不到过孔，即满足要求。
    d. 钻孔层：（drilldraw）
    e. 铜网层：主要用于组装工厂在放置SMD零件于电路板前，需透过此冶具在SMD
@@ -29,15 +31,20 @@ Gerber
        会要求你导成低版本兼容格式，一般在format单选框中选PowerPCB V4.0基本就
        够了
 
-
-
-
 <br />
 <br />
 <br />
+Top走线层
 <br />
+文档名称(Document Name) : Top
 <br />
+文档类型(Document Type) : 布线/分割平面(Routing/Split Plane)
 <br />
+层关联性 : Top
+<br />
+输出设备(Output Device) : 光绘(Photo)
+<br />
+自定义文档(Customize Document)
 <br />
 <br />
 <br />
