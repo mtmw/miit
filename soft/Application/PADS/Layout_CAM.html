@@ -145,10 +145,11 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 层关联性 : Top
 <br />
-自定义文档(Customize Document) : 选项(Options) / 绘图选项 / 钻孔符号(Drill Symbols) /
-/ 钻孔图选项(Drill Drawing Options) /
-在Drill Chart 选项下面的Location 下输入合适的X 和Y 值，便可以将钻孔表的位置移动到合适的位置。例如输入X：0，Y：
-2.5。
+板位图跟表格重叠在一起时做如下操作 :
+<br />
+自定义文档(Customize Document) : 选项(Options) / 绘图选项 / 钻孔符号(Drill Symbols) / 钻孔图选项(Drill Drawing Options) /
+<br />
+在Drill Chart 选项下面的Location 下输入合适的X 和Y 值，便可以将钻孔表的位置移动到合适的位置。例如输入X：0，Y：2.5
 <br />
 <br />
 <br />
@@ -157,16 +158,37 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 数控钻孔(NC Drill)
 <br />
+转NC Drill 前一定要清楚此板是否为盲/埋孔，通过 Setup / Drill Pairs 查看
+<br />
 文档名称(Document Name) : NC Drill
 <br />
 文档类型(Document Type) : 数控钻孔(NC Drill)
-
+<br />
+自定义文档(Customize Document) : 选项(Options) / NC钻孔选项 /
+<br />
+<br />
+转非盲/埋孔 NC Drill :
+<br />
+选择 : 通孔(Through Via)、金属化孔(Plated Pi)、非金属化孔(Non-Plated Pi)
+<br />
+<br />
+<br />
+转盲/埋孔 NC Drill :
+<br />
+选择 : 半导通孔(Partial Via)
+<br />
+取消 : 通孔(Through Via)、金属化孔(Plated Pi)、非金属化孔(Non-Plated Pi)
+<br />
+钻孔对Drill : 选择盲/埋孔类型 
+<br />
+注意 应对应不同类型的半导通孔(Partial Via)在输出时分别命名。如忘记更改，最终将只有最后一种转换有效，即drl001.drl
 <br />
 <br />
 <br />
 <br />
 <br />
-使用PADS Layout 的一个自动生成CAM无模命令 : @camdocs
+<br />
+使用PADS Layout 的一个自动生成CAM无模命令 : @camdocs (需要手动配置钻孔文件)
 <br />
 <br />
 <br />
