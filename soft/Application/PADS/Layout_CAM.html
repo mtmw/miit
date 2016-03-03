@@ -20,7 +20,9 @@ Gerber
    
    c. 丝印层 用于标示零件范围、方向及序号。一般包括（Top/Bottom Silkscreen Layer）
    d. NC数据及钻孔图，而需要多少的NC数据，则视PCB板有多少款的盲埋孔，即是有多少款Drill Pair(钻孔对)
-* 当需要堵住过孔时(即平时说的过孔盖油)，可以该Gerber文件设置中去掉via，预览时见不到过孔，即满足要求。
+     4层板钻孔文件和孔位图共2 个
+   
+   * 当需要堵住过孔时(即平时说的过孔盖油)，可以该Gerber文件设置中去掉via，预览时见不到过孔，即满足要求。
    d. 钻孔层：（drilldraw）
    e. 铜网层：主要用于组装工厂在放置SMD零件于电路板前，需透过此冶具在SMD
                        零件的PAD上涂一层锡膏，这个一般由(Paste mask Layer Top/Bottom)来
@@ -39,8 +41,10 @@ Gerber
 Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 <br />
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
-Top走线层
+<br />
+走线层(Top)
 <br />
 文档名称(Document Name) : Top
 <br />
@@ -52,18 +56,24 @@ Top走线层
 <br />
 自定义文档(Customize Document) : 层(Layers)
 <br />
-Top
+已选定 : Top
 <br />
-选择 :
 主元件面上的项目 :
-焊盘Pads、导线Traces、过孔Via、铜箔Copper、
-2D线、蚀刻字(Text) 注意勿与其他直线相连
+<br />
+焊盘Pads、导线Traces、过孔Via、铜箔Copper、2D线(Lines)、文本(Text)
+<br />
+<br />
 其他 :
-板框
+<br />
+板框(Board Outline)
+<br />
+<br />
+设置设备(Device Setup)
 <br />
 在转换时，如果不希望把圆弧打碎的话，则 设备设置 / 高级 / Circular Interpolation : Full /
 <br />
 <br />
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
 <br />
@@ -80,20 +90,25 @@ Top
 <br />
 自定义文档(Customize Document) : 层(Layers)
 <br />
-Top
+已选定 : Top
 <br />
-Solder Mask Top
-<br />
-选择 :
 主元件面上的项目 :
 焊盘Pads、铜箔Copper、测试点Test Point
+<br />
+已选定 : Solder Mask Top
+焊盘Pads、铜箔Copper、测试点Test Point
+<br />
 其他 :
-板框
 <br />
-
+板框(Board Outline)
 <br />
 <br />
-丝印Silkscreen Top
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+丝印Silkscreen Top 顶层白油层
 <br />
 文档名称(Document Name) : Silkscreen Top
 <br />
@@ -106,32 +121,52 @@ Solder Mask Top
 <br />
 自定义文档(Customize Document) : 层(Layers)
 <br />
-选择 :
+已选定 : Top
 主元件面上的项目 :
-焊盘Pads、铜箔Copper、测试点Test Point
-其他 :
-板框
+参考编号、边框Outline
 <br />
+已选定 : Silkscreen Top
+<br />
+2D Line、文本Text、边框Outline、、
+<br />
+其他 :
+<br />
+板框(Board Outline)
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+钻孔图(Drill Drawing)
+<br />
+文档名称(Document Name) : Drill Drawing
+<br />
+文档类型(Document Type) : 钻孔图(Drill Drawing)
+<br />
+层关联性 : Top
+<br />
+自定义文档(Customize Document) : 选项(Options) / 绘图选项 / 钻孔符号(Drill Symbols) /
+/ 钻孔图选项(Drill Drawing Options) /
+在Drill Chart 选项下面的Location 下输入合适的X 和Y 值，便可以将钻孔表的位置移动到合适的位置。例如输入X：0，Y：
+2.5。
+<br />
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+数控钻孔(NC Drill)
+<br />
+文档名称(Document Name) : NC Drill
+<br />
+文档类型(Document Type) : 数控钻孔(NC Drill)
 
 <br />
 <br />
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+使用PADS Layout 的一个自动生成CAM无模命令 : @camdocs
 <br />
 <br />
 <br />
