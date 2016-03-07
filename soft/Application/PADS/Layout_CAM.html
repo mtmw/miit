@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160304
+20160307
 <h1>> File / CAM</h1>
 Gerber
 <br />
@@ -15,12 +15,16 @@ Gerber
    a. 走线层，（包括信号层、电源层和地层）
       如2层板便是顶层和底层线路共两层线路
 	  4层板则是顶层、第2层、第3层、及底层线路共4层线路
+<br />
 	  
    b. 阻焊层，在不需要焊接区域涂上一层阻焊及防氧化材料，一般为绿油，这类主要是Soldermask Layer Top/Bottom
+<br />
    
    c. 丝印层 用于标示零件范围、方向及序号。一般包括（Top/Bottom Silkscreen Layer）
+<br />
    d. NC数据及钻孔图，而需要多少的NC数据，则视PCB板有多少款的盲埋孔，即是有多少款Drill Pair(钻孔对)
      4层板钻孔文件和孔位图共2 个
+<br />
    
    * 当需要堵住过孔时(即平时说的过孔盖油)，可以该Gerber文件设置中去掉via，预览时见不到过孔，即满足要求。
    d. 钻孔层：（drilldraw）
@@ -50,14 +54,14 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 走线层(Top)
 <br />
-文档名称(Document Name) : Top
+文档名称(Document Name) : Top or Bottom
 <br />
 <img src="imagesLayout/CAM/DocumentType_zh.png" alt="文档类型(Document Type)" title="文档类型(Document Type)" width="132" height="132" />
 <img src="imagesLayout/CAM/DocumentType_en.png" alt="文档类型(Document Type)" title="文档类型(Document Type)" width="132" height="132" />
 <br />
 文档类型(Document Type) : 布线/分割平面(Routing/Split Plane)
 <br />
-层关联性 : Top
+层关联性 : Top or Bottom
 <br />
 输出设备(Output Device) : 光绘(Photo)
 <br />
@@ -66,11 +70,11 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <img src="imagesLayout/CAM/SelectItems_Top_zh.png" alt="选择项目Top(Select Items Top)" title="选择项目Top(Select Items Top)" width="553" height="530" />
 <img src="imagesLayout/CAM/SelectItems_Top_en.png" alt="选择项目Top(Select Items Top)" title="选择项目Top(Select Items Top)" width="553" height="530" />
 <br />
-已选定 : Top
+已选定 : Top or Bottom
 <br />
 主元件面上的项目 :
 <br />
-焊盘Pads、导线Traces、过孔Via、铜箔Copper、2D线(Lines)、文本(Text)
+焊盘Pads、导线Traces、过孔Via、铜箔Copper
 <br />
 <br />
 其他 :
@@ -78,10 +82,35 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 板框(Board Outline)
 <br />
 <br />
+具有关联覆铜的管脚(Pins with Associated Copper) :
+<br />
+高级选择(Advanced Selection) Top和Bottom层时要将此项选中
+<br />
+<br />
+自定义文档(Customize Document) : 选项(Options)
+<br />
+X偏移 : 10000
+<br />
+Y偏移 : 10000
+<br />
+调整偏移量至符合CAM工作区内位置
+<br />
+注意 偏移量最好是所有Gerber及NC Drill都是相同
+<br />
+<br />
 设置设备(Device Setup)
 <br />
 在转换时，如果不希望把圆弧打碎的话，则 设备设置 / 高级 / Circular Interpolation : Full /
 <br />
+<br />
+孔径(Apertures)表文件是art01.rep，它列出了设计中所用的所有孔径(Apertures)
+<br />
+<br />
+Board 检视范围为板框(Board Outline)
+<br />
+Extents 检视范围为CAM的工作范围
+<br />
+Workspace 检视范围为工作区
 <br />
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
@@ -103,9 +132,11 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 已选定 : Top
 <br />
 主元件面上的项目 :
+<br />
 焊盘Pads、铜箔Copper、测试点Test Point
 <br />
 已选定 : Solder Mask Top
+<br />
 焊盘Pads、铜箔Copper、测试点Test Point
 <br />
 其他 :
@@ -113,16 +144,21 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 板框(Board Outline)
 <br />
 <br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+助焊层(Paste Mask Top)
+<br />
+<br />
 <br />
 <br />
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
-丝印Silkscreen Top 顶层白油层
+丝印(Silkscreen Top) 顶层白油层
 <br />
 文档名称(Document Name) : Silkscreen Top
 <br />
-文档类型(Document Type) : 丝印Silkscreen Top
+文档类型(Document Type) : 丝印(Silkscreen Top)
 <br />
 层关联性 : Top
 <br />
@@ -132,17 +168,25 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 自定义文档(Customize Document) : 层(Layers)
 <br />
 已选定 : Top
+<br />
 主元件面上的项目 :
-参考编号、边框Outline
+<br />
+参考编号(Ref.Des)、边框(Outline)
 <br />
 已选定 : Silkscreen Top
 <br />
-2D Line、文本Text、边框Outline、、
+2D Line、文本(Text)、边框(Outline)
 <br />
 其他 :
 <br />
 板框(Board Outline)
 <br />
+<br />
+元器件外框
+<br />
+勾选 顶层贴装(Top Mounted)
+<br />
+勾选 底层贴装(Bottom Mounted)
 <br />
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
@@ -205,6 +249,7 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 <br />
 <br />
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
 贴片所需资料 :
@@ -214,6 +259,34 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 贴片坐标导出方法 :
 <br />
 >Tools / Basic Scripts / Basic Scripts... / 17-Excel Part List Report / Run /
+<br />
+<br />
+or
+<br />
+> File / CAM Plus /
+<br />
+<img src="imagesLayout/CAM/CAMPlus_Top_SMT_zh.png" alt="CAM Plus Top SMT" title="CAM Plus Top SMT" width="340" height="491" />
+<img src="imagesLayout/CAM/CAMPlus_Top_SMT_en.png" alt="CAM Plus Top SMT" title="CAM Plus Top SMT" width="340" height="491" />
+<br />
+<img src="imagesLayout/CAM/CAMPlus_Bottom_SMT_zh.png" alt="CAM Plus Top SMT" title="CAM Plus Top SMT" width="340" height="491" />
+<img src="imagesLayout/CAM/CAMPlus_Bottom_SMT_en.png" alt="CAM Plus Top SMT" title="CAM Plus Top SMT" width="340" height="491" />
+<br />
+面(Side) : Top or Bottom
+<br />
+元件(Parts) : SMT
+<br />
+勾选 读取值属性(Read Value Attributes)
+<br />
+输出格式(Output Format) : Dynapert Promann
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
