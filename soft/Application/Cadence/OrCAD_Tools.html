@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Tools</title>
+</head>
+
+<body >
+20160312
+<h1>Tools</h1>
+Annotate...
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Back Annotate...
+<br />
+<br />
+<br />
+<br />
+Update Properties...
+<br />
+<br />
+<br />
+<br />
+Test Bench
+<br />
+<br />
+<br />
+Part Manager
+<br />
+<br />
+<br />
+<br />
+Design Rules Check
+<br />
+<br />
+<br />
+<br />
+Create Differential Pair...
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Cross Reference...
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+InterSheet Reference...
+<br />
+<br />
+<br />
+<br />
+<br />
+Bill of Materials
+<br />
+Header
+Item\tQuantity\tReference\tPart
+序号 用量      位号       值 
+<br />
+
+Combined property string
+{Item}\t{Quantity}\t{Reference}\t{Value}
+<br />
+
+
+Combined property string 这个框框里填写的就是下面的器件所具有的属性的名称。
+也就是说，如果你想导出Part Number这项参数，那么你就需要把{PART_NUMBER}这串字符填写到Combined property string中；
+<br />
+如果你想导出Description这项参数，就需要把{Description}这串字符填写到Combined property string中，
+不同的字符串用\t隔开就OK了。 相信到现在，你应该知道如何随心所欲到处自己想要的参数了吧。
+<br />
+例如采用下面的导出设置：
+ Header:  Item\tQuantity\tValue\tPart Number\tReference\tDescription\tDNS\tVendor\tVendor Part Number 
+<br />
+
+ Combined property string: 
+<br />
+{Item}\t{Quantity}\t{Value}\t{PART_NUMBER}\t{Part  Reference}\t{Description}\t{DNS}\t{Vendor}\t{Vendor P/N}  
+就可以导出数量，元件值，料号，元件编号，元件描述，是否为 DNS，厂商，厂商料号这些信息
+<br />
+
+
+
+常用的是如下方式：
+<br />
+
+{Item}\t{Quantity}\t{Reference}\t{Value}\t{pcb footprint}\t{Quantity}\t\t
+<br />
+
+Tools > Bill of Materials...
+Header
+Item\tQuantity\tReference\tPart\tfootprint
+<br />
+
+Combined property string
+{Item}\t{Quantity}\t{Reference}\t{Value}\t{pcb footprint}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Export Properties...
+<br />
+<br />
+<br />
+<br />
+<br />
+Import Properties
+<br />
+<br />
+<br />
+<br />
+<br />
+Generate Part
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+Export FPGA...
+<br />
+<br />
+<br />
+<br />
+Split Part
+<br />
+<br />
+<br />
+<br />
+<br />
+Assign Power Pins...
+<br />
+<br />
+<br />
+Associate PSpice Model...
+<br />
+<br />
+<br />
+Sync NetGroup...
+<br />
+<br />
+Customize...
+<br />
+<br />
+<br />
+<br />
+Board Simulation...
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</body>
+</html>

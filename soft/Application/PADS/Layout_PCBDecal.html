@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160307
+20160312
 <h1>> Tools / PCB Decal Editor</h1>
 <br />
 <a name="PCBDecal">
@@ -102,13 +102,23 @@ DNN :
 <br />
 <br />
 <br />
-Shape: Size: Layer list box
+(外形)Shape: 尺寸(Size): 所属层(Layer list box)
 <br />
 安装面、贴装面<Mounted Side>
 <br />
 中间层、内层<Inner Layers>
 <br />
 相对面、对面<Opposite Side>
+<br />
+Shape :
+<br />
+第一位 焊盘 第二位 热焊盘 第三位 反焊盘
+<br />
+圆形 C
+<br />
+方形 S
+<br />
+无 N 
 <br />
 <br />
 钻孔尺寸(Drill size)
@@ -296,11 +306,46 @@ BGA SMD
 <br />
 <br />
 <br />
+电路板基准点(Board Fiducials) Mark点 制作方法
+<br />
+层(Layer) ---------------------- 形状 ---------- 尺寸 ---------- 注释
+<br />
+Top(Mounted) ---------------- Round ------- 40mil -------- Top Pad
+<br />
+阻焊层(Solder Mask Top) ----- Round ------- 80mil -------- Solder Mask to void
+<br />
+装配层(Assembly Top) -------- Round ------- 40mil -------- Assembly ref. image Top
+<br />
+Layer20 ----------------------- Circle -------- 80mil -------- Courtyard Outline
+<br />
+All Layer(Keepout) ----------- Round -------- 80mil -------- Component/Via/Routing
 <br />
 <br />
 <br />
 <br />
+电路板安装孔(Board Mounting Holes) 螺丝孔
 <br />
+层(Layer) -------------------- 形状 ---------- 尺寸 ---------- 注释
+<br />
+Top(Mounted) -------------- Round ------- 280mil -------- Top Pad
+<br />
+Inner(Signal) ---------------- Round ------- 280mil -------- Inner Pad
+<br />
+Bottom(Opposite) ---------- Round ------- 280mil -------- Bottom Pad
+<br />
+阻焊层(Solder Mask Top) --- Round ------- 280mil -------- Solder Mask to void
+<br />
+阻焊层(Solder Mask Bottom) -- Round ----- 280mil -------- Solder Mask to void
+<br />
+装配层(Assembly Top) ------ Round ------- 280mil -------- Assembly ref. image Top
+<br />
+装配层(Assembly Bottom) ---- Round ------ 280mil -------- Assembly ref. image Bottom
+<br />
+Layer20 --------------------- Circle -------- 300mil -------- Courtyard Outline
+<br />
+All Layer(Drill Hole) --------- Round -------- 157mil -------- Plated hole
+<br />
+All Layer(Keepout) --------- Round -------- 320mil -------- Component/Via/Routing
 <br />
 <br />
 <br />

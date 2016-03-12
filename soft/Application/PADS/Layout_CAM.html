@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160307
+20160310
 <h1>> File / CAM</h1>
 Gerber
 <br />
@@ -61,7 +61,9 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 文档类型(Document Type) : 布线/分割平面(Routing/Split Plane)
 <br />
-层关联性 : Top or Bottom
+制造层(Fabrication Layer) : Top or Bottom
+<br />
+输出文件(Output File) : TopLayer.pho
 <br />
 输出设备(Output Device) : 光绘(Photo)
 <br />
@@ -74,7 +76,7 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 主元件面上的项目 :
 <br />
-焊盘Pads、导线Traces、过孔Via、铜箔Copper
+焊盘Pads、导线Traces、2D Line、过孔Via、铜箔Copper
 <br />
 <br />
 其他 :
@@ -152,12 +154,12 @@ Workspace 检视范围为工作区
 ---- 如有元件焊盘是使用了关联覆铜方式，就要将此项选中 
 <br />
 <br />
-即没有勾选的就会有绿油覆盖，需要露铜(不需要绿油)的地方就勾选
+负片输出 即没有勾选的就会有绿油覆盖，需要露铜(不需要绿油)的地方就勾选
 
 <br />
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
-助焊层(Paste Mask Top) 焊盘锡膏层
+助焊层(Paste Mask Top) 焊盘锡膏层 钢网层
 <br />
 文档名称(Document Name) : Paste Mask Top
 <br />
@@ -226,7 +228,7 @@ Lines、铜箔Copper、测试点Test Point
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
-钻孔图(Drill Drawing)
+钻孔图(Drill Drawing) 输出钻孔孔位和钻孔信息(大小、镀金)的CAM数据
 <br />
 文档名称(Document Name) : Drill Drawing
 <br />
@@ -239,12 +241,7 @@ Lines、铜箔Copper、测试点Test Point
 <br />
 主元件面上的项目 :
 <br />
-焊盘Pads、Lines、过孔Via、Text
-<br />
-其他 :
-<br />
-板框(Board Outline)
-<br />
+焊盘(Pads)、Lines、过孔(Via)、Text
 <br />
 已选定 : Drill Drawing
 <br />
@@ -271,7 +268,7 @@ Lines、Text
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
-数控钻孔(NC Drill)
+数控钻孔(NC Drill) 输出钻孔文件,用于控制钻孔设备
 <br />
 转NC Drill 前一定要清楚此板是否为盲/埋孔，通过 Setup / Drill Pairs 查看
 <br />
