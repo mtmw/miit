@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160229
+20160317
 <h1>OrCAD to PADS Layout</h1>
 <br />
 1. OrCAD修改元件 PCB Footprint 属性
@@ -51,13 +51,19 @@
 <br />
 <img src="Cadence/imagesOrCAD/CreateNetlist.png" alt="Create Netlist" title="Create Netlist" width="515" height="540" />
 <br />
-Part Value Combined property
+Part Value
+<br />
+Combined property :
 <br />
 {Value}
 <br />
-PCB Footprint Combined property string
+<br />
+PCB Footprint
+<br />
+Combined property string :
 <br />
 {PCB Footprint},{Value}
+<br />
 <br />
 在Formatters列表框中选择 orPadspcb.dll or orpads2k
 <br />
@@ -91,7 +97,7 @@ OrCAD原理图更新到PADS的方法
 <br />
 并输出PADS格式的网表 Schematic_NEW.asc文件。
 <br />
-2.在PADS中新建一个设计，执行 File / Import 导入 Schematic_NEW.asc，保存此PCB文件为 PCB_NEW.pcb
+2.在PADS中新建一个设计，执行 File / Import 导入 Schematic_NEW.asc，保存此PCB文件为 PCB_NEW.pcb ---- 如果"修改的新设计"里选的 Schematic_NEW.asc 文件,那这一步可以省略
 <br />
 3.在PCB Layout中打开 PCB_OLD.pcb，执行 Tools / Compare/ECO... 弹出比对/ECO窗口
 <br />
@@ -107,7 +113,7 @@ OrCAD原理图更新到PADS的方法
 <br />
 修改的新设计(New Design With Changes)
 <br />
-新设计文件(New Design File) 浏览选择 PCB_NEW.pcb
+新设计文件(New Design File) 浏览选择 PCB_NEW.pcb or Schematic_NEW.asc
 <br />
 <br />
 输出选项Output Options
@@ -123,7 +129,36 @@ eco文件默认保存在PADS的安装目录(D:\ED\PADS\PADSProjects)下
 <img src="PADS/imagesLayout/Tools/ProcessStatus_zh.png" alt="处理状态 Process Status" title="处理状态 Process Status" width="506" height="153" />
 <img src="PADS/imagesLayout/Tools/ProcessStatus_en.png" alt="处理状态 Process Status" title="处理状态 Process Status" width="506" height="153" />
 <br />
-4.重新打开原有的PCB_OLD.pcb文件，File / Import 选择导入 PCB_old.eco 文件
+4.重新打开原有的PCB_OLD.pcb文件，File / Import 选择 PCB_old.eco 导入
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+重复利用已Layout好的PCB的CPU部分
+<br />
+有Project_A.DSN和Project_B.DSN,及对应的PCB Project_A.pcb和Project_B.pcb
+<br />
+CPU相同，项目A的PCB Project_A.pcb已Layout好,Project_B.pcb Layout要求利用Project_A.pcb CPU部分
+<br />
+<br />
+1. 将原理图删除至只留下CPU相同部分,命名为CPU.DSN,导出网表为CPU.asc
+<br />
+2. 打开 Project_A.pcb,执行 Tools / Compare/ECO... 弹出比对/ECO窗口
+<br />
+在"修改的新设计"里选择 CPU.asc 文件,生成 CPU.eco 文件
+<br />
+3. 打开 Project_A.pcb,File / Import 选择 CPU.eco 导入,
+<br />
+这样就生成了只有CPU并且已经Layout好的PCB文件,删除无用的铜皮、板框,保存为 CPU.PCB
+<br />
+4. 打开CPU.PCB,执行 Tools / Compare/ECO... 弹出比对/ECO窗口
+<br />
+在"修改的新设计"里选择 Project_B.pcb 文件,生成 Project_B.eco 文件
+<br />
+5. 打开CPU.PCB,File / Import 选择 Project_B.eco 导入
+<br />
+6. 选中新加的元件/右键/打散(Disperse)
 <br />
 <br />
 <br />
