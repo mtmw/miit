@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Schematic Standard</title>
+</head>
+
+<body >
+<h1>原理图规范(Schematic Standard)</h1>
+<br />
+在原理图根目录下放置 :
+<br />
+00SYSTEM
+<br />
+系统框图 1 System:System Block Diagram
+<br />
+原理图修改记录面 2 Memo:Hardware Modify Record
+<br />
+多页层次连接关系 3 Symbol:System Symbol
+<br />
+01POWER
+<br />
+02CPU
+<br />
+03MEMORY
+<br />
+<br />
+采用统一的页面标题块(TitleBlock)
+<br />
+<br />
+元器件编号命名前缀
+<br />
+逻辑系统(Logic Family) 参考前缀(Ref prefix)
+<br />
+ANA -------- U
+<br />
+BGA -------- U -------- 球栅阵列封装(Ball Grid Array)
+<br />
+BPF -------- U
+<br />
+BQF -------- U
+<br />
+CAP -------- C -------- 电容(CAPACITOR)
+<br />
+CFP -------- U -------- 陶瓷扁平封装
+<br />
+CLC -------- U
+<br />
+CMO -------- U
+<br />
+CON -------- J -------- 连接器(Connect)
+<br />
+CQF -------- U
+<br />
+DIO -------- D -------- 二极管(DIODE)
+<br />
+DIP -------- U -------- 双列直插式组件(Dual In-line Package)
+<br />
+ECL -------- U
+<br />
+EDG -------- P 
+<br />
+FUS -------- F -------- 保险丝(FUSE)
+<br />
+HMO -------- U
+<br />
+HOL -------- X 
+<br />
+<br />
+IND -------- L -------- 电感(INDUCTANCE)
+<br />
+LCC -------- U -------- 无引脚片式载体(Leadless chip carrier)
+<br />
+MOS -------- U -------- 金属氧化物半导体(Metal Oxide Semiconductor)
+OSC -------- Y -------- 振荡器(Open Source Commerce)
+PFP -------- U
+PGA -------- U                 butt joint pin grid array碰焊 (pin grid array)
+PLC -------- U
+POT -------- P -------- 可变电阻器(POTENTIOMETER)
+PQF -------- U
+PSO -------- U
+QFJ -------- U                    CLCC(ceramic leaded chip carrier)也称QFJ,QFJ-G
+QFP -------- U -------- 四侧引脚扁平封装(Quad flat package)
+QSO -------- U
+RES -------- R -------- 电阻器(Resistor)
+RLY -------- K -------- 继电器(RLY)
+SCR -------- SC -------- 可控硅(Silicon Controlled Rectifier)
+SKT -------- U
+SOI -------- U -------- I形引脚小外型封装(small out-line I-leaded package)
+SOJ -------- U -------- J形引脚小外型封装(Small Out-Line J-Leaded Package)
+SOP -------- U -------- 小外形封装(Small Out-Line package)
+SSO -------- U
+SWI -------- S -------- 开关(SWITCH)
+TQF -------- U
+TRX -------- Q -------- 三极管(Transistor)
+TSO -------- U
+TTL -------- U -------- BJT-BJT逻辑门(Transistor-Transistor Logic)
+VSO -------- U
+XFR -------- T -------- 变压器(XFMR)
+ZEN -------- Z -------- 齐纳二极管(ZENER)
+SIP -------- U -------- 直插式组件(Single in-line package)
+                      光电耦合器Photoelectric coupler                      U/N  
+LED -------- LED                Light Emitting Diode（发光二极管）                       LED 
+TVS -------- TVS                 Transient Voltage Suppressor(瞬态电压抑制二极管)           TVS 
+FB --------- FB             Ferrite bead(磁珠)                                      FB 
+TP --------- TP                  TEST POINT(测试点）                                   TP 
+MIC -------- MIC                 MICROPHONE (麦克风)                                 MIC 
+BQFP ------- U                BQFP(quad flat package with bumper)带缓冲垫的四侧引脚扁平封装  U 
+CLCC ------- U                  Ceramic leaded chip carrier(带引脚的陶瓷芯片载体)              U 
+COB -------- U                  Chip on board(板上芯片封装)                                 U 
+DFP -------- U                  Dual flat package(双侧引脚扁平封装)(是SOP 的别称)             U 
+FP --------- U                   Flat package(扁平封装)                                       U 
+FQFP ------- U                Fine pitch quad flat package(小引脚中心距QFP)                  U 
+CQFP ------- U                Quad fiat package with guard ring(带保护环的四侧引脚扁平封装    U 
+HSOP ------- U                H-(with heat sink)HSOP 表示带散热SOP                        U 
+LQFP ------- U                Low profile quad flat package(薄型QFP)                         U 
+SMD -------- U                Surface mount devices(表面贴装器件)                           U 
+CPGA ------- U               Ceramic Pin Grid Array                                        U 
+ZIP -------- U                 Zig-Zag Inline Package （之字型直插式封装）                   U 
+TSOP ------- U               Thin Small Outline Package                                    U 
+TSSOP ------ U              TSOP II Thin Shrink Outline Package                             U
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+</html>
