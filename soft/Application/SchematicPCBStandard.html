@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Schematic Standard</title>
+</head>
+
+<body >
+<h1>原理图规范(Schematic Standard)</h1>
+<br />
+在原理图根目录下放置 :
+<br />
+00SYSTEM
+<br />
+系统框图 1 System:System Block Diagram
+<br />
+原理图修改记录面 2 Memo:Hardware Modify Record
+<br />
+多页层次连接关系 3 Symbol:System Symbol
+<br />
+01POWER
+<br />
+02CPU
+<br />
+03MEMORY
+<br />
+<br />
+采用统一的页面标题块(TitleBlock)
+<br />
+<br />
+元器件编号命名前缀
+<br />
+逻辑系统(Logic Family) 参考前缀(Ref prefix)
+<br />
+ANA -------- U
+<br />
+BGA -------- U -------- 球栅阵列封装(Ball Grid Array)
+<br />
+BPF -------- U
+<br />
+BQF -------- U
+<br />
+CAP -------- C -------- 电容(CAPACITOR)
+<br />
+CFP -------- U -------- 陶瓷扁平封装
+<br />
+CLC -------- U
+<br />
+CMO -------- U
+<br />
+CON -------- J -------- 连接器(Connector)
+<br />
+CQF -------- U
+<br />
+DIO -------- D -------- 二极管(DIODE)
+<br />
+DIP -------- U -------- 双列直插式组件(Dual In-line Package)
+<br />
+ECL -------- U
+<br />
+EDG -------- P 
+<br />
+FUS -------- F -------- 保险丝(FUSE)
+<br />
+HMO -------- U
+<br />
+HOL -------- X 
+<br />
+<br />
+IND -------- L -------- 电感(INDUCTANCE)
+<br />
+LCC -------- U -------- 无引脚片式载体(Leadless chip carrier)
+<br />
+MOS -------- U -------- 金属氧化物半导体(Metal Oxide Semiconductor)
+<br />
+OSC -------- Y -------- 振荡器(Open Source Commerce)
+<br />
+PFP -------- U
+<br />
+PGA -------- U -------- butt joint pin grid array碰焊 (pin grid array)
+<br />
+PLC -------- U
+<br />
+POT -------- P -------- 可变电阻器(POTENTIOMETER)
+<br />
+PQF -------- U
+<br />
+PSO -------- U
+<br />
+QFJ -------- U -------- QFJ,QFJ-G(ceramic leaded chip carrier)
+<br />
+QFP -------- U -------- 四侧引脚扁平封装(Quad flat package)
+<br />
+QSO -------- U
+<br />
+RES -------- R -------- 电阻(Resistor)
+<br />
+RLY -------- K -------- 继电器(RLY)
+<br />
+SCR -------- SC -------- 可控硅(Silicon Controlled Rectifier)
+<br />
+SKT -------- U
+<br />
+SOI -------- U -------- I形引脚小外型封装(small out-line I-leaded package)
+<br />
+SOJ -------- U -------- J形引脚小外型封装(Small Out-Line J-Leaded Package)
+<br />
+SOP -------- U -------- 小外形封装(Small Out-Line package)
+<br />
+SSO -------- U
+<br />
+SWI -------- S -------- 开关(SWITCH)
+<br />
+TQF -------- U
+<br />
+TRX -------- Q -------- 三极管(Transistor)
+<br />
+TSO -------- U
+<br />
+TTL -------- U -------- BJT-BJT逻辑门(Transistor-Transistor Logic)
+<br />
+VSO -------- U
+<br />
+XFR -------- T -------- 变压器(XFMR)
+<br />
+ZEN -------- Z -------- 齐纳二极管(ZENER)
+<br />
+SIP -------- U -------- 直插式组件(Single in-line package)
+<br />
+                      光电耦合器Photoelectric coupler                      U/N  
+<br />
+LED -------- LED ------ 发光二极管Light Emitting Diode
+<br />
+TVS -------- TVS ------ 瞬态电压抑制二极管(Transient Voltage Suppressor)
+<br />
+FB --------- FB ------- 磁珠(Ferrite bead)
+<br />
+TP --------- TP ------- 测试点(TEST POINT)
+<br />
+MIC -------- MIC ------ 麦克风(MICROPHONE)
+<br />
+BQFP ------- U -------- 带缓冲垫的四侧引脚扁平封装BQFP(quad flat package with bumper)
+<br />
+CLCC ------- U -------- 带引脚的陶瓷芯片载体(Ceramic leaded chip carrier)
+<br />
+COB -------- U -------- 板上芯片封装(Chip on board)
+<br />
+DFP -------- U -------- 双侧引脚扁平封装(Dual flat package)(是SOP的别称)
+<br />
+FP --------- U -------- 扁平封装(Flat package)
+<br />
+FQFP ------- U -------- 小引脚中心距QFP(Fine pitch quad flat package)
+<br />
+CQFP ------- U -------- 带保护环的四侧引脚扁平封装(Quad fiat package with guard ring)
+<br />
+HSOP ------- U -------- 指带散热片的小外形封装(Heat-sink Small Outline Package)
+<br />
+LQFP ------- U -------- 薄型QFP(Low profile quad flat package)
+<br />
+SMD -------- U -------- 表面贴装器件(Surface mount devices)
+<br />
+CPGA ------- U -------- Ceramic Pin Grid Array
+<br />
+ZIP -------- U -------- 之字型直插式封装(Zig-Zag Inline Package)
+<br />
+TSOP ------- U -------- 薄小外形封装(Thin Small Outline Package)
+<br />
+TSSOP ------ U -------- 指薄的缩小型小外形封装(Thin Shrink Small Outline Package)
+<br />
+SSOP ------- U -------- 缩小型小外形封装(Shrink Small Outline Package)
+<br />
+VSOP ------- U -------- 甚小外形封装(Very Small Outline Package)
+<br />
+PSOP ------- U -------- 功率小外形封装(Power Small Outline Plastic Package)
+<br />
+SON -------- U -------- 无引脚伸出小外形封装(Small Outline No‐lead)
+<br />
+PSON ------- U -------- 引脚缩回型SON，引脚不在封装边沿(Pull-back Small Outline No-lead)
+<br />
+<br />
+<br />
+排阻 : RN
+<br />
+电解电容 : EC
+<br />
+模块 : MOD or U
+<br />
+晶振 :X
+<br />
+三极管 : 普通小信号放大管采用Q,MOSFEF管采用T
+<br />
+整流二极管 :ZD
+<br />
+连接器 : CON
+<br />
+跳线 : J
+<br />
+开关 : K or SW
+<br />
+电池 : BAT
+<br />
+固定通孔 : MH
+<br />
+Mark : H
+<br />
+<br />
+<br />
+电阻电容类元器件设计值使用有效数字位形式标记
+<br />
+如100K电阻标记为104
+<br />
+8.2 Ohm电阻标记为8R2
+<br />
+4p电容标记为4C0
+<br />
+22p电容标记为22C或220
+<br />
+0.1uF电容标记为104
+<br />
+<br />
+<br />
+<br />
+公头(Male) 母头(Famale)
+<br />
+<br />
+<br />
+绘图
+<br />
+连接多页面的端口从页面左上角开始向下放置,端口连线长度统一为8个单位,正确标识端口的类别、方向
+<br />
+<br />
+对于较多连接的芯片引脚尽量采用网络标号连接,芯片引脚长度8个单位
+<br />
+电源类网络标号在靠近芯片的4个单位内标记,信号类网络标号从远离芯片的4个单位内标记
+<br />
+<br />
+空余引脚用x标识
+<br />
+<br />
+低电平有效信号线的网络标识统一采用"/"前缀,如 /RST
+<br />
+<br />
+电源类网络标识以电源极性为前缀,如+3.3V,-5V
+<br />
+<br />
+所有的命名只能采用占一个字节（即半角输入）的数字（0-9）、字母（a-z无大小写限制）、下划线（_）、中横线（-）四种字符,其它符号均属于非法字符
+<br />
+<br />
+命名中所使用的尺寸单位只能采用公制单位毫米(mm)或者英制单位毫英寸(mil)
+<br />
+<br />
+命名中的所有尺寸（如长、宽、高等），如果采用公制，数字的后两位表示小数位(如果实际小数位不止两位则四舍五入到两位数),整数位长度无限制
+<br />
+例如：r160_50s15mm中的长度160表示1.6mm，宽度50表示0.5mm
+<br />
+<br />
+命名中的所有尺寸（如长、宽、高等），如果采用英制，那么数字全都是整数，没有小数位，整个数字的长度无限制
+<br />
+例如：r210_90s6mil中的长度210表示210mil，宽度90表示90mil
+<br />
+<br />
+大括号{}以及它包含的内容表示参数
+<br />
+{Level}： 密度等级。见5.1 节。
+<br />
+{Mfr.Name}： 器件厂家。可用完整英文或者英文缩写或者汉语拼音。
+<br />
+{Part Number}： 厂家完整型号。如果包含非法字符，须删除或者用下划线替代。
+<br />
+{Length}： 器件长度。取典型值，若无典型值则取平均值，若仅有一个值，则取该值。
+<br />
+{Width}： 器件宽度。取典型值。
+<br />
+{Height}： 器件高度。取最大。
+<br />
+{Lead Spacing}： 两引脚插装器件的引脚间距。取典型值。
+<br />
+{Pitch}： 相邻引脚的间距。取典型值。
+<br />
+{Lead Diameter}：插装器件引脚的直径。取最大值。
+<br />
+{Body Length}： 封装体长度。取典型值。
+<br />
+{Body Width}： 封装体宽度。取典型值。
+<br />
+{Body Height}： 封装体高度。取最大。
+<br />
+{Body Thickness}：封装体厚度。
+<br />
+{Body Diameter}：圆柱形器件封装体的直径。取典型值。
+<br />
+{Lead Span}： 排距。两排引脚外沿的距离，取典型值。
+<br />
+{Lead Span L1}： 排距1。矩形四边引脚的器件其中较小的排距。取典型值。
+<br />
+{Lead Span L2}： 排距2。矩形四边引脚的器件其中较大的排距。取典型值。
+<br />
+{Pin Qty}： 引脚数量。此数量包含功能引脚数量和散热盘的数量。
+<br />
+{Columns}： 引脚的列数。
+<br />
+{Rows}： 引脚的行数。
+<br />
+<br />
+<br />
+焊盘包括表贴焊盘、通孔焊盘，以及组成特殊表贴焊盘的shape和组成通孔焊盘的flash。
+<br />
+标准表贴焊盘包含正方形、长方形、圆形和椭圆形焊盘
+<br />
+焊盘形状 : r表示矩形(rectangle)、c表示圆形(circle)、s表示方形(square)、b表示椭圆形(oblong)
+<br />
+W : 焊盘的长度(长边)
+<br />
+H : 焊盘的宽度(短边)
+<br />
+直径(Diameter)
+<br />
+s : 固定字符，表示阻焊(solder mask)。
+阻焊增量 阻焊长度(宽度)减去焊盘长度(宽度)的尺寸
+<br />
+<br />
+<br />
+通孔焊盘，其通孔部分的形状包含圆形、矩形和椭圆形，焊接部分的焊盘形状有圆形、矩形、椭圆形、正方形、八边形
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+</html>
