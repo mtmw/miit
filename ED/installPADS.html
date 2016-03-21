@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>install PADS</title>
+</head>
+
+<body >
+20160321
+<h1>install PADS</h1>
+<br />
+<br />
+使用最新的EFA的破解
+<br />
+1、安装PADS9.5
+<br />
+首先将PADS9.5.zip解压，解压后会出现一个PADS9.5_mib.exe的可执行文件，双击运行“PADS9.5_mib.exe”（Windows 7系统请右键点击选择“以管理员身份运行”）
+<br />
+
+提示需要硬件狗，点击“Next”
+<br />
+
+提示没有检测到授权文件，点击“Skip”
+<br />
+
+点击“Agree”，同意协议
+<br />
+
+点击“Modify”，进入配置安装环境界面
+<br />
+
+
+点击“Product Selection”，选择你需要安装的工具，一般选择PADS Layout、PADS Router、Design Entry（PADS Logic躲在这里）、Libraries等
+<br />
+（因为是单机运行，Server Service就不用安装了）
+
+点击“Target Path”，设置PADS9.5的安装位置,默认为C:\MentorGraphics 更改为C:\bin\ED\MentorGraphics
+<br />
+
+点击“PADS Projects Path”，设置PADS9.5的项目文件位置默认为C:\PADS Projects，更改为D:\ED\PADS\PADS9.5Projects
+<br />
+
+
+配置完成，点击“Done”
+<br />
+
+点击“Install”开始安装 需要安装十多分钟
+<br />
+
+安装完毕时会提示注册， 
+<br />
+
+选择“at later time”，最后点击“Done”完成安装。
+<br />
+
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+
+2、开始和谐之旅
+将MentorCrack文件夹复制到PADS9.5的安装目录下
+
+打开命令提示符运行MentorKG.exe
+
+mentorkg -patch X:\***\MentorGraphics\9.5PADS（X:\***为pads9.5的安装路径）
+
+或者直接双击运行MentorKG.exe
+
+等待……会产生LICENSE.TXT，请一定记得保存！！！ C:\bin\ED\MentorGraphics\LICENSE.TXT
+将文件另存为LICENSE.TXT
+文件最好放在PADS9.5的安装目录下。
+
+3、添加环境变量->系统变量，变量名：MGLS_LICENSE_FILE，变量值：LICENSE.TXT的位置，如：
+
+MGLS_LICENSE_FILE = C:\bin\ED\MentorGraphics\LICENSE.TXT
+
+至此操作完毕。
+
+补充：PADS9.5不需要替换MGLS.DLL。
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<hr />
+<!-- ------------------------------------------------------------------------------------------- -->  
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+</html>
