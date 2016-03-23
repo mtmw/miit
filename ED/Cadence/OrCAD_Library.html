@@ -96,24 +96,99 @@ Implementation按钮屏幕出现Attatch Implementation对话框。在Implementat
 7.画贝塞尔曲线 Place / Bezier curve
 <br />
 <br />
-添加文本 Place / Text 文本换行 Ctrl + Enter
+添加文本 Place / Text
+<br />
+文本换行 Ctrl + Enter
 <br />
 <br />
 给元件添加引脚
 <br />
 1.添加单个引脚 Place / Pin
 <br />
-Name : 引脚的名称 如IC的Vcc、GND
+<img src="imagesOrCAD/Library/PlacePin.png" alt="放置引脚(Place Pin)" title="放置引脚(Place Pin)" width="356" height="225" />
 <br />
-Number : 引脚编号 如IC的1、2、3、4、5、6...脚
+Name : 引脚的名称, 如IC的Vcc、GND. 设置引脚名称时,若引线名称带有横线(即非),则设置时应在每个字母后面加"\"
+<br />
+Number : 引脚编号 如IC的引脚1、2、3、4、5、6...
+<br />
+????Width 选择一般信号引脚(Scalar)或(Bus),如果选择Bus则总线可以直接与引脚相连
+<br />
+????Pin Visible 只有当引脚类型设置为Power时才勾选该复选框
+<br />
 <br />
 Shape : 引脚形状
 <br />
+Clock 表示该引脚输入为时钟信号
+<br />
+Dot 表示"非",输入信号取反
+<br />
+Dot-Clock 表示对输入时钟求非,即反向时钟输入
+<br />
+Line 一般引脚引线,其长度为3个格点间距
+<br />
+Short 短引脚引线,其长度为1个格点间距
+<br />
+Short Clock 表示短引脚引线的时钟输入端
+<br />
+Short Dot 短引线,表示"非",输入信号取反
+<br />
+Short Dot Clock 短引脚引线,对输入时钟求非,即反向时钟输入
+<br />
+Zero Length 表示零长度的引脚引线,一般用于表示"电源"和"地"
+<br />
+<br />
+<br />
 Type : 引脚类型
 <br />
+3-State 三态引脚,可能为高电平、低电平和高阻3种状态
+<br />
+Bidirectional 双向信号引脚,既可作输入又可作输出
+<br />
+Input 输入引脚
+<br />
+Open Collector 开集电极输出引脚
+<br />
+Open Emitter 开发射极输出引脚
+<br />
+Output 输出引脚
+<br />
+Passive 无源器件引脚,如电阻引脚
+<br />
+Power 电源和地引脚
+<br />
+<br />
+<br />
+元件属性(Part Properties)
+<br />
+User Properties
+<br />
+<img src="imagesOrCAD/Library/PartProperties.png" alt="元件属性(Part Properties)" title="元件属性(Part Properties)" width="422" height="264" />
+<br />
+True 真
+<br />
+False 假
+<br />
+<br />
+显示属性(Display Properties)
+<br />
+<img src="imagesOrCAD/Library/DisplayProperties.png" alt="显示属性(Display Properties)" title="显示属性(Display Properties)" width="359" height="338" />
+<br />
+Do Not Display ----- 不显示
+<br />
+Value Only ---------- 只显示值
+<br />
+Name and Value ---- 显示名字和值
+<br />
+Name Only ---------- 只显示名字
+<br />
+Both if Value Exists --如果值存在显示
+<br />
+Value if Value Exists
+<br />
+<br />
+<br />
+<br />
 第26页
-
-
 <br />
 <br />
 <br />

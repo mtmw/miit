@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160322
+20160323
 <h1>Parts</h1>
 英制尺寸代码 ---- 国际尺寸 ---- 长in/mm ---- 宽in/mm
 <br />
@@ -54,14 +54,16 @@ PN结外加反向电压时处于截止状态
 3 集电极 COLLECTOR
 <br />
 <br />
-NPN
-<br />
-<img src="images/23FET/NPN.png" alt="NPN" title="NPN" width="238" height="272" />
-<br />
-<br />
-PNP
-<br />
-<img src="images/23FET/PNP.png" alt="PNP" title="PNP" width="238" height="272" />
+<table>
+     <tr>
+     <th>NPN</th>
+     <th>PNP</th>
+     </tr>
+     <tr>
+     <td><img src="images/23FET/NPN.png" alt="NPN" title="NPN" width="238" height="272" /></td>
+     <td><img src="images/23FET/PNP.png" alt="PNP" title="PNP" width="238" height="272" /></td>
+     </tr>
+</table>
 <br />
 放大状态 Je正偏 Jc反偏
 <br />
@@ -69,6 +71,8 @@ PNP
 <br />
 饱和状态 Je正偏 Jc正偏
 <br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
 场效应管(FET)
@@ -88,24 +92,59 @@ PNP
 结型场效应管(JEET)分为N沟道和P沟道两种类型
 <br />
 <br />
-结型场效应管(JEET)N沟道管
-<br />
-<img src="images/23FET/JEET_N.png" alt="结型场效应管(JEET)N沟道管" title="结型场效应管(JEET)N沟道管" width="166" height="274" />
-<br />
-<br />
-结型场效应管(JEET)P沟道管
-<br />
-<img src="images/23FET/JEET_P.png" alt="结型场效应管(JEET)P沟道管" title="结型场效应管(JEET)P沟道管" width="166" height="274" />
-<br />
+<table>
+     <tr>
+     <th>结型场效应管(JEET)N沟道管</th>
+     <th>结型场效应管(JEET)P沟道管</th>
+     </tr>
+     <tr>
+     <td><img src="images/23FET/JEET_N.png" alt="结型场效应管(JEET)N沟道管" title="结型场效应管(JEET)N沟道管" width="166" height="274" /></td>
+     <td><img src="images/23FET/JEET_P.png" alt="结型场效应管(JEET)P沟道管" title="结型场效应管(JEET)P沟道管" width="166" height="274" /></td>
+     </tr>
+</table>
 <br />
 <br />
 <br />
 绝缘栅型场效应管(IGFET)的栅极与源极、栅极与漏极之间均采用SiO2绝缘层隔离,因此而得名.又因栅极为金属铝,故又称为MOS管
 <br />
+MOS管分N沟道和P沟道两类,第一类又分为增强型和耗尽型两种
+<br />
+因此MOS管的四种类型为 :
 <br />
 <br />
+<table border="1">
+
+
+
+     <tr>
+	     <th>N沟道</th>
+         <th>N沟道</th>
+         <th>P沟道</th>
+         <th>P沟道</th>
+     </tr>
+     <tr>
+	     <td>增强型管(N-Channel Enhancement)</td>
+         <td>耗尽型管(N-Channel Depletion)</td>
+         <td>增强型管(P-Channel Enhancement)</td>
+         <td>耗尽型管(P-Channel Depletion)</td>
+     </tr>
+     <tr>
+         <td><img src="images/23FET/IGFET-N-Enhancement.png" alt="N沟道增强型管(N Channel Enhancement)" title="N沟道增强型管(N Channel Enhancement)" width="204" height="268" /></td>
+         <td><img src="images/23FET/IGFET-N-Depletion.png" alt="N沟道耗尽型管(N Channel Depletion)" title="N沟道耗尽型管(N Channel Depletion)" width="204" height="268" /></td>
+         <td><img src="images/23FET/IGFET-P-Enhancement.png" alt="P沟道增强型管(P Channel Enhancement)" title="P沟道增强型管(P Channel Enhancement)" width="204" height="268" /></td>
+         <td><img src="images/23FET/IGFET-P-Depletion.png" alt="P沟道耗尽型管(P Channel Depletion)" title="P沟道耗尽型管(P Channel Depletion)" width="204" height="268" /></td>
+     </tr>
+</table>
 <br />
 <br />
+N沟道 1导通 0截止
+<br />
+P沟道 0导通 1截止
+<br />
+<br />
+凡栅-源电压Ugs为零时漏极电流也为零的管子均属于增强型管
+<br />
+凡栅-源电压Ugs为零时漏极电流不为零的管子均属于耗尽型管
 <br />
 <br />
 <br />
