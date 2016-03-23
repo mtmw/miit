@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160312
+20160323
 <h1>Tools</h1>
 Annotate...
 <br />
@@ -37,7 +37,91 @@ Part Manager
 <br />
 <br />
 <br />
-Design Rules Check
+Design Rules Check(设计规则检查)
+<br />
+Design Rules Options(设计规则选项)
+<br />
+<img src="imagesOrCAD/Tools/DesignRulesOptions.png" alt="DesignRulesOptions(设计规则选项)" title="DesignRulesOptions(设计规则选项)" width="527" height="453" />
+<br />
+Scope
+<br />
+Check entire design : DRC检查整个工程
+<br />
+Check Selection : 仅对选择的文件进行DRC检查
+<br />
+<br />
+Mode :
+Use occurrences 选择所有事件
+Use instances(preferred)使用当前实体（建议）
+<br />
+（所谓实体是指放在绘图页内的元件符号，而事件指的是在绘图页内同一实体出现多次的实体电路。
+例如，在复杂层次电路图中，某个子方块电路重复使用了3次，就形成了3次事件；不过子方块电路内本身的元件却是实体）
+<br />
+<br />
+Action
+<br />
+Check design rules 进行DRC检查
+<br />
+Delete existing DRC marker 删除DRC检测标志
+<br />
+Create DRC markers for warnings : 进行DRC检测若发现错误，在错误之处放置警告标志
+<br />
+Preserve waived DRC 保留已经豁免的DRC
+<br />
+<br />
+Design Rules
+<br />
+Run Electrical Rules 电气规则检查
+<br />
+Run Physical Rules 物理规则检查
+<br />
+<br />
+<br />
+<br />
+Electrical Rules
+<br />
+<img src="imagesOrCAD/Tools/ElectricalRules.png" alt="Electrical Rules(电气规则)" title="Electrical Rules(电气规则)" width="527" height="453" />
+<br />
+Electrical Rules :
+<br />
+Check off-page connector connection : 检测分页图纸间接口的连接性
+<br />
+Check hierarchical port connection : 检测阶层端口的连接性
+<br />
+Check SDT compatibility : 检测对于SDT文件的兼容性
+<br />
+
+Reports
+<br />
+Report all net name : 报告所有网络名称
+<br />
+Report off-grid objects : 报告未放置在格点上的器件
+<br />
+Report hierarchical ports and off-page connection : 报告阶层端口和分页图纸间接口的连接
+<br />
+Report Misleading Tap Connection : 报告易误解的连接
+<br />
+<br />
+<br />
+Physical Rules
+<br />
+<br />
+<img src="imagesOrCAD/Tools/PhysicalRules.png" alt="Physical Rules(物理规则)" title="Physical Rules(物理规则)" width="527" height="453" />
+<br />
+Reports
+<br />
+Check visible unconnected power : 检测未连接的可见电源
+<br />
+Report invalid Refdes : 报告无效的参考编号
+<br />
+Report identical part references : 报告是否有重复的器件序号
+<br />
+<br />
+ERCMatrix
+<br />
+<img src="imagesOrCAD/Tools/ERCMatrix.png" alt="ERC Matrix" title="ERC Matrix" width="527" height="453" />
+
+<br />
 <br />
 <br />
 <br />
