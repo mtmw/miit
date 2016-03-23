@@ -7,11 +7,13 @@
 </head>
 
 <body >
-20160322
+20160323
 <h1>OrCAD Library</h1>
 File / New or Open / Library
 <br />
-选择项目名称 / 右键 or Design / New Part...
+选择项目名称 ***.olb / 右键 or Design / New Part...
+<br />
+New Part Properties
 <br />
 <img src="imagesOrCAD/Library/NewPartProperties.png" alt="新建元件属性(New Part Properties)" title="新建元件属性(New Part Properties)" width="479" height="308" />
 <br />
@@ -21,24 +23,97 @@ Part Reference Prefix : 代表一个元件的参考编号,如 : U1、U2、U3...
 PCB Footprint : PCB封装
 <br />
 <br />
-Multple-Part Package
+Create Convert View : 有些元件（特别是数字元件）除具有基本表示形式外，还可采用摩根（De Morgan）等其它形式
 <br />
-Parts per Pkg : 元件分几部分建立
-<br />
-Package Type :
-<br />
-Homogeneous 每个part的图形和引脚名称是一样的，比如2个相同与门构成的IC
-<br />
-Heterogeneous 每个part的图形都可以画成不同形式，比如一个CPU的多个分部
+例如双输入“与非门”的摩根等效形式是双输入“非或门”。在电路图中放置该元件时，既可采用基本形式，也可采用等效形式。
 <br />
 <br />
-Part Numbering :
+Multiple-Part Package
 <br />
-Alphabetic
+Parts per Pkg : 元件分几部分建立,如果新建的是一种Multiple Part Package元件(即一个元件封装中有多个单元,例如7400中有4个与非门)，
 <br />
-Numeric
+在该栏中指定一个封装中包含几个单元（这里的单元指的就是新建的这个元件符号）
 <br />
 <br />
+Package Type : 如果新建的是一种Multiple Part Package，这里指明其中的各个单元是相同的还是不同的。
+<br />
+Homogeneous 表示单元完全相同,比如2个相同与门构成的IC
+<br />
+Heterogeneous 表示单元不完全相同,比如一个CPU的多个分部
+<br />
+<br />
+Part Numbering : 如果新建的是一种Multiple Part Package,那么画电路原理图时是采用U?A、U?B、U?C...形式编号,还是采用U?1、U?2、U?3...形式编号
+<br />
+Alphabetic 字母 U?A、U?B、U?C...
+<br />
+Numeric 数字 U?1、U?2、U?3...
+<br />
+<br />
+Pin Number Visible : 选中后在画电路原理图时会显示该元件的引线编号,否则不显示
+<br />
+<br />
+Part Aliases : 对新建的元件符号，可以赋予一个或多个别名
+<br />
+点击Part Aliases按钮屏幕出现Part Aliases对话框。点击其上的New按钮，添加元件别名后再按OK就可以了
+<br />
+<br />
+Attatch Implementation : 由于有些元件功能是建立在其它元件、电路或VHDL语言等描述基础上实现的，
+<br />
+所以有时可能需要将底层的内容附加到该文件库中，点击"New Part Properties"对话框中的的Attatch
+<br />
+Implementation按钮屏幕出现Attatch Implementation对话框。在Implementation Type下拉菜单中有7种选择：
+<br />
+(a) None:不附加任何附件参数
+<br />
+(b) Schematic View:附加一个电路图
+<br />
+(c) VHDL:附加一个VHDL文件
+<br />
+(d) EDIF:附件一个EDIF格式网表文件
+<br />
+(e) Project:附加一个可编成逻辑设计项目
+<br />
+(f) PSpice Model:附加一个描述元件特性参数的模型，可供PSpice模拟程序调用（如果没有该项，则无法进行PSpice电路系统级仿真
+<br />
+(g)PSpice Stimulus:附加一个PSpice激励信号描述文件
+<br />
+<br />
+<br />
+绘制元件外形
+<br />
+1.画一般线条 Place / Line
+<br />
+2.画折线 Place / Polyline 画斜线则按住Shift键
+<br />
+3.画矩形 Place / Rectangle 画正方形则按住Shift键
+<br />
+4.画圆或椭圆 Place / Ellipse 画正圆则按住Shift键
+<br />
+5.画圆弧线 Place / Arc
+<br />
+6.画椭圆弧线 Place / Elliptical Arc
+<br />
+7.画贝塞尔曲线 Place / Bezier curve
+<br />
+<br />
+添加文本 Place / Text 文本换行 Ctrl + Enter
+<br />
+<br />
+给元件添加引脚
+<br />
+1.添加单个引脚 Place / Pin
+<br />
+Name : 引脚的名称 如IC的Vcc、GND
+<br />
+Number : 引脚编号 如IC的1、2、3、4、5、6...脚
+<br />
+Shape : 引脚形状
+<br />
+Type : 引脚类型
+<br />
+第26页
+
+
 <br />
 <br />
 <br />
