@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160223
+20160224
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -25,25 +25,52 @@ AutoCAD多段线工具<img src="imagesLayout/AutoCADLine.png" alt="AutoCAD多段
 > Drafting Toolbar / Board Outline and Cut Out / Right click /
 <br />
 <br />
-过孔(Via) mils
+元件布局(Placement)
 <br />
-V12D8 V14D8 V16D8 V18D10 V20D12 
-<br />
-PWR V28D15 V28D20 V30D15
-<br />
-<br />
-元件的布局(Placement)
+Options / Design / 移动首选项(Move Preference) / 按光标位置移动(Move by cursor locati)
+
 <br />
 移动(Move)、90 度旋转(Rotate 90)、翻面(Flip)、任意角度旋转(Spin)
+<br />
+<br />
+布线(Route) :
+<br />
+> 设计工具栏(Design Toolbar) / 添加布线(Add Route(F2))
+<br />
+开始布线模式下,只需移动光标至合适位置,再点击左鼠键或按空格键确定一段段的走线
+<br />
+在布线时改变布线角度模式,右键菜单"角度模式(Angle Mode)"
+<br />
+在布线时当需要停下时可按Ctrl+左鼠点击或使用右键菜单,点击"结束(End(Ctrl+LButton+Click))"以停下走线
+<br />
+在布线时按退格键将依次取消最后一段走线
+<br />
+在布线时使用右键菜单的"交换结束点(Swap End)"切换至网络的另一端进行布线
+<br />
+<br />
+在布线时变换线宽 cmd wn n为线宽数字
+<br />
+在布线时添加圆弧走线段,右键"添加圆弧(Add Arc)".圆弧大小,可通过移动光标调整
+<br />
+<br />
+在布线时可通过 cmd ln 自动添加过孔并切换到第n层,n为层数字
+<br />
+在布线时可通过右键菜单"层切换(Layer Toggle(F4))"切换层,注意这个不像cmd ln 可随意切换至任何层,
+<br />
+而是按层对(Layer Pair)设定作切换的
+<br />
+工具/选项/布线(Routing)/常规General)/层对(Layer Pair)
+<br />
+层对(Layer Pair) cmd pl 1 3 设定首个(First)为第一层及(Second)为第三层
 <br />
 <br />
 <br />
 >绘图工具盒(Drafting Toolbar) / 平面区域(Plane Area)
 <br />
 <br />
-Pads layout添加过孔时，无模命令v、vt
-就会弹出过孔选择，你可以选择你已经设置好的过孔，点OK后，你的光标上就附有
-你刚选择的那个过孔类型了。不过，一般同一个网络不会增加不同类型的过孔，
+在布线时添加过孔 cmd v、vt 就会弹出过孔选择，你可以选择你已经设置好的过孔，点OK后
+你的光标上就附有你刚选择的那个过孔类型了。不过，一般同一个网络不会增加不同类型的过孔，
+<br />
 例如电源线一般用大孔，信号线一般用小孔，所以我是在规则设置里把不同的网络设置为自己想要的过孔，
 这样在走线时或另加过孔时就会自动用到你需要的过孔了。
 <br />
