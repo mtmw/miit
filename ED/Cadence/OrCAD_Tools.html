@@ -7,13 +7,37 @@
 </head>
 
 <body >
-20160323
+20160324
 <h1>Tools</h1>
-Annotate...
+Annotate(自动排序)
+<br />
+<img src="imagesOrCAD/Tools/Annotate.png" alt="Annotate(自动排序)" title="Annotate(自动排序)" width="552" height="588" />
+<br />
+Scope：
+<br />
+Update entire design：更新整个设计
+<br />
+Update selection：更新选择的部分
 <br />
 <br />
+Action：
+<br />
+Incremental reference update：在现有的基础上进行增加排序
+<br />
+Unconditional reference update：无条件进行排序
+<br />
+Reset part reference to “?”：把所有的序号都变成“？”
+<br />
+Add Intersheet References：在分页图纸间的端口的序号加上图纸编号
+<br />
+Delete Intersheet References：删除分页图纸间的端口的序号上的图纸编号
 <br />
 <br />
+Combined property：把对话框中的属性相结合
+<br />
+Reset reference numbers to begin at 1 each page：编号时每张图纸都从1开始
+<br />
+Do not change the page number：不要改变图纸编号
 <br />
 <br />
 <br />
@@ -23,7 +47,28 @@ Back Annotate...
 <br />
 <br />
 <br />
-Update Properties...
+<br />
+<br />
+<br />
+<br />
+Update Properties...自动更新器件或网络的属性（自已定义封装）
+<br />
+Use case insensitive compares：不考虑器件的灵敏度
+Convert the update property to uppercase：把更新的属性转换成大写字母
+<br />
+Unconditionally update the property：无条件更新属性
+<br />
+Do not change updated properties visibility：不改变器件更新的属性的可见属性
+Make the updated property visible：使器件更新的属性可见
+<br />
+Make the updated property invisible：使器件更新的属性不可见
+Create a report file：产生报告文件
+Property Update：要更新的属性文件
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -45,9 +90,9 @@ Design Rules Options(设计规则选项)
 <br />
 Scope
 <br />
-Check entire design : DRC检查整个工程
+Check entire design : DRC检查整个设计
 <br />
-Check Selection : 仅对选择的文件进行DRC检查
+Check Selection : DRC检查选择的部分
 <br />
 <br />
 Mode :
@@ -135,6 +180,14 @@ Create Differential Pair...
 <br />
 Cross Reference...
 <br />
+产生交互参考报表 （ Tools>Cross Reference…）
+<br />
+Sort output by part value, then by reference：先报告Value后报告reference，并按value排序
+<br />
+Sort output by reference designator, then by value：先报告reference后报告Value，并按reference排序
+<br />
+Report the X and Y coordinates of all parts：报告器件的X、Y坐标
+Report unused parts in multiple part packages：报告一个封装里没有使用的器件
 <br />
 <br />
 <br />
@@ -149,16 +202,21 @@ InterSheet Reference...
 <br />
 Bill of Materials
 <br />
-Header
-Item\tQuantity\tReference\tPart
-序号 用量      位号       值 
+Line Item Definition : 定义材料清单的内容
 <br />
-
+Header
+<br />
+Item\tQuantity\tReference\tPart
+<br />
+序号 -- 用量 -- 位号 -- 值 
+<br />
+<br />
 Combined property string
+<br />
 {Item}\t{Quantity}\t{Reference}\t{Value}
 <br />
-
-
+Place each part entry on a separate line : 材料清单中每个器件信息占一行
+<br />
 Combined property string 这个框框里填写的就是下面的器件所具有的属性的名称。
 也就是说，如果你想导出Part Number这项参数，那么你就需要把{PART_NUMBER}这串字符填写到Combined property string中；
 <br />
@@ -166,23 +224,22 @@ Combined property string 这个框框里填写的就是下面的器件所具有�
 不同的字符串用\t隔开就OK了。 相信到现在，你应该知道如何随心所欲到处自己想要的参数了吧。
 <br />
 例如采用下面的导出设置：
- Header:  Item\tQuantity\tValue\tPart Number\tReference\tDescription\tDNS\tVendor\tVendor Part Number 
+<br />
+Header:  Item\tQuantity\tValue\tPart Number\tReference\tDescription\tDNS\tVendor\tVendor Part Number 
 <br />
 
  Combined property string: 
 <br />
 {Item}\t{Quantity}\t{Value}\t{PART_NUMBER}\t{Part  Reference}\t{Description}\t{DNS}\t{Vendor}\t{Vendor P/N}  
+<br />
 就可以导出数量，元件值，料号，元件编号，元件描述，是否为 DNS，厂商，厂商料号这些信息
 <br />
-
-
-
 常用的是如下方式：
 <br />
-
 {Item}\t{Quantity}\t{Reference}\t{Value}\t{pcb footprint}\t{Quantity}\t\t
 <br />
-
+<br />
+<br />
 Tools > Bill of Materials...
 Header
 Item\tQuantity\tReference\tPart\tfootprint
@@ -193,6 +250,8 @@ Combined property string
 
 <br />
 <br />
+Include File：在材料清单中是否加入其他文件
+
 <br />
 <br />
 <br />

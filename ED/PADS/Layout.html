@@ -32,6 +32,8 @@ AutoCAD多段线工具<img src="imagesLayout/AutoCADLine.png" alt="AutoCAD多段
 <br />
 Options / Design / 移动首选项(Move Preference) / 按光标位置移动(Move by cursor locati)
 <br />
+Options / Design / 推挤(Nudge) / 自动(Automatic)
+<br />
 <br />
 >View / Nets... / 将GND和电源颜色设置为黑色或蓝色
 <br />
@@ -45,6 +47,18 @@ Options / Design / 移动首选项(Move Preference) / 按光标位置移动(Move
 移动(Move(Ctrl+E))、径向移动(Redial Move)、90 度旋转(Rotate 90(Ctrl+R))、绕原点旋转 任意角度旋转(Spin(Ctrl+I))、交换元件(Swap Part)、移动参考编号(Move Reference Designator)、
 <br />
 查看簇(View Clusters)、添加拐角(Add Corner)、分割(Split)、翻面(Flip Side(Ctrl+F))
+<br />
+<br />
+顺序地(Sequentially)放置元件
+<br />
+选择多个元件 / 右键 / 按顺序移动(Move Sequential) / 勾选 按参考编号升序移动? / 全是(Yes to All) /
+<br />
+<br />
+使用查找(Find)命令放置元件
+<br />
+编辑(Edit) / 查找(Find)
+<br />
+空白处点击右键 / 查找(Find)
 <br />
 <br />
 <br />
@@ -96,6 +110,45 @@ Ctrl+Alt+S 打开状态栏
 <br />
 <br />
 n后面加网络名高亮网络,再输入n取消高亮
+<br />
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+元件组合(Unions)
+<br />
+为了建立组合,你可以建立由IC和去藕电容、电阻等组成的组合,并且作为IC元件类型(Part Types)的样品,
+<br />
+PADS Layout 将自动查找并建立相似的组合(Similar Unions)
+<br />
+例如由IC和去藕电容组成的组合，一旦这些元件作为组合存在，它们将被一起移动
+<br />
+<br />
+建立组合
+<br />
+1.使用Ctrl+Click 同时选择U1、C1、R1...
+<br />
+注意选择元件时的次序如果你不首先选择主IC，当放置元件组合时，将会选择不合适的原点，给定位时将不正确
+<br />
+2.对于同时被选择的元件，点击鼠标右键从弹出菜单(Pop-up Menu)中选择建立组合(Create Union(Ctrl+G))。
+<br />
+3.键入一个组合的名字
+<br />
+<br />
+建立相似组合(Like Unions)
+<br />
+为了查找相类似的组合(Similar Unions)，使用建立相似组合(Create Like Unions)。
+<br />
+这个命令将寻找同样元件类型(Part Types)的元件(Components)，并且以前面建立的组合为基础，自动地建立组合。
+<br />
+<br />
+1.空白处点击右键选择组合/元件(Select Unions/Components)
+2.选择前面已建立的一个组合,右键"创建相似的组合(Create Like Unions)" / Yes /
+<br />
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
 <br />
