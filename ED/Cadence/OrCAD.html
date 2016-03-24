@@ -20,8 +20,117 @@ Design / Remove Occurrence Properties / Yes
 所以新设计注意mode选项选作update Instances（preferred）就不会出现A、B属性不一致的问题了
 <br />
 <br />
+OrCAD常用文档类型
+
+*.opj—项目管理文件
+*.dsn—电路图文件
+*.olb—图形符号库文件
+*.lib—仿真模型描述库文件
+*.mnl—网络表文件
+*.max—电路板文件
+*.tch—技术档文件
+*.gbt—光绘文件
+*.llb—PCB封装库文件
+*.log  *.lis—记录说明文件
+*.tpl—板框文件
+*.sf—策略档文件
 <br />
 <br />
+系统属性包括(Options>Preferences)：
+Colors/Print：颜色设置
+Grid Display：调整显示网格模式
+Pan and Zoom：设置放大与缩小的倍数
+Select：鼠标选择模式
+Miscellaneous：其它的设置和线、填充样式
+Text Editor：set something about text editor
+
+系统设计模板参数包括(Options>Design Template)：
+Fonts：规定所有种类的字体
+Title Block：标题栏内容的设定
+Page Size：要绘制的图纸大小
+Grid Reference：边框的设定与显示
+Hierarchy：设置阶层的属性
+SDT Compatibility：与SDT文件兼容性的设置
+
+在菜单栏中选择file>new>Project：
+Analog or Mixed-signal Circuit ： 本工程以后将进行数/模混合仿真
+PC Board Wizard   ： 本工程以后将用来进行印刷版图设计
+Programmable Logic Wizard  ：本工程以后将用于可编程器件的设计(在9.2版本已经不支持)                
+Schematic ：  本工程只进行原理图设计    
+Name ：项目文件名              
+Location ：项目存盘路径
+DRC检测 (Tools>Design Rules Check)，
+Scope：
+   Check entire design：DRC检查整个原理图
+   Check Selection：DRC只检查你选择的部分
+Mode：
+   Use instances(preferred)：使用当前属性（建议）
+Action：
+   Check design rules：进行DRC检测
+   Delete existing DRC marker：删除DRC检测标志
+Report：DRC检测的内容
+   Create DRC markers for warnings：在警告的地方放置标志
+   Check hierarchical port connection：检测阶层端口的连接性
+   Check off-page connector connection：检测分页图纸间接口的连接性
+   Report identical part references：报告同样的器件序号
+   Report invalid packaging：报告无效的封装
+   Report hierarchical ports and off-page connection：报告阶层端口和分页图纸间接口的连接
+   Check unconnected net：检测未连接的网络
+   Check SDT compatibility：检测对于SDT文件的兼容性
+   Report all net name：报告所有网络名称
+自动排序功能 (或Tools>Annotate)：
+Scope：
+Update entire design：更新整个设计
+Update selection：更新选择的部分
+Action：
+  Incremental reference update：在现有的基础上进行增加排序
+  Unconditional reference update：无条件进行排序
+  Reset part reference to “?”：把所有的序号都变成“？”
+  Add Intersheet References：在分页图纸间的端口的序号加上图纸编号
+  Delete Intersheet References：删除分页图纸间的端口的序号上的图纸编号
+Combined property：把对话框中的属性相结合
+Reset reference numbers to begin at 1 each page：编号时每张图纸都从1开始
+Do not change the page number：不要改变图纸编号
+自动更新器件或网络的属性（自已定义封装）Tools>Update Properties，
+Use case insensitive compares：不考虑器件的灵敏度
+Convert the update property to uppercase：把更新的属性转换成大写字母
+Unconditionally update the property：无条件更新属性
+Do not change updated properties visibility：不改变器件更新的属性的可见属性
+Make the updated property visible：使器件更新的属性可见
+Make the updated property invisible：使器件更新的属性不可见
+Create a report file：产生报告文件
+Property Update：要更新的属性文件
+属性文件的格式如下(可以用记事本编辑，存为文本文件即可)：
+第一行：”{属性栏位名称}”  “要置换的属性”
+第二行：开始描述
+
+注：需要置换的属性可以有多个。
+"{Value}"  "PCB Footprint"
+"74LS00"   "14DIP300"
+"74LS138"  "16DIP300"
+"74LS163"  "16DIP300"
+"8259A"    "28DIP600"
+
+产生交互参考报表 （ Tools>Cross Reference…）
+Sort output by part value, then by reference：先报告Value后报告reference，并按value排序
+Sort output by reference designator, then by value：先报告reference后报告Value，并按reference排序
+Report the X and Y coordinates of all parts：报告器件的X、Y坐标
+Report unused parts in multiple part packages：报告一个封装里没有使用的器件
+
+产生材料清单 （Tools>Bill of Materials…）
+Line Item Definition：定义材料清单的内容
+Place each part entry on a separate：材料清单中每个器件信息占一行
+Include File：在材料清单中是否加入其他文件
+
+建立器件图形符号库File>new>library
+Name：器件的名称
+Part reference：器件在原理图中编号的首字母
+PCB Footprint：器件相对应的封装
+Part per：一个器件封装中包含多少个器件
+Homogeneous：封装中的器件都一样
+Heterogeneous：封装中的器件不一样
+Alphabetic：以字母区别封装中的多个器件
+Numeric：以数字区别封装中的多个器件
 <br />
 <br />
 <br />
