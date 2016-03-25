@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160224
+20160225
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -61,6 +61,39 @@ Options / Design / 推挤(Nudge) / 自动(Automatic)
 空白处点击右键 / 查找(Find)
 <br />
 <br />
+极坐标栅格的方式放置元件(Radial Placement Grid)
+<br />
+即采用半径和角度来描述具体的位置
+<br />
+例 : 采用极坐标方式(Radial)放置LED和电阻
+<br />
+Tools / Options / 栅格和捕获(Grids And Snap) / 栅格(Grids) / 径向移动设置(Radial Move Setup) 
+<br />
+极坐标栅格原点(Polar Grid Origin)
+<br />
+X : 2700
+<br />
+Y : 1100
+<br />
+内圈半径(Inner Radius) : 700
+<br />
+半径增量(Delta Radius) : 100
+<br />
+这些设置你也可以在进入极坐标方式移动的过程中，再次点击鼠标右键，选择Radial Move Setup…调出此对话框进行设置或修改参数
+<br />
+> 设计工具栏(Design Toolbar) / 径向移动(Redial Move)
+<br />
+选择一个或多个元件,有一个元件将自动附在鼠标上,点击鼠标放到相应的位置上
+<br />
+<br />
+<br />
+对齐元件
+<br />
+选中一排或一列元件,点击鼠标右键 / 对齐(Align(Ctrl+L))
+<br />
+上面一排为向左对齐、中间垂直对齐、向右对齐
+<br />
+下面一列为向上对齐、中间水平对齐、向下对齐
 <br />
 <br />
 布线(Route) :
@@ -100,6 +133,21 @@ Ctrl+Alt+S 打开状态栏
 <br />
 <br />
 >绘图工具盒(Drafting Toolbar) / 平面区域(Plane Area)
+<br />
+<br />
+在布线时设置 : 右键 / 以过孔结束模式(End Via Mode) /
+<br />
+or 以没有过孔结束(End No Via)
+<br />
+or 以过孔结束(End Via)
+<br />
+or 以测试点结束(End Test Point)
+<br />
+则当"Ctrl+左键"暂停走线时会对应执行上面的选择
+<br />
+cmd e Via Mode会在左下角的状态栏显示
+<br />
+<br />
 <br />
 <br />
 在布线时添加过孔 cmd v、vt 就会弹出过孔选择，你可以选择你已经设置好的过孔，点OK后
