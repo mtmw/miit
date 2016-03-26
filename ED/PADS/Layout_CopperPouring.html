@@ -7,20 +7,43 @@
 </head>
 
 <body >
-20160304
+20160326
 <h1>覆铜(Copper Pouring)</h1>
 <br />
-po 在显示覆铜边框(Pour outline)和已经覆铜填充(Poured Copper Hatch) 之间切换
+cmd : po # 在显示覆铜边框(Pour outline)和已经覆铜填充(Poured Copper Hatch) 之间切换
+<br />
 <br />
 <br />
 Copper 铜箔
 <br />
 -------- 绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
 <br />
--------- 用途:芯片需要大面积覆铜来散热,电源连接处需要尽可能的宽,可以用Copper来实现,不具备自动避让功能
+-------- 用途:芯片需要大面积覆铜来散热,电源连接处需要尽可能的宽,可以用Copper来实现,不具备自动避让其他网络的直线和过孔等.如果违规,可通过安全间距检查出来
 <br />
 <br />
 Copper Cut Out 铜挖空区域
+<br />
+<br />
+例 : 加大某个焊盘的面积
+<br />
+>绘图工具盒(Drafting Toolbar) / 铜箔(Copper) / <a href="Layout_RightMenu.html#DraftingRightMenu" target="_blank">Right Menu</a> / 绘图OK自动弹出如下
+<br />
+<img src="imagesLayout/Drafting/Copper_zh.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="445" height="582" />
+<img src="imagesLayout/Drafting/Copper_en.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="445" height="578" />
+<br />
+层(Layer) : 点击下拉框,设定铜箔放置在哪一层 Top or Bottom
+<br />
+网络分配(Net assignment) : 点击下拉框,选择铜箔的网络
+<br />
+<br />
+因铜箔分配了网络关系,所以会有连线出现,这是为了提醒用户还未有布线连接该铜箔.
+<br />
+如铜箔已覆盖在该网络的导线或焊盘上,在检查连接性也不会定义错误的,所以可以选择不理会,
+<br />
+但为了文件的完整性一般还是建议使用布线指令把这些连线连上.
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
