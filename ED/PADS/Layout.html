@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160225
+20160226
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -96,6 +96,8 @@ Y : 1100
 下面一列为向上对齐、中间水平对齐、向下对齐
 <br />
 <br />
+<br />
+<br />
 布线(Route) :
 <br />
 > 设计工具栏(Design Toolbar) / 添加布线(Add Route(F2))
@@ -118,6 +120,79 @@ Ctrl+Alt+S 打开状态栏
 在布线时变换线宽 cmd wn n为线宽数字
 <br />
 在布线时添加圆弧走线段,右键"添加圆弧(Add Arc)".圆弧大小,可通过移动光标调整
+<br />
+<br />
+移动线段
+<br />
+选择某一段布线 / 右键 / 移动(Move (Ctrl+E))
+<br />
+or
+<br />
+选择某一段布线 / 左键直接移动
+<br />
+<br />
+拉伸线段
+<br />
+选择某一段布线 / 右键 / 拉伸(Stretch (Shift+S))
+<br />
+or
+<br />
+选择某一段布线 / 左键直接拉伸
+<br />
+<br />
+直角线段转换为圆弧
+<br />
+点选直角 / 右键 / 转换为圆弧(Convert To Arc) / 移动光标,调整圆弧大小(此时按住或不按住左键都可以)
+<br />
+<br />
+添加回路布线(即已经布好的线再从旁边增加布线,形成一个回路)
+<br />
+选择某一段布线 / 右键 / 回路布线(Route Loop (Ctrl+J))
+<br />
+<br />
+在线段添加拐角
+<br />
+选择某一段布线 / 右键 / 添加拐角(Add Corner) / 移动光标至合适位置,左鼠点击完成添加拐角
+<br />
+<br />
+分割线段
+<br />
+选择某一段布线 / 右键 / 分割(Split) / 移动光标至合适位置,左鼠点击完成分割线段
+<br />
+<br />
+<br />
+倒角设置
+<br />
+Tools / Options / 设计(Design) / 倒角(Miters) /
+<br />
+/ 斜交(Diagonal) or 圆弧(Arc) /
+<br />
+自动倒角(Auto miters)
+<br />
+点选直角 / 右键 / 添加倒角(Add Miters) / 直角变成了倒角 or 弧形倒角
+<br />
+整根线添加倒角
+<br />
+选择某一段布线 / 右键 / 选择管脚对(Select Pin Pair (F5)) / 在高亮的布线上右键 / 添加倒角(Add Miters) / 则整根线上的直角都倒角了
+<br />
+用类似的方法可以删除倒角(Delete Miters)
+<br />
+<br />
+将线段换层
+<br />
+选择某一段布线 / 右键 / 特征(Properties(Alt+Enter)) / 层(Layer) 下拉选择相应的层 /
+<br />
+<br />
+保护个别导线
+<br />
+选择某一段布线 / 右键 / 选择管脚对(Select Pin Pair (F5)) / 在高亮的布线上右键 / 特征(Properties(Alt+Enter)) / 勾选 保护布线(Protect Routes)
+<br />
+如需要显示区分保护和没有保护的导线
+<br />
+Tools / Options / 布线(Routing) / 常规(General) / 勾选 显示保护(Show protection) /
+<br />
+这样设置为保护的导线显示便会非实心,设置为保护的线,便不能被修改或删除了
+<br />
 <br />
 <br />
 在布线时可通过 cmd ln 自动添加过孔并切换到第n层,n为层数字
@@ -145,7 +220,7 @@ or 以测试点结束(End Test Point)
 <br />
 则当"Ctrl+左键"暂停走线时会对应执行上面的选择
 <br />
-cmd e Via Mode会在左下角的状态栏显示
+结束过孔模式的cmd e 是单向循环切换
 <br />
 <br />
 <br />
@@ -199,6 +274,8 @@ PADS Layout 将自动查找并建立相似的组合(Similar Unions)
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
+<br />
+PCB板边制作邮票孔半孔 半孔板也称邮票板
 <br />
 <br />
 <br />
