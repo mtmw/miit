@@ -23,12 +23,12 @@ Part Reference Prefix : 代表一个元件的参考编号,如 : U1、U2、U3...
 PCB Footprint : PCB封装
 <br />
 <br />
-Create Convert View : 有些元件（特别是数字元件）除具有基本表示形式外，还可采用摩根（De Morgan）等其它形式
+Create Convert View : 零件外观转换 有些元件（特别是数字元件）除具有基本表示形式外，还可采用摩根（De Morgan）等其它形式
 <br />
 例如双输入“与非门”的摩根等效形式是双输入“非或门”。在电路图中放置该元件时，既可采用基本形式，也可采用等效形式。
 <br />
 <br />
-Multiple-Part Package
+Multiple-Part Package 建立复合式元件
 <br />
 Parts per Pkg : 元件分几部分建立,如果新建的是一种Multiple Part Package元件(即一个元件封装中有多个单元,例如7400中有4个与非门)，
 <br />
@@ -158,6 +158,22 @@ Power 电源和地引脚
 <br />
 <br />
 <br />
+Place Pin Array(多引脚工具)
+<br />
+<img src="imagesOrCAD/Library/PlacePinArray.png" alt="Place Pin Array(多引脚工具)" title="Place Pin Array(多引脚工具)" width="341" height="272" />
+<br />
+Starting Name : 引脚名称
+<br />
+Starting Number : 引脚号码
+<br />
+Number of Pins : 数量
+<br />
+Increment : 引脚序号间隔,输入负数时,为递减
+<br />
+Pin Spacting : 引脚方向及间距,输入负数时为自下向上
+<br />
+<br />
+<br />
 元件属性(Part Properties)
 <br />
 User Properties
@@ -168,11 +184,20 @@ True 真
 <br />
 False 假
 <br />
-Part Reference prefix   Q1、Q1、Q1。。。
 <br />
-Source Package
+Part Reference prefix
 <br />
 PCB Footprint
+<br />
+Pin Names Rotate
+<br />
+Pin Names Visible 脚名称可见
+<br />
+Pin Numbers Visible 脚序号可见
+<br />
+Value
+<br />
+Source Package
 <br />
 Value   01
 <br />
