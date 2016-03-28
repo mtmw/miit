@@ -22,15 +22,15 @@ Update selection：更新选择的部分
 <br />
 Action：
 <br />
-Incremental reference update：在现有的基础上进行增加排序
+Incremental reference update：在现有的基础上进行增加排序 只对电路图中没有确定编号的元器件（即元器件编号中带有问号“？”的元器件）自动进行编号。
 <br />
-Unconditional reference update：无条件进行排序
+Unconditional reference update：无条件进行排序 不管电路图中的元器件是否有确定的编号，若选中本选项，则对电路图中所有元器件重新进行编号。
 <br />
-Reset part reference to “?”：把所有的序号都变成“？”
+Reset part reference to “?”：把所有的序号都变成“？” 将电路图中元器件编号中的数字部分均改为问号“？”，字母不变。
 <br />
-Add Intersheet References：在分页图纸间的端口的序号加上图纸编号
+Add Intersheet References：在分页图纸间的端口的序号加上图纸编号 在电路图中的端口连接符Off-Page Connector将标出与其相连的电路图纸编号
 <br />
-Delete Intersheet References：删除分页图纸间的端口的序号上的图纸编号
+Delete Intersheet References：删除分页图纸间的端口的序号上的图纸编号 删除掉位于端口连接符旁边表示与其相连的电路图纸编号说明。
 <br />
 <br />
 Combined property：把对话框中的属性相结合
@@ -107,7 +107,7 @@ Action
 <br />
 Check design rules 进行DRC检查
 <br />
-Delete existing DRC marker 删除DRC检测标志
+Delete existing DRC marker 删除DRC检测标志 运行此项后并不进行实质的DRC检验，只是删除电路图中已有的DRC标示符（marker）
 <br />
 Create DRC markers for warnings : 进行DRC检测若发现错误，在错误之处放置警告标志
 <br />
@@ -129,20 +129,20 @@ Electrical Rules
 <br />
 Electrical Rules :
 <br />
-Check off-page connector connection : 检测分页图纸间接口的连接性
+Check off-page connector connection : 检测分页图纸间接口的连接性 检验不同页面电路之间的off-page connector（端口连接符）名称是否相匹配
 <br />
 Check hierarchical port connection : 检测阶层端口的连接性
 <br />
-Check SDT compatibility : 检测对于SDT文件的兼容性
+Check SDT compatibility : 检测对于SDT文件的兼容性 此项不用
 <br />
 
 Reports
 <br />
 Report all net name : 报告所有网络名称
 <br />
-Report off-grid objects : 报告未放置在格点上的器件
+Report off-grid objects : 报告未放置在格点上的器件 检查电路图中是否存在元器件的引出端未位于电路图纸网格点的情况
 <br />
-Report hierarchical ports and off-page connection : 报告阶层端口和分页图纸间接口的连接
+Report hierarchical ports and off-page connection : 报告阶层端口和分页图纸间接口的连接符
 <br />
 Report Misleading Tap Connection : 报告易误解的连接
 <br />
@@ -155,11 +155,13 @@ Physical Rules
 <br />
 Reports
 <br />
-Check visible unconnected power : 检测未连接的可见电源
+Report visible unconnected power : 检测未连接的可见电源
+<br />
+Report unused part packag
 <br />
 Report invalid Refdes : 报告无效的参考编号
 <br />
-Report identical part references : 报告是否有重复的器件序号
+Report identical part references : 报告是否有重复的器件序号 检验是否存在不同的元器件具有相同元器件编号的情况。
 <br />
 <br />
 ERCMatrix
@@ -182,12 +184,12 @@ Cross Reference...
 <br />
 产生交互参考报表 （ Tools>Cross Reference…）
 <br />
-Sort output by part value, then by reference：先报告Value后报告reference，并按value排序
+Sort output by part value, then by reference：先报告Value后报告reference，并按value排序 报表中元器件的排列按元器件值的字母顺序。
 <br />
-Sort output by reference designator, then by value：先报告reference后报告Value，并按reference排序
+Sort output by reference designator, then by value：先报告reference后报告Value，并按reference排序 按元器件编号的字母顺序确定报表中元器件排列方式
 <br />
 Report the X and Y coordinates of all parts：报告器件的X、Y坐标
-Report unused parts in multiple part packages：报告一个封装里没有使用的器件
+Report unused parts in multiple part packages：报告一个封装里没有使用的器件 对于包括有多个器件单元的集成电路封装输出报表中将列出单个封装内哪几个单元在电路中没有使用。
 <br />
 <br />
 <br />
