@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160226
+20160229
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -180,7 +180,7 @@ Tools / Options / 设计(Design) / 倒角(Miters) /
 <br />
 将线段换层
 <br />
-选择某一段布线 / 右键 / 特征(Properties(Alt+Enter)) / 层(Layer) 下拉选择相应的层 /
+选择某一段布线 / 右键 / 特征(Properties(Alt+Enter)) / 层(Layer) 下拉选择相应的层(线段换层后会自动添加过孔) /
 <br />
 <br />
 保护个别导线
@@ -195,7 +195,7 @@ Tools / Options / 布线(Routing) / 常规(General) / 勾选 显示保护(Show p
 <br />
 <br />
 <br />
-在布线时可通过 cmd ln 自动添加过孔并切换到第n层,n为层数字
+在布线时可通过 cmd : ln 自动添加过孔并切换到第n层,n为层数字
 <br />
 在布线时可通过右键菜单"层切换(Layer Toggle(F4))"切换层,注意这个不像cmd ln 可随意切换至任何层,
 <br />
@@ -203,7 +203,7 @@ Tools / Options / 布线(Routing) / 常规(General) / 勾选 显示保护(Show p
 <br />
 工具/选项/布线(Routing)/常规General)/层对(Layer Pair)
 <br />
-层对(Layer Pair) cmd pl 1 3 设定首个(First)为第一层及(Second)为第三层
+层对(Layer Pair) cmd : pl 1 3 设定首个(First)为第一层及(Second)为第三层
 <br />
 <br />
 <br />
@@ -225,7 +225,7 @@ or 以测试点结束(End Test Point)
 <br />
 <br />
 <br />
-在布线时添加过孔 cmd v、vt 就会弹出过孔选择，你可以选择你已经设置好的过孔，点OK后
+在布线时添加过孔 cmd : v、vt 就会弹出过孔选择，你可以选择你已经设置好的过孔，点OK后
 你的光标上就附有你刚选择的那个过孔类型了。不过，一般同一个网络不会增加不同类型的过孔，
 <br />
 例如电源线一般用大孔，信号线一般用小孔，所以我是在规则设置里把不同的网络设置为自己想要的过孔，

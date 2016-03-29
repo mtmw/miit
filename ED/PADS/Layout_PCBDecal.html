@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160326p
+20160329
 <h1>> Tools / PCB Decal Editor</h1>
 <br />
 <a name="PCBDecal">
@@ -21,6 +21,11 @@
 Name 字符标号(Text Label)放在这里,(尺寸30mil 0.762mm 线宽1mil 0.0254mm)代表一个元件(Part)的参考编号(Reference Designation)，如 : U1、U2、U3...
 <br />
 Type 代表元件类型(Part Type)
+<br />
+<br />
+Name Type Value 都放在Top层
+<br />
+元件外框、丝印放到Top层,不要放在所有层和丝印层
 <br />
 <br />
 > 绘图工具盒(Drafting Toolbar) / 添加端点(Add Terminal)
@@ -304,6 +309,36 @@ Decal Wizard 封装向导
 <td><img src="imagesLayout/Tools/Decal/Quad_zh.png" alt="四边(Quad)" title="四边(Quad)" width="758" height="638" /></td>
 <td><img src="imagesLayout/Tools/Decal/Quad_en.png" alt="四边(Quad)" title="四边(Quad)" width="758" height="638" /></td>
 </tr></table>
+<br />
+自动按IPC-7351标准计算所需要的焊盘大小,纵横行距及封闭名称
+<br />
+管脚Pins
+<br />
+<br />
+宽度Width
+<br />
+长度Length
+<br />
+<br />
+行距
+<br />
+测量值类型 : 中心到中心(Center to Center) or 内边到边缘 or 外边到边缘
+<br />
+水平Horizontal :
+<br />
+垂直Vertical :
+<br />
+<br />
+<br />
+设定阻焊及助焊的大小
+<br />
+膜面放大(缩小)尺寸(Mask over(under)size)
+<br />
+阻焊层(Solder) : 0.1
+<br />
+粘贴(Paste) : -0.1
+<br />
+<br />
 <br />
 <br />
 极座标(Polar)
