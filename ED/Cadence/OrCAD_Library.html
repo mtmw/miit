@@ -234,6 +234,10 @@ Value if Value Exists
 <br />
 New Part From Spreadsheet(利用空白表格建立新零件)
 <br />
+选择项目名称 ***.olb / 右键 or Design / New Part From Spreadsheet(利用空白表格建立新零件) 
+<br />
+<img src="imagesOrCAD/Library/NewPartFromSpreadsheet.png" alt="New Part Creation Spreadsheet" title="New Part Creation Spreadsheet" width="772" height="621" />
+<br />
 Part Name : 零件名称
 <br />
 No. of Section : 将零件分为的 Package 数目(Type : Heterogeneous)
@@ -246,9 +250,76 @@ Numeric 零件 Package 序号以数字 U?1、U?2、U?3...
 <br />
 Alphabetic 零件 Package 序号以数字显示 U?A、U?B、U?C...
 <br />
+<br />
 表格栏位 :
 <br />
-Number
+Number : Pin number
+<br />
+Name : Pin name
+<br />
+Type : Pin type
+<br />
+Pin Visibility : 零件Pin是否显示
+<br />
+Shape : Pin 形状
+<br />
+PinGroup : For Allegro pin swap
+<br />
+Position : 分配Pin 所在位置为上下左右
+<br />
+Section : 选择Pin被分配至哪个Package
+<br />
+<br />
+<br />
+<br />
+Library Correction Utility零件库修正
+<br />
+修正零件库中之零件Pin number与Pin name错误问题
+<br />
+选中元件名称 / Accessories / Library Correction Utility / Library Verification Correction
+<br />
+<img src="imagesOrCAD/Library/LibraryCorrectionUtility.png" alt="LibraryCorrectionUtility" title="LibraryCorrectionUtility" width="546" height="434" />
+<br />
+Missing Pin number : 将遗漏 Pin number 的 Pin 脚于 Pin number 位置中补上 Pin Name
+<br />
+Duplicate Pin Names : 将重复的 Pin Names 于 Pin Names位置中加上 #Pin number
+<br />
+<br />
+Options :
+<br />
+Verify : 于Log file 中呈现需修正之处,并不会真正去修正零件
+<br />
+Correct : 修正零件
+<br />
+Verify / Correct library components with欲修正零件的...
+<br />
+Missing Pin number : 遗漏 Pin number
+<br />
+Duplicate Pin Names : 重复 Pin Name
+<br />
+<br />
+Change the Pin name and number to uppercase : 将 Pin Names 和 Pin number修改成大写英文
+<br />
+Make All Power Pins Visibe
+<br />
+Change zero length pin to :将没显示出的zero length Power pin 换成别种type的Power pin
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -260,12 +331,16 @@ Number
 <br />
 <br />
 1' AMPLIFIER.OLB共182个零件，存放模拟放大器IC，如CA3280，TL027C，EL4093等。
+<br />
 2' ARITHMETIC.OLB共182个零件，存放逻辑运算IC，如TC4032B，74LS85等。
+<br />
 3' ATOD.OLB共618个零件，存放A/D转换IC，如ADC0804，TC7109等。
+<br />
 4' BUS DRIVERTRANSCEIVER.OLB共632个零件，存放汇流排驱动IC，如74LS244，74LS373等数字IC。
 <br />
 5' CAPSYM.OLB共35个零件，存放电源，地，输入输出口，标题栏等。
 6' CONNECTOR.OLB共816个零件，存放连接器，如4 HEADER，CON AT62，RCA JACK等。
+<br />
 7' COUNTER.OLB共182个零件，存放计数器IC，如74LS90，CD4040B。
 8' DISCRETE.OLB共872个零件，存放分立式元件，如电阻，电容，电感，开关，变压器等常用零件。
 <br />
@@ -277,11 +352,13 @@ Number
 <br />
 14' GATE.OLB共691个零件，存放逻辑门（含CMOS和TLL）。
 15' LATCH.OLB共305个零件，存放锁存器，如4013，74LS73，74LS76等。
+<br />
 16' LINE DRIVER RECEIVER.OLB共380个零件，存放线控驱动与接收器。如SN75125，DS275等。
 17' MECHANICAL.OLB共110个零件，存放机构图件，如M HOLE 2，PGASOC-15-F等。
 <br />
 18' MICROCONTROLLER.OLB共523个零件，存放单晶片微处理器，如68HC11，AT89C51等。
 19' MICRO PROCESSOR.OLB共288个零件，存放微处理器，如80386，Z80180等。
+<br />
 20' MISC.OLB共1567个零件，存放杂项图件，如电表（METER MA），微处理器周边（Z80-DMA）等未分类的零件。
 21' MISC2.OLB共772个零件，存放杂项图件，如TP3071，ZSD100等未分类零件。
 22' MISCLINEAR.OLB共365个零件，存放线性杂项图件（未分类），如14573，4127，VFC32等。
@@ -289,6 +366,7 @@ Number
 23' MISCMEMORY.OLB共278个零件，存放记忆体杂项图件（未分类），如28F020，X76F041等。
 24' MISCPOWER.OLB共222个零件，存放高功率杂项图件（未分类），如REF-01，PWR505，TPS67341等。
 25' MUXDECODER.OLB共449个零件，存放解码器，如4511，4555，74AC157等。
+<br />
 26' OPAMP.OLB共610个零件，存放运放，如101，1458，UA741等。
 27' PASSIVEFILTER.OLB共14个零件，存放被动式滤波器，如DIGNSFILTER，RS1517T，LINE FILTER等。
 28' PLD.OLB共355个零件，存放可编程逻辑器件，如22V10，10H8等。
