@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160328
+20160330
 <h1>OrCAD</h1>
 <br />
 Allegro Design Entry CIS
@@ -29,9 +29,99 @@ Design / Remove Occurrence Properties / Yes 保留A属性
 (如果我需要B属性而非A属性怎么办呢？同样选中dsn，然后执行菜单Accessories>Transfor Occ. prop. to Instance>Push Occ. Prop toInstance. ).使A.B属性一致
 <br />
 <br />
-出现上述A、B属性不一致的原因是由于菜单Tools / Annotate / MODE 选项选成Update Occurrences导致
+ORCAD元件属性白色区域和黄色区域的理解
 <br />
-所以新设计注意mode选项选作update Instances（preferred）就不会出现A、B属性不一致的问题了
+白色部分为instance属性，黄色部分为occurence 属性
+<br />
+在平坦式电路中，黄色部分是默认不显示的。
+<br />
+在层次式电路中，黄色部分会显示。
+<br />
+如果这两个区域的Reference不同，以黄色区域为准。只要不进行BACK ANNOTATE操作就没有问题。
+<br />
+如果想让黄色区域的Refernece和白色区域的Refernece一样，执行如下操作Design/Remove Occurrences Properties指令去掉Occurrence属性。
+<br />
+如果想让白色区域的Refernece和黄色区域的Refernece一样，执行如下操作Accessories - tran occ prop to instance - push occ prop to instance即可
+<br />
+<br />
+<br />
+出现上述A、B属性不一致的原因是由于菜单Tools / Annotate / MODE 选项选成Update Occurrences 导致
+<br />
+所以新设计注意mode选项选作update Instances （preferred）就不会出现A、B属性不一致的问题了
+<br />
+<br />
+<br />
+OrCAD Capture CIS 16.6
+<br />
+Mode
+<br />
+Update Occurrences (Preferred)
+<br />
+Update Instances
+<br />
+<br />
+Use Occurrences (Preferred)
+<br />
+Use Instances
+<br />
+<br />
+OrCAD Capture CIS 16.3
+<br />
+Mode
+<br />
+Update Occurrences
+<br />
+Update Instances (Preferred)
+<br />
+<br />
+Use Occurrences
+<br />
+Use Instances (Preferred)
+<br />
+<br />
+Instance
+<br />
+n.  实例、实体、情况、建议
+<br />
+Occurrence
+<br />
+n.  发生、出现、事件、发现
+<br />
+所谓Instance(实体)是指放在绘图页内的元件符号
+<br />
+而Occurrence(事件)指的是在绘图页内同一实体出现多次的实体电路。
+<br />
+例如，在复杂层次电路图中，某个子方块电路重复使用了3次，就形成了3次事件；不过子方块电路内本身的元件却是实体）
+<br />
+<br />
+当你在原理图库中调用了一个元件，比如这个元件是一个电容CAP，
+<br />
+当你在Schematic Page1中第一次放置这个元件的时候会产生一个 instance 和 occurrence
+<br />
+当你再次放置一个CAP时，这时候会再产生一个 occurrence
+<br />
+从这里可以看出 : instance 表示了元件的公有属性，表明了这一类元件；而occurrence表示一个事件
+<br />
+表示的是这一个元件，一个元件对应着一个occurrence，一个occurrence表示了一个元件的私有属性。
+<br />
+<br />
+举个例子，选中Page1中的一个CAP右击Edit Part就可以修改occurrence得到一个instance，
+<br />
+这是一个新的instance，此时我们选择update current，在Design Cache中就多了一个名字叫CAP 的instance，
+<br />
+来源地址为本设计的数据库，这样在你的设计中就有两个CAP的instance，因为这两个元件的属性不同，
+<br />
+当你再次放置一个CAP的时候，就可以选择这两者中的任意一个。
+<br />
+说说我在批量更新元件封装Footprint遇到的问题并且如何解决的，
+因为网上的教程和书籍大部分都是基于16.3的，所以这样错误也在所难免。
+<br />
+  （PS:昨天好像是软件出问题了，这会儿重新新建工程并且导入好像没有发生什么问题。）
+<br />
+切换到项目管理窗口，选择整个设计的入口-》Edit-》Browse-》Parts 这个地方的默认选项是 Use Occurrences (Preferred) ，
+但是在16.3版本却是 Use Instances (Preferred)
+我个人的想法，既然是修改每个元件的属性，就应该修改 Use Occurrences (Preferred)
+
 <br />
 <br />
 <br />
@@ -41,11 +131,13 @@ Design / Remove Occurrence Properties / Yes 保留A属性
 <br />
 <br />
 OrCAD常用文档类型
+<br />
 
 *.opj—项目管理文件
 *.dsn—电路图文件
 *.olb—图形符号库文件
 *.lib—仿真模型描述库文件
+<br />
 *.mnl—网络表文件
 *.max—电路板文件
 *.tch—技术档文件
@@ -64,6 +156,7 @@ Select：鼠标选择模式
 Miscellaneous：其它的设置和线、填充样式
 Text Editor：set something about text editor
 
+<br />
 系统设计模板参数包括(Options>Design Template)：
 Fonts：规定所有种类的字体
 Title Block：标题栏内容的设定
@@ -71,6 +164,7 @@ Page Size：要绘制的图纸大小
 Grid Reference：边框的设定与显示
 Hierarchy：设置阶层的属性
 SDT Compatibility：与SDT文件兼容性的设置
+<br />
 
 在菜单栏中选择file>new>Project：
 Analog or Mixed-signal Circuit ： 本工程以后将进行数/模混合仿真
@@ -81,11 +175,13 @@ Name ：项目文件名
 Location ：项目存盘路径
 
 
+<br />
 
 
 属性文件的格式如下(可以用记事本编辑，存为文本文件即可)：
 第一行：”{属性栏位名称}”  “要置换的属性”
 第二行：开始描述
+<br />
 
 注：需要置换的属性可以有多个。
 "{Value}"  "PCB Footprint"

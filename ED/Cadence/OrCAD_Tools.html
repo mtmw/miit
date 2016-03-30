@@ -96,11 +96,11 @@ Check Selection : DRC检查选择的部分
 <br />
 <br />
 Mode :
-Use occurrences 选择所有事件
-Use instances(preferred)使用当前实体（建议）
 <br />
-（所谓实体是指放在绘图页内的元件符号，而事件指的是在绘图页内同一实体出现多次的实体电路。
-例如，在复杂层次电路图中，某个子方块电路重复使用了3次，就形成了3次事件；不过子方块电路内本身的元件却是实体）
+Use occurrences(preferred)(建议) 选择所有事件
+<br />
+Use instances使用当前实体
+<br />
 <br />
 <br />
 Action
@@ -116,14 +116,14 @@ Preserve waived DRC 保留已经豁免的DRC
 <br />
 Design Rules
 <br />
-Run Electrical Rules 电气规则检查
+Run Electrical Rules 运行电气规则检查
 <br />
-Run Physical Rules 物理规则检查
-<br />
-<br />
+Run Physical Rules 运行物理规则检查
 <br />
 <br />
-Electrical Rules
+<br />
+<br />
+Electrical Rules(电气规则检查)
 <br />
 <img src="imagesOrCAD/Tools/ElectricalRules.png" alt="Electrical Rules(电气规则)" title="Electrical Rules(电气规则)" width="527" height="453" />
 <br />
@@ -139,13 +139,11 @@ Check duplicate net names : 检查重复的网络名
 <br />
 Check off-page connector connection : 检查跨页连接的正确性 检测分页图纸间接口的连接性 检验不同页面电路之间的off-page connector（端口连接符）名称是否相匹配
 <br />
-Check hierarchical port connections : 检查层次图的连接性
+Check hierarchical port connections : 检查层次图的连接性 检测阶层端口的连接性
 <br />
 Check unconnected bus nets : 检查没有连接的总线网络
 <br />
 Check unconnected pins : 检查没有连接的Pin
-<br />
-Check hierarchical port connection : 检测阶层端口的连接性
 <br />
 Check SDT compatibility : 检测对于SDT文件的兼容性 此项不用
 <br />
@@ -163,21 +161,24 @@ Report Misleading Tap Connection : 报告易误解的连接
 <br />
 <br />
 <br />
-Physical Rules
+Physical Rules(物理规则检查)
 <br />
 <br />
 <img src="imagesOrCAD/Tools/PhysicalRules.png" alt="Physical Rules(物理规则)" title="Physical Rules(物理规则)" width="527" height="453" />
 <br />
-
+Physical Rules
+<br />
 Check power pin visibility : 检查电源 Pin 的可视性
-
+<br />
 Check missing/illegal PCB Footprint property : 检查缺失或者不符合规则的PCB封装库定义
-
+<br />
 Check Normal Convert view sync : 检查不同视图下的Pin numbers的一致性
+<br />
 Check incorrect Pin Group assignment : 检查Pin Group属性的正确性
+<br />
 Check missing pin numbers : 检查是否有Pin numbers
+<br />
 Check power ground short : 检查电源地短路
-
 <br />
 <br />
 Reports
@@ -194,11 +195,10 @@ Report identical part references : 报告是否有重复的器件序号 检验�
 ERCMatrix
 <br />
 <img src="imagesOrCAD/Tools/ERCMatrix.png" alt="ERC Matrix" title="ERC Matrix" width="527" height="453" />
-
 <br />
 ERC Matrix(电子规则检查矩阵)用于检查引脚的Function定义是否正确
+<br />
 错误提示分为Error和Warning,对于高速仿真是必需的检查设置
-
 <br />
 <br />
 <br />
