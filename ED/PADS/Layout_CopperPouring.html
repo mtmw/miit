@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160327
+20160331
 <h1>覆铜(Copper Pouring)</h1>
 <br />
 cmd : po # 在显示覆铜边框(Pour outline)和已经覆铜填充(Poured Copper Hatch) 之间切换
@@ -23,8 +23,8 @@ Copper 铜箔
 <br />
 Copper Cut Out 铜挖空区域
 <br />
--------- Copper Cut Out是需要与Copper合并才会正式执行的,两种图形都画好重叠后 / 右键 选择形状 /
-/右键 合并(Combine) or 取消组合 /
+-------- Copper Cut Out是需要与Copper合并才会正式执行的,两种图形都画好重叠后 / 右键 选择形状 / 框选 铜箔(Copper)及铜挖空区域(Copper Cut Out) /
+/右键 合并(Combine) or 取消组合(Uncombine) /
 <br />
 <br />
 例 : 加大某个焊盘的面积
@@ -38,6 +38,8 @@ Copper Cut Out 铜挖空区域
 <br />
 网络分配(Net assignment) : 点击下拉框,选择铜箔的网络
 <br />
+选择铜箔 / 右键 / 分配铜箔网络(Assign Net By Click)
+<br />
 <br />
 因铜箔分配了网络关系,所以会有连线出现,这是为了提醒用户还未有布线连接该铜箔.
 <br />
@@ -46,7 +48,16 @@ Copper Cut Out 铜挖空区域
 但为了文件的完整性一般还是建议使用布线指令把这些连线连上.
 <br />
 <br />
+铜箔桥(Copper Bridge)
 <br />
+因PADS的系统设定了,不同网络名称连接在一起在检查时便会视为违规,
+<br />
+但有些情况是需要两个不同网络名称连接在一起的,如模拟地(Analog GND)及数字地(Digital GND),
+<br />
+PADS9.1版本以后可以使用 Copper NetBridge 来解决这个情况
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
 <br />
@@ -61,6 +72,14 @@ Copper Pour 覆铜
 Copper Pour Cut Out 覆铜挖空区域
 <br />
 <br />
+覆铜填充栅格
+<br />
+> Tools / Options / 栅格和捕获/栅格(Grids And Snap/Grids) / 铺铜栅格 Hatch Grid
+<br />
+覆铜填充栅格意思是填充线与填充线之间的间距
+<br />
+热焊盘(Thermals)设置便是覆铜(Copper Pour)与焊盘连接的设置
+
 <br />
 <br />
 Flood 灌注
