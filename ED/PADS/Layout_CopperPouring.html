@@ -7,13 +7,14 @@
 </head>
 
 <body >
-20160331
+20160404
 <h1>覆铜(Copper Pouring)</h1>
 <br />
 cmd : po # 在显示覆铜边框(Pour outline)和已经覆铜填充(Poured Copper Hatch) 之间切换
 <br />
 <br />
 <br />
+<img src="imagesLayout/Drafting/Copper.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="22" height="22" />
 Copper 铜箔
 <br />
 -------- 绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
@@ -21,6 +22,7 @@ Copper 铜箔
 -------- 用途:芯片需要大面积覆铜来散热,电源连接处需要尽可能的宽,可以用Copper来实现,不具备自动避让其他网络的直线和过孔等.如果违规,可通过安全间距检查出来
 <br />
 <br />
+<img src="imagesLayout/Drafting/CopperCutOut.png" alt="铜挖空区域(Copper Cut Out)" title="铜挖空区域(Copper Cut Out)" width="22" height="22" />
 Copper Cut Out 铜挖空区域
 <br />
 -------- Copper Cut Out是需要与Copper合并才会正式执行的,两种图形都画好重叠后 / 右键 选择形状 / 框选 铜箔(Copper)及铜挖空区域(Copper Cut Out) /
@@ -62,30 +64,98 @@ PADS9.1版本以后可以使用 Copper NetBridge 来解决这个情况
 <br />
 <br />
 <br />
+<img src="imagesLayout/Drafting/CopperPour.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="22" height="22" />
 Copper Pour 覆铜
 <br />
--------- 仅仅连接有相同网络的过孔,可以通过这个来连接.用于no plane的,具备自动避让功能的。
+-------- 仅仅连接有相同网络的过孔,可以通过这个来连接.用于no plane(无平面层 or 非平面层)的,具备自动避让功能的。
 <br />
 不会自动移除独立焊盘,不可以在大块铜皮上进行其他网络的分割,也就是说不能出现大块铜皮包围小块铜皮的现象.可以走线。
 <br />
 <br />
+<img src="imagesLayout/Drafting/CopperPourCutOut.png" alt="覆铜挖空区域(Copper Pour Cut Out)" title="覆铜挖空区域(Copper Pour Cut Out)" width="22" height="22" />
 Copper Pour Cut Out 覆铜挖空区域
+<br />
+<br />
+注意 : 所有更改覆铜的设置必须要在显示覆铜外框模式下进行
+<br />
+<br />
+<img src="imagesLayout/Drafting/CopperPour_zh.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="445" height="582" />
+<img src="imagesLayout/Drafting/CopperPour_en.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="445" height="578" />
+<br />
+<br />
 <br />
 <br />
 覆铜填充栅格
 <br />
-> Tools / Options / 栅格和捕获/栅格(Grids And Snap/Grids) / 铺铜栅格 Hatch Grid
+> Tools / Options / 栅格和捕获/栅格(Grids And Snap/Grids) / 铺铜栅格(Hatch Grid)
 <br />
-覆铜填充栅格意思是填充线与填充线之间的间距
+覆铜填充栅格 : 填充线与填充线之间的间距
 <br />
-热焊盘(Thermals)设置便是覆铜(Copper Pour)与焊盘连接的设置
+<br />
+> Tools / Options / 热焊盘(Thermals)设置是覆铜(Copper Pour)与焊盘连接的设置
 
 <br />
 <br />
+<img src="imagesLayout/Drafting/Flood.png" alt="灌注(Flood)" title="灌注(Flood)" width="22" height="22" />
 Flood 灌注
 <br />
 <br />
+<img src="imagesLayout/Drafting/Hatch.png" alt="填充(Hatch)" title="填充(Hatch)" width="22" height="22" />
+Hatch 填充
 <br />
+<br />
+灌注与填充选项(Flood and Hatch Options)
+<br />
+<img src="imagesLayout/Drafting/FloodHatchOptions_zh.png" alt="灌注与填充选项(Flood and Hatch Options)" title="灌注与填充选项(Flood and Hatch Options)" width="277" height="293" />
+<img src="imagesLayout/Drafting/FloodHatchOptions_en.png" alt="灌注与填充选项(Flood and Hatch Options)" title="灌注与填充选项(Flood and Hatch Options)" width="277" height="293" />
+<br />
+默认 : 即 > Tools / Options / 栅格和捕获/栅格(Grids And Snap/Grids) / 铺铜栅格(Hatch Grid)
+<br />
+当填充栅格(Hatch Grid)大于绘画覆铜外框的线宽,覆铜结果便会出现网络
+<br />
+<br />
+灌注优先级(Flood priority) : 当同一层的两个或多个不同网络的覆铜形成嵌入式关系,或者有重叠部份时,
+<br />
+重叠部份可以利用覆铜的优先属性对不同覆铜网络设定优先次序来解决这个问题
+<br />
+设置灌注优先级,值越小优先级越高,可以设置从0--255共256级优先级
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+复制板框而作出板框形状的覆铜
+<br />
+选择板框后点击右键,选择原点(Set Orinig),重置板框的原点以便复制后对齐
+<br />
+Ctrt+C Ctrt+V
+<br />
+<br />
+<br />
+<br />
+灌注(Flood)与填充(Hatch)区别
+<br />
+例 : 把碎铜删除后,分别覆铜管理器(Pour Manager)执行灌注和填充
+<br />
+<br />
+执行全部填充(Hatch All),碎铜不会恢复
+<br />
+填充(Hatch)只是把覆铜的数据重新填充并不会作任何修改,
+<br />
+简单点说填充(Hatch)只是当前的覆铜数据重新填色、填充
+<br />
+<br />
+执行全部灌注(Flood All)，碎铜恢复了
+<br />
+灌注(Flood)是不理是否有已存在的覆铜，只按覆铜的设定及DRC规则重新灌铜的，
+<br />
+所以按设定及这里便会覆盖铜了，因这里当前是没有设置任何避让覆铜的设定。
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 Plane Area 平面区域
 <br />
@@ -97,9 +167,7 @@ Plane Area 平面区域
 Plane Area Cut Out 平面挖空区域
 <br />
 <br />
-<br />
-<br />
-Hatch 填充
+<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 <br />
 <br />

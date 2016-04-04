@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160331
+20160401
 <h1>> Tools / PCB Decal Editor</h1>
 <br />
 <a name="PCBDecal">
@@ -60,12 +60,41 @@ Name Type Value 都放在Top层
 手工调整焊盘(Pad)尺寸和钻孔尺寸(Drill size)
 <br />
 <br />
-圆形CNN :
+Pin : Plated : Pin后面加(P)表示电镀(Plated)
+<br />
+<br />
+形状(Shape): 尺寸(Size): 所属层(Layer list box)
+<br />
+安装面、贴装面(Mounted Side)
+<br />
+中间层、内层(Inner Layers)
+<br />
+相对面、对面(Opposite Side)
+<br />
+<br />
+形状(Shape)下面的三位字母 :
+<br />
+第一位字母表示"焊盘(Pad)"形状 C(圆形) S(方形) A(环形) O(椭圆形) R(矩形) D(异形)
+<br />
+第二位字母表示"热焊盘(Thermal)"形状 C(圆形) S(方形) N(无设置)
+<br />
+第三位字母表示"隔离焊盘(Antipad)"形状 C(圆形) S(方形) N(无设置)
+<br />
+<br />
+焊盘样式(Pad style)分为 : "焊盘(Pad)" "热焊盘(Thermal)" "隔离焊盘(Antipad)"
+<br />
+"贴装面" 和 "对面" 可以设置 "焊盘(Pad)" "热焊盘(Thermal)"
+<br />
+"内层" 可以设置 "焊盘(Pad)" 和 "隔离焊盘(Antipad)"
+<br />
+<br />
+<br />
+圆形 :
 <br />
 直径(Diameter)
 <br />
 <br />
-正方形SNN :
+方形 :
 <br />
 尺寸(Size)
 <br />
@@ -78,14 +107,14 @@ or 倒斜角 半径Radius :
 or 圆角 半径Radius :
 <br />
 <br />
-ANN :
+环形 :
 <br />
 直径(Diameter) :
 <br />
 内部直径(Inner Diam) :
 <br />
 <br />
-椭圆形ONN :
+椭圆形 :
 <br />
 宽度(Width) :
 <br />
@@ -96,7 +125,7 @@ ANN :
 偏移(Offset)
 <br />
 <br />
-长方形RNN :
+矩形 :
 <br />
 宽度(Width) :
 <br />
@@ -115,34 +144,18 @@ or 倒斜角 半径Radius :
 or 圆角 半径Radius :
 <br />
 <br />
-DNN :
+异形 :
 <br />
 直径(Diameter)
 <br />
 <br />
+相对于钻孔尺寸的焊盘尺寸(Pad size relative to size) : 勾选此项则表示 直径值会变为相对于钻孔尺寸的焊盘尺寸,而不是现实焊盘的真正直径
 <br />
-(外形)Shape: 尺寸(Size): 所属层(Layer list box)
-<br />
-安装面、贴装面<Mounted Side>
-<br />
-中间层、内层<Inner Layers>
-<br />
-相对面、对面<Opposite Side>
-<br />
-Shape :
-<br />
-第一位 焊盘 第二位 热焊盘 第三位 反焊盘
-<br />
-圆形 C
-<br />
-方形 S
-<br />
-无 N 
 <br />
 <br />
 钻孔尺寸(Drill size)
 <br />
-电镀(lated) : 它代表此焊盘孔的金属化选项，如果没有选中，则表面孔内壁不进行金属化处理，
+电镀(Plated) : 它代表此焊盘孔的金属化选项，如果没有选中，则表面孔内壁不进行金属化处理，
 <br />
 这样各层之间的网络将无法连接在一起，在连通性检查时将会报告错误。
 <br />
