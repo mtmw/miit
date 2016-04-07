@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160405
+20160407
 <h1>覆铜(Copper Pouring)</h1>
 <br />
 cmd : po # 在显示覆铜边框(Pour outline)和已经覆铜填充(Poured Copper Hatch) 之间切换
@@ -129,9 +129,18 @@ Hatch 填充
 <br />
 复制板框而作出板框形状的覆铜
 <br />
-选择板框后点击右键,选择原点(Set Orinig),重置板框的原点以便复制后对齐
+1. 选择板框 / 右键 / 选择形状 / 右键 / 选择 设置原点(Set Orinig)(重新设置这个形状的原点，以便复制后对齐) /
 <br />
-Ctrt+C Ctrt+V
+/ cmd : s 0 0 (设定 0 , 0 为新的板框原点) / Ctrt+C / Ctrt+V (因板框(Board Outline)在Layout中是唯一的,不能同时有两个板框,粘贴板框转换成2D线了) /
+<br />
+<br />
+2. 选择板框2D线 / 绘图特性 / 类型(Type) : 覆铜(Copper Pout) / 层(Layer) : Top / Net assignment : / OK
+<br />
+<br />
+3. 选择板框2D线 / 移动 / cmd : s 0 0 (把这个覆铜(Copper Pout)放到原点)
+<br />
+<br />
+4. Ctrt+V / 选择层(Layer) : Bottom /
 <br />
 <br />
 <br />
