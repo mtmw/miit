@@ -27,11 +27,15 @@ Gerber
 <br />
    
    * 当需要堵住过孔时(即平时说的过孔盖油)，可以该Gerber文件设置中去掉via，预览时见不到过孔，即满足要求。
+<br />
    d. 钻孔层：（drilldraw）
+<br />
    e. 铜网层：主要用于组装工厂在放置SMD零件于电路板前，需透过此冶具在SMD
                        零件的PAD上涂一层锡膏，这个一般由(Paste mask Layer Top/Bottom)来
                        实现
+<br />
    f. 装配图：(Assembly)
+<br />
  ***另外，有些贴装厂可能会要求提供坐标文件，这种文件实现上其实就是通过
         file/export实现，在export配置窗的section中，只选择part,即不导出网络，通常还
        会要求你导成低版本兼容格式，一般在format单选框中选PowerPCB V4.0基本就
