@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160407
+20160410
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -21,11 +21,6 @@ AutoCAD多段线工具<img src="imagesLayout/AutoCADLine.png" alt="AutoCAD多段
 <br />
 在AutoCAD中选中图形 / 右键 / 特性 / 闭合(closed) : 是
 <br />
-<br />
-<br />
-散开(Disperse)元器件(Component)
-<br />
-> Tools / Disperse Components
 <br />
 <br />
 建立禁止区（Keepout）
@@ -43,297 +38,32 @@ Options / Design / 推挤(Nudge) / 自动(Automatic)
 <img src="imagesLayout/View/Nets_zh.png" alt="查看网络(Nets)" title="查看网络(Nets)" width="642" height="387" />
 <br />
 <br />
-元件布局(Placement)
 <br />
-> 设计工具栏(Design Toolbar) /
 <br />
-移动(Move(Ctrl+E))、径向移动(Redial Move)、90 度旋转(Rotate 90(Ctrl+R))、绕原点旋转 任意角度旋转(Spin(Ctrl+I))、交换元件(Swap Part)、移动参考编号(Move Reference Designator)、
 <br />
-查看簇(View Clusters)、添加拐角(Add Corner)、分割(Split)、翻面(Flip Side(Ctrl+F))
 <br />
 <br />
-顺序地(Sequentially)放置元件
+设置对象的原点
 <br />
-选择多个元件 / 右键 / 按顺序移动(Move Sequential) / 勾选 按参考编号升序移动? / 全是(Yes to All) /
+1. 空白处右键弹出菜单(Pop-up Menu) / 选择形状(Select Shapes)
 <br />
+2. 选中操作对象(对象可以是板框(Board Outline)、2D Line、PCB封装、覆铜形状、禁止区形状、尺寸形状)
 <br />
-使用查找(Find)命令放置元件
+3. 右键弹出菜单(Pop-up Menu) / 设置原点(Set Orinig)
 <br />
-编辑(Edit) / 查找(Find)
 <br />
-空白处点击右键 / 查找(Find)
 <br />
 <br />
-极坐标栅格的方式放置元件(Radial Placement Grid)
 <br />
-即采用半径和角度来描述具体的位置
 <br />
-例 : 采用极坐标方式(Radial)放置LED和电阻
 <br />
-Tools / Options / 栅格和捕获(Grids And Snap) / 栅格(Grids) / 径向移动设置(Radial Move Setup) 
 <br />
-极坐标栅格原点(Polar Grid Origin)
 <br />
-X : 2700
 <br />
-Y : 1100
 <br />
-内圈半径(Inner Radius) : 700
 <br />
-半径增量(Delta Radius) : 100
 <br />
-这些设置你也可以在进入极坐标方式移动的过程中，再次点击鼠标右键，选择Radial Move Setup…调出此对话框进行设置或修改参数
 <br />
-> 设计工具栏(Design Toolbar) / 径向移动(Redial Move)
-<br />
-选择一个或多个元件,有一个元件将自动附在鼠标上,点击鼠标放到相应的位置上
-<br />
-<br />
-<br />
-对齐元件
-<br />
-选中一排或一列元件,点击鼠标右键 / 对齐(Align(Ctrl+L))
-<br />
-上面一排为向左对齐、中间垂直对齐、向右对齐
-<br />
-下面一列为向上对齐、中间水平对齐、向下对齐
-<br />
-<br />
-<br />
-<br />
-布线(Route) :
-<br />
-> 设计工具栏(Design Toolbar) / 添加布线(Add Route(F2))
-<br />
-Ctrl+Alt+S 打开状态栏
-<br />
-动态布线(Dynamic Route(F3))、草图布线(Sketch Route)、自动布线(Auto Route(F7))、总线布线(Bus Route(Ctrl+Alt+B))
-<br />
-开始布线模式下,只需移动光标至合适位置,再点击左鼠键或按空格键确定一段段的走线
-<br />
-在布线时改变布线角度模式,右键菜单"角度模式(Angle Mode)"
-<br />
-在布线时当需要停下时可按Ctrl+左鼠点击或使用右键菜单,点击"结束(End(Ctrl+LButton+Click))"以停下走线
-<br />
-在布线时按退格键将依次取消最后一段走线
-<br />
-在布线时使用右键菜单的"交换结束点(Swap End)"切换至网络的另一端进行布线
-<br />
-<br />
-在布线时变换线宽 cmd wn n为线宽数字
-<br />
-在布线时添加圆弧走线段,右键"添加圆弧(Add Arc)".圆弧大小,可通过移动光标调整
-<br />
-<br />
-移动线段
-<br />
-选择某一段布线 / 右键 / 移动(Move (Ctrl+E))
-<br />
-or
-<br />
-选择某一段布线 / 左键直接移动
-<br />
-<br />
-拉伸线段
-<br />
-选择某一段布线 / 右键 / 拉伸(Stretch (Shift+S))
-<br />
-or
-<br />
-选择某一段布线 / 左键直接拉伸
-<br />
-<br />
-直角线段转换为圆弧
-<br />
-点选直角 / 右键 / 转换为圆弧(Convert To Arc) / 移动光标,调整圆弧大小(此时按住或不按住左键都可以)
-<br />
-<br />
-添加回路布线(即已经布好的线再从旁边增加布线,形成一个回路)
-<br />
-选择某一段布线 / 右键 / 回路布线(Route Loop (Ctrl+J))
-<br />
-<br />
-在线段添加拐角
-<br />
-选择某一段布线 / 右键 / 添加拐角(Add Corner) / 移动光标至合适位置,左鼠点击完成添加拐角
-<br />
-<br />
-分割线段
-<br />
-选择某一段布线 / 右键 / 分割(Split) / 移动光标至合适位置,左鼠点击完成分割线段
-<br />
-<br />
-<br />
-倒角设置
-<br />
-Tools / Options / 设计(Design) / 倒角(Miters) /
-<br />
-/ 斜交(Diagonal) or 圆弧(Arc) /
-<br />
-自动倒角(Auto miters)
-<br />
-点选直角 / 右键 / 添加倒角(Add Miters) / 直角变成了倒角 or 弧形倒角
-<br />
-整根线添加倒角
-<br />
-选择某一段布线 / 右键 / 选择管脚对(Select Pin Pair (F5)) / 在高亮的布线上右键 / 添加倒角(Add Miters) / 则整根线上的直角都倒角了
-<br />
-用类似的方法可以删除倒角(Delete Miters)
-<br />
-<br />
-将线段换层
-<br />
-选择某一段布线 / 右键 / 特征(Properties(Alt+Enter)) / 层(Layer) 下拉选择相应的层(线段换层后会自动添加过孔) /
-<br />
-<br />
-保护个别导线
-<br />
-选择某一段布线 / 右键 / 选择管脚对(Select Pin Pair (F5)) / 在高亮的布线上右键 / 特征(Properties(Alt+Enter)) / 勾选 保护布线(Protect Routes)
-<br />
-如需要显示区分保护和没有保护的导线
-<br />
-Tools / Options / 布线(Routing) / 常规(General) / 勾选 显示保护(Show protection) /
-<br />
-这样设置为保护的导线显示便会非实心,设置为保护的线,便不能被修改或删除了
-<br />
-<br />
-<br />
-在布线时可通过 cmd : ln 自动添加过孔并切换到第n层,n为层数字
-<br />
-在布线时可通过右键菜单"层切换(Layer Toggle(F4))"切换层,注意这个不像cmd ln 可随意切换至任何层,
-<br />
-而是按层对(Layer Pair)设定作切换的
-<br />
-工具/选项/布线(Routing)/常规General)/层对(Layer Pair)
-<br />
-层对(Layer Pair) cmd : pl 1 3 设定首个(First)为第一层及(Second)为第三层
-<br />
-<br />
-<br />
->绘图工具盒(Drafting Toolbar) / 平面区域(Plane Area)
-<br />
-<br />
-在布线时设置 : 右键 / 以过孔结束模式(End Via Mode) /
-<br />
-or 以没有过孔结束(End No Via)
-<br />
-or 以过孔结束(End Via)
-<br />
-or 以测试点结束(End Test Point)
-<br />
-则当"Ctrl+左键"暂停走线时会对应执行上面的选择
-<br />
-结束过孔模式的cmd : e 是单向循环切换
-<br />
-<br />
-<br />
-<br />
-在布线时添加过孔 cmd : v、vt 就会弹出过孔选择，你可以选择你已经设置好的过孔，点OK后
-<br />
-你的光标上就附有你刚选择的那个过孔类型了。不过，一般同一个网络不会增加不同类型的过孔，
-<br />
-例如电源线一般用大孔，信号线一般用小孔，所以我是在规则设置里把不同的网络设置为自己想要的过孔，
-<br />
-这样在走线时或另加过孔时就会自动用到你需要的过孔了。
-<br />
-<br />
-n后面加网络名高亮网络,再输入n取消高亮
-<br />
-<br />
-<br />
-<hr /><!-- ---------------------------------------------------------------- -->
-<br />
-<br />
-元件组合(Unions)
-<br />
-为了建立组合,你可以建立由IC和去藕电容、电阻等组成的组合,并且作为IC元件类型(Part Types)的样品,
-<br />
-PADS Layout 将自动查找并建立相似的组合(Similar Unions)
-<br />
-例如由IC和去藕电容组成的组合，一旦这些元件作为组合存在，它们将被一起移动
-<br />
-<br />
-建立组合
-<br />
-1.使用Ctrl+Click 同时选择U1、C1、R1...
-<br />
-注意选择元件时的次序如果你不首先选择主IC，当放置元件组合时，将会选择不合适的原点，给定位时将不正确
-<br />
-2.对于同时被选择的元件，点击鼠标右键从弹出菜单(Pop-up Menu)中选择建立组合(Create Union(Ctrl+G))。
-<br />
-3.键入一个组合的名字
-<br />
-<br />
-建立相似组合(Like Unions)
-<br />
-为了查找相类似的组合(Similar Unions)，使用建立相似组合(Create Like Unions)。
-<br />
-这个命令将寻找同样元件类型(Part Types)的元件(Components)，并且以前面建立的组合为基础，自动地建立组合。
-<br />
-<br />
-1.空白处点击右键选择组合/元件(Select Unions/Components)
-2.选择前面已建立的一个组合,右键"创建相似的组合(Create Like Unions)" / Yes /
-<br />
-<br />
-<br />
-<hr /><!-- ---------------------------------------------------------------- -->
-<br />
-
-复用功能(Make Like Reuse)快速完成相同电路模块的操作过程
-<br />
-如 : PCB中有N个相似的功能模块,可以利用Reuse功能来进行复用
-<br />
-1.将其中的一个布好线
-<br />
-2.右键 / 选择任意 / 选择布好线的模块 / 右键 / 建立复用模块(Make Reuse) / 输入一个复用模块名称 / 保存为reu文件 /
-<br />
-现在已经建好了复用模块,可以利用以下两种方法中的一种完成其它模块的布线
-<br />
-a.再右键(在上个右键的地方) / 建立相似复用模块(Make Like Reuse) / 这时软件将自动到未布线的元件中搜索与此复用(Reuse)信息相匹配的一组元件粘附在鼠标上待完成布局及布线
-<br />
-b.设计工具栏(Design Toolbar) / 建立相似复用模块(Make Like Reuse) /选择上面建好的利用模块 / ...
-<br />
-<br />
-完成复用后,因变成复用模块的元件、网络及过孔等一齐是不能移动或编辑的,所以先要把复用模块打散
-<br />
-右键选择 筛选条件/ 复用模块(Reuse) / 在复用模块上右键 / 打散复用模块(Break Reuse)
-<br />
-<br />
-Add Reuse
-<br />
-在ECO模式下,可以将 Reuse 添加到新设计的文件里
-<br />
-<br />
-<hr /><!-- ---------------------------------------------------------------- -->
-<br />
-泪滴(Teardrops)
-<br />
-设置泪滴形状
-<br />
-布线(Routing) / 泪滴(Teardrops) / 形状
-<br />
-<br />
-启用或关闭泪滴
-<br />
-布线(Routing) / 常规(General) / 勾选 生成泪滴(Generate teardrops)
-<br />
-<br />
-如需要修改某一个泪滴,可以通过右键菜单进行
-<br />
-选择泪滴包裹的走线 / 右键 / Teardrops Properties /
-<br />
-行动模式(Action)
-<br />
-Add 修改(Mod) Del
-<br />
-应用到(Apply to)
-<br />
-Selection
-<br />
-Layer
-<br />
-All
-
 <br />
 <br />
 <br />
