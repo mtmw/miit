@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160410
+20160412
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -20,6 +20,16 @@ Board Outline
 AutoCAD多段线工具<img src="imagesLayout/AutoCADLine.png" alt="AutoCAD多段线工具" title="AutoCAD多段线工具" width="22" height="22" />,绘制封闭的图形,保存为 DXF 格式
 <br />
 在AutoCAD中选中图形 / 右键 / 特性 / 闭合(closed) : 是
+<br />
+<br />
+元件布局(Placement)
+<br />
+散开(Disperse)元器件(Component)
+<br />
+> Tools / (分散元器件)Disperse Components
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -45,22 +55,61 @@ Options / Design / 推挤(Nudge) / 自动(Automatic)
 <br />
 设置对象的原点
 <br />
-1. 空白处右键弹出菜单(Pop-up Menu) / 选择形状(Select Shapes)
+1. <a href="Layout_RightPop-upMenu.html#SpaceRightPop-upMenu" target="_blank">右键弹出菜单(Pop-up Menu)</a> / 选择形状(Select Shapes)
 <br />
-2. 选中操作对象(对象可以是板框(Board Outline)、2D Line、PCB封装、覆铜形状、禁止区形状、尺寸形状)
+2. 选择操作对象(对象可以是板框(Board Outline)、2D Line、PCB封装、覆铜形状、禁止区形状、尺寸标注形状)
 <br />
 3. 右键弹出菜单(Pop-up Menu) / 设置原点(Set Orinig)
 <br />
 <br />
 <br />
+长度最小化
+<br />
+工具 / 长度最小化
+<br />
+<br />
+<br />
+<br />
+顺序地(Sequentially)放置元器件
+<br />
+a. 使用查找(Find)命令放置元器件
+<br />
+编辑(Edit) / 查找(Find)
+<br />
+or
+<br />
+点击右键 / 查找(Find)
+<br />
+在列表中选择所需的元器件,该方法会以字母数字顺序放置元器件
+<br />
+<br />
+b. 在工作区选择所需的元器件 / 右键 / 按顺序移动(Move Sequential) / 勾选 按参考编号升序移动? / 全是(Yes to All) /
+<br />
+该方法会以选择元器件"相反"的顺序放置元器件,最后选中的元器件会"首先"附着在光标上
+<br />
+<br />
+<br />
+修改元器件所在的面
+<br />
+选择所需的元器件 / 右键 / 翻面(Flip Side)(Ctrl+F)
+<br />
+or
+<br />
+选择所需的元器件 / 右键 / 特性 / 层 : Top or Bottom
 <br />
 <br />
 <br />
 <br />
 <br />
+对齐元件
 <br />
+选中一排或一列元件,点击鼠标右键 / 对齐(Align(Ctrl+L))
 <br />
+上面一排为向左对齐、中间垂直对齐、向右对齐
 <br />
+下面一列为向上对齐、中间水平对齐、向下对齐
+<br />
+
 <br />
 <br />
 <br />
