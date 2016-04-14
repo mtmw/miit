@@ -7,13 +7,19 @@
 </head>
 
 <body >
-20160410
+20160413
 <h1><img src="imagesLayout/DesignToolbar/DesignToolbar.png" alt="设计工具栏(Design Toolbar)" title="设计工具栏(Design Toolbar)" width="22" height="22" />设计工具栏(Design Toolbar)</h1>
 <br />
 <br />
-<img src="imagesLayout/DesignToolbar/Move.png" alt="移动(Move)(Ctrl+E)" title="移动(Move)(Ctrl+E)" width="22" height="22" />移动(Move)(Ctrl+E)、径向移动(Redial Move)、90 度旋转(Rotate 90(Ctrl+R))、绕原点旋转 任意角度旋转(Spin(Ctrl+I))、交换元件(Swap Part)、移动参考编号(Move Reference Designator)、
+<img src="imagesLayout/DesignToolbar/Move.png" alt="移动(Move)(Ctrl+E)" title="移动(Move)(Ctrl+E)" width="22" height="22" />移动(Move)(Ctrl+E)、
+<img src="imagesLayout/DesignToolbar/RedialMove.png" alt="径向移动(Redial Move)" title="径向移动(Redial Move)" width="22" height="22" />径向移动(Redial Move)、
+<img src="imagesLayout/DesignToolbar/Rotate.png" alt="旋转(Rotate)(Ctrl+R) 逆时针90度" title="旋转(Rotate)(Ctrl+R) 逆时针90度" width="22" height="22" />旋转(Rotate)(Ctrl+R)、
+<img src="imagesLayout/DesignToolbar/Spin.png" alt="绕原点任意角度旋转(Spin)(Ctrl+I)" title="绕原点任意角度旋转(Spin)(Ctrl+I)" width="22" height="22" />绕原点任意角度旋转(Spin)(Ctrl+I)、
+<img src="imagesLayout/DesignToolbar/SwapPart.png" alt="交换元件(Swap Part)" title="交换元件(Swap Part)" width="22" height="22" />交换元件(Swap Part)、
+<img src="imagesLayout/DesignToolbar/MoveReferenceDesignator.png" alt="移动参考编号(Move Reference Designator)" title="移动参考编号(Move Reference Designator)" width="22" height="22" />移动参考编号(Move Reference Designator)、
 <br />
-查看簇(View Clusters)、添加拐角(Add Corner)、分割(Split)、翻面(Flip Side(Ctrl+F))
+<br />
+查看簇(View Clusters)、添加拐角(Add Corner)、分割(Split)
 <br />
 <br />
 移动(Move)(Ctrl+E)
@@ -198,70 +204,10 @@ n后面加网络名高亮网络,再输入n取消高亮
 <br />
 <br />
 <br />
-<hr /><!-- ---------------------------------------------------------------- -->
-<br />
-<br />
-元件组合(Unions)
-<br />
-为了建立组合,你可以建立由IC和去藕电容、电阻等组成的组合,并且作为IC元件类型(Part Types)的样品,
-<br />
-PADS Layout 将自动查找并建立相似的组合(Similar Unions)
-<br />
-例如由IC和去藕电容组成的组合，一旦这些元件作为组合存在，它们将被一起移动
-<br />
-<br />
-建立组合
-<br />
-1.使用Ctrl+Click 同时选择U1、C1、R1...
-<br />
-注意选择元件时的次序如果你不首先选择主IC，当放置元件组合时，将会选择不合适的原点，给定位时将不正确
-<br />
-2.对于同时被选择的元件，点击鼠标右键从弹出菜单(Pop-up Menu)中选择建立组合(Create Union(Ctrl+G))。
-<br />
-3.键入一个组合的名字
-<br />
-<br />
-建立相似组合(Like Unions)
-<br />
-为了查找相类似的组合(Similar Unions)，使用建立相似组合(Create Like Unions)。
-<br />
-这个命令将寻找同样元件类型(Part Types)的元件(Components)，并且以前面建立的组合为基础，自动地建立组合。
-<br />
-<br />
-1.空白处点击右键选择组合/元件(Select Unions/Components)
-2.选择前面已建立的一个组合,右键"创建相似的组合(Create Like Unions)" / Yes /
-<br />
-<br />
 <br />
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
-
-复用功能(Make Like Reuse)快速完成相同电路模块的操作过程
 <br />
-如 : PCB中有N个相似的功能模块,可以利用Reuse功能来进行复用
-<br />
-1.将其中的一个布好线
-<br />
-2.右键 / 选择任意 / 选择布好线的模块 / 右键 / 建立复用模块(Make Reuse) / 输入一个复用模块名称 / 保存为reu文件 /
-<br />
-现在已经建好了复用模块,可以利用以下两种方法中的一种完成其它模块的布线
-<br />
-a.再右键(在上个右键的地方) / 建立相似复用模块(Make Like Reuse) / 这时软件将自动到未布线的元件中搜索与此复用(Reuse)信息相匹配的一组元件粘附在鼠标上待完成布局及布线
-<br />
-b.设计工具栏(Design Toolbar) / 建立相似复用模块(Make Like Reuse) /选择上面建好的利用模块 / ...
-<br />
-<br />
-完成复用后,因变成复用模块的元件、网络及过孔等一齐是不能移动或编辑的,所以先要把复用模块打散
-<br />
-右键选择 筛选条件/ 复用模块(Reuse) / 在复用模块上右键 / 打散复用模块(Break Reuse)
-<br />
-<br />
-Add Reuse
-<br />
-在ECO模式下,可以将 Reuse 添加到新设计的文件里
-<br />
-<br />
-<hr /><!-- ---------------------------------------------------------------- -->
 <br />
 泪滴(Teardrops)
 <br />

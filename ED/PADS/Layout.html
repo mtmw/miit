@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160412
+20160413
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -20,6 +20,35 @@ Board Outline
 AutoCAD多段线工具<img src="imagesLayout/AutoCADLine.png" alt="AutoCAD多段线工具" title="AutoCAD多段线工具" width="22" height="22" />,绘制封闭的图形,保存为 DXF 格式
 <br />
 在AutoCAD中选中图形 / 右键 / 特性 / 闭合(closed) : 是
+<br />
+<br />
+<br />
+问：DXF的文件我导入以后怎样转成PCB的板框？ 
+<br />
+答：避免AUTOCAD 文件轉 POWER PCB 單位出錯方法避免AUTOCAD转POWER單位出錯問題的方法： 
+<br />
+1.在AUTOCAD中先選中圖形使用”PURGE”命令將所有附屬圖層,只留0層; 
+<br />
+2.在AUTOCAD中先選中圖形,使用”MOVE”命令將圖移動至0點{鍵入0,0} 
+<br />
+3.在AUTOCAD中鍵入”W”命令(WRITE BLOCK),設置原點,選擇圖形，要注意单位的更改。通常使用的是 ”METERS”來做單位,確認後會自動存儲為 “NEW BLOCK.DWG”.關閉文件. 
+<br />
+4.打開剛剛存儲的”NEW BLOCK.DWG”文件,檢查無問題後另存為 AUTOCAD R12/LT2 DXF 格 式的文件. E365 
+<br />
+5.使用 POWER PCB 導入”IMPORT”,導入後可看見 DXF－File Unit 為” METRIC” 是正確的。 
+<br />
+6.Power PCB 中選擇已導入的圖框，後進行組合(Combine)，再將圖框放入改為其他層面。 在AutoCAD中把线弄成闭合的2D Line导出后，在Power PCB中可直接用Scale命令改成板框。 
+<br />
+AutoCAD改闭合线的方法： 
+<br />
+1． 在命令栏中输入：PE，选择其中一条线，回车 ，按J 后选择所要闭合的线，直接回车、回车便可。
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 元件布局(Placement)
@@ -110,6 +139,77 @@ or
 下面一列为向上对齐、中间水平对齐、向下对齐
 <br />
 
+<br />
+<br />
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+<br />
+元件组合(Unions)
+<br />
+组合是用户创建的元器件之间有严格关系的元器件关联,如距离、旋转、角度、顶面或底面等
+<br />
+你可以建立由IC和去藕电容、电阻等组成的组合,并且作为IC元件类型(Part Types)的样品,
+<br />
+PADS Layout 将自动查找并建立相似的组合(Similar Unions)
+<br />
+例如由IC和去藕电容组成的组合，一旦这些元件作为组合存在，它们将被一起移动
+<br />
+<br />
+建立组合
+<br />
+1.使用Ctrl+Click 同时选择U1、C1、R1...
+<br />
+注意选择元件时的次序如果你不首先选择主IC，当放置元件组合时，将会选择不合适的原点，给定位时将不正确
+<br />
+2.对于同时被选择的元件，点击鼠标右键从弹出菜单(Pop-up Menu)中选择建立组合(Create Union(Ctrl+G))。
+<br />
+3.键入一个组合的名字
+<br />
+<br />
+建立相似组合(Like Unions)
+<br />
+为了查找相类似的组合(Similar Unions)，使用建立相似组合(Create Like Unions)。
+<br />
+这个命令将寻找同样元件类型(Part Types)的元件(Components)，并且以前面建立的组合为基础，自动地建立组合。
+<br />
+<br />
+1.空白处点击右键选择组合/元件(Select Unions/Components)
+<br />
+2.选择前面已建立的一个组合,右键"创建相似的组合(Create Like Unions)" / Yes /
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+复用功能(Make Like Reuse)快速完成相同电路模块的操作过程
+<br />
+如 : PCB中有N个相似的功能模块,可以利用Reuse功能来进行复用
+<br />
+1.将其中的一个布好线
+<br />
+2.右键 / 选择任意 / 选择布好线的模块 / 右键 / 建立复用模块(Make Reuse) / 输入一个复用模块名称 / 保存为reu文件 /
+<br />
+现在已经建好了复用模块,可以利用以下两种方法中的一种完成其它模块的布线
+<br />
+a.再右键(在上个右键的地方) / 建立相似复用模块(Make Like Reuse) / 这时软件将自动到未布线的元件中搜索与此复用(Reuse)信息相匹配的一组元件粘附在鼠标上待完成布局及布线
+<br />
+b.设计工具栏(Design Toolbar) / 建立相似复用模块(Make Like Reuse) /选择上面建好的利用模块 / ...
+<br />
+<br />
+完成复用后,因变成复用模块的元件、网络及过孔等一齐是不能移动或编辑的,所以先要把复用模块打散
+<br />
+右键选择 筛选条件/ 复用模块(Reuse) / 在复用模块上右键 / 打散复用模块(Break Reuse)
+<br />
+<br />
+Add Reuse
+<br />
+在ECO模式下,可以将 Reuse 添加到新设计的文件里
+<br />
+<br />
+<hr /><!-- ---------------------------------------------------------------- -->
+<br />
+
+<br />
 <br />
 <br />
 <br />
