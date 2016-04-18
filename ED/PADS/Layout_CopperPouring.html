@@ -12,9 +12,10 @@
 <br />
 cmd : po # 在显示覆铜边框(Pour outline)和已经覆铜填充(Poured Copper Hatch) 之间切换
 <br />
+不可以在"所有层"(Layer 0)放置铜箔形状
 <br />
 <br />
-<img src="imagesLayout/Drafting/Copper.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="22" height="22" />
+<img src="imagesLayout/DraftingToolbar/Copper.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="22" height="22" />
 Copper 铜箔
 <br />
 -------- 绘制一块实心铜，从而将覆盖区域内所有的连线和过孔连接起来，而不会考虑是否属于一个网络。
@@ -22,7 +23,7 @@ Copper 铜箔
 -------- 用途:芯片需要大面积覆铜来散热,电源连接处需要尽可能的宽,可以用Copper来实现,不具备自动避让其他网络的直线和过孔等.如果违规,可通过安全间距检查出来
 <br />
 <br />
-<img src="imagesLayout/Drafting/CopperCutOut.png" alt="铜挖空区域(Copper Cut Out)" title="铜挖空区域(Copper Cut Out)" width="22" height="22" />
+<img src="imagesLayout/DraftingToolbar/CopperCutOut.png" alt="铜挖空区域(Copper Cut Out)" title="铜挖空区域(Copper Cut Out)" width="22" height="22" />
 Copper Cut Out 铜挖空区域
 <br />
 -------- Copper Cut Out是需要与Copper合并才会正式执行的,两种图形都画好重叠后 / 右键 选择形状 / 框选 铜箔(Copper)及铜挖空区域(Copper Cut Out) /
@@ -33,8 +34,8 @@ Copper Cut Out 铜挖空区域
 <br />
 >绘图工具盒(Drafting Toolbar) / 铜箔(Copper) / <a href="Layout_RightMenu.html#DraftingRightMenu" target="_blank">Right Menu</a> / 绘图OK自动弹出如下
 <br />
-<img src="imagesLayout/Drafting/Copper_zh.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="445" height="582" />
-<img src="imagesLayout/Drafting/Copper_en.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="445" height="578" />
+<img src="imagesLayout/DraftingToolbar/Copper_zh.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="445" height="582" />
+<img src="imagesLayout/DraftingToolbar/Copper_en.png" alt="铜箔(Copper)" title="铜箔(Copper)" width="445" height="578" />
 <br />
 层(Layer) : 点击下拉框,设定铜箔放置在哪一层 Top or Bottom
 <br />
@@ -64,7 +65,7 @@ PADS9.1版本以后可以使用 Copper NetBridge 来解决这个情况
 <br />
 <br />
 <br />
-<img src="imagesLayout/Drafting/CopperPour.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="22" height="22" />
+<img src="imagesLayout/DraftingToolbar/CopperPour.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="22" height="22" />
 Copper Pour 覆铜
 <br />
 -------- 仅仅连接有相同网络的过孔,可以通过这个来连接.用于no plane(无平面层 or 非平面层)的,具备自动避让功能的。
@@ -72,15 +73,15 @@ Copper Pour 覆铜
 不会自动移除独立焊盘,不可以在大块铜皮上进行其他网络的分割,也就是说不能出现大块铜皮包围小块铜皮的现象.可以走线。
 <br />
 <br />
-<img src="imagesLayout/Drafting/CopperPourCutOut.png" alt="覆铜挖空区域(Copper Pour Cut Out)" title="覆铜挖空区域(Copper Pour Cut Out)" width="22" height="22" />
+<img src="imagesLayout/DraftingToolbar/CopperPourCutOut.png" alt="覆铜挖空区域(Copper Pour Cut Out)" title="覆铜挖空区域(Copper Pour Cut Out)" width="22" height="22" />
 Copper Pour Cut Out 覆铜挖空区域
 <br />
 <br />
 注意 : 所有更改覆铜的设置必须要在显示覆铜外框模式下进行
 <br />
 <br />
-<img src="imagesLayout/Drafting/CopperPour_zh.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="445" height="582" />
-<img src="imagesLayout/Drafting/CopperPour_en.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="445" height="578" />
+<img src="imagesLayout/DraftingToolbar/CopperPour_zh.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="445" height="582" />
+<img src="imagesLayout/DraftingToolbar/CopperPour_en.png" alt="覆铜(Copper Pour)" title="覆铜(Copper Pour)" width="445" height="578" />
 <br />
 <br />
 <br />
@@ -96,18 +97,18 @@ Copper Pour Cut Out 覆铜挖空区域
 
 <br />
 <br />
-<img src="imagesLayout/Drafting/Flood.png" alt="灌注(Flood)" title="灌注(Flood)" width="22" height="22" />
+<img src="imagesLayout/DraftingToolbar/Flood.png" alt="灌注(Flood)" title="灌注(Flood)" width="22" height="22" />
 Flood 灌注
 <br />
 <br />
-<img src="imagesLayout/Drafting/Hatch.png" alt="填充(Hatch)" title="填充(Hatch)" width="22" height="22" />
+<img src="imagesLayout/DraftingToolbar/Hatch.png" alt="填充(Hatch)" title="填充(Hatch)" width="22" height="22" />
 Hatch 填充
 <br />
 <br />
 灌注与填充选项(Flood and Hatch Options)
 <br />
-<img src="imagesLayout/Drafting/FloodHatchOptions_zh.png" alt="灌注与填充选项(Flood and Hatch Options)" title="灌注与填充选项(Flood and Hatch Options)" width="277" height="293" />
-<img src="imagesLayout/Drafting/FloodHatchOptions_en.png" alt="灌注与填充选项(Flood and Hatch Options)" title="灌注与填充选项(Flood and Hatch Options)" width="277" height="293" />
+<img src="imagesLayout/DraftingToolbar/FloodHatchOptions_zh.png" alt="灌注与填充选项(Flood and Hatch Options)" title="灌注与填充选项(Flood and Hatch Options)" width="277" height="293" />
+<img src="imagesLayout/DraftingToolbar/FloodHatchOptions_en.png" alt="灌注与填充选项(Flood and Hatch Options)" title="灌注与填充选项(Flood and Hatch Options)" width="277" height="293" />
 <br />
 默认 : 即 > Tools / Options / 栅格和捕获/栅格(Grids And Snap/Grids) / 铺铜栅格(Hatch Grid)
 <br />
