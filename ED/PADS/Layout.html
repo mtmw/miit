@@ -7,7 +7,7 @@
 </head>
 
 <body >
-20160413
+20160421
 <h1>Layout</h1>
 Board Outline
 <br />
@@ -59,6 +59,19 @@ AutoCAD改闭合线的方法：
 <br />
 <br />
 <br />
+布局时如何让飞线距离最短
+<br />
+长度最小化
+<br />
+Setup\design rules\default rules\Routing\ Topology type \ Minimized
+<br />
+工具 / 长度最小化(Ctrl+M)
+<br />
+<br />
+>View / Nets... / 将GND和电源颜色设置为黑色或蓝色
+<br />
+<img src="imagesLayout/View/Nets_zh.png" alt="查看网络(Nets)" title="查看网络(Nets)" width="642" height="387" />
+<br />
 <br />
 <br />
 <br />
@@ -70,11 +83,6 @@ AutoCAD改闭合线的方法：
 Options / Design / 移动首选项(Move Preference) / 按光标位置移动(Move by cursor locati)
 <br />
 Options / Design / 推挤(Nudge) / 自动(Automatic)
-<br />
-<br />
->View / Nets... / 将GND和电源颜色设置为黑色或蓝色
-<br />
-<img src="imagesLayout/View/Nets_zh.png" alt="查看网络(Nets)" title="查看网络(Nets)" width="642" height="387" />
 <br />
 <br />
 <br />
@@ -90,11 +98,6 @@ Options / Design / 推挤(Nudge) / 自动(Automatic)
 <br />
 3. 右键弹出菜单(Pop-up Menu) / 设置原点(Set Orinig)
 <br />
-<br />
-<br />
-长度最小化
-<br />
-工具 / 长度最小化
 <br />
 <br />
 <br />
@@ -208,11 +211,15 @@ Add Reuse
 <br />
 <hr /><!-- ---------------------------------------------------------------- -->
 <br />
-
+关联网络(Associated Nets)
 <br />
+要把电阻、排阻或是其他元器件两端的网络合成一个网络
 <br />
+设置(Setup) / 关联网络(Associated Nets)
 <br />
+中间用逗号隔开 如 : R,RN
 <br />
+<img src="imagesLayout/Setup/AssociatedNets_en.png" alt="关联网络(Associated Nets)" title="关联网络(Associated Nets)" width="447" height="400" />
 <br />
 <br />
 <br />

@@ -7,22 +7,53 @@
 </head>
 
 <body >
-20160310
+20160421
 <h1>> File / CAM</h1>
 Gerber
 <br />
+光绘文件又称为 Gerber 、菲林(Film),也可称为CAM文件
+<br />
+在导出光绘文件之前要必须保证PCB检查无误并且所有铺铜层全部重新Flood
+<br />
+<br />
+一个正常的光绘文件应包括 : N + 6
+<br />
+其中N指层数
+<br />
+6指 :
+<br />
+Solder Mask Top  顶层阻焊层 顶层绿油层
+<br />
+Solder Mask Bottom  底层阻焊层 底层绿油层
+<br />
+<br />
+Silkscreen Top  顶层丝印层 顶层白油层
+<br />
+Silkscreen Bottom  底层丝印层 底层白油层
+<br />
+<br />
+Drill Drawing 钻孔参考层
+<br />
+NC Drill NC钻孔层
+<br />
+<br />
+<br />
 给PCB板厂的 Gerber 文件
-   a. 走线层，（包括信号层、电源层和地层）
-      如2层板便是顶层和底层线路共两层线路
-	  4层板则是顶层、第2层、第3层、及底层线路共4层线路
 <br />
-	  
-   b. 阻焊层，在不需要焊接区域涂上一层阻焊及防氧化材料，一般为绿油，这类主要是Soldermask Layer Top/Bottom
+a. 走线层，（包括信号层、电源层和地层）
 <br />
-   
-   c. 丝印层 用于标示零件范围、方向及序号。一般包括（Top/Bottom Silkscreen Layer）
+如2层板便是顶层和底层线路共两层线路
 <br />
-   d. NC数据及钻孔图，而需要多少的NC数据，则视PCB板有多少款的盲埋孔，即是有多少款Drill Pair(钻孔对)
+4层板则是顶层、第2层、第3层、及底层线路共4层线路
+<br />
+<br />
+b. 阻焊层，在不需要焊接区域涂上一层阻焊及防氧化材料，一般为绿油，这类主要是Soldermask Layer Top/Bottom
+<br />
+<br />
+c. 丝印层 用于标示零件范围、方向及序号。一般包括（Top/Bottom Silkscreen Layer）
+<br />
+<br />
+d. NC数据及钻孔图，而需要多少的NC数据，则视PCB板有多少款的盲埋孔，即是有多少款Drill Pair(钻孔对)
      4层板钻孔文件和孔位图共2 个
 <br />
    
@@ -58,7 +89,7 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <br />
 走线层(Top)
 <br />
-文档名称(Document Name) : Top
+文档名称(Document Name) : TopLayer
 <br />
 <img src="imagesLayout/CAM/DocumentType_zh.png" alt="文档类型(Document Type)" title="文档类型(Document Type)" width="132" height="132" />
 <img src="imagesLayout/CAM/DocumentType_en.png" alt="文档类型(Document Type)" title="文档类型(Document Type)" width="132" height="132" />
@@ -76,21 +107,21 @@ Edit / Find / 查找条件(Find By) : Isolated Pour and Action / Select / Delete
 <img src="imagesLayout/CAM/SelectItems_Top_zh.png" alt="选择项目Top(Select Items Top)" title="选择项目Top(Select Items Top)" width="553" height="530" />
 <img src="imagesLayout/CAM/SelectItems_Top_en.png" alt="选择项目Top(Select Items Top)" title="选择项目Top(Select Items Top)" width="553" height="530" />
 <br />
-已选定 : Top
+已选定(Selected) : Top
 <br />
-主元件面上的项目 :
+主元件面上的项目(Items on Primary) :
 <br />
-焊盘Pads、导线Traces、2D Line、过孔Via、铜箔Copper
+勾选 焊盘(Pads)、导线(Traces)、过孔(Via)、铜箔(Copper)
 <br />
 <br />
-其他 :
+其他(Other) :
 <br />
-板框(Board Outline)
+勾选 板框(Board Outline)
 <br />
 <br />
 具有关联覆铜的管脚(Pins with Associated Copper) :
 <br />
-高级选择(Advanced Selection)
+全部勾选 高级选择(Advanced Selection)
 <br />
 ---- Top和Bottom层时要将此项选中
 <br />
@@ -101,17 +132,31 @@ X偏移 : 10000
 <br />
 Y偏移 : 10000
 <br />
-调整偏移量至符合CAM工作区内位置
+---- 调整偏移量至符合CAM工作区内位置
 <br />
-注意 偏移量最好是所有Gerber及NC Drill都是相同
+---- 偏移量最好是所有Gerber及NC Drill都是相同设置
+<br />
 <br />
 <br />
 设置设备(Device Setup)
+<br />
+光绘图机设置
+<br />
+填充宽度(Fill width) : 1mils
+<br />
+---- 默认为10mils 更改为1mils
+<br />
+点击 重新生成(Regenerate)
+<br />
+---- 此为重新生成D码,我们在其中一个信号层设置这一项就可以了,他会应用到所有的光绘文件
+<br />
 <br />
 在转换时，如果不希望把圆弧打碎的话，则 设备设置 / 高级 / Circular Interpolation : Full /
 <br />
 <br />
 孔径(Apertures)表文件是art01.rep，它列出了设计中所用的所有孔径(Apertures)
+<br />
+<br />
 <br />
 <br />
 Board 检视范围为板框(Board Outline)
@@ -140,25 +185,36 @@ CAM Preview中黑色的为铜箔走线
 <br />
 自定义文档(Customize Document) : 层(Layers)
 <br />
-已选定 : Top
 <br />
-主元件面上的项目 :
+已选定(Selected) : Top
 <br />
-焊盘Pads、铜箔Copper、测试点Test Point
+主元件面上的项目(Items on Primary) :
 <br />
-已选定 : Solder Mask Top
+勾选 焊盘(Pads)、测试点(Test Point)
 <br />
-焊盘Pads、铜箔Copper、测试点Test Point
 <br />
-其他 :
+已选定(Selected) : Solder Mask Top
 <br />
-板框(Board Outline)
+勾选 焊盘(Pads)、2D Line、文本(Text)、铜箔(Copper)、测试点(Test Point)
+<br />
+<br />
+其他(Other) :
+<br />
+勾选 板框(Board Outline)
+<br />
 <br />
 具有关联覆铜的管脚(Pins with Associated Copper) : 
 <br />
 高级选择(Advanced Selection)
 <br />
 ---- 如有元件焊盘是使用了关联覆铜方式，就要将此项选中 
+<br />
+<br />
+自定义文档(Customize Document) : 选项(Options)
+<br />
+焊盘放大(缩小)至(Over(Under)size Pads By) : 4
+<br />
+---- 此为设置阻焊补偿,默认为10mils,我们将其改为4mils就可以
 <br />
 <br />
 负片输出 即没有勾选的就会有绿油覆盖(Gerber上看是白的)，需要露铜(不需要绿油)的地方就勾选(Gerber上看是黑的)
@@ -181,19 +237,22 @@ CAM Preview中黑色的为铜箔走线
 <br />
 自定义文档(Customize Document) : 层(Layers)
 <br />
-已选定 : Top
 <br />
-主元件面上的项目 :
-焊盘Pads、铜箔Copper、测试点Test Point
+已选定(Selected) : Top
+<br />
+主元件面上的项目(Items on Primary) :
+<br />
+勾选 焊盘(Pads)、铜箔(Copper)、测试点(Test Point)
 <br />
 <br />
-已选定 : Paste Mask Top
+已选定(Selected) : Paste Mask Top
 <br />
-Lines、铜箔Copper、测试点Test Point
+Lines、铜箔(Copper)、测试点(Test Point)
 <br />
-其他 :
 <br />
-板框(Board Outline)
+其他(Other) :
+<br />
+勾选 板框(Board Outline)
 <br />
 <br />
 <br />
@@ -213,19 +272,22 @@ Lines、铜箔Copper、测试点Test Point
 <br />
 自定义文档(Customize Document) : 层(Layers)
 <br />
-已选定 : Top
 <br />
-主元件面上的项目 :
+已选定(Selected) : Top
 <br />
-参考编号(Ref.Des)、边框(Outline)
+主元件面上的项目(Items on Primary) :
 <br />
-已选定 : Silkscreen Top
+勾选 参考编号(Ref.Des)、边框(Outline)
 <br />
-2D Line、文本(Text)、边框(Outline)
 <br />
-其他 :
+已选定(Selected) : Silkscreen Top
 <br />
-板框(Board Outline)
+勾选 参考编号(Ref.Des)、2D Line、文本(Text)、边框(Outline) or 铜箔(Copper)
+<br />
+<br />
+其他(Other) :
+<br />
+勾选 板框(Board Outline)
 <br />
 <br />
 元器件外框
@@ -243,22 +305,24 @@ Lines、铜箔Copper、测试点Test Point
 <br />
 文档类型(Document Type) : 钻孔图(Drill Drawing)
 <br />
-层关联性 : Top
+层关联性 : Top 如果板是通孔,那随便选哪一层都是一样的
 <br />
 <br />
-已选定 : Top
+已选定(Selected) : Top
 <br />
 主元件面上的项目 :
 <br />
 焊盘(Pads)、Lines、过孔(Via)、Text
 <br />
-已选定 : Drill Drawing
+<br />
+已选定(Selected) : Drill Drawing
 <br />
 Lines、Text
 <br />
-其他 :
 <br />
-板框(Board Outline)
+其他(Other) :
+<br />
+勾选 板框(Board Outline)
 <br />
 <br />
 因为一个PCB文件没有顶面和底面钻孔层之分
@@ -270,8 +334,13 @@ Lines、Text
 <br />
 自定义文档(Customize Document) : 选项(Options) / 绘图选项 / 钻孔符号(Drill Symbols) / 钻孔图选项(Drill Drawing Options) /
 <br />
-在Drill Chart 选项下面的Location 下输入合适的X 和Y 值，便可以将钻孔表的位置移动到合适的位置。例如输入X：0，Y：2.5
+在钻孔图(Drill Chart)选项下面的位置(Location) 下输入合适的 X 和 Y 值，便可以将钻孔表的位置移动到合适的位置。
 <br />
+例如输入X：0，Y：2.5
+<br />
+并点击 右下角的 重新生成(Regenerate)
+<br />
+---- 此为重新生成钻孔符号
 <br />
 <br />
 <hr /><!-- ---------------------------------------------------------------- -->
@@ -285,8 +354,8 @@ Lines、Text
 <br />
 文档类型(Document Type) : 数控钻孔(NC Drill)
 <br />
-自定义文档(Customize Document) : 选项(Options) / NC钻孔选项 /
 <br />
+自定义文档(Customize Document) : 选项(Options) / NC钻孔选项 /
 <br />
 转非盲/埋孔 NC Drill :
 <br />
@@ -299,9 +368,9 @@ X偏移 : 10000
 <br />
 Y偏移 : 10000 
 <br />
+---- 此偏移量值跟上面的偏移量值设置同样大小
+<br />
 选择 : 通孔(Through Via)、金属化孔(Plated Pi)、非金属化孔(Non-Plated Pi)
-<br />
-<br />
 <br />
 <br />
 转盲/埋孔 NC Drill :
