@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>BGA扇出(BGA Fanout)</title>
+</head>
+
+<body >
+20160424
+<h1>BGA扇出(BGA Fanout)</h1>
+扇出(Fanout)就是指从SMD焊盘引一小段线然后打过孔(为内层连线做准备)的操作。
+<br />
+BGA手动扇出
+<br />
+一、建立原点座标
+<br />
+用PADS Layout 9.5 打开 BGA 文件
+<br />
+鼠标右键，点选Select Traces/Pins,再点BGA的左上角的一个PAD
+<br />
+以这个PAD建立原点座标，Setup/origin.
+<br />
+二、选择BGA FANOUT 的层：
+<br />
+Setup/Layers Setup,BGA一般放在TOP Component 层，Plane Typet 选No Plane ，Routing 选 Any，然后 OK
+<br />
+三、设置Fanout的栅格grid
+<br />
+1.Setup/Preferences/Grids/Fantout Gride(设置成PAD与PAD的二分之一，如果PAD间距为50mil，这时X与Y可以填入25）
+设置布线默认间距，线宽
+<br />
+2.Setup/Design Reuls/Default Rules/(设置布线宽度及安全间距）
+<br />
+在PADS Layout 设置完成， 转入PADS Router.
+<br />
+<br />
+四.PADS ROUTER界面
+<br />
+1、选择适合BGA FANOUT的VIA。
+<br />
+在PADS ROUTER中，EDIT/Properties/Via Biasing 选择一个Via（如果没有要在PADS Layout中建立一个比较小的VIA）
+<br />
+2.选择适合BGA FANOUT的规则。
+<br />
+在PADS ROUTER中，EDIT/Properties/Fanout
+<br />
+A:在Greate fanouts选Plane nets(Via可以连接到中间平面层）和Signal nets（Via可以连接到当前层）
+<br />
+B:在Fanout Length选Maximum 填写最大的FANOUT长度（如：50）
+<br />
+C:右键-Select Components-选BGA-右键-Fanout
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+</body>
+</html>

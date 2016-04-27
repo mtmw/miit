@@ -3,12 +3,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Layout</title>
+	<title>Layout Placement</title>
 </head>
 
 <body >
-20160421
-<h1>Layout</h1>
+20160427
+<h1>元件布局(Placement)</h1>
 Board Outline
 <br />
 建立板边框(Board Outline) 板边框必须为闭合图(Close Polygon)
@@ -21,6 +21,8 @@ AutoCAD多段线工具<img src="imagesLayout/AutoCADLine.png" alt="AutoCAD多段
 <br />
 在AutoCAD中选中图形 / 右键 / 特性 / 闭合(closed) : 是
 <br />
+<br />
+注意板框的线宽宽度要大于或等于5mils
 <br />
 <br />
 问：DXF的文件我导入以后怎样转成PCB的板框？ 
@@ -53,9 +55,46 @@ AutoCAD改闭合线的方法：
 <br />
 元件布局(Placement)
 <br />
-散开(Disperse)元器件(Component)
+布局选项
 <br />
-> Tools / (分散元器件)Disperse Components
+> Tools / Options
+<br />
+设计栅格 25mils
+<br />
+过孔栅格 5mils
+<br />
+扇出栅格 5mils
+<br />
+显示栅格 25mils
+<br />
+铺铜栅格 铜箔 : 5mils 禁止区域 : 100mils
+<br />
+都勾选 捕获至栅格
+<br />
+<br />
+把飞线的颜色设置为黑色,即把飞线(Connection)隐藏
+<br />
+Setup / Display Colors Setup / 飞线(Connection) / 选择黑色
+<br />
+<br />
+<br />
+<h3>设置GND的引脚颜色为灰色</h3>
+方法一 :
+<br />
+>View / Nets... / 将GND的颜色设置为灰色
+<br />
+<br />
+方法二 :
+<br />
+<a href="Layout_RightPop-upMenu.html#SpaceRightPop-upMenu" target="_blank" title="在工作区没有选择任何对象的情况下单击右键弹出菜单">右键弹出菜单(Right Pop-up Menu)</a> / 选择网络(Select Nets)
+<br />
+选中为GND的引脚 / 右键弹出菜单(Right Pop-up Menu) / 查看网络(View Nets) / 如下图 将GND的颜色设置为灰色
+<br />
+<table><tr>
+<td><img src="imagesLayout/View/Nets_zh.png" alt="查看网络(Nets)" title="查看网络(Nets)" width="642" height="387" /></td>
+<td><img src="imagesLayout/View/Nets_en.png" alt="查看网络(Nets)" title="查看网络(Nets)" width="642" height="387" /></td>
+</tr></table>
+选择依据(Select By) : 已选定(Selected)
 <br />
 <br />
 <br />
@@ -68,9 +107,52 @@ Setup\design rules\default rules\Routing\ Topology type \ Minimized
 工具 / 长度最小化(Ctrl+M)
 <br />
 <br />
->View / Nets... / 将GND和电源颜色设置为黑色或蓝色
+散开(Disperse)元器件(Component)
 <br />
-<img src="imagesLayout/View/Nets_zh.png" alt="查看网络(Nets)" title="查看网络(Nets)" width="642" height="387" />
+> Tools / (分散元器件)Disperse Components
+<br />
+<br />
+在PADS Logic中选中模块电路,在PADS Layout中 右键 / 分散(Disperse),将此模块移动到合适位置
+<br />
+<br />
+将所有飞线关掉,只显示布局模块的飞线
+<br />
+>Setup / Display Colors Setup / 飞线(Connection) / 选择颜色
+<br />
+>View / Nets... / 默认(Default) / 无(None)
+<br />
+<table><tr>
+<td><img src="imagesLayout/View/Nets_Default_zh.png" alt="在 显示颜色 中打开飞线,在这里关闭默认的飞线,以便后续只显示某个网络的飞线" title="在 显示颜色 中打开飞线,在这里关闭默认的飞线,以便后续只显示某个网络的飞线" width="642" height="387" /></td>
+</tr></table>
+<br />
+<br />
+<br />
+飞线(Connection)引导布局
+<br />
+<a href="Layout_RightPop-upMenu.html#SpaceRightPop-upMenu" target="_blank" title="在工作区没有选择任何对象的情况下单击右键弹出菜单">右键弹出菜单(Right Pop-up Menu)</a> / 选择网络(Select Nets)
+<br />
+选中一个或多个网络 / 右键弹出菜单(Right Pop-up Menu) / 查看网络(View Nets) / 如下图 设置网络飞线的颜色
+<br />
+<table><tr>
+<td><img src="imagesLayout/View/Nets_Connection_en.png" alt="飞线(Connection)引导布局时飞线颜色设置" title="飞线(Connection)引导布局时飞线颜色设置" width="642" height="387" /></td>
+</tr></table>
+<br />
+<br />
+<br />
+<br />
+设置原点
+<br />
+选中某一个元件,再点击 Setup / 原点 ,则会将此元件的原点设置为此PCB的原点
+<br />
+<br />
+<br />
+<br />
+设置对象的原点
+<br />
+1. <a href="Layout_RightPop-upMenu.html#SpaceRightPop-upMenu" target="_blank" title="在工作区没有选择任何对象的情况下单击右键弹出菜单">右键弹出菜单(Right Pop-up Menu)</a> / 选择形状(Select Shapes)
+<br />
+2. 选择操作对象(对象可以是板框(Board Outline)、2D Line、PCB封装、覆铜形状、禁止区形状、尺寸标注形状) / 右键弹出菜单(Right Pop-up Menu) / 设置原点(Set Orinig)
+<br />
 <br />
 <br />
 <br />
@@ -86,17 +168,6 @@ Options / Design / 推挤(Nudge) / 自动(Automatic)
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
-设置对象的原点
-<br />
-1. <a href="Layout_RightPop-upMenu.html#SpaceRightPop-upMenu" target="_blank">右键弹出菜单(Pop-up Menu)</a> / 选择形状(Select Shapes)
-<br />
-2. 选择操作对象(对象可以是板框(Board Outline)、2D Line、PCB封装、覆铜形状、禁止区形状、尺寸标注形状)
-<br />
-3. 右键弹出菜单(Pop-up Menu) / 设置原点(Set Orinig)
 <br />
 <br />
 <br />
@@ -188,15 +259,17 @@ PADS Layout 将自动查找并建立相似的组合(Similar Unions)
 <br />
 如 : PCB中有N个相似的功能模块,可以利用Reuse功能来进行复用
 <br />
-1.将其中的一个布好线
+1.将其中的一个模块布好线
 <br />
-2.右键 / 选择任意 / 选择布好线的模块 / 右键 / 建立复用模块(Make Reuse) / 输入一个复用模块名称 / 保存为reu文件 /
+2.<a href="Layout_RightPop-upMenu.html#SpaceRightPop-upMenu" target="_blank" title="在工作区没有选择任何对象的情况下单击右键弹出菜单">右键弹出菜单(Right Pop-up Menu)</a> / 选择任意(Select Anything)
+<br />
+3.框选布好线的模块 / 右键 / 建立复用模块(Make Reuse) / 输入一个复用模块名称 / 保存为reu文件 /
 <br />
 现在已经建好了复用模块,可以利用以下两种方法中的一种完成其它模块的布线
 <br />
 a.再右键(在上个右键的地方) / 建立相似复用模块(Make Like Reuse) / 这时软件将自动到未布线的元件中搜索与此复用(Reuse)信息相匹配的一组元件粘附在鼠标上待完成布局及布线
 <br />
-b.设计工具栏(Design Toolbar) / 建立相似复用模块(Make Like Reuse) /选择上面建好的利用模块 / ...
+b.设计工具栏(Design Toolbar) / 建立相似复用模块(Make Like Reuse) / 选择上面建好的复用模块 / ...
 <br />
 <br />
 完成复用后,因变成复用模块的元件、网络及过孔等一齐是不能移动或编辑的,所以先要把复用模块打散
